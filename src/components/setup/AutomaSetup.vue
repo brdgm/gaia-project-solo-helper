@@ -3,11 +3,10 @@
   <p v-html="t('setupGameAutoma.generalSetupIntro')"></p>
   <ol>
     <li>
-      <AppIcon name="scoring-tile-setup" class="scoring-tile-icon"/>
+      <AppIcon name="directional-selection" class="directional-selection"/>
       <span v-html="t('setupGameAutoma.step1')"></span>
     </li>
     <li>
-      <AppIcon name="scoring-tile-game-end-token" class="scoring-tile-icon"/>
       <span v-html="t('setupGameAutoma.step2')"></span>
     </li>
     <li v-html="t('setupGameAutoma.step3')"></li>
@@ -122,9 +121,9 @@ li {
 .structureIcon, .researchTrackIcon {
   height: 1.5rem;
 }
-.scoring-tile-icon {
+.directional-selection {
   float: right;
-  height: 6rem;
+  width: 12rem;
   margin-left: 1rem;
   margin-right: 1rem;
 }
