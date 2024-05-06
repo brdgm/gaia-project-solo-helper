@@ -26,7 +26,7 @@
 
   <ModalDialog id="creditsModal" :title="t('footer.credits')">
     <template #body>
-      <h4><a href="https://boardgamegeek.com/boardgame/120677/gaia-project" target="_blank" rel="noopener">{{t('gameTitle')}}</a></h4>
+      <h4><a href="https://boardgamegeek.com/boardgame/220308/gaia-project" target="_blank" rel="noopener">{{t('gameTitle')}}</a></h4>
       <dl>
         <dt>Game design</dt>
         <dd>Jens Drögemüller, Helge Ostertag</dd>
@@ -34,8 +34,7 @@
         <dd>Dennis Lohausen</dd>
         <dt>Solo Mode Design</dt>
         <dd>
-          <a href="https://boardgamegeek.com/boardgameexpansion/349169/gaia-project-automa-solo-box" target="_blank" rel="noopener">Automa Solo Box</a> by Automa Factory<br/>
-          Lines J. Hutter, Morten Monrad Pedersen, David J. Studley
+          Automa Factory: Morten Monrad Pedersen, Lines J. Hutter, David Studley, Consultant: Jan Schröder
         </dd>
         <dt>Publisher</dt>
         <dd><a href="https://www.feuerland-spiele.de/" target="_blank" rel="noopener">Feuerland Spiele</a>, <a href="https://capstone-games.com/" target="_blank" rel="noopener">Capstone Games</a></dd>
