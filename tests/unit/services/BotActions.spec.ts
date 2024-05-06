@@ -2,7 +2,7 @@ import BotActions from '@/services/BotActions'
 import Cards from '@/services/Cards'
 import Action from '@/services/enum/Action'
 import BotFaction from '@/services/enum/BotFaction'
-import CultTrackSelection from '@/services/enum/CultTrackSelection'
+import ResearchTrackSelection from '@/services/enum/ResearchTrackSelection'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import DirectionalSelection from '@/services/enum/DirectionalSelection'
 import Structure from '@/services/enum/Structure'
@@ -37,7 +37,7 @@ describe('BotActions', () => {
 
     const action2 = botActions.actions[1]
     expect(action2.action).to.eq(Action.TAKE_FAVOR_TILE)
-    expect(action2.cultTrackSelection).to.eq(CultTrackSelection.CATCH_UP)
+    expect(action2.cultTrackSelection).to.eq(ResearchTrackSelection.CATCH_UP)
 
     const action3 = botActions.actions[2]
     expect(action3.action).to.eq(Action.GAIN_VICTORY_POINTS)
@@ -124,7 +124,7 @@ describe('BotActions', () => {
 
     const action2 = botActions.actions[1]
     expect(action2.action).to.eq(Action.ADVANCE_CULT_TRACK)
-    expect(action2.cultTrackSelection).to.eq(CultTrackSelection.CATCH_UP)
+    expect(action2.cultTrackSelection).to.eq(ResearchTrackSelection.CATCH_UP)
     expect(action2.botFaction).to.eq(BotFaction.DRUIDS)
   })
 
@@ -143,7 +143,7 @@ describe('BotActions', () => {
 
     const action2 = botActions.actions[1]
     expect(action2.action).to.eq(Action.ADVANCE_CULT_TRACK)
-    expect(action2.cultTrackSelection).to.eq(CultTrackSelection.CATCH_UP)
+    expect(action2.cultTrackSelection).to.eq(ResearchTrackSelection.CATCH_UP)
     expect(action2.botFaction).to.eq(BotFaction.POWERMONGERS)
 
     const action3 = botActions.actions[2]
@@ -165,7 +165,7 @@ describe('BotActions', () => {
 
     const action2 = botActions.actions[1]
     expect(action2.action).to.eq(Action.ADVANCE_CULT_TRACK)
-    expect(action2.cultTrackSelection).to.eq(CultTrackSelection.CATCH_UP)
+    expect(action2.cultTrackSelection).to.eq(ResearchTrackSelection.CATCH_UP)
     expect(action2.botFaction).to.eq(BotFaction.POWERMONGERS)
 
     const action3 = botActions.actions[2]

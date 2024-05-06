@@ -1,5 +1,5 @@
 <template>
-  <template v-if="isScoringTileCultTrackSelection">
+  <template v-if="isScoringTileResearchTrackSelection">
     <li v-html="t('botAction.advanceCultTrack.scoringTile.title')"></li>
     <li v-html="t('botAction.advanceCultTrack.catchUp.otherwiseTitle')"></li>
   </template>
@@ -18,7 +18,7 @@
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import BotAction from '@/services/BotAction'
-import CultTrackSelection from '@/services/enum/CultTrackSelection'
+import ResearchTrackSelection from '@/services/enum/ResearchTrackSelection'
 import { useStateStore } from '@/store/state'
 
 export default defineComponent({
@@ -36,8 +36,8 @@ export default defineComponent({
     }
   },
   computed: {
-    isScoringTileCultTrackSelection() : boolean {
-      return this.botAction.cultTrackSelection == CultTrackSelection.SCORING_TILE
+    isScoringTileResearchTrackSelection() : boolean {
+      return this.botAction.cultTrackSelection == ResearchTrackSelection.SCORING_TILE
     },
     isMultipleHumanPlayers() : boolean {
       return this.state.setup.playerSetup.playerCount > 1

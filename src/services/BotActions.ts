@@ -4,7 +4,7 @@ import { DifficultyLevelParameterRound } from './DifficultyLevelParameter'
 import DifficultyLevelParameters from './DifficultyLevelParameters'
 import Action from './enum/Action'
 import BotFaction from './enum/BotFaction'
-import CultTrackSelection from './enum/CultTrackSelection'
+import ResearchTrackSelection from './enum/ResearchTrackSelection'
 import DifficultyLevel from './enum/DifficultyLevel'
 
 /**
@@ -44,7 +44,7 @@ export default class BotActions {
       if (benefitApplyIndex >= 0) {
         result = [
           ...result.slice(0, benefitApplyIndex+1),
-          {action: Action.ADVANCE_CULT_TRACK, botFaction: BotFaction.POWERMONGERS, cultTrackSelection: CultTrackSelection.CATCH_UP},
+          {action: Action.ADVANCE_CULT_TRACK, botFaction: BotFaction.POWERMONGERS, cultTrackSelection: ResearchTrackSelection.CATCH_UP},
           ...result.slice(benefitApplyIndex+1,result.length)
         ] 
       }
@@ -88,7 +88,7 @@ export default class BotActions {
       case BotFaction.DRUIDS:
         return [
           {action: Action.TRANSFORM_AND_BUILD},
-          {action: Action.ADVANCE_CULT_TRACK, botFaction: BotFaction.DRUIDS, cultTrackSelection: CultTrackSelection.CATCH_UP}
+          {action: Action.ADVANCE_CULT_TRACK, botFaction: BotFaction.DRUIDS, cultTrackSelection: ResearchTrackSelection.CATCH_UP}
         ]
       case BotFaction.RACELINGS:
         return [

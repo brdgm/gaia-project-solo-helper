@@ -11,11 +11,10 @@
     "players": {
       "title": "Spieler",
       "playerCount": "Menschliche Spieler",
-      "playerCountItem": "{count} Spieler",
+      "playerCountItem": "{count} Spieler | {count} Spieler (Experimentell)",
       "botCount": "Automa",
       "botCountItem": "{count} Automa | {count} Automas (Experimentell)",
-      "botFaction": "Automa Volk | Automa {bot} Volk",
-      "twoPlayerBotFaction": "Beim Spiel mit zwei Spielern erlauben die offiziellen Regeln nur die Wahl von <i>Die Unscheinbaren</i>."
+      "botFaction": "Automa Volk | Automa {bot} Volk"
     },
     "difficultyLevel": {
       "title": "Schwierigkeitsgrad",

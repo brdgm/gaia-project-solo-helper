@@ -1,6 +1,6 @@
 import Action from './enum/Action'
 import BonusCardSelection from './enum/BonusCardSelection'
-import CultTrackSelection from './enum/CultTrackSelection'
+import ResearchTrackSelection from './enum/ResearchTrackSelection'
 import DirectionalSelection from './enum/DirectionalSelection'
 import InitialDwelling from './enum/InitialDwelling'
 import Structure from './enum/Structure'
@@ -19,7 +19,7 @@ export default interface Card {
   terrainPriority: TerrainPriority
   directionalSelection: DirectionalSelection
   directionalSelectionCount: number
-  cultTrackSelection: CultTrackSelection
+  cultTrackSelection: ResearchTrackSelection
   bonusCardSelection: BonusCardSelection
   initialDwellingMarked: InitialDwelling
   initialDwellingUnmarked: InitialDwelling

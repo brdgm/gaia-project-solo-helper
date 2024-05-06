@@ -33,9 +33,6 @@
       </select>
     </div>
   </div>
-  <div class="row mt-3" v-if="playerCount > 1">
-    <div class="offset-5 offset-md-3 col-5 col-md-7 text-muted" v-html="t('setup.players.twoPlayerBotFaction')"></div>
-  </div>
 
 </template>
 
@@ -95,7 +92,7 @@ export default defineComponent({
     storePlayerSetup() {
       for (let bot=1; bot<=this.botCount; bot++) {
         if (!this.botFaction[bot-1]) {
-          this.botFaction[bot-1] = BotFaction.HADSCH_HALLAS
+          this.botFaction[bot-1] = BotFaction.TAKLONS
         }
       }
       this.state.setup.playerSetup = {

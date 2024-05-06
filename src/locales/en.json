@@ -11,11 +11,10 @@
     "players": {
       "title": "Player",
       "playerCount": "Human Players",
-      "playerCountItem": "{count} Player | {count} Players",
+      "playerCountItem": "{count} Player | {count} Players (Experimental)",
       "botCount": "Automa",
       "botCountItem": "{count} Automa | {count} Automas (Experimental)",
-      "botFaction": "Automa Faction | Automa {bot} Faction",
-      "twoPlayerBotFaction": "When playing with two players, the official rules only allow to play with <i>The Simpletons</i>."
+      "botFaction": "Automa Faction | Automa {bot} Faction"
     },
     "difficultyLevel": {
       "title": "Difficulty Level",

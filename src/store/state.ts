@@ -17,7 +17,7 @@ export const useStateStore = defineStore(`${name}.store`, {
         playerSetup: {
           playerCount: 1,
           botCount: 1,
-          botFaction: [BotFaction.HADSCH_HALLAS]
+          botFaction: [BotFaction.TAKLONS]
         }
       },
       rounds: []
