@@ -5,11 +5,6 @@
     <li>
       <AppIcon name="scoring-tile-setup" class="scoring-tile-icon"/>
       <span v-html="t('setupGameAutoma.step1')"></span>
-      <div class="mots" v-if="hasMerchantsOfTheSeas">
-        <AppIcon type="expansion" name="merchants-of-the-seas" class="expansionIcon"/>
-        <span v-html="t('setupGameAutoma.step1-mots')"></span>
-        <AppIcon name="scoring-tile-mots-icon" class="expansionIcon"/>
-      </div>
     </li>
     <li>
       <AppIcon name="scoring-tile-game-end-token" class="scoring-tile-icon"/>
@@ -21,10 +16,6 @@
       <ol type="a">
         <li v-html="t('setupGameAutoma.step4a')"></li>
         <li v-html="t('setupGameAutoma.step4b')"></li>
-        <li class="mots" v-if="hasMerchantsOfTheSeas">
-          <AppIcon type="expansion" name="merchants-of-the-seas" class="expansionIcon"/>
-          <span v-html="t('setupGameAutoma.step4c-mots')"></span>
-        </li>
         <li v-html="t('setupGameAutoma.step4d')"></li>
         <li>
           <span v-html="t('setupGameAutoma.step4e')"></span>
@@ -44,10 +35,6 @@
         <li v-if="isFactionBlight" v-html="t('setupGameAutoma.step4f',{faction:t('botFaction.blight')})"></li>
         <li v-if="isFactionGognomes" v-html="t('setupGameAutoma.step4f',{faction:t('botFaction.gognomes')})"></li>
         <li v-html="t('setupGameAutoma.step4g')"></li>
-        <li class="mots" v-if="hasMerchantsOfTheSeas">
-          <AppIcon type="expansion" name="merchants-of-the-seas" class="expansionIcon"/>
-          <span v-html="t('setupGameAutoma.step4h-mots')"></span>
-        </li>
       </ol>
     </li>
   </ol>
@@ -63,10 +50,6 @@
       <AppIcon type="structure" name="unmarked" class="structureIcon"/>&nbsp;<span v-html="t('setupGameAutoma.initialDwellingUnmarked', {character:randomCard.initialDwellingUnmarked})"></span>
     </li>
     <li v-html="t('setupGameAutoma.initialDwellingPlayerSecond')"></li>
-    <li class="mots" v-if="hasMerchantsOfTheSeas">
-      <AppIcon type="expansion" name="merchants-of-the-seas" class="expansionIcon"/>
-      <span v-html="t('setupGameAutoma.initialDwellingDockMarker')"></span>
-    </li>
   </ol>
 
   <h4>{{t('setupGameAutoma.bonusCards')}}</h4>
@@ -82,7 +65,6 @@ import Cards from '@/services/Cards'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
-import Expansion from '@/services/enum/Expansion'
 import AppIcon from '../structure/AppIcon.vue'
 import BotFaction from '@/services/enum/BotFaction'
 import { CultTrackBonusSteps } from '@/services/CultTrackBonus'
@@ -100,9 +82,6 @@ export default defineComponent({
     return { t, state }
   },
   computed: {
-    hasMerchantsOfTheSeas() : boolean {
-      return this.state.setup.expansions.includes(Expansion.MERCHANTS_OF_THE_SEAS)
-    },
     bonusCardCount() : number {
       return this.state.setup.playerSetup.botCount + this.state.setup.playerSetup.playerCount + 3
     },
@@ -140,11 +119,8 @@ li {
     margin-top: 0rem;
   }
 }
-.expansionIcon, .structureIcon, .cultTrackIcon {
+.structureIcon, .cultTrackIcon {
   height: 1.5rem;
-}
-.mots {
-  color: #007f93;
 }
 .scoring-tile-icon {
   float: right;

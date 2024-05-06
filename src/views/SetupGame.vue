@@ -3,7 +3,9 @@
 
   <PlayersSetup/>
   <DifficultyLevel/>
+  <!-- enable when expansions are implemented
   <ExpansionsSetup/>
+  -->
 
   <router-link to="/setupGameAutoma" class="btn btn-primary btn-lg mt-4">
     {{t('setupGameAutoma.title')}}

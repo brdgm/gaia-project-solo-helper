@@ -23,9 +23,7 @@
       "hard": "Schwer"
     },
     "expansions": {
-      "title": "Erweiterungen",
-      "finalScoringTile": "Endwertungskärtchen",
-      "motsScoringTile": "Das Endwertungsplättchen von <i>Die Händler</i> kann nicht verwendet werden."
+      "title": "Erweiterungen"
     }
   }, 
   "setupGameAutoma": {
@@ -205,8 +203,7 @@
     "5": "Alptrauma"
   },
   "expansion": {
-    "fire-and-ice": "Feuer & Eis",
-    "merchants-of-the-seas": "Die Händler"
+    "lost-fleet": "The Lost Fleet"
   },
   "finalScoringTile": {
     "default": "Standard (Grundspiel)",

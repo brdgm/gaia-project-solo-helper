@@ -6,7 +6,6 @@ import { Round, RoundTurn, useStateStore } from '@/store/state'
 import { RouteLocation } from 'vue-router'
 import CardDeck from '@/services/CardDeck'
 import Player from '@/services/Player'
-import Expansion from '@/services/enum/Expansion'
 
 export default class NavigationState {
 
@@ -119,7 +118,6 @@ export default class NavigationState {
     }
 
     // get card deck from previous round and prepare for new round
-    const hasMerchantsOfTheSeas = this.state.setup.expansions.includes(Expansion.MERCHANTS_OF_THE_SEAS)
     if (round > 1) {
       const previousRound = this.state.rounds[round-2]
       if (previousRound) {
@@ -127,7 +125,7 @@ export default class NavigationState {
         turnData = playerOrderPreviousRound.getLastTurn(player)
         if (turnData?.cardDeck) {
           cardDeck = CardDeck.fromPersistence(turnData.cardDeck)
-          cardDeck.prepareForNextRound(round, hasMerchantsOfTheSeas)
+          cardDeck.prepareForNextRound(round, false)
           cardDeck.draw()
           return cardDeck
         }
@@ -135,7 +133,7 @@ export default class NavigationState {
     }
 
     // prepare new card deck
-    cardDeck = CardDeck.new(this.state.setup.difficultyLevel, hasMerchantsOfTheSeas)
+    cardDeck = CardDeck.new(this.state.setup.difficultyLevel, false)
     cardDeck.draw()
     return cardDeck
   }

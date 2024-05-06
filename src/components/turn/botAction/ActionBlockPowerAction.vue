@@ -12,10 +12,6 @@
         <li v-html="t('botAction.blockPowerAction.directionalSelection')"></li>
         <li v-html="t('botAction.blockPowerAction.gameBoardExecute')"></li>
       </ol>
-      <li class="mots" v-if="hasMerchantsOfTheSeas">
-        <AppIcon type="expansion" name="merchants-of-the-seas" class="expansionIcon"/>
-        <span v-html="t('botAction.blockPowerAction.motsPowerActionBoard')"></span>
-      </li>
     </ol>
   </div>
 </template>
@@ -27,7 +23,6 @@ import BotAction from '@/services/BotAction'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import SupportInfo from '../supportInfo/SupportInfo.vue'
 import { useStateStore } from '@/store/state'
-import Expansion from '@/services/enum/Expansion'
 
 export default defineComponent({
   name: 'ActionBlockPowerAction',
@@ -45,11 +40,6 @@ export default defineComponent({
     botAction: {
       type: Object as PropType<BotAction>,
       required: true
-    }
-  },
-  computed: {
-    hasMerchantsOfTheSeas(): boolean {
-      return this.state.setup.expansions.includes(Expansion.MERCHANTS_OF_THE_SEAS)
     }
   }
 })

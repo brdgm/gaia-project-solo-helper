@@ -1,5 +1,4 @@
 enum Expansion {
-  FIRE_AND_ICE = 'fire-and-ice',
-  MERCHANTS_OF_THE_SEAS = 'merchants-of-the-seas'
+  LOST_FLEET = 'lost-fleet'
 }
 export default Expansion

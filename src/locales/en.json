@@ -23,9 +23,7 @@
       "hard": "Hard"
     },
     "expansions": {
-      "title": "Expansions",
-      "finalScoringTile": "Final Scoring Tile",
-      "motsScoringTile": "The <i>Most Trade Markers</i> final scoring tile cannot be used."
+      "title": "Expansions"
     }
   }, 
   "setupGameAutoma": {
@@ -205,8 +203,7 @@
     "5": "Alptrauma"
   },
   "expansion": {
-    "fire-and-ice": "Fire & Ice",
-    "merchants-of-the-seas": "Merchants of the Seas"
+    "lost-fleet": "The Lost Fleet"
   },
   "finalScoringTile": {
     "default": "Default (Base Game)",
