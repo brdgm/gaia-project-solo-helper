@@ -2,8 +2,8 @@
   "gameTitle": "Gaia Project",
   "home": {
     "title": "Gaia Project Solo Helper",
-    "play1": "Spiele den Automa Solo-Modus von <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>. Die Erweiterungen <i>Feuer & Eis</i> und <i>Die Händler</i> werden unterstützt.",
-    "play2": "Um den Solo-Modus zu spielen wird das Basis-Spiel und die <a href='https://boardgamegeek.com/boardgameexpansion/349169/gaia-project-automa-solo-box' target='_blank' rel='noopener'><b>Automa Solo Box</b></a> benötigt. Diese Applikation ersetzt die Automa-Karten.",
+    "play1": "Spiele den Automa Solo-Modus von <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>.",
+    "play2": "Diese Applikation ersetzt die Automa-Karten und führt dich durch die Solo-Regeln.",
     "feedback": "Discussion and Feedback:"
   },
   "setup": {
