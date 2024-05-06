@@ -95,7 +95,7 @@ export default defineComponent({
     storePlayerSetup() {
       for (let bot=1; bot<=this.botCount; bot++) {
         if (!this.botFaction[bot-1]) {
-          this.botFaction[bot-1] = BotFaction.SIMPLETONS
+          this.botFaction[bot-1] = BotFaction.HADSCH_HALLAS
         }
       }
       this.state.setup.playerSetup = {

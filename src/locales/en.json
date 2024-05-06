@@ -213,16 +213,13 @@
     "settlements": "Settlements (Fire & Ice)"
   },
   "botFaction": {
-    "simpletons": "The Simpletons",
-    "kuddlers": "The Kuddlers",
-    "druids": "Druids",
-    "racelings": "Racelings",
-    "wanderers": "Wanderers",
-    "mimics": "Mimics",
-    "powermongers": "Powermongers",
-    "symbionts": "Symbionts",
-    "blight": "The Blight",
-    "gognomes": "Gognomes"
+    "terrans": "Terrans",
+    "xenos": "Xenos",
+    "taklons": "Taklons",
+    "hadsch-hallas": "Hadsch Hallas",
+    "geodens": "Geodens",
+    "firaks": "Firaks",
+    "itars": "Itars"
   },
   "notfound": {
     "title": "Not Found"

@@ -213,16 +213,13 @@
     "settlements": "Ansiedlungen (Feuer & Eis)"
   },
   "botFaction": {
-    "simpletons": "Die Unscheinbaren",
-    "kuddlers": "Kuschler",
-    "druids": "Druiden",
-    "racelings": "Sprinter",
-    "wanderers": "Wanderer",
-    "mimics": "Die Nachahmer",
-    "powermongers": "Machthändler",
-    "symbionts": "Symbionten",
-    "blight": "Verwüster",
-    "gognomes": "Gognome"
+    "terrans": "Terraner",
+    "xenos": "Xenos",
+    "taklons": "Taklons",
+    "hadsch-hallas": "Hadsch Halla",
+    "geodens": "Geoden",
+    "firaks": "Firaks",
+    "itars": "Itar"
   },
   "notfound": {
     "title": "Nicht Gefunden"
