@@ -112,7 +112,7 @@ export default class NavigationState {
 
     // get card deck from last turn in current round and draw a new card
     let turnData = this.playerOrder.getLastTurn(player)
-    if (turnData && turnData.cardDeck) {
+    if (turnData?.cardDeck) {
       cardDeck = CardDeck.fromPersistence(turnData.cardDeck)
       cardDeck.draw()
       return cardDeck
@@ -125,7 +125,7 @@ export default class NavigationState {
       if (previousRound) {
         const playerOrderPreviousRound = new PlayerOrder(previousRound.turns, this.playerCount, this.botCount)
         turnData = playerOrderPreviousRound.getLastTurn(player)
-        if (turnData && turnData.cardDeck) {
+        if (turnData?.cardDeck) {
           cardDeck = CardDeck.fromPersistence(turnData.cardDeck)
           cardDeck.prepareForNextRound(round, hasMerchantsOfTheSeas)
           cardDeck.draw()
