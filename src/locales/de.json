@@ -1,0 +1,256 @@
+{
+  "gameTitle": "Gaia Project",
+  "home": {
+    "title": "Gaia Project Solo Helper",
+    "play1": "Spiele den Automa Solo-Modus von <a href='https://boardgamegeek.com/boardgame/120677/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>. Die Erweiterungen <i>Feuer & Eis</i> und <i>Die Händler</i> werden unterstützt.",
+    "play2": "Um den Solo-Modus zu spielen wird das Basis-Spiel und die <a href='https://boardgamegeek.com/boardgameexpansion/349169/gaia-project-automa-solo-box' target='_blank' rel='noopener'><b>Automa Solo Box</b></a> benötigt. Diese Applikation ersetzt die Automa-Karten.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Spielaufbau",
+    "players": {
+      "title": "Spieler",
+      "playerCount": "Menschliche Spieler",
+      "playerCountItem": "{count} Spieler",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automas (Experimentell)",
+      "botFaction": "Automa Volk | Automa {bot} Volk",
+      "twoPlayerBotFaction": "Beim Spiel mit zwei Spielern erlauben die offiziellen Regeln nur die Wahl von <i>Die Unscheinbaren</i>."
+    },
+    "difficultyLevel": {
+      "title": "Schwierigkeitsgrad",
+      "easy": "Leicht",
+      "hard": "Schwer"
+    },
+    "expansions": {
+      "title": "Erweiterungen",
+      "finalScoringTile": "Endwertungskärtchen",
+      "motsScoringTile": "Das Endwertungsplättchen von <i>Die Händler</i> kann nicht verwendet werden."
+    }
+  }, 
+  "setupGameAutoma": {
+    "title": "Automa Spielaufbau",
+    "generalSetup": "Allgemeiner Aufbau",
+    "generalSetupIntro": "Baue das Spiel wie gewohnt, aber mit diesen Änderungen auf:",
+    "step1": "Verwende die Automa-Wertungsplättchen anstelle der Plättchen des Grundspiels. Lege die Plättchen mit der Seite nach oben ab, deren helle Markierung (links) dem Rundenfeld entspricht. Wie im Grundspiel darf das Plättchen mit dem Spaten nicht auf den Feldern für Runde 5 oder 6 liegen.",
+    "step1-mots": "Verwende stattdessen die <i>Die Händler</i> Automa-Wertungsplättchen.",
+    "step2": "Verdecke den rechten oberen Bereich des Wertungsplättchens für Runde 6 mit der Automa-Spielendemarke.",
+    "step3": "Wähle eine Heimatlandschaft für Automa, die anders ist als deine, und lege die entsprechende Landschaftstyp-Priorisierungskarte in Automas Bereich (LTP). Automas Heimatlandschaft wird auf der Karte oben und unten sowie im ersten Kreis von links angezeigt.",
+    "step4": "Verteile Automas Spielsteine wie folgt:",
+    "step4a": "Lege alle Gebäude ihrer Farbe in ihren Bereich.",
+    "step4b": "Lege 2 Automa-Wohnhäuser zurück in die Schachtel. Sie werden nicht verwendet.",
+    "step4c-mots": "Lege zusätzlich 2 Automa-Handelshäuser zurück in die Schachtel. Sie werden nicht verwendet.",
+    "step4d": "Lege alle Priester ihrer Farbe in ihren Bereich.",
+    "step4e": "Setze 4 ihrer Markierungssteine auf den Kultplan. Aufstieg auf diesen Skalen:",
+    "stepNone": "keine",
+    "step4f": "Wende die weiteren Aufbauregeln der <b>{faction}-Völkerkarte</b> an und mache dich mit den Sonderregeln vertraut.",
+    "step4g": "Setze 1 ihrer Markierungssteine wie üblich auf Feld 20 der Punkteleiste.",
+    "step4h-mots": "Lege alle Handelsmarker in Automas Farbe und ihre Werft in ihren Bereich.",
+    "initialDwelling": "Einsetzen der ersten Wohnhäuser",
+    "initialDwellingIntro": "Automa setzt ihre beiden Wohnhäuser ein, nachdem du dein erstes Wohnhaus eingesetzt hast. Nutze dafür die <b>Spielplankarte</b>, die den gewählten Spielplan zeigt.",
+    "initialDwellingPlayer": "Setze dein erstes Wohnhaus ein.",
+    "initialDwellingMarked": "Setze ein Automa-Wohnhaus auf ein Heimatlandschafts-Feld mit dem Buchstaben <b>{character}</b>, zusammen mit einem Machtchip.",
+    "initialDwellingUnmarked": "Setze ein Automa-Wohnhaus auf ein Heimatlandschafts-Feld mit dem Buchstaben <b>{character}</b>.",
+    "initialDwellingPlayerSecond": "Setze dein zweites Wohnhaus ein.",
+    "initialDwellingDockMarker": "Setze deinen Hafenmarker auf das Feld eines Wohngebäudes, welches an ein Flussfeld angrenzt.",
+    "bonusCards": "Rundenbonuskarten",
+    "bonusCardsTake": "Mische die {count} Rundenbonuskarten und lege sie aufgedeckt nebeneinander in einer Reihe aus. Automa erhält die Karte ganz links. Wähle dann regulär eine Karte für dich.",
+    "bonusCardsCoins": "Legt auf die Rundenbonuskarten, die übrig geblieben sind, je eine Geldmünze aus dem allgemeinen Materialvorrat."
+  },
+  "income": {
+    "title": "Einkommen",
+    "turnInfo": "Runde {round}",
+    "collect": "Erhalte neue Arbeiter, Geldmünzen, Priester und Macht."
+  },
+  "roundTurn": {
+    "turnInfo": "Runde {round}, Zug {turn}",
+    "titlePlayer": "Spieler | Spieler {player}",
+    "titleBot": "Automa: {faction} | Automa {bot}: {faction}"
+  },
+  "playerTurn": {
+    "text": "Bitte führe deinen Zug durch - oder passe.",
+    "passConfirm": "Möchtest du passen?",
+    "passInfo": "Erhalte Siegpunkte von deiner Rundenbonuskarte (falls vorhanden) und nimm eine neue Rundenbonuskarte."
+  },
+  "botAction": {
+    "gainVictoryPoints": {
+      "text": "Automa erhält {count} Punkt. | Automa erhält {count} Punkte."
+    },
+    "transformAndBuild": {
+      "noDwelling": "Kein Wohnhaus übrig",
+      "validSpaces": {
+        "marked": "In Reichweite eines markierten Gebäudes",
+        "marked-reaching": "In Reichweite eines markierten Gebäudes (mit <a href='#modalReaching' data-bs-toggle='modal'>Zusammenführen</a>)",
+        "unmarked": "In Reichweite eines nicht markierten Gebäudes",
+        "unmarked-reaching": "In Reichweite eines nicht markierten Gebäudes (mit <a href='#modalReaching' data-bs-toggle='modal'>Zusammenführen</a>)",
+        "factionWanderers": "<b>Automa hat unbegrenzte Reichweite.</b>"
+      },
+      "tiebreaker": {
+        "title": "Feld auswählen:",
+        "factionPowerMongers": "Größter <b>Machterhalt</b> für dich.",
+        "terrainPriority": "Landschaftspriorität <b>{terrainPriority}</b>.",
+        "terrainPriorityYourTerrainType": "Landschaftspriorität <b>{terrainPriority}</b>, verwende LTP-Karte <b>deiner</b> Heimatlandschaft.",
+        "structureClosest": "Felder, die deinen Gebäuden am <b>nächsten</b> sind.",
+        "structureFurthest": "Felder, die am weitesten von Automa-Gebäuden <b>entfernt</b> sind.",
+        "directionalSelection": "Richtungsauswahl."
+      },
+      "execute": {
+        "title": "Ausführung:",
+        "homeTerrainTile": "Platziere ein Landschaftsplättchen mit Automas Heimatlandschaft (falls nötig).",
+        "dwelling": "Setze ein Automa-Wohnhaus ein.",
+        "marked": "Markiere das neue Wohnhaus mit einem Machtchip."
+      },
+      "reaching": {
+        "title": "Zusammenführen",
+        "text1": "Befindet sich noch kein markiertes Automa-Gebäude direkt oder indirekt benachbart zu einem ihrer nicht markierten Gebäude, gelten nur die Felder als mögliche Optionen, die den <i>kürzesten Weg</i> zwischen <i>markierten und unmarkierten Gebäuden</i> weiter verkürzen.",
+        "text2": "Gibt es keine solchen Felder, gelten alle vorher bestimmten möglichen Optionen."
+      }
+    },
+    "upgrade": {
+      "tiebreaker": {
+        "title": "Gebäude wählen:",
+        "tradingHouse": "Falls Automa ein Handelshaus in ihrem Vorrat hat: Automa-Wohnhäuser direkt benachbart zu einem deiner Gebäude. Andernfalls alle Gebäude, die Automa aufwerten kann.",
+        "littlePower": "Gebäude, durch deren Aufwertung sie dir am wenigsten Macht gibt.",
+        "directionalSelection": "Richtungsauswahl."
+      },
+      "execute": {
+        "title": "Ausführung:",
+        "highestPowerStructure": "Ersetze das gewählte Gebäude durch das Gebäude mit der höchsten Machtstufe, auf das Automa regulär aufwerten kann.",
+        "motsShipyardPreferred": "Hat Automa die Auswahl zwischen ihrer Festung und ihrer Werft, wählt sie die Werft."
+      }
+    },
+    "blockPowerAction": {
+      "gameBoard": "Decke ein offenes Machtfeld auf dem Spielplan ab",
+      "directionalSelection": "Richtungsauswahl.",
+      "gameBoardExecute": "Ausführung: Decke das gewählte Machtfeld mit einer Aktionsmarke ab. Automa erhält nichts durch diese Aktion.",
+      "motsPowerActionBoard": "Decke ein offenes Machtfeld auf dem Tableau mit Machtaktionen aus <i>Die Händler</i> ab."
+    },
+    "advanceCultTrack": {
+      "factionDruids": "<b>Aufsteigen auf einer Kultskala: Automa setzt keinen Priester ein und steigt um 2 Stufen auf</b>.",
+      "factionPowerMongers": "<b>Dauerhafte Fähigkeit: Erhältst du durch ein Automa-Gebäude min. 2 Macht, steigt Automa ohne Priestereinsatz um 1 Stufe auf 1 Kultskala auf (Methode: Aufholen).</b>",
+      "notMarker10": "Automa schreitet nur auf Kultskalen voran ohne Markierungsstein auf Stufe 10.",
+      "scoringTile": {
+        "title": "Automa bevorzugt eine Skala deren <b>Farbe</b> dem Kult auf dem <b>Wertungsplättchen</b> entspricht."
+      },
+      "catchUp": {
+        "title": "Automa versucht <b>aufzuholen</b>:",
+        "otherwiseTitle": "Ansonsten versucht Automa aufzuholen:",
+        "marketAt0": "Die Skala, auf der Automas Markierungsstein auf 0 steht.",
+        "highestMarker": "Die Skala, auf der Automas Markierungsstein den geringsten Abstand zu deinem hat. Automa kann dabei auf gleicher, höherer oder niedriger Stufe sein als du.",
+        "highestMarkerMultipleHumans": "Die Skala, auf der Automas Markierungsstein den kleinsten Abstand zu dem Markierungsstein auf der höchsten Stufe derselben Skala hat. Automas Markierungsstein kann dabei auf der gleichen, einer höheren oder niedrigeren Stufe stehen als der andere Markierungstein.",
+        "directionalSelection": "Richtungsauswahl."
+      },
+      "execute": {
+        "title": "Ausführung:",
+        "placePriest": "Setze 1 Priester aus Automas Vorrat unterhalb der gewählten Skala auf das freie Feld mit der höchsten Zahl. Automa steigt mit ihrem Markierungsstein um die entsprechende Anzahl an Stufen auf.",
+        "noPriest": "Hat Automa keinen Priester mehr oder gibt es unter der gewählten Skala kein freies Feld mehr, steigt Automa dort um 1 Stufe auf, ohne einen Priester einzusetzen."
+      }
+    },
+    "trade": {
+      "selectStructure": {
+        "title": "Wähle Gebäude, direkt benachbart zu einem Flussfeld, unter welchen noch kein Automa-Handelsmarker liegt:",
+        "highestPower": "Gebäude mit der höchsten Machtstufe.",
+        "directionalSelection": "Richtungsauswahl."
+      },
+      "execute": {
+        "title": "Ausführung:",
+        "placeMarker": "Lege einen Automa-Handelsmarker unter das gewählte Gebäude.",
+        "victoryPoints": "Automa erhält die Anzahl an Punkten, die der Machtstufe des gewählten Gebäudes entspricht.",
+        "gainPower": "Du darfst durch Automas Handel regulär Macht erhalten."
+      }
+    },
+    "takeFavorTile": {
+      "selectCultFavorTile": "Nimm ein Gunstplättchen, die einen Kult um 3 Stufen erhöhen und auf deren Kultskala sich kein Markierungsstein auf Stufe 10 befindet.",
+      "execute": "Ausführung: Automa nimmt das ausgewählte Plättchen und steigt auf der entsprechenden Kultskala um 3 Felder auf."
+    },
+    "factionSymbiontsPlaceCube": {
+      "validSpaces": "Mögliche Optionen: Alle Felder direkt benachbart zu deinen Gebäuden.",
+      "symbiontYouthATP": "Landschaftsprioriät <b>{terrainPriority}</b>. Nutze die LTP-Karte der <b>Jugend</b>.",
+      "placeCube": "Setze 1 <b>Arbeiterklötzchen</b> auf das gewählte Feld."
+    },
+    "factionBlightTransformFallowLand": {
+      "transform": "Wandle <b>2 Brachland</B>-Felder in <b>Verwüstetes Land</b> um."
+    }
+  },
+  "botPass": {
+    "title": "Automa <i>passt</i>.",
+    "scoringTile": "Automa erhält die auf dem aktuellen Wertungsplättchen rechts unten <b>angegebenen Punkte</b>.",
+    "scoringTileFactionRacelings": "Sprinter: Automa hat als erste gepasst and erhält die auf dem aktuellen Wertungsplättchen rechts unten <b>angegebenen Punkte nochmals</b>.",
+    "bonusCard": "Automa nimmt eine <b>Rundenbonuskarte</b>:",
+    "bonusCardGold": "Lege alle Geldmünzen von dieser Karte zurück in den allgemeinen Vorrat."
+  },
+  "endOfRound": {
+    "title": "Rundenende",
+    "turnInfo": "Runde {round}",
+    "cultBonuses": "Du erhältst den <b>Kultbonus</b>.",
+    "returnActionTokens": "Aktionsmarken zurücknehmen.",
+    "bonusCardsCoin": "Lege auf die drei übrig gebliebenen Rundenbonuskarten je <b>1 Geldmünze</b>.",
+    "removeScoringTile": "Entferne das aktuelle Wertungsplättchen aus dem Spiel."
+  },
+  "endOfGame": {
+    "title": "Spielende",
+    "cultScoring": "Automa erhält Punkte durch die <b>Kultwertung</b>.",
+    "areaScoring": "Automa erhält Punkte durch die <b>Gebietswertung</b>.",
+    "areaScoringFireIceStrongholdSanctuary": "Heiligtum und Festung für Automa: Ermittle die <i>Größte Entfernung</i> und teile die Zahl durch 2 (aufgerundet).",
+    "areaScoringFireIceOutposts": "Außenposten für Automa: Ermittle die Anzahl an <i>Ansiedlungen</i> und ziehe 2 vom Ergebnis ab.",
+    "factionWanderers": "<b>Wanderer:</b> Erhalte 1 Punkt für jedes eigene Gebäude auf dem Spielplan.",
+    "factionGognomes": "<b>Gognome</b>: Stelle sicher, dass die Gognome die Punkte für ihre Aufgaben erhalten haben.",
+    "resourceScoring": "Automa erhält keine Punkte durch die Ressourcenwertung."
+  },
+  "difficultyLevel": {
+    "1": "Automalein",
+    "2": "Automa",
+    "3": "Automächtig",
+    "4": "Ultoma",
+    "5": "Alptrauma"
+  },
+  "expansion": {
+    "fire-and-ice": "Feuer & Eis",
+    "merchants-of-the-seas": "Die Händler"
+  },
+  "finalScoringTile": {
+    "default": "Standard (Grundspiel)",
+    "greatest-distance": "Größte Entfernung (Feuer & Eis)",
+    "stronghold-sanctuary": "Heiligtum und Festung (Feuer & Eis)",
+    "outposts": "Außenposten (Feuer & Eis)",
+    "settlements": "Ansiedlungen (Feuer & Eis)"
+  },
+  "botFaction": {
+    "simpletons": "Die Unscheinbaren",
+    "kuddlers": "Kuschler",
+    "druids": "Druiden",
+    "racelings": "Sprinter",
+    "wanderers": "Wanderer",
+    "mimics": "Die Nachahmer",
+    "powermongers": "Machthändler",
+    "symbionts": "Symbionten",
+    "blight": "Verwüster",
+    "gognomes": "Gognome"
+  },
+  "notfound": {
+    "title": "Nicht Gefunden"
+  },
+  "action": {
+    "playGame": "Spielen",
+    "startGame": "Spiel starten",
+    "next": "Weiter",
+    "nextRound": "Nächste Runde",
+    "abortGame": "Spiel abbrechen",
+    "abortGameConfirm": "Das aktuelle Spiel wird abgebrochen - bist Du sicher?",
+    "endGame": "Spiel beenden",
+    "endGameConfirm": "Dieses Spiel wird beendet - bist Du sicher?",
+    "cancel": "Abbrechen",
+    "backToHome": "Zurück zum Anfang",
+    "back": "Zurück",
+    "close": "Schließen",
+    "reset": "Zurücksetzen",
+    "pass": "Passen"
+  },
+  "footer": {
+    "credits": "Credits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Applikation neu laden",
+    "notice": "Die Applikation wurde aktualisiert - möchtest du die Seite neu laden um die neueste Version zu nutzen?"
+  }
+}

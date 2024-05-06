@@ -1,0 +1,256 @@
+{
+  "gameTitle": "Gaia Project",
+  "home": {
+    "title": "Gaia Project Solo Helper",
+    "play1": "Play the Automa Solo Mode of <a href='https://boardgamegeek.com/boardgame/120677/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>. The expansions <i>Fire & Ice</i> and <i>Merchants of the Seas</i> are supported.",
+    "play2": "To play the solo mode you need the base game and the <a href='https://boardgamegeek.com/boardgameexpansion/349169/gaia-project-automa-solo-box' target='_blank' rel='noopener'><b>Automa Solo Box</b></a>. This helper application replaces the Automa cards.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Setup Game",
+    "players": {
+      "title": "Player",
+      "playerCount": "Human Players",
+      "playerCountItem": "{count} Player | {count} Players",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automas (Experimental)",
+      "botFaction": "Automa Faction | Automa {bot} Faction",
+      "twoPlayerBotFaction": "When playing with two players, the official rules only allow to play with <i>The Simpletons</i>."
+    },
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard"
+    },
+    "expansions": {
+      "title": "Expansions",
+      "finalScoringTile": "Final Scoring Tile",
+      "motsScoringTile": "The <i>Most Trade Markers</i> final scoring tile cannot be used."
+    }
+  }, 
+  "setupGameAutoma": {
+    "title": "Automa Setup",
+    "generalSetup": "General Setup",
+    "generalSetupIntro": "Set up the game as normal with the following changes:",
+    "step1": "Use the double-sided Automa Scoring tiles instead of those from the game. Place the side face-up that shows the relevant round. As in the base game, the Scoring tile with the Spade on its left side cannot be placed in Round 5 or 6.",
+    "step1-mots": "Use the double-sided <i>Merchants of the Seas</i> Automa Scoring tiles, instead.",
+    "step2": "Place the new Game end token as usual but only cover the top right quarter of the Round 6 Scoring tile.",
+    "step3": "Choose a Home Terrain type (color) that is different from yours and give Automa the matching Automa Terrain priority (ATP) card. The ATP’s Terrain type is indicated by the top and bottom bars and the leftmost circles.",
+    "step4": "For Automa skip the normal faction setup procedure and instead:",
+    "step4a": "Give her all Structures of her color.",
+    "step4b": "Return 2 Automa Dwellings to the box. They will not be used.",
+    "step4c-mots": "Return 2 Automa Trading houses to the box. They will not be used.",
+    "step4d": "Give her all Priests of her color.",
+    "step4e": "Place her Markers on the Cult track. Advance on these tracks:",
+    "stepNone": "none",
+    "step4f": "Follow the additional setup instructions on the <b>{faction} Automa Faction card</b> and familiarize yourself with the special rules.",
+    "step4g": "Place a Marker of Automa’s color on space 20 of the Victory point track (as normal).",
+    "step4h-mots": "Give her all Trade markers and the Shipyard in her color.",
+    "initialDwelling": "Initial Dwelling Placement",
+    "initialDwellingIntro": "Automa places her initial Dwellings after you place your first Dwelling. Select the Automa <b>Initial Dwelling map card</b> for the map you are using and refer to it as you:",
+    "initialDwellingPlayer": "Place your first Dwelling.",
+    "initialDwellingMarked": "Place an Automa Dwelling on a Home Terrain space with letter <b>{character}</b>, together with a power token.",
+    "initialDwellingUnmarked": "Place an Automa Dwelling on a Home Terrain space with letter <b>{character}</b>.",
+    "initialDwellingPlayerSecond": "Place your second Dwelling.",
+    "initialDwellingDockMarker": "Place you Dock Maker on a riverside dwelling.",
+    "bonusCards": "Bonus Cards",
+    "bonusCardsTake": "Shuffle the {count} Bonus cards and place them face-up in a horizontal line. Give Automa the first one. Choose your own Bonus card.",
+    "bonusCardsCoins": "Place 1 Coin from the general supply on each of the leftover Bonus cards."
+  },
+  "income": {
+    "title": "Income",
+    "turnInfo": "Round {round}",
+    "collect": "Collect new Workers, Coins, Priests and Power."
+  },
+  "roundTurn": {
+    "turnInfo": "Round {round}, Turn {turn}",
+    "titlePlayer": "Player | Player {player}",
+    "titleBot": "Automa: {faction} | Automa {bot}: {faction}"
+  },
+  "playerTurn": {
+    "text": "Please make your turn - or pass.",
+    "passConfirm": "Do you want to pass?",
+    "passInfo": "Collect your round bonus victory points (if any) and take a new Bonus card."
+  },
+  "botAction": {
+    "gainVictoryPoints": {
+      "text": "Automa gains {count} victory point. | Automa gains {count} victory points."
+    },
+    "transformAndBuild": {
+      "noDwelling": "No dwelling left",
+      "validSpaces": {
+        "marked": "Withing Range of any marked Structure",
+        "marked-reaching": "Withing Range of any marked Structure (with <a href='#modalReaching' data-bs-toggle='modal'>Reaching</a>)",
+        "unmarked": "Withing Range of any unmarked Structure",
+        "unmarked-reaching": "Withing Range of any unmarked Structure (with <a href='#modalReaching' data-bs-toggle='modal'>Reaching</a>)",
+        "factionWanderers": "<b>Ignore range restrictions.</b>"
+      },
+      "tiebreaker": {
+        "title": "Select Space:",
+        "factionPowerMongers": "Giving you the <b>most power</b>.",
+        "terrainPriority": "Automa Terrain Priority <b>{terrainPriority}</b>.",
+        "terrainPriorityYourTerrainType": "Terrain Priority <b>{terrainPriority}</b> with ATP card of <b>your</b> terrain type.",
+        "structureClosest": "Space <b>closest</b> to any of your Structures.",
+        "structureFurthest": "Space <b>furthest away</b> from any Automa Structures.",
+        "directionalSelection": "Directional Selection."
+      },
+      "execute": {
+        "title": "Execute:",
+        "homeTerrainTile": "Place an Automa Home Terrain tile (if transforming was required).",
+        "dwelling": "Place an Automa Dwelling.",
+        "marked": "Mark the new Dwelling by placing a Power token on its space."
+      },
+      "reaching": {
+        "title": "Reaching",
+        "text1": "If none of the marked Structures are adjacent (directly or indirectly) to any of the unmarked Structures the valid spaces are further limited to only those that would decrease the current <i>shortest distance</i> between <i>marked and unmarked structures</i>.",
+        "text2": "If there are none that would decrease it, all the spaces previously identified remain valid."
+      }
+    },
+    "upgrade": {
+      "tiebreaker": {
+        "title": "Choose structure:",
+        "tradingHouse": "If Automa has a Trading house available: Automa Dwellings adjacent to any of your Structures. Otherwise, any Structure that Automa can upgrade.",
+        "littlePower": "Giving you as little Power as possible.",
+        "directionalSelection": "Directional Selection."
+      },
+      "execute": {
+        "title": "Execute:",
+        "highestPowerStructure": "Replace the chosen Structure with the highest Power value Structure it can be legally upgraded to.",
+        "motsShipyardPreferred": "If there’s a tie between Stronghold and Shipyard Automa builds her Shipyard."
+      }
+    },
+    "blockPowerAction": {
+      "gameBoard": "Block one uncovered power action on game board",
+      "directionalSelection": "Directional Selection.",
+      "gameBoardExecute": "Execute: Place an Action token on the selected Power action. Automa gains no benefit from this.",
+      "motsPowerActionBoard": "Block one uncovered power action on Merchant Power Actions Board."
+    },
+    "advanceCultTrack": {
+      "factionDruids": "<b>Automa advances 2 spaces on a single track (without placing a Priest)</b>.",
+      "factionPowerMongers": "<b>Ongoing Benefit: Whenever you gain 2 or more Power via structures, Automa advances 1 space on a Cult track (Cult Catch-up action without placing a Priest).</b>",
+      "notMarker10": "Automa advances only on tracks without a Marker on space 10.",
+      "scoringTile": {
+        "title": "Prefer cult track matching the <b>color</b> of the Automa icon on current <b>Scoring tile</b>."
+      },
+      "catchUp": {
+        "title": "Use <b>Catch-Up</b> selection:",
+        "otherwiseTitle": "Otherwise use Catch-Up selection:",
+        "marketAt0": "The Cult track where Automa‘s Marker is at 0.",
+        "highestMarker": "The Cult track where Automa‘s Marker is nearest to your Marker; it can be on the same space or above or below you.",
+        "highestMarkerMultipleHumans": "The Cult track, where Automa‘s Marker is nearest to the highest Marker; it can be on the same space or above or below the other marker.",
+        "directionalSelection": "Directional Selection."
+      },
+      "execute": {
+        "title": "Execute:",
+        "placePriest": "Place an available Automa Priest on the highest numbered Priest space below the chosen track and advance Automa‘s Marker the corresponding number of spaces.",
+        "noPriest": "If Automa has no more available Priests, or if there’s no empty Priest space available below the track, advance Automa‘s Marker by 1 on that track without placing a Priest."
+      }
+    },
+    "trade": {
+      "selectStructure": {
+        "title": "Select structure adjacent to a river space without one of Automa's Trade tokens:",
+        "highestPower": "Structures with the highest Power value.",
+        "directionalSelection": "Directional Selection."
+      },
+      "execute": {
+        "title": "Execute:",
+        "placeMarker": "Place one of Automa’s Trade markers beneath the selected Structure.",
+        "victoryPoints": "Automa gains Victory points equal to the Power value of the selected Structure.",
+        "gainPower": "You may gain Power for the trade, as normal."
+      }
+    },
+    "takeFavorTile": {
+      "selectCultFavorTile": "Take one of the +3 Cult Favor tiles for Cult tracks without a Marker on space 10.",
+      "execute": "Execute: Give the chosen tile to Automa and increase her Marker by 3 on the track shown on the tile."
+    },
+    "factionSymbiontsPlaceCube": {
+      "validSpaces": "Valid Spaces: All Terrain spaces directly adjacent to any of your structures.",
+      "symbiontYouthATP": "Terrain Priority <b>{terrainPriority}</b> with Symbiont <b>youth</b> ATP card.",
+      "placeCube": "Place a <b>worker cube</b> on the selected Terrain space."
+    },
+    "factionBlightTransformFallowLand": {
+      "transform": "Transform <b>Fallow Land</B> into <b>Blighted Land twice</b>."
+    }
+  },
+  "botPass": {
+    "title": "Automa <i>passes</i>.",
+    "scoringTile": "Automa gains a <b>fixed number of Victory points</b> as shown in the lower right corner of the current Scoring tile.",
+    "scoringTileFactionRacelings": "Racelings: Automa passed first this round and gains the <b>fixed number of Victory Points</b> on the current Scoring tile <b>again</b>.",
+    "bonusCard": "Automa takes a <b>Bonus card</b>:",
+    "bonusCardGold": "If there are any coins on the Bonus card return them to the general supply."
+  },
+  "endOfRound": {
+    "title": "End of Round",
+    "turnInfo": "Round {round}",
+    "cultBonuses": "You gain the <b>Cult Bonus</b>.",
+    "returnActionTokens": "Return action tokens.",
+    "bonusCardsCoin": "Put <b>1 Coin</b> on each of the three leftover Bonus Cards.",
+    "removeScoringTile": "Remove current scoring tile from board."
+  },
+  "endOfGame": {
+    "title": "End of Game",
+    "cultScoring": "Automa gains victory points from <b>Cult scoring</b>.",
+    "areaScoring": "Automa gains victory points from <b>Area scoring</b>.",
+    "areaScoringFireIceStrongholdSanctuary": "Stronghold and Sanctuary for Automa: Divide <i>Greatest Distance</i> by 2 and round up.",
+    "areaScoringFireIceOutposts": "Outposts for Automa: Subtract 2 from <i>Settlements</i>.",
+    "factionWanderers": "<b>Wanderers:</b> Gain 1 victory point per structure anywhere on the board.",
+    "factionGognomes": "<b>Gognomes</b>: Ensure Gognomes got victory points for their achievements.",
+    "resourceScoring": "Automa doesn't get any points from Resource scoring."
+  },
+  "difficultyLevel": {
+    "1": "Automalein",
+    "2": "Automa",
+    "3": "Automächtig",
+    "4": "Ultoma",
+    "5": "Alptrauma"
+  },
+  "expansion": {
+    "fire-and-ice": "Fire & Ice",
+    "merchants-of-the-seas": "Merchants of the Seas"
+  },
+  "finalScoringTile": {
+    "default": "Default (Base Game)",
+    "greatest-distance": "Greatest Distance (Fire & Ice)",
+    "stronghold-sanctuary": "Stronghold and Sanctuary (Fire & Ice)",
+    "outposts": "Outposts (Fire & Ice)",
+    "settlements": "Settlements (Fire & Ice)"
+  },
+  "botFaction": {
+    "simpletons": "The Simpletons",
+    "kuddlers": "The Kuddlers",
+    "druids": "Druids",
+    "racelings": "Racelings",
+    "wanderers": "Wanderers",
+    "mimics": "Mimics",
+    "powermongers": "Powermongers",
+    "symbionts": "Symbionts",
+    "blight": "The Blight",
+    "gognomes": "Gognomes"
+  },
+  "notfound": {
+    "title": "Not Found"
+  },
+  "action": {
+    "playGame": "Play Game",
+    "startGame": "Start Game",
+    "next": "Next",
+    "nextRound": "Next Round",
+    "abortGame": "Abort Game",
+    "abortGameConfirm": "Aborting the running game - are you sure?",
+    "endGame": "End Game",
+    "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "cancel": "Cancel",
+    "backToHome": "Back to Home",
+    "back": "Back",
+    "close": "Close",
+    "reset": "Reset",
+    "pass": "Pass"
+  },
+  "footer": {
+    "credits": "Credits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Refresh Application",
+    "notice": "The application was updated - do you want to refresh to use the latest version?"
+  }
+}
