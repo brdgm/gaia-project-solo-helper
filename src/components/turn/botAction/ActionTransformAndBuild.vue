@@ -27,7 +27,7 @@
           <template v-else>
             <li v-if="isPowerMongers"><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.transformAndBuild.tiebreaker.factionPowerMongers')"></span></li>
             <li v-html="t('botAction.transformAndBuild.tiebreaker.terrainPriority',{terrainPriority:botAction.terrainPriority})"></li>
-            <li v-if="useSpaceFurthestAway" class="fire-ice"><AppIcon type="expansion" name="fire-and-ice" class="expansionIcon"/><span v-html="t('botAction.transformAndBuild.tiebreaker.structureFurthest')"></span></li>
+            <li v-if="useSpaceFurthestAway" class="fire-ice"><span v-html="t('botAction.transformAndBuild.tiebreaker.structureFurthest')"></span></li>
             <li v-else v-html="t('botAction.transformAndBuild.tiebreaker.structureClosest')"></li>
             <li v-html="t('botAction.transformAndBuild.tiebreaker.directionalSelection')"></li>
           </template>
@@ -139,7 +139,7 @@ export default defineComponent({
 .actionIcon {
   width: 6rem;
 }
-.expansionIcon, .structureIcon, .factionActionIcon {
+.structureIcon, .factionActionIcon {
   height: 1.3rem;
   margin-right: 0.2rem;
 }

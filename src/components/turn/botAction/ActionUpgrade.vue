@@ -65,7 +65,7 @@ export default defineComponent({
 .actionIcon {
   width: 6rem;
 }
-.expansionIcon, .factionActionIcon {
+.factionActionIcon {
   height: 1.3rem;
   margin-right: 0.2rem;
 }

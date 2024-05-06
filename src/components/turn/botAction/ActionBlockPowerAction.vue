@@ -49,9 +49,6 @@ export default defineComponent({
 .actionIcon {
   width: 6rem;
 }
-.expansionIcon {
-  height: 1.5rem;
-}
 .mots {
   color: #007f93;
 }

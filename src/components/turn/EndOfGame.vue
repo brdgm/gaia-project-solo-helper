@@ -6,11 +6,10 @@
     </li>
     <ul v-if="isStrongholdSancturaryScoring || isOutpostsScoring">
       <li class="fire-ice" v-if="isStrongholdSancturaryScoring">
-        <AppIcon type="expansion" name="fire-and-ice" class="expansionIcon"/>
         <span v-html="t('endOfGame.areaScoringFireIceStrongholdSanctuary')"></span>
       </li>
       <li class="fire-ice" v-if="isOutpostsScoring">
-        <AppIcon type="expansion" name="fire-and-ice" class="expansionIcon"/><span v-html="t('endOfGame.areaScoringFireIceOutposts')"></span>
+        <span v-html="t('endOfGame.areaScoringFireIceOutposts')"></span>
       </li>
     </ul>
     <li v-html="t('endOfGame.cultScoring')"></li>
@@ -69,7 +68,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.expansionIcon, .factionActionIcon {
+.factionActionIcon {
   height: 1.3rem;
   margin-right: 0.2rem;
 }
