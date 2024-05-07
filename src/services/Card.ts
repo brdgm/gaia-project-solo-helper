@@ -1,27 +1,19 @@
 import Action from './enum/Action'
-import BonusCardSelection from './enum/BonusCardSelection'
-import ResearchTrackSelection from './enum/ResearchTrackSelection'
+import FinalScoringTileTieBreaker from './enum/FinalScoringTileTieBreaker'
 import DirectionalSelection from './enum/DirectionalSelection'
-import InitialDwelling from './enum/InitialDwelling'
-import Structure from './enum/Structure'
-import TerrainPriority from './enum/TerrainPriority'
+import InitialRoundBoosterSelection from './enum/InitialRoundBoosterSelection'
+import RoundBoosterSelection from './enum/RoundBoosterSelection'
 
 export default interface Card {
-  id: string
+  id: number
   starter?: boolean
-  merchantsOfTheSeas?: boolean
-  actions: Action[]
-  shipLevel?: number
-  tradeMinRound?: number
-  victoryPoints?: number
-  victoryPointsDifficultyLevel?: boolean
-  structure: Structure
-  terrainPriority: TerrainPriority
+  action: Action
+  victoryPoints: number
+  finalScoringTileTieBreaker: FinalScoringTileTieBreaker
+  range: number
   directionalSelection: DirectionalSelection
   directionalSelectionCount: number
-  cultTrackSelection: ResearchTrackSelection
-  bonusCardSelection: BonusCardSelection
-  initialDwellingMarked: InitialDwelling
-  initialDwellingUnmarked: InitialDwelling
+  roundBoosterSelection: RoundBoosterSelection
+  initialRoundBoosterSelection: InitialRoundBoosterSelection
   pass?: boolean
 }

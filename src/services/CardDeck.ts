@@ -10,8 +10,10 @@ import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
  */
 export default class CardDeck {
 
-  private static readonly CARD_3 = '*3'
-  private static readonly CARD_MOTS_SPECIAL = 'mots-special'
+  // special cards for setup
+  private static readonly CARD_2 = 2
+  private static readonly CARD_9 = 9
+  private static readonly CARD_15 = 15
 
   private _deck : Card[]
   private _reserve : Card[]
@@ -77,7 +79,7 @@ export default class CardDeck {
   /**
    * Prepare card deck for new round, adding additional card from reserve.
    */
-  public prepareForNextRound(round : number, merchantsOfTheSeas : boolean) : void {
+  public prepareForNextRound() : void {
     // discard all remaining cards
     this._deck.forEach(card => this._discard.push(card))
     this._deck = []
@@ -85,10 +87,6 @@ export default class CardDeck {
     const reserveCard = this._reserve.shift()
     if (reserveCard) {
       this._discard.push(reserveCard)
-    }
-    // add special MotS card for round 3
-    if (round == 3 && merchantsOfTheSeas) {
-      this._discard.push(Cards.get(CardDeck.CARD_MOTS_SPECIAL))
     }
     // shuffle discard as new deck
     this._deck = shuffle(this._discard)
@@ -98,35 +96,28 @@ export default class CardDeck {
   /**
    * Creates a shuffled new card deck with random advanced cards.
    */
-  public static new(difficultyLevel : DifficultyLevel, merchantsOfTheSeas : boolean) : CardDeck {
-    let deck = Cards.getAll().filter(card => card.starter
-        && (card.merchantsOfTheSeas == undefined || card.merchantsOfTheSeas == merchantsOfTheSeas))
-    let reserve = Cards.getAll().filter(card => !card.starter && card.id!=CardDeck.CARD_MOTS_SPECIAL)
+  public static new(difficultyLevel : DifficultyLevel) : CardDeck {
+    let deck = Cards.getAll().filter(card => card.starter)
+    let reserve = Cards.getAll().filter(card => !card.starter)
 
-    // add additional cards from reserve dock for higher difficulty levels
-    let additionalCardCount = 0
-    if (difficultyLevel == DifficultyLevel.AUTOMAECHTIG || difficultyLevel == DifficultyLevel.ULTOMA) {
-      additionalCardCount = 1
+    // handle difficulty levels
+    if (difficultyLevel == DifficultyLevel.AUTOMALEIN) {
+      moveCardToDeck(deck, reserve, CardDeck.CARD_2)
     }
-    else if (difficultyLevel == DifficultyLevel.ALPTRAUMA) {
-      additionalCardCount = 2
+    if (difficultyLevel == DifficultyLevel.AUTOMAECHTIG || difficultyLevel == DifficultyLevel.ULTOMA || difficultyLevel == DifficultyLevel.ALPTRAUMA) {
+      moveCardToDeck(reserve, deck, CardDeck.CARD_9)
     }
-    for (let i=0; i<additionalCardCount; i++) {
-      const randomReserveIndex = rollDice(reserve.length) - 1
-      const randomReserveCard = reserve.splice(randomReserveIndex, 1)[0]
-      deck.push(randomReserveCard)
+    if (difficultyLevel == DifficultyLevel.ULTOMA || difficultyLevel == DifficultyLevel.ALPTRAUMA) {
+      moveCardToDeck(reserve, deck, CardDeck.CARD_15)
     }
+
+    // add one random card
+    const randomReserveIndex = rollDice(reserve.length) - 1
+    moveCardToDeck(reserve, deck, reserve[randomReserveIndex].id)
 
     // shuffle decks
     deck = shuffle(deck)
     reserve = shuffle(reserve)
-
-    // move card *3 on top of reserve deck for easiest level
-    if (difficultyLevel == DifficultyLevel.AUTOMALEIN) {
-      const card3Index = deck.findIndex(card => card.id == CardDeck.CARD_3)
-      const card3 = deck.splice(card3Index, 1)[0]
-      reserve.unshift(card3)
-    }
 
     return new CardDeck(deck, reserve, [])
   }
@@ -142,4 +133,10 @@ export default class CardDeck {
     )
   }
 
+}
+
+function moveCardToDeck(deck1: Card[], deck2: Card[], cardId: number) {
+  const cardIndex = deck1.findIndex(card => card.id == cardId)
+  const card = deck1.splice(cardIndex, 1)[0]
+  deck2.unshift(card)
 }

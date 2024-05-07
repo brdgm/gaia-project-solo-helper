@@ -4,8 +4,8 @@ import { DifficultyLevelParameterRound } from './DifficultyLevelParameter'
 import DifficultyLevelParameters from './DifficultyLevelParameters'
 import Action from './enum/Action'
 import BotFaction from './enum/BotFaction'
-import ResearchTrackSelection from './enum/ResearchTrackSelection'
 import DifficultyLevel from './enum/DifficultyLevel'
+import ResearchTrack from './enum/ResearchTrack'
 
 /**
  * Determines actions and parameterization based on current action and support card.
@@ -19,8 +19,7 @@ export default class BotActions {
   constructor(actionCard : Card, supportCard : Card, round : number,
         botFaction : BotFaction, difficultyLevel : DifficultyLevel) {
     this._dlParams = DifficultyLevelParameters.get(difficultyLevel, round)
-    this._actions = actionCard.actions
-        .flatMap(action => this.toBotActions(action, actionCard, supportCard, round, botFaction))
+    this._actions = this.toBotActions(actionCard.action, actionCard, supportCard, botFaction)
   }
 
   public get actions() : readonly BotAction[] {
@@ -28,8 +27,8 @@ export default class BotActions {
   }
 
   private toBotActions(action : Action, actionCard : Card, supportCard : Card,
-        round : number, botFaction : BotFaction) : BotAction[] {
-    let result
+        botFaction : BotFaction) : BotAction[] {
+    let result : BotAction[]
     
     if (action == Action.FACTION_ACTION) {
       result = this.getFactionBotActions(botFaction)
@@ -38,91 +37,54 @@ export default class BotActions {
       result = [{action: action}]
     }
 
-    // ongoing benefit for powermongers
-    if (botFaction == BotFaction.POWERMONGERS) {
-      const benefitApplyIndex = result.findIndex(botAction => botAction.action == Action.TRANSFORM_AND_BUILD || botAction.action == Action.UPGRADE || botAction.action == Action.TRADE)
-      if (benefitApplyIndex >= 0) {
-        result = [
-          ...result.slice(0, benefitApplyIndex+1),
-          {action: Action.ADVANCE_CULT_TRACK, botFaction: BotFaction.POWERMONGERS, cultTrackSelection: ResearchTrackSelection.CATCH_UP},
-          ...result.slice(benefitApplyIndex+1,result.length)
-        ] 
-      }
-    }
-
-    // apply defaults from support card
+    // apply defaults
     result.forEach(botAction => {
-      botAction.shipLevel = botAction.shipLevel ?? actionCard.shipLevel ?? this._dlParams.shipLevel
-      botAction.tradeMinRound = botAction.tradeMinRound ?? actionCard.tradeMinRound
-      botAction.victoryPointsDifficultyLevel = botAction.victoryPointsDifficultyLevel ?? actionCard.victoryPointsDifficultyLevel
-      botAction.victoryPoints = botAction.victoryPoints ?? actionCard.victoryPoints 
-      if (!botAction.victoryPoints && botAction.victoryPointsDifficultyLevel) {
-        botAction.victoryPoints = this._dlParams.victoryPoints
-        botAction.victoryPointsDifficultyLevel = undefined
+      if (action != Action.FACTION_ACTION) {
+        botAction.victoryPoints = botAction.victoryPoints ?? actionCard.victoryPoints 
       }
-      botAction.structure = botAction.structure ?? supportCard.structure
-      botAction.terrainPriority = botAction.terrainPriority ?? supportCard.terrainPriority
+      botAction.finalScoringTileTieBreaker = botAction.finalScoringTileTieBreaker ?? supportCard.finalScoringTileTieBreaker
+      botAction.range = botAction.range ?? supportCard.range
       botAction.directionalSelection = botAction.directionalSelection ?? supportCard.directionalSelection
       botAction.directionalSelectionCount = botAction.directionalSelectionCount ?? supportCard.directionalSelectionCount
-      botAction.cultTrackSelection = botAction.cultTrackSelection ?? supportCard.cultTrackSelection
     })
 
-    // filter out actions not relevant for current round
-    return result.filter(botAction => (botAction.action != Action.TAKE_FAVOR_TILE || round >= 5)
-        && (botAction.action != Action.TRADE || round >= (botAction.tradeMinRound ?? 0))
-        && (botAction.action != Action.GAIN_VICTORY_POINTS || (botAction.victoryPoints && botAction.victoryPoints > 0)))
+    return result
   }
 
   private getFactionBotActions(botFaction : BotFaction) : BotAction[] {
     switch (botFaction) {
-      case BotFaction.SIMPLETONS:
+      case BotFaction.TERRANS:
         return [
-          {action: Action.TRANSFORM_AND_BUILD},
-          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
+          {action: Action.RESEARCH_TRACK_SPECIFIC, researchTrack: ResearchTrack.GAIA_PROJECT},
+          {action: Action.BUILD_MINE, range: 4, victoryPoints: 2, botFaction: BotFaction.TERRANS}
         ]
-      case BotFaction.KUDDLERS:
+      case BotFaction.XENOS:
         return [
-          {action: Action.TRANSFORM_AND_BUILD, botFaction: BotFaction.KUDDLERS},
-          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
+          {action: Action.BUILD_MINE, range: 2},
+          {action: Action.POWER_QIC_ACTION, victoryPoints: 2}
         ]
-      case BotFaction.DRUIDS:
+      case BotFaction.TAKLONS:
         return [
-          {action: Action.TRANSFORM_AND_BUILD},
-          {action: Action.ADVANCE_CULT_TRACK, botFaction: BotFaction.DRUIDS, cultTrackSelection: ResearchTrackSelection.CATCH_UP}
+          {action: Action.BUILD_MINE, range: 3, botFaction: BotFaction.TAKLONS},
+          {action: Action.POWER_QIC_ACTION, victoryPoints: 2}
         ]
-      case BotFaction.RACELINGS:
+      case BotFaction.HADSCH_HALLAS:
         return [
-          {action: Action.TRANSFORM_AND_BUILD}
+          {action: Action.UPGRADE, range: 3, botFaction: BotFaction.HADSCH_HALLAS},
         ]
-      case BotFaction.WANDERERS:
+      case BotFaction.GEODENS:
         return [
-          {action: Action.TRANSFORM_AND_BUILD, botFaction: BotFaction.WANDERERS},
-          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 1}
+          {action: Action.RESEARCH_TRACK_RANDOM},
+          {action: Action.POWER_QIC_ACTION, victoryPoints: 1}
         ]
-      case BotFaction.MIMICS:
+      case BotFaction.FIRAKS:
         return [
-          {action: Action.TRANSFORM_AND_BUILD, botFaction: BotFaction.MIMICS},
-          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
+          {action: Action.UPGRADE, botFaction: BotFaction.FIRAKS, victoryPoints: 2}
         ]
-      case BotFaction.POWERMONGERS:
+      case BotFaction.ITARS:
         return [
-          {action: Action.TRANSFORM_AND_BUILD, botFaction: BotFaction.POWERMONGERS},
-          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
-        ]
-      case BotFaction.SYMBIONTS:
-        return [
-          {action: Action.TRANSFORM_AND_BUILD, botFaction: BotFaction.SYMBIONTS},
-          {action: Action.FACTION_SYMBIONTS_PLACE_CUBE, botFaction: BotFaction.SYMBIONTS}
-        ]
-      case BotFaction.BLIGHT:
-        return [
-          {action: Action.TRANSFORM_AND_BUILD, botFaction: BotFaction.BLIGHT},
-          {action: Action.FACTION_BLIGHT_TRANSFORM_FALLOW_LAND, botFaction: BotFaction.BLIGHT},
-          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 1}
-        ]
-      case BotFaction.GOGNOMES:
-        return [
-          {action: Action.TRANSFORM_AND_BUILD, botFaction: BotFaction.GOGNOMES}
+          {action: Action.POWER_QIC_ACTION},
+          {action: Action.POWER_QIC_ACTION, victoryPoints: 4}
         ]
       default:
         throw new Error('Invalid bot faction: ' + botFaction)

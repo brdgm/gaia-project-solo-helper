@@ -1,291 +1,216 @@
 import findMandatory from '@brdgm/brdgm-commons/src/util/map/findMandatory'
 import Card from './Card'
 import Action from './enum/Action'
-import BonusCardSelection from './enum/BonusCardSelection'
-import ResearchTrackSelection from './enum/ResearchTrackSelection'
 import DirectionalSelection from './enum/DirectionalSelection'
-import InitialDwelling from './enum/InitialDwelling'
-import Structure from './enum/Structure'
-import TerrainPriority from './enum/TerrainPriority'
+import FinalScoringTileTieBreaker from './enum/FinalScoringTileTieBreaker'
+import RoundBoosterSelection from './enum/RoundBoosterSelection'
+import InitialRoundBoosterSelection from './enum/InitialRoundBoosterSelection'
 
 const cards = [
   {
-    id: '*1',
+    id: 1,
     starter: true,
-    actions: [
-      Action.UPGRADE,
-      Action.TAKE_FAVOR_TILE,
-      Action.GAIN_VICTORY_POINTS
-    ],
-    victoryPointsDifficultyLevel: true,
-    structure: Structure.MARKED,
-    terrainPriority: TerrainPriority.A,
-    directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 2,
-    cultTrackSelection: ResearchTrackSelection.SCORING_TILE,
-    bonusCardSelection: BonusCardSelection.LEFT,
-    initialDwellingMarked: InitialDwelling.A,
-    initialDwellingUnmarked: InitialDwelling.B
-  },
-  {
-    id: '*2',
-    starter: true,
-    merchantsOfTheSeas: false,
-    actions: [
-      Action.BLOCK_POWER_ACTION,
-      Action.GAIN_VICTORY_POINTS
-    ],
-    victoryPointsDifficultyLevel: true,
-    structure: Structure.MARKED,
-    terrainPriority: TerrainPriority.B,
-    directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 1,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.MIDDLE,
-    initialDwellingMarked: InitialDwelling.A,
-    initialDwellingUnmarked: InitialDwelling.B
-  },
-  {
-    id: '*3',
-    starter: true,
-    actions: [
-      Action.ADVANCE_CULT_TRACK
-    ],
-    structure: Structure.UNMARKED_REACHING,
-    terrainPriority: TerrainPriority.B,
-    directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 3,
-    cultTrackSelection: ResearchTrackSelection.SCORING_TILE,
-    bonusCardSelection: BonusCardSelection.RIGHT,
-    initialDwellingMarked: InitialDwelling.D,
-    initialDwellingUnmarked: InitialDwelling.E
-  },
-  {
-    id: '*4',
-    starter: true,
-    merchantsOfTheSeas: false,
-    actions: [
-      Action.TRANSFORM_AND_BUILD,
-      Action.GAIN_VICTORY_POINTS
-    ],
+    pass: true,
+    action: Action.UPGRADE,
     victoryPoints: 1,
-    structure: Structure.UNMARKED,
-    terrainPriority: TerrainPriority.B,
-    directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 3,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.LEFT,
-    initialDwellingMarked: InitialDwelling.D,
-    initialDwellingUnmarked: InitialDwelling.F,
-    pass: true
-  },
-  {
-    id: '*5',
-    starter: true,
-    actions: [
-      Action.FACTION_ACTION
-    ],
-    structure: Structure.MARKED_REACHING,
-    terrainPriority: TerrainPriority.A,
-    directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 2,
-    cultTrackSelection: ResearchTrackSelection.SCORING_TILE,
-    bonusCardSelection: BonusCardSelection.RIGHT,
-    initialDwellingMarked: InitialDwelling.A,
-    initialDwellingUnmarked: InitialDwelling.C
-  },
-  {
-    id: '6',
-    actions: [
-      Action.BLOCK_POWER_ACTION,
-      Action.GAIN_VICTORY_POINTS
-    ],
-    victoryPointsDifficultyLevel: true,
-    structure: Structure.MARKED_REACHING,
-    terrainPriority: TerrainPriority.B,
-    directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 3,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.MIDDLE,
-    initialDwellingMarked: InitialDwelling.A,
-    initialDwellingUnmarked: InitialDwelling.C,
-    pass: true
-  },
-  {
-    id: '7',
-    actions: [
-      Action.FACTION_ACTION
-    ],
-    structure: Structure.UNMARKED_REACHING,
-    terrainPriority: TerrainPriority.B,
-    directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 4,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.LEFT,
-    initialDwellingMarked: InitialDwelling.D,
-    initialDwellingUnmarked: InitialDwelling.F,
-    pass: true
-  },
-  {
-    id: '8',
-    actions: [
-      Action.ADVANCE_CULT_TRACK,
-      Action.GAIN_VICTORY_POINTS
-    ],
-    victoryPoints: 2,
-    structure: Structure.MARKED_REACHING,
-    terrainPriority: TerrainPriority.A,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.TOP,
+    range: 4,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
     directionalSelectionCount: 1,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.RIGHT,
-    initialDwellingMarked: InitialDwelling.D,
-    initialDwellingUnmarked: InitialDwelling.E,
-    pass: true
+    roundBoosterSelection: RoundBoosterSelection.LEFT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
   {
-    id: '9',
-    actions: [
-      Action.ADVANCE_CULT_TRACK,
-      Action.GAIN_VICTORY_POINTS
-    ],
-    victoryPoints: 2,
-    structure: Structure.MARKED_REACHING,
-    terrainPriority: TerrainPriority.A,
-    directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 2,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.LEFT,
-    initialDwellingMarked: InitialDwelling.A,
-    initialDwellingUnmarked: InitialDwelling.B,
-    pass: true
-  },
-  {
-    id: '10',
-    actions: [
-      Action.UPGRADE,
-      Action.GAIN_VICTORY_POINTS
-    ],
+    id: 2,
+    starter: true,
+    pass: true,
+    action: Action.UPGRADE,
     victoryPoints: 1,
-    structure: Structure.UNMARKED_REACHING,
-    terrainPriority: TerrainPriority.B,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.BOTTOM,
+    range: 2,
+    directionalSelection: DirectionalSelection.RIGHT_DOWN,
+    directionalSelectionCount: 2,
+    roundBoosterSelection: RoundBoosterSelection.MIDDLE,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
+  },
+  {
+    id: 3,
+    pass: true,
+    action: Action.RESEARCH_TRACK_HIGHEST,
+    victoryPoints: 1,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.TOP,
+    range: 2,
+    directionalSelection: DirectionalSelection.RIGHT_DOWN,
+    directionalSelectionCount: 3,
+    roundBoosterSelection: RoundBoosterSelection.RIGHT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_3
+  },
+  {
+    id: 4,
+    starter: true,
+    action: Action.BUILD_MINE,
+    victoryPoints: 1,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.NONE,
+    range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
     directionalSelectionCount: 4,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.LEFT,
-    initialDwellingMarked: InitialDwelling.A,
-    initialDwellingUnmarked: InitialDwelling.C,
-    pass: true
+    roundBoosterSelection: RoundBoosterSelection.LEFT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_4
   },
   {
-    id: '11',
-    actions: [
-      Action.UPGRADE,
-      Action.GAIN_VICTORY_POINTS
-    ],
-    victoryPointsDifficultyLevel: true,
-    structure: Structure.UNMARKED_REACHING,
-    terrainPriority: TerrainPriority.A,
+    id: 5,
+    starter: true,
+    pass: true,
+    action: Action.POWER_QIC_ACTION,
+    victoryPoints: 1,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.BOTTOM,
+    range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 2,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.MIDDLE,
-    initialDwellingMarked: InitialDwelling.D,
-    initialDwellingUnmarked: InitialDwelling.E,
-    pass: true
+    directionalSelectionCount: 5,
+    roundBoosterSelection: RoundBoosterSelection.MIDDLE,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_5
   },
   {
-    id: '12',
-    actions: [
-      Action.BLOCK_POWER_ACTION,
-      Action.GAIN_VICTORY_POINTS
-    ],
-    victoryPointsDifficultyLevel: true,
-    structure: Structure.UNMARKED_REACHING,
-    terrainPriority: TerrainPriority.A,
-    directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 3,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.RIGHT,
-    initialDwellingMarked: InitialDwelling.D,
-    initialDwellingUnmarked: InitialDwelling.F,
-    pass: true
-  },
-  {
-    id: '13',
-    actions: [
-      Action.TRANSFORM_AND_BUILD,
-      Action.GAIN_VICTORY_POINTS
-    ],
-    victoryPoints: 2,
-    structure: Structure.MARKED_REACHING,
-    terrainPriority: TerrainPriority.B,
+    id: 6,
+    action: Action.BUILD_MINE,
+    victoryPoints: 3,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.TOP,
+    range: 2,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
     directionalSelectionCount: 1,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.RIGHT,
-    initialDwellingMarked: InitialDwelling.A,
-    initialDwellingUnmarked: InitialDwelling.C,
-    pass: true
+    roundBoosterSelection: RoundBoosterSelection.RIGHT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
   {
-    id: '*2-mots',
+    id: 7,
     starter: true,
-    merchantsOfTheSeas: true,
-    actions: [
-      Action.BLOCK_POWER_ACTION,
-      Action.TRADE
-    ],
-    tradeMinRound: 5,
-    structure: Structure.MARKED,
-    terrainPriority: TerrainPriority.B,
-    directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 1,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.MIDDLE,
-    initialDwellingMarked: InitialDwelling.A,
-    initialDwellingUnmarked: InitialDwelling.B
-  },
-  {
-    id: '*4-mots',
-    starter: true,
-    merchantsOfTheSeas: true,
-    actions: [
-      Action.TRANSFORM_AND_BUILD,
-      Action.GAIN_VICTORY_POINTS
-    ],
-    shipLevel: 2,
-    victoryPoints: 1,
-    structure: Structure.UNMARKED,
-    terrainPriority: TerrainPriority.B,
-    directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 3,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.LEFT,
-    initialDwellingMarked: InitialDwelling.D,
-    initialDwellingUnmarked: InitialDwelling.F,
-    pass: true
-  },
-  {
-    id: 'mots-special',
-    merchantsOfTheSeas: true,
-    actions: [
-      Action.TRADE
-    ],
-    tradeMinRound: 3,
-    structure: Structure.UNMARKED,
-    terrainPriority: TerrainPriority.B,
+    action: Action.RESEARCH_TRACK_RANDOM,
+    victoryPoints: 0,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.TOP,
+    range: 2,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
     directionalSelectionCount: 4,
-    cultTrackSelection: ResearchTrackSelection.CATCH_UP,
-    bonusCardSelection: BonusCardSelection.RIGHT,
-    initialDwellingMarked: InitialDwelling.D,
-    initialDwellingUnmarked: InitialDwelling.E,
-    pass: true
+    roundBoosterSelection: RoundBoosterSelection.RIGHT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
   },
+  {
+    id: 8,
+    pass: true,
+    action: Action.BUILD_MINE,
+    victoryPoints: 3,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.BOTTOM,
+    range: 4,
+    directionalSelection: DirectionalSelection.LEFT_UP,
+    directionalSelectionCount: 1,
+    roundBoosterSelection: RoundBoosterSelection.MIDDLE,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_3
+  },
+  {
+    id: 9,
+    action: Action.FACTION_ACTION,
+    victoryPoints: 0,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.BOTTOM,
+    range: 2,
+    directionalSelection: DirectionalSelection.LEFT_UP,
+    directionalSelectionCount: 2,
+    roundBoosterSelection: RoundBoosterSelection.RIGHT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_4
+  },
+  {
+    id: 10,
+    pass: true,
+    action: Action.UPGRADE,
+    victoryPoints: 3,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.TOP,
+    range: 2,
+    directionalSelection: DirectionalSelection.LEFT_UP,
+    directionalSelectionCount: 3,
+    roundBoosterSelection: RoundBoosterSelection.LEFT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_5
+  },
+  {
+    id: 11,
+    action: Action.UPGRADE,
+    victoryPoints: 2,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.BOTTOM,
+    range: 4,
+    directionalSelection: DirectionalSelection.RIGHT_DOWN,
+    directionalSelectionCount: 1,
+    roundBoosterSelection: RoundBoosterSelection.MIDDLE,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
+  },
+  {
+    id: 12,
+    pass: true,
+    action: Action.POWER_QIC_ACTION,
+    victoryPoints: 3,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.TOP,
+    range: 2,
+    directionalSelection: DirectionalSelection.LEFT_UP,
+    directionalSelectionCount: 1,
+    roundBoosterSelection: RoundBoosterSelection.RIGHT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
+  },
+  {
+    id: 13,
+    starter: true,
+    action: Action.FACTION_ACTION,
+    victoryPoints: 0,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.NONE,
+    range: 2,
+    directionalSelection: DirectionalSelection.LEFT_UP,
+    directionalSelectionCount: 2,
+    roundBoosterSelection: RoundBoosterSelection.RIGHT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_3
+  },
+  {
+    id: 14,
+    action: Action.POWER_QIC_ACTION,
+    victoryPoints: 3,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.BOTTOM,
+    range: 2,
+    directionalSelection: DirectionalSelection.LEFT_UP,
+    directionalSelectionCount: 3,
+    roundBoosterSelection: RoundBoosterSelection.MIDDLE,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_4
+  },
+  {
+    id: 15,
+    action: Action.RESEARCH_TRACK_HIGHEST,
+    victoryPoints: 1,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.TOP,
+    range: 2,
+    directionalSelection: DirectionalSelection.LEFT_UP,
+    directionalSelectionCount: 2,
+    roundBoosterSelection: RoundBoosterSelection.LEFT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_5
+  },
+  {
+    id: 16,
+    pass: true,
+    action: Action.POWER_QIC_ACTION,
+    victoryPoints: 3,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.TOP,
+    range: 2,
+    directionalSelection: DirectionalSelection.RIGHT_DOWN,
+    directionalSelectionCount: 3,
+    roundBoosterSelection: RoundBoosterSelection.LEFT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
+  },
+  {
+    id: 17,
+    action: Action.RESEARCH_TRACK_RANDOM,
+    victoryPoints: 2,
+    finalScoringTileTieBreaker: FinalScoringTileTieBreaker.BOTTOM,
+    range: 2,
+    directionalSelection: DirectionalSelection.RIGHT_DOWN,
+    directionalSelectionCount: 5,
+    roundBoosterSelection: RoundBoosterSelection.LEFT,
+    initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
+  }
 ]
 
-const cardsMap = new Map<string,Card>()
+const cardsMap = new Map<number,Card>()
 cards.forEach(card => cardsMap.set(card.id, card))
 
 export default {
@@ -295,7 +220,7 @@ export default {
    * @param id ID
    * @returns Card
    */
-  get(id: string) : Card {
+  get(id: number) : Card {
     return findMandatory(cardsMap, id)
   },
 
