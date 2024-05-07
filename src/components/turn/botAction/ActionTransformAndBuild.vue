@@ -67,7 +67,6 @@ import { useStateStore } from '@/store/state'
 import FinalScoringTile from '@/services/enum/FinalScoringTile'
 import NavigationState from '@/util/NavigationState'
 import BotFaction from '@/services/enum/BotFaction'
-import Structure from '@/services/enum/Structure'
 
 export default defineComponent({
   name: 'ActionTransformAndBuild',
@@ -117,19 +116,19 @@ export default defineComponent({
       return this.botFaction != undefined
     },
     isKuddlers() : boolean {
-      return this.botFaction == BotFaction.KUDDLERS
+      return false
     },
     isWanderers() : boolean {
-      return this.botFaction == BotFaction.WANDERERS
+      return false
     },
     isMimics() : boolean {
-      return this.botFaction == BotFaction.MIMICS
+      return false
     },
     isPowerMongers() : boolean {
-      return this.botFaction == BotFaction.POWERMONGERS
+      return false
     },
     isMarkedStructure() : boolean {
-      return this.botAction.structure == Structure.MARKED || this.botAction.structure == Structure.MARKED_REACHING
+      return false
     }
   }
 })

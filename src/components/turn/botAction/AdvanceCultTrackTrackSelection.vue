@@ -18,7 +18,6 @@
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import BotAction from '@/services/BotAction'
-import ResearchTrackSelection from '@/services/enum/ResearchTrackSelection'
 import { useStateStore } from '@/store/state'
 
 export default defineComponent({
@@ -37,7 +36,7 @@ export default defineComponent({
   },
   computed: {
     isScoringTileResearchTrackSelection() : boolean {
-      return this.botAction.cultTrackSelection == ResearchTrackSelection.SCORING_TILE
+      return false
     },
     isMultipleHumanPlayers() : boolean {
       return this.state.setup.playerSetup.playerCount > 1
