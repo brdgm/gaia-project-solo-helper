@@ -137,6 +137,6 @@ export default class CardDeck {
 
 function moveCardToDeck(deck1: Card[], deck2: Card[], cardId: number) {
   const cardIndex = deck1.findIndex(card => card.id == cardId)
-  const card = deck1.splice(cardIndex, 1)[0]
-  deck2.unshift(card)
+  const movedCard = deck1.splice(cardIndex, 1)[0]
+  deck2.unshift(movedCard)
 }
