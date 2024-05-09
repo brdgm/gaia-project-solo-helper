@@ -22,7 +22,7 @@
     <li v-html="t('setupGameAutoma.faction.satellites')"></li>
     <li v-for="(faction,index) of botFactions" :key="faction">
       <AppIcon type="faction" :name="faction" class="factionIcon"/>
-      <span v-html="t(`botFaction.${faction}`)"></span>
+      <span class="fw-bold" v-html="t(`botFaction.${faction}`)"></span>
       <ul>
         <li v-if="hasResearchAreaBonus(faction)">
           <span v-html="t('setupGameAutoma.faction.bonus')"></span>
@@ -35,13 +35,15 @@
         <li v-html="t('setupGameAutoma.faction.roundBooster', {index:botFactionRoundBoosterIndex[index]})"></li>
       </ul>
     </li>
+    <li v-if="isNeutralPlayer" v-html="t('setupGameAutoma.faction.neutralPlayer')"></li>
   </ul>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
+import rollDiceMultiDifferentValue from '@brdgm/brdgm-commons/src/util/random/rollDiceMultiDifferentValue'
+import randomEnumMultiDifferentValue from '@brdgm/brdgm-commons/src/util/random/randomEnumMultiDifferentValue'
 import randomEnum from '@brdgm/brdgm-commons/src/util/random/randomEnum'
 import AppIcon from '../structure/AppIcon.vue'
 import BotFaction from '@/services/enum/BotFaction'
@@ -59,7 +61,11 @@ export default defineComponent({
   setup() {
     const { t } = useI18n()
     const state = useStateStore()
-    return { t, state }
+
+    const scoringRoundTiles = ref(randomEnumMultiDifferentValue(ScoringRoundTile, 6))
+    const scoringFinalTiles = ref(randomEnumMultiDifferentValue(ScoringFinalTile, 2))
+
+    return { t, state, scoringRoundTiles, scoringFinalTiles }
   },
   computed: {
     totalPlayerCount() : number {
@@ -72,12 +78,6 @@ export default defineComponent({
       else {
         return '1-2'
       }
-    },
-    scoringRoundTiles() : ScoringRoundTile[] {
-      return Object.values(ScoringRoundTile)
-    },
-    scoringFinalTiles() : ScoringFinalTile[] {
-      return Object.values(ScoringFinalTile)
     },
     roundBoosterCount() : number {
       return this.totalPlayerCount + 3
@@ -92,11 +92,10 @@ export default defineComponent({
       return 10
     },
     botFactionRoundBoosterIndex() : number[] {
-      const result : number[] = []
-      for (let i = 0; i < this.botFactions.length; i++) {
-        result.push(this.rollDiceDifferentValue(this.roundBoosterCount, result))
-      }
-      return result
+      return rollDiceMultiDifferentValue(this.roundBoosterCount, this.botFactions.length)
+    },
+    isNeutralPlayer() : boolean {
+      return this.totalPlayerCount < 3
     }
   },
   methods: {
@@ -111,15 +110,6 @@ export default defineComponent({
         return 3
       }
       return 2
-    },
-    rollDiceDifferentValue(maxValue: number, currentValues: number[]) : number {  
-      const newNumber = rollDice(maxValue)
-      if (!currentValues.includes(newNumber)) {
-        return newNumber
-      }
-      else {
-        return this.rollDiceDifferentValue(maxValue, currentValues)
-      }
     },
     randomDirectionalSelection() : DirectionalSelection {
       return randomEnum(DirectionalSelection)

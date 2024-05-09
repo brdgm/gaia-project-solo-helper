@@ -43,7 +43,8 @@
       "satellites": "Platziere je einen Satellit auf den \"0\"-Positionen auf dem Wertungstableau.",
       "bonus": "Aufbau-Bonus:",
       "initialMinePlacement": "Platziere <b>{count}</b> Startminen auf Heimatplaneten des Automa (am nächsten zum Zentrum).",
-      "roundBooster": "Nimm Rundenbooster <b>#{index}</b>"
+      "roundBooster": "Nimm Rundenbooster <b>#{index}</b>",
+      "neutralPlayer": "<b>Neutraler Spieler</b>: Platziere 2 Satelliten einer nicht verwendeten Spielerfarbe auf der Zählleiste links neben den Schlusswertungsplättchen - entsprechend der Zahl auf diesen Plättchen."
     }
   },
   "income": {

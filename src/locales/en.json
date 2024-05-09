@@ -43,7 +43,8 @@
       "satellites": "Place one satellite on each \"0\" space on the scoring board.",
       "bonus": "Setup Bonus:",
       "initialMinePlacement": "Place <b>{count}</b> mines on planets of the Automa's home type (closest to the center space).",
-      "roundBooster": "Take Round Booster <b>#{index}</b>"
+      "roundBooster": "Take Round Booster <b>#{index}</b>",
+      "neutralPlayer": "<b>Neutral Player</b>: Take two satellites of an unused color and place one on each ranking track next to the final scoring tiles; the number on each final scoring tile determines the satellite's position on that ranking track."
     }
   },
   "income": {
