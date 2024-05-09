@@ -27,10 +27,13 @@
     <div class="col-5 col-md-3">
       <label :for="`botFaction${bot}`" class="form-label">{{t('setup.players.botFaction', {bot:bot}, botCount)}}</label>
     </div>
-    <div class="col-7 col-md-4">
+    <div class="col-7 col-md-4 d-flex">
       <select class="form-select" :id="`botFaction${bot}`" v-model="botFaction[bot-1]">
-        <option v-for="faction of factions" :key="faction" :value="faction">{{t('botFaction.' + faction)}}</option>
+        <option v-for="faction of factions" :key="faction" :value="faction">
+          {{t('botFaction.' + faction)}}
+        </option>
       </select>
+      <AppIcon type="faction" :name="botFaction[bot-1]" class="factionIcon"/>
     </div>
   </div>
 
@@ -41,9 +44,13 @@ import { defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useStateStore } from '@/store/state'
 import BotFaction from '@/services/enum/BotFaction'
+import AppIcon from '../structure/AppIcon.vue'
 
 export default defineComponent({
   name: 'PlayersSetup',
+  components: {
+    AppIcon
+  },
   setup() {
     const { t } = useI18n()
     const state = useStateStore()
@@ -104,3 +111,11 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.factionIcon {
+  width: 2rem;
+  object-fit: contain;
+  margin-left: 0.5rem;
+}
+</style>

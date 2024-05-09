@@ -3,7 +3,7 @@
   "home": {
     "title": "Gaia Project Solo Helper",
     "play1": "Spiele den Automa Solo-Modus von <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>.",
-    "play2": "Diese Applikation ersetzt die Automa-Karten und führt dich durch die Solo-Regeln.",
+    "play2": "Diese Applikation ersetzt die Automa-Karten und führt dich durch die Solo-Regeln. Du kannst gegen bis zu 3 Automas spielen.",
     "feedback": "Discussion and Feedback:"
   },
   "setup": {
@@ -27,32 +27,22 @@
   }, 
   "setupGameAutoma": {
     "title": "Automa Spielaufbau",
-    "generalSetup": "Allgemeiner Aufbau",
-    "generalSetupIntro": "Baue das Spiel wie gewohnt, aber mit diesen Änderungen auf:",
-    "step1": "Verwende die Automa-Wertungsplättchen anstelle der Plättchen des Grundspiels. Lege die Plättchen mit der Seite nach oben ab, deren helle Markierung (links) dem Rundenfeld entspricht. Wie im Grundspiel darf das Plättchen mit dem Spaten nicht auf den Feldern für Runde 5 oder 6 liegen.",
-    "step1-mots": "Verwende stattdessen die <i>Die Händler</i> Automa-Wertungsplättchen.",
-    "step2": "Verdecke den rechten oberen Bereich des Wertungsplättchens für Runde 6 mit der Automa-Spielendemarke.",
-    "step3": "Wähle eine Heimatlandschaft für Automa, die anders ist als deine, und lege die entsprechende Landschaftstyp-Priorisierungskarte in Automas Bereich (LTP). Automas Heimatlandschaft wird auf der Karte oben und unten sowie im ersten Kreis von links angezeigt.",
-    "step4": "Verteile Automas Spielsteine wie folgt:",
-    "step4a": "Lege alle Gebäude ihrer Farbe in ihren Bereich.",
-    "step4b": "Lege 2 Automa-Wohnhäuser zurück in die Schachtel. Sie werden nicht verwendet.",
-    "step4c-mots": "Lege zusätzlich 2 Automa-Handelshäuser zurück in die Schachtel. Sie werden nicht verwendet.",
-    "step4d": "Lege alle Priester ihrer Farbe in ihren Bereich.",
-    "step4e": "Setze 4 ihrer Markierungssteine auf den Kultplan. Aufstieg auf diesen Skalen:",
-    "stepNone": "keine",
-    "step4f": "Wende die weiteren Aufbauregeln der <b>{faction}-Völkerkarte</b> an und mache dich mit den Sonderregeln vertraut.",
-    "step4g": "Setze 1 ihrer Markierungssteine wie üblich auf Feld 20 der Punkteleiste.",
-    "step4h-mots": "Lege alle Handelsmarker in Automas Farbe und ihre Werft in ihren Bereich.",
-    "initialDwelling": "Einsetzen der ersten Wohnhäuser",
-    "initialDwellingIntro": "Automa setzt ihre beiden Wohnhäuser ein, nachdem du dein erstes Wohnhaus eingesetzt hast. Nutze dafür die <b>Spielplankarte</b>, die den gewählten Spielplan zeigt.",
-    "initialDwellingPlayer": "Setze dein erstes Wohnhaus ein.",
-    "initialDwellingMarked": "Setze ein Automa-Wohnhaus auf ein Heimatlandschafts-Feld mit dem Buchstaben <b>{character}</b>, zusammen mit einem Machtchip.",
-    "initialDwellingUnmarked": "Setze ein Automa-Wohnhaus auf ein Heimatlandschafts-Feld mit dem Buchstaben <b>{character}</b>.",
-    "initialDwellingPlayerSecond": "Setze dein zweites Wohnhaus ein.",
-    "initialDwellingDockMarker": "Setze deinen Hafenmarker auf das Feld eines Wohngebäudes, welches an ein Flussfeld angrenzt.",
-    "bonusCards": "Rundenbonuskarten",
-    "bonusCardsTake": "Mische die {count} Rundenbonuskarten und lege sie aufgedeckt nebeneinander in einer Reihe aus. Automa erhält die Karte ganz links. Wähle dann regulär eine Karte für dich.",
-    "bonusCardsCoins": "Legt auf die Rundenbonuskarten, die übrig geblieben sind, je eine Geldmünze aus dem allgemeinen Materialvorrat."
+    "generalSetup": {
+      "title": "Allgemeiner Aufbau",
+      "intro": "Baue das Spiel wie gewohnt, aber mit diesen Änderungen auf:",
+      "gameBoard": "Bereite das Spielfeld für {playerCount} Spieler vor. Lege die Raumteile so aus, dass die einzelnen Sechsecke horizontale Linien bilden.",
+      "federationTokens": "Allianzmarken: Nimm 2 von jeder Allianzmarke und lege die überzähligen Marken wieder in die Schachtel zurück. Wie im Basisspiel, lege eine zufällige Allianzmarke auf das Forschungstableau."
+    },
+    "faction": {
+      "title": "Automa Völker-Aufbau",
+      "structures": "Der Automa erhält alle seine Gebäude.",
+      "playerTokens": "Platziere die Markierungssteine auf der Siegpunktleiste und dem Forschungstableau.",
+      "startVP": "Automa beginnt das Spiel mit <b>{count} SP</b>.",
+      "satellites": "Platziere je einen Satellit auf den \"0\"-Positionen auf dem Wertungstableau.",
+      "bonus": "Aufbau-Bonus:",
+      "initialMinePlacement": "Platziere <b>{count}</b> Startminen auf Heimatplaneten des Automa (am nächsten zum Zentrum).",
+      "roundBooster": "Nimm Rundenbooster <b>#{index}</b>"
+    }
   },
   "income": {
     "title": "Einkommen",

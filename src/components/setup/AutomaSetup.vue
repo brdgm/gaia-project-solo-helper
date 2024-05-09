@@ -1,74 +1,45 @@
 <template>
-  <h4>{{t('setupGameAutoma.generalSetup')}}</h4>
-  <p v-html="t('setupGameAutoma.generalSetupIntro')"></p>
+  <h4>{{t('setupGameAutoma.generalSetup.title')}}</h4>
+  <p v-html="t('setupGameAutoma.generalSetup.intro')"></p>
+  <AppIcon name="directional-selection" class="directional-selection"/>
   <ol>
-    <li>
-      <AppIcon name="directional-selection" class="directional-selection"/>
-      <span v-html="t('setupGameAutoma.step1')"></span>
-    </li>
-    <li>
-      <span v-html="t('setupGameAutoma.step2')"></span>
-    </li>
-    <li v-html="t('setupGameAutoma.step3')"></li>
-    <li>
-      <span v-html="t('setupGameAutoma.step4')"></span>
-      <ol type="a">
-        <li v-html="t('setupGameAutoma.step4a')"></li>
-        <li v-html="t('setupGameAutoma.step4b')"></li>
-        <li v-html="t('setupGameAutoma.step4d')"></li>
-        <li>
-          <span v-html="t('setupGameAutoma.step4e')"></span>
-          <ul>
-            <li v-for="faction in factions" :key="faction">
-              <b>{{t(`botFaction.${faction}`)}}</b>:
-              <span v-for="(bonus,index) in getResearchAreaBonus(faction)" :key="index">
-                <template v-if="index > 0">, </template>
-                <AppIcon type="research-area" :name="bonus.researchArea" class="researchAreaIcon"/>
-                {{bonus.advanceSteps}}
-              </span>
-              <span v-if="getResearchAreaBonus(faction).length == 0" v-html="t('setupGameAutoma.stepNone')"></span>
-            </li>
-          </ul>
-        </li>
-        <li v-if="isFactionSymbionts" v-html="t('setupGameAutoma.step4f',{faction:t('botFaction.symbionts')})"></li>
-        <li v-if="isFactionBlight" v-html="t('setupGameAutoma.step4f',{faction:t('botFaction.blight')})"></li>
-        <li v-if="isFactionGognomes" v-html="t('setupGameAutoma.step4f',{faction:t('botFaction.gognomes')})"></li>
-        <li v-html="t('setupGameAutoma.step4g')"></li>
-      </ol>
-    </li>
+    <li v-html="t('setupGameAutoma.generalSetup.gameBoard', {playerCount:gameBoardPlayerCount})"></li>
+    <li v-html="t('setupGameAutoma.generalSetup.federationTokens')"></li>
   </ol>
-
-  <h4>{{t('setupGameAutoma.initialDwelling')}}</h4>
-  <p v-html="t('setupGameAutoma.initialDwellingIntro')"></p>
-  <ol>
-    <li v-html="t('setupGameAutoma.initialDwellingPlayer')"></li>
-    <li>
-      <AppIcon type="structure" name="marked" class="structureIcon"/>&nbsp;<span v-html="t('setupGameAutoma.initialDwellingMarked', {character:randomCard.initialDwellingMarked})"></span>
-    </li>
-    <li>
-      <AppIcon type="structure" name="unmarked" class="structureIcon"/>&nbsp;<span v-html="t('setupGameAutoma.initialDwellingUnmarked', {character:randomCard.initialDwellingUnmarked})"></span>
-    </li>
-    <li v-html="t('setupGameAutoma.initialDwellingPlayerSecond')"></li>
-  </ol>
-
-  <h4>{{t('setupGameAutoma.bonusCards')}}</h4>
+  <h4>{{t('setupGameAutoma.faction.title')}}</h4>
   <ul>
-    <li v-html="t('setupGameAutoma.bonusCardsTake',{count:bonusCardCount})"></li>
-    <li v-html="t('setupGameAutoma.bonusCardsCoins')"></li>
+    <li v-html="t('setupGameAutoma.faction.structures')"></li>
+    <li v-html="t('setupGameAutoma.faction.playerTokens')"></li>
+    <li v-html="t('setupGameAutoma.faction.startVP', {count:botStartVP})"></li>
+    <li v-html="t('setupGameAutoma.faction.satellites')"></li>
+    <li v-for="(faction,index) of botFactions" :key="faction">
+      <AppIcon type="faction" :name="faction" class="factionIcon"/>
+      <span v-html="t(`botFaction.${faction}`)"></span>
+      <ul>
+        <li v-if="hasResearchAreaBonus(faction)">
+          <span v-html="t('setupGameAutoma.faction.bonus')"></span>
+          <AppIcon type="faction-setup-bonus" :name="faction" class="bonusIcon"/>
+        </li>
+        <li>
+          <span v-html="t('setupGameAutoma.faction.initialMinePlacement', {count:mineCount(faction)})"></span>
+          <AppIcon type="directional-selection" :name="randomDirectionalSelection()" class="directionalSelectionIcon"/>
+        </li>
+        <li v-html="t('setupGameAutoma.faction.roundBooster', {index:botFactionRoundBoosterIndex[index]})"></li>
+      </ul>
+    </li>
   </ul>
 </template>
 
 <script lang="ts">
-import Card from '@/services/Card'
-import Cards from '@/services/Cards'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
+import randomEnum from '@brdgm/brdgm-commons/src/util/random/randomEnum'
 import AppIcon from '../structure/AppIcon.vue'
 import BotFaction from '@/services/enum/BotFaction'
-import { ResearchAreaBonusSteps } from '@/services/ResearchAreaBonus'
-import ResearchAreaBonuses from '@/services/ResearchAreaBonuses'
 import { useStateStore } from '@/store/state'
+import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import DirectionalSelection from '@/services/enum/DirectionalSelection'
 
 export default defineComponent({
   name: 'AutomaSetup',
@@ -81,30 +52,61 @@ export default defineComponent({
     return { t, state }
   },
   computed: {
-    bonusCardCount() : number {
-      return this.state.setup.playerSetup.botCount + this.state.setup.playerSetup.playerCount + 3
+    totalPlayerCount() : number {
+      return this.state.setup.playerSetup.botCount + this.state.setup.playerSetup.playerCount
     },
-    randomCard(): Card {
-      const allCards = Cards.getAll()
-      const index = rollDice(allCards.length)
-      return allCards[index - 1]
-    },    
-    isFactionSymbionts() : boolean {
-      return false
+    gameBoardPlayerCount(): string {
+      if (this.totalPlayerCount > 2) {
+        return '3-4'
+      }
+      else {
+        return '1-2'
+      }
     },
-    isFactionBlight() : boolean {
-      return false
+    roundBoosterCount() : number {
+      return this.totalPlayerCount + 3
     },
-    isFactionGognomes() : boolean {
-      return false
+    botFactions() : BotFaction[] {
+      return this.state.setup.playerSetup.botFaction.toReversed()
     },
-    factions() : BotFaction[] {
-      return this.state.setup.playerSetup.botFaction
+    botStartVP() : number {
+      if (this.state.setup.difficultyLevel == DifficultyLevel.AUTOMALEIN) {
+        return 0
+      }
+      return 10
+    },
+    botFactionRoundBoosterIndex() : number[] {
+      const result : number[] = []
+      for (let i = 0; i < this.botFactions.length; i++) {
+        result.push(this.rollDiceDifferentValue(this.roundBoosterCount, result))
+      }
+      return result
     }
   },
   methods: {
-    getResearchAreaBonus(botFaction : BotFaction) : ResearchAreaBonusSteps[] {
-      return ResearchAreaBonuses.get(botFaction)
+    hasResearchAreaBonus(faction: BotFaction) : boolean {
+      return faction == BotFaction.TERRANS
+          || faction == BotFaction.GEODENS
+          || faction == BotFaction.HADSCH_HALLAS
+          || faction == BotFaction.XENOS
+    },
+    mineCount(faction: BotFaction) : number {
+      if (faction == BotFaction.XENOS) {
+        return 3
+      }
+      return 2
+    },
+    rollDiceDifferentValue(maxValue: number, currentValues: number[]) : number {  
+      const newNumber = rollDice(maxValue)
+      if (!currentValues.includes(newNumber)) {
+        return newNumber
+      }
+      else {
+        return this.rollDiceDifferentValue(maxValue, currentValues)
+      }
+    },
+    randomDirectionalSelection() : DirectionalSelection {
+      return randomEnum(DirectionalSelection)
     }
   }
 })
@@ -113,18 +115,22 @@ export default defineComponent({
 <style lang="scss" scoped>
 li {
   margin-top: 0.5rem;
-  clear: both;
   li {
     margin-top: 0rem;
   }
-}
-.structureIcon, .researchAreaIcon {
-  height: 1.5rem;
 }
 .directional-selection {
   float: right;
   width: 12rem;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+.factionIcon {
+  height: 1.5rem;
+  margin-right: 0.25rem;
+}
+.bonusIcon, .directionalSelectionIcon {
+  height: 1.5rem;
+  margin-left: 0.25rem;
 }
 </style>

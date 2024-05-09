@@ -3,7 +3,7 @@
   "home": {
     "title": "Gaia Project Solo Helper",
     "play1": "Play the Automa Solo Mode of <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>.",
-    "play2": "This helper application replaces the Automa cards and guides you through the solo rules.",
+    "play2": "This helper application replaces the Automa cards and guides you through the solo rules. You can play against up to 3 Automas.",
     "feedback": "Discussion and Feedback:"
   },
   "setup": {
@@ -27,32 +27,22 @@
   }, 
   "setupGameAutoma": {
     "title": "Automa Setup",
-    "generalSetup": "General Setup",
-    "generalSetupIntro": "Set up the game as normal with the following changes:",
-    "step1": "Use the double-sided Automa Scoring tiles instead of those from the game. Place the side face-up that shows the relevant round. As in the base game, the Scoring tile with the Spade on its left side cannot be placed in Round 5 or 6.",
-    "step1-mots": "Use the double-sided <i>Merchants of the Seas</i> Automa Scoring tiles, instead.",
-    "step2": "Place the new Game end token as usual but only cover the top right quarter of the Round 6 Scoring tile.",
-    "step3": "Choose a Home Terrain type (color) that is different from yours and give Automa the matching Automa Terrain priority (ATP) card. The ATP’s Terrain type is indicated by the top and bottom bars and the leftmost circles.",
-    "step4": "For Automa skip the normal faction setup procedure and instead:",
-    "step4a": "Give her all Structures of her color.",
-    "step4b": "Return 2 Automa Dwellings to the box. They will not be used.",
-    "step4c-mots": "Return 2 Automa Trading houses to the box. They will not be used.",
-    "step4d": "Give her all Priests of her color.",
-    "step4e": "Place her Markers on the Cult track. Advance on these tracks:",
-    "stepNone": "none",
-    "step4f": "Follow the additional setup instructions on the <b>{faction} Automa Faction card</b> and familiarize yourself with the special rules.",
-    "step4g": "Place a Marker of Automa’s color on space 20 of the Victory point track (as normal).",
-    "step4h-mots": "Give her all Trade markers and the Shipyard in her color.",
-    "initialDwelling": "Initial Dwelling Placement",
-    "initialDwellingIntro": "Automa places her initial Dwellings after you place your first Dwelling. Select the Automa <b>Initial Dwelling map card</b> for the map you are using and refer to it as you:",
-    "initialDwellingPlayer": "Place your first Dwelling.",
-    "initialDwellingMarked": "Place an Automa Dwelling on a Home Terrain space with letter <b>{character}</b>, together with a power token.",
-    "initialDwellingUnmarked": "Place an Automa Dwelling on a Home Terrain space with letter <b>{character}</b>.",
-    "initialDwellingPlayerSecond": "Place your second Dwelling.",
-    "initialDwellingDockMarker": "Place you Dock Maker on a riverside dwelling.",
-    "bonusCards": "Bonus Cards",
-    "bonusCardsTake": "Shuffle the {count} Bonus cards and place them face-up in a horizontal line. Give Automa the first one. Choose your own Bonus card.",
-    "bonusCardsCoins": "Place 1 Coin from the general supply on each of the leftover Bonus cards."
+    "generalSetup": {
+      "title": "General Setup",
+      "intro": "Set up the game as normal with the following changes:",
+      "gameBoard": "Setup the game board for {playerCount} players. Rotate the whole board so that the spaces of the board form horizontal rows.",
+      "federationTokens": "Federation Tokens: Return one of each federation token to the box. Randomly place the token on the research board and place the remaining tokens as normal."
+    },
+    "faction": {
+      "title": "Automa Faction Setup",
+      "structures": "Prepare the Automa supply with all it's structures.",
+      "playerTokens": "Place player tokens on the VP track and on the research areas.",
+      "startVP": "Automa starts the game with <b>{count} VP</b>.",
+      "satellites": "Place one satellite on each \"0\" space on the scoring board.",
+      "bonus": "Setup Bonus:",
+      "initialMinePlacement": "Place <b>{count}</b> mines on planets of the Automa's home type (closest to the center space).",
+      "roundBooster": "Take Round Booster <b>#{index}</b>"
+    }
   },
   "income": {
     "title": "Income",
