@@ -9,7 +9,7 @@ import { defineComponent } from 'vue'
 import AppIcon from '@/components/structure/AppIcon.vue'
 
 export default defineComponent({
-  name: 'ResearchTrackSelection',
+  name: 'ResearchAreaSelection',
   components: {
     AppIcon
   },

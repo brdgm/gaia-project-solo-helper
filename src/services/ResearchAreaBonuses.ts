@@ -1,19 +1,19 @@
 import findMandatoryMap from '@brdgm/brdgm-commons/src/util/map/findMandatory'
-import researchTrackBonus, { ResearchTrackBonusSteps } from './ResearchTrackBonus'
+import researchAreaBonus, { ResearchAreaBonusSteps } from './ResearchAreaBonus'
 import BotFaction from './enum/BotFaction'
-import researchTrack from './enum/ResearchTrack'
+import researchArea from './enum/ResearchArea'
 
 const items = [
   {
     botFaction: BotFaction.TERRANS,
     steps: [
-      { researchTrack: researchTrack.GAIA_PROJECT, advanceSteps: 1 }
+      { researchArea: researchArea.GAIA_PROJECT, advanceSteps: 1 }
     ]
   },
   {
     botFaction: BotFaction.XENOS,
     steps: [
-      { researchTrack: researchTrack.ARTIFICIAL_INTELLIGENCE, advanceSteps: 1 }
+      { researchArea: researchArea.ARTIFICIAL_INTELLIGENCE, advanceSteps: 1 }
     ]
   },
   {
@@ -23,13 +23,13 @@ const items = [
   {
     botFaction: BotFaction.HADSCH_HALLAS,
     steps: [
-      { researchTrack: researchTrack.ECONOMY, advanceSteps: 1 }
+      { researchArea: researchArea.ECONOMY, advanceSteps: 1 }
     ]
   },
   {
     botFaction: BotFaction.GEODENS,
     steps: [
-      { researchTrack: researchTrack.TERRAFORMING, advanceSteps: 1 }
+      { researchArea: researchArea.TERRAFORMING, advanceSteps: 1 }
     ]
   },
   {
@@ -42,7 +42,7 @@ const items = [
   }
 ]
 
-const itemsMap = new Map<BotFaction,researchTrackBonus>()
+const itemsMap = new Map<BotFaction,researchAreaBonus>()
 items.forEach(item => itemsMap.set(item.botFaction, item))
 
 export default {
@@ -52,7 +52,7 @@ export default {
    * @param botFaction Bot faction
    * @returns Research track bonus
    */
-  get(botFaction: BotFaction) : ResearchTrackBonusSteps[] {
+  get(botFaction: BotFaction) : ResearchAreaBonusSteps[] {
     const item = findMandatoryMap(itemsMap, botFaction)
     return item.steps
   }

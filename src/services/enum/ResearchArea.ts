@@ -1,7 +1,7 @@
 /**
- * Research track
+ * Research area
  */
-enum ResearchTrack {
+enum ResearchArea {
   TERRAFORMING = 'terraforming',
   NAVIGATION = 'navigation',
   ARTIFICIAL_INTELLIGENCE = 'artificial-intelligence',
@@ -10,4 +10,4 @@ enum ResearchTrack {
   SCIENCE = 'science'
 
 }
-export default ResearchTrack
+export default ResearchArea

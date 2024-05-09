@@ -3,7 +3,7 @@
     <StructureSelection v-if="structure" :type="botAction.structure!"/>
     <TerrainPriority v-if="terrainPriority" :type="botAction.terrainPriority!"/>
     <DirectionalSelection v-if="directionalSelection" :type="botAction.directionalSelection!" :count="botAction.directionalSelectionCount!"/>
-    <ResearchTrackSelection v-if="cultTrackSelection" :type="botAction.cultTrackSelection!"/>
+    <ResearchAreaSelection v-if="cultTrackSelection" :type="botAction.cultTrackSelection!"/>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import BotAction from '@/services/BotAction'
 import StructureSelection from '@/components/turn/supportInfo/StructureSelection.vue'
 import DirectionalSelection from '@/components/turn/supportInfo/DirectionalSelection.vue'
 import TerrainPriority from '@/components/turn/supportInfo/TerrainPriority.vue'
-import ResearchTrackSelection from '@/components/turn/supportInfo/CultTrackSelection.vue'
+import ResearchAreaSelection from '@/components/turn/supportInfo/CultTrackSelection.vue'
 
 export default defineComponent({
   name: 'SupportInfo',
@@ -21,7 +21,7 @@ export default defineComponent({
     StructureSelection,
     DirectionalSelection,
     TerrainPriority,
-    ResearchTrackSelection
+    ResearchAreaSelection
   },
   props: {
     botAction: {

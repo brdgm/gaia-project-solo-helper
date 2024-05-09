@@ -1,5 +1,5 @@
 <template>
-  <template v-if="isScoringTileResearchTrackSelection">
+  <template v-if="isScoringTileResearchAreaSelection">
     <li v-html="t('botAction.advanceCultTrack.scoringTile.title')"></li>
     <li v-html="t('botAction.advanceCultTrack.catchUp.otherwiseTitle')"></li>
   </template>
@@ -35,7 +35,7 @@ export default defineComponent({
     }
   },
   computed: {
-    isScoringTileResearchTrackSelection() : boolean {
+    isScoringTileResearchAreaSelection() : boolean {
       return false
     },
     isMultipleHumanPlayers() : boolean {

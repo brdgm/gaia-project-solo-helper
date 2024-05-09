@@ -5,7 +5,7 @@ import DifficultyLevelParameters from './DifficultyLevelParameters'
 import Action from './enum/Action'
 import BotFaction from './enum/BotFaction'
 import DifficultyLevel from './enum/DifficultyLevel'
-import ResearchTrack from './enum/ResearchTrack'
+import ResearchArea from './enum/ResearchArea'
 
 /**
  * Determines actions and parameterization based on current action and support card.
@@ -55,7 +55,7 @@ export default class BotActions {
     switch (botFaction) {
       case BotFaction.TERRANS:
         return [
-          {action: Action.RESEARCH_TRACK_SPECIFIC, researchTrack: ResearchTrack.GAIA_PROJECT},
+          {action: Action.RESEARCH_TRACK_SPECIFIC, researchArea: ResearchArea.GAIA_PROJECT},
           {action: Action.BUILD_MINE, range: 4, victoryPoints: 2, botFaction: BotFaction.TERRANS}
         ]
       case BotFaction.XENOS:

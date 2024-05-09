@@ -21,12 +21,12 @@
           <ul>
             <li v-for="faction in factions" :key="faction">
               <b>{{t(`botFaction.${faction}`)}}</b>:
-              <span v-for="(bonus,index) in getResearchTrackBonus(faction)" :key="index">
+              <span v-for="(bonus,index) in getResearchAreaBonus(faction)" :key="index">
                 <template v-if="index > 0">, </template>
-                <AppIcon type="research-track" :name="bonus.researchTrack" class="researchTrackIcon"/>
+                <AppIcon type="research-area" :name="bonus.researchArea" class="researchAreaIcon"/>
                 {{bonus.advanceSteps}}
               </span>
-              <span v-if="getResearchTrackBonus(faction).length == 0" v-html="t('setupGameAutoma.stepNone')"></span>
+              <span v-if="getResearchAreaBonus(faction).length == 0" v-html="t('setupGameAutoma.stepNone')"></span>
             </li>
           </ul>
         </li>
@@ -66,8 +66,8 @@ import { useI18n } from 'vue-i18n'
 import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 import AppIcon from '../structure/AppIcon.vue'
 import BotFaction from '@/services/enum/BotFaction'
-import { ResearchTrackBonusSteps } from '@/services/ResearchTrackBonus'
-import ResearchTrackBonuses from '@/services/ResearchTrackBonuses'
+import { ResearchAreaBonusSteps } from '@/services/ResearchAreaBonus'
+import ResearchAreaBonuses from '@/services/ResearchAreaBonuses'
 import { useStateStore } from '@/store/state'
 
 export default defineComponent({
@@ -103,8 +103,8 @@ export default defineComponent({
     }
   },
   methods: {
-    getResearchTrackBonus(botFaction : BotFaction) : ResearchTrackBonusSteps[] {
-      return ResearchTrackBonuses.get(botFaction)
+    getResearchAreaBonus(botFaction : BotFaction) : ResearchAreaBonusSteps[] {
+      return ResearchAreaBonuses.get(botFaction)
     }
   }
 })
@@ -118,7 +118,7 @@ li {
     margin-top: 0rem;
   }
 }
-.structureIcon, .researchTrackIcon {
+.structureIcon, .researchAreaIcon {
   height: 1.5rem;
 }
 .directional-selection {

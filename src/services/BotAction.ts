@@ -2,7 +2,7 @@ import Action from './enum/Action'
 import BotFaction from './enum/BotFaction'
 import DirectionalSelection from './enum/DirectionalSelection'
 import FinalScoringTileTieBreaker from './enum/FinalScoringTileTieBreaker'
-import ResearchTrack from './enum/ResearchTrack'
+import ResearchArea from './enum/ResearchArea'
 import RoundBoosterSelection from './enum/RoundBoosterSelection'
 
 /**
@@ -16,6 +16,6 @@ export default interface BotAction {
   directionalSelection?: DirectionalSelection
   directionalSelectionCount?: number
   roundBoosterSelection?: RoundBoosterSelection
-  researchTrack?: ResearchTrack
+  researchArea?: ResearchArea
   botFaction?: BotFaction
 }

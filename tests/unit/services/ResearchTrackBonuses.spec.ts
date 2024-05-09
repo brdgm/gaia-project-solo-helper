@@ -1,14 +1,14 @@
-import ResearchTrackBonuses from '@/services/ResearchTrackBonuses'
+import ResearchAreaBonuses from '@/services/ResearchAreaBonuses'
 import BotFaction from '@/services/enum/BotFaction'
-import ResearchTrack from '@/services/enum/ResearchTrack'
+import ResearchArea from '@/services/enum/ResearchArea'
 import { expect } from 'chai'
 
-describe('ResearchTrackBonuses', () => {
+describe('ResearchAreaBonuses', () => {
   it('get', () => {
-    const steps = ResearchTrackBonuses.get(BotFaction.TERRANS)
+    const steps = ResearchAreaBonuses.get(BotFaction.TERRANS)
 
     expect(steps.length).to.eq(1)
-    expect(steps[0].researchTrack).to.eq(ResearchTrack.GAIA_PROJECT)
+    expect(steps[0].researchArea).to.eq(ResearchArea.GAIA_PROJECT)
     expect(steps[0].advanceSteps).to.eq(1)
   })
 })

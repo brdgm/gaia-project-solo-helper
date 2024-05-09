@@ -5,7 +5,7 @@ import BotFaction from '@/services/enum/BotFaction'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import DirectionalSelection from '@/services/enum/DirectionalSelection'
 import FinalScoringTileTieBreaker from '@/services/enum/FinalScoringTileTieBreaker'
-import ResearchTrack from '@/services/enum/ResearchTrack'
+import ResearchArea from '@/services/enum/ResearchArea'
 import { expect } from 'chai'
 
 describe('BotActions', () => {
@@ -30,7 +30,7 @@ describe('BotActions', () => {
 
     const action1 = botActions.actions[0]
     expect(action1.action).to.eq(Action.RESEARCH_TRACK_SPECIFIC)
-    expect(action1.researchTrack == ResearchTrack.GAIA_PROJECT)
+    expect(action1.researchArea == ResearchArea.GAIA_PROJECT)
     expect(action1.victoryPoints).to.undefined
     expect(action1.finalScoringTileTieBreaker).to.eq(FinalScoringTileTieBreaker.BOTTOM)
     expect(action1.range).to.eq(2)
