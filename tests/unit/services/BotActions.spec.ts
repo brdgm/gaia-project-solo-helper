@@ -4,8 +4,8 @@ import Action from '@/services/enum/Action'
 import BotFaction from '@/services/enum/BotFaction'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import DirectionalSelection from '@/services/enum/DirectionalSelection'
-import FinalScoringTileTieBreaker from '@/services/enum/FinalScoringTileTieBreaker'
 import ResearchArea from '@/services/enum/ResearchArea'
+import ScoringFinalTiebreaker from '@/services/enum/ScoringFinalTieBreaker'
 import { expect } from 'chai'
 
 describe('BotActions', () => {
@@ -17,7 +17,7 @@ describe('BotActions', () => {
     const action1 = botActions.actions[0]
     expect(action1.action).to.eq(Action.UPGRADE)
     expect(action1.victoryPoints).to.eq(1)
-    expect(action1.finalScoringTileTieBreaker).to.eq(FinalScoringTileTieBreaker.TOP)
+    expect(action1.scoringFinalTiebreaker).to.eq(ScoringFinalTiebreaker.TOP)
     expect(action1.range).to.eq(2)
     expect(action1.directionalSelection).to.eq(DirectionalSelection.RIGHT_DOWN)
     expect(action1.directionalSelectionCount).to.eq(1)
@@ -32,7 +32,7 @@ describe('BotActions', () => {
     expect(action1.action).to.eq(Action.RESEARCH_TRACK_SPECIFIC)
     expect(action1.researchArea == ResearchArea.GAIA_PROJECT)
     expect(action1.victoryPoints).to.undefined
-    expect(action1.finalScoringTileTieBreaker).to.eq(FinalScoringTileTieBreaker.BOTTOM)
+    expect(action1.scoringFinalTiebreaker).to.eq(ScoringFinalTiebreaker.BOTTOM)
     expect(action1.range).to.eq(2)
     expect(action1.directionalSelection).to.eq(DirectionalSelection.RIGHT_DOWN)
     expect(action1.directionalSelectionCount).to.eq(2)
@@ -42,7 +42,7 @@ describe('BotActions', () => {
     expect(action2.action).to.eq(Action.BUILD_MINE)
     expect(action2.range).to.eq(4)
     expect(action2.victoryPoints).to.eq(2)
-    expect(action1.finalScoringTileTieBreaker).to.eq(FinalScoringTileTieBreaker.BOTTOM)
+    expect(action1.scoringFinalTiebreaker).to.eq(ScoringFinalTiebreaker.BOTTOM)
     expect(action1.range).to.eq(2)
     expect(action1.directionalSelection).to.eq(DirectionalSelection.RIGHT_DOWN)
     expect(action1.directionalSelectionCount).to.eq(2)

@@ -64,7 +64,6 @@ import Upgrade from './ActionUpgrade.vue'
 import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
 import Action from '@/services/enum/Action'
 import { useStateStore } from '@/store/state'
-import FinalScoringTile from '@/services/enum/FinalScoringTile'
 import NavigationState from '@/util/NavigationState'
 import BotFaction from '@/services/enum/BotFaction'
 
@@ -106,8 +105,7 @@ export default defineComponent({
       }
     },
     useSpaceFurthestAway() : boolean {
-      const finalScoringTile = this.state.setup.finalScoringTile
-      return finalScoringTile == FinalScoringTile.GREATEST_DISTANCE || finalScoringTile == FinalScoringTile.STRONGHOLD_SANCTUARY
+      return false
     },
     botFaction() : BotFaction|undefined {
       return this.botAction.botFaction

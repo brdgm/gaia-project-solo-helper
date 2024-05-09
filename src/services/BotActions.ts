@@ -42,7 +42,7 @@ export default class BotActions {
       if (action != Action.FACTION_ACTION) {
         botAction.victoryPoints = botAction.victoryPoints ?? actionCard.victoryPoints 
       }
-      botAction.finalScoringTileTieBreaker = botAction.finalScoringTileTieBreaker ?? supportCard.finalScoringTileTieBreaker
+      botAction.scoringFinalTiebreaker = botAction.scoringFinalTiebreaker ?? supportCard.scoringFinalTiebreaker
       botAction.range = botAction.range ?? supportCard.range
       botAction.directionalSelection = botAction.directionalSelection ?? supportCard.directionalSelection
       botAction.directionalSelectionCount = botAction.directionalSelectionCount ?? supportCard.directionalSelectionCount

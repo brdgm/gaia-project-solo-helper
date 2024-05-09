@@ -1,9 +1,9 @@
 /**
  * Final scoring tile tie breaker
  */
-enum FinalScoringTileTieBreaker {
+enum ScoringFinalTiebreaker {
   TOP = 'top',
   BOTTOM = 'bottom',
   NONE = 'none'
 }
-export default FinalScoringTileTieBreaker
+export default ScoringFinalTiebreaker

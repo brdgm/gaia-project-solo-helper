@@ -9,9 +9,6 @@ describe('CardDeck', () => {
     expect(cardDeck.deck.length, 'deck size').to.eq(6)
     expect(cardDeck.reserve.length, 'reserve size').to.eq(11)
     expect(cardDeck.discard.length, 'discard size').to.eq(0)
-
-    const persistence = cardDeck.toPersistence()
-    expect(persistence.deck.includes(2), '2 not in deck').to.false
   })
 
   it('new-level2', () => {

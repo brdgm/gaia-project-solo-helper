@@ -1,15 +1,15 @@
 import Action from './enum/Action'
-import FinalScoringTileTieBreaker from './enum/FinalScoringTileTieBreaker'
 import DirectionalSelection from './enum/DirectionalSelection'
 import InitialRoundBoosterSelection from './enum/InitialRoundBoosterSelection'
 import RoundBoosterSelection from './enum/RoundBoosterSelection'
+import ScoringFinalTiebreaker from './enum/ScoringFinalTiebreaker'
 
 export default interface Card {
   id: number
   starter?: boolean
   action: Action
   victoryPoints: number
-  finalScoringTileTieBreaker: FinalScoringTileTieBreaker
+  scoringFinalTiebreaker: ScoringFinalTiebreaker
   range: number
   directionalSelection: DirectionalSelection
   directionalSelectionCount: number

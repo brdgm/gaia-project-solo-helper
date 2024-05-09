@@ -21,7 +21,6 @@
 
 <script lang="ts">
 import DifficultyLevelParameters from '@/services/DifficultyLevelParameters'
-import FinalScoringTile from '@/services/enum/FinalScoringTile'
 import { useStateStore } from '@/store/state'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -47,10 +46,10 @@ export default defineComponent({
   },
   computed: {
     isStrongholdSancturaryScoring() : boolean {
-      return this.state.setup.finalScoringTile == FinalScoringTile.STRONGHOLD_SANCTUARY
+      return false
     },
     isOutpostsScoring() : boolean {
-      return this.state.setup.finalScoringTile == FinalScoringTile.OUTPOSTS
+      return false
     },
     shipLevel() : number {
       const params = DifficultyLevelParameters.get(this.state.setup.difficultyLevel, this.round)

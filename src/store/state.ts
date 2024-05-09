@@ -2,8 +2,9 @@ import BotFaction from '@/services/enum/BotFaction'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import Expansion from '@/services/enum/Expansion'
 import { defineStore } from 'pinia'
-import FinalScoringTile from '@/services/enum/FinalScoringTile'
 import { name } from '@/../package.json'
+import ScoringRoundTile from '@/services/enum/ScoringRoundTile'
+import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
 
 export const useStateStore = defineStore(`${name}.store`, {
   state: () => {
@@ -13,7 +14,6 @@ export const useStateStore = defineStore(`${name}.store`, {
       setup: {
         difficultyLevel: DifficultyLevel.AUTOMALEIN,
         expansions: [],
-        finalScoringTile: FinalScoringTile.DEFAULT,
         playerSetup: {
           playerCount: 1,
           botCount: 1,
@@ -38,6 +38,8 @@ export const useStateStore = defineStore(`${name}.store`, {
       this.rounds[roundTurn.round - 1] = round
     },
     resetGame() {
+      this.setup.scoringRoundTiles = undefined
+      this.setup.scoringFinalTiles = undefined
       this.rounds = []
     }
   },
@@ -53,8 +55,9 @@ export interface State {
 export interface Setup {
   difficultyLevel: DifficultyLevel
   expansions: Expansion[]
-  finalScoringTile: FinalScoringTile
   playerSetup: PlayerSetup
+  scoringRoundTiles?: ScoringRoundTile[]
+  scoringFinalTiles?: ScoringFinalTile[]
 }
 export interface PlayerSetup {
   playerCount: number

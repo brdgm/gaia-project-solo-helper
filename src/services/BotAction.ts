@@ -1,9 +1,9 @@
 import Action from './enum/Action'
 import BotFaction from './enum/BotFaction'
 import DirectionalSelection from './enum/DirectionalSelection'
-import FinalScoringTileTieBreaker from './enum/FinalScoringTileTieBreaker'
 import ResearchArea from './enum/ResearchArea'
 import RoundBoosterSelection from './enum/RoundBoosterSelection'
+import ScoringFinalTiebreaker from './enum/ScoringFinalTiebreaker'
 
 /**
  * Aggregated bot action
@@ -11,7 +11,7 @@ import RoundBoosterSelection from './enum/RoundBoosterSelection'
 export default interface BotAction {
   action: Action
   victoryPoints?: number
-  finalScoringTileTieBreaker?: FinalScoringTileTieBreaker
+  scoringFinalTiebreaker?: ScoringFinalTiebreaker
   range?: number
   directionalSelection?: DirectionalSelection
   directionalSelectionCount?: number

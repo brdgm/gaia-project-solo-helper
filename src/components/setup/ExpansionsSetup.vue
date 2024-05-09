@@ -18,7 +18,6 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useStateStore } from '@/store/state'
 import Expansion from '@/services/enum/Expansion'
-import FinalScoringTile from '@/services/enum/FinalScoringTile'
 import toggleArrayItem from '@brdgm/brdgm-commons/src/util/array/toggleArrayItem'
 
 export default defineComponent({
@@ -31,9 +30,6 @@ export default defineComponent({
   computed: {
     hasLostFleet() : boolean {
       return this.state.setup.expansions.includes(Expansion.LOST_FLEET)
-    },
-    finalScoringTiles() : FinalScoringTile[] {
-      return Object.values(FinalScoringTile)
     }
   },
   methods: {
