@@ -1,22 +1,23 @@
 <template>
   <div>
-    <div class="shipLevel">{{shipLevel}}</div>
-    <AppIcon name="ship-level" class="icon"/>
+    <AppIcon type="structure" :name="type" class="icon"/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import AppIcon from '@/components/structure/AppIcon.vue'
+import { PropType } from 'vue';
+import ScoringFinalTiebreaker from '@/services/enum/ScoringFinalTiebreaker';
 
 export default defineComponent({
-  name: 'ShipLevel',
+  name: 'ScoringFinalTiebreaker',
   components: {
     AppIcon
   },
   props: {
-    shipLevel: {
-      type: Number,
+    type: {
+      type: String as PropType<ScoringFinalTiebreaker>,
       required: true
     }
   }
@@ -25,13 +26,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .icon {
-  width: 3rem;
-}
-.shipLevel {
-  position: absolute;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 0.2rem;
-  margin-left: 1.2rem;
+  height: 1.7rem;
 }
 </style>

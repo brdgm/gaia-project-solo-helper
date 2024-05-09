@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="letter">{{type}}</div>
-    <AppIcon name="terrain-priority" class="icon"/>
+    <div class="shipLevel">{{range}}</div>
+    <AppIcon name="ship-level" class="icon"/>
   </div>
 </template>
 
@@ -10,13 +10,13 @@ import { defineComponent } from 'vue'
 import AppIcon from '@/components/structure/AppIcon.vue'
 
 export default defineComponent({
-  name: 'TerrainPriority',
+  name: 'NavigationRange',
   components: {
     AppIcon
   },
   props: {
-    type: {
-      type: String,
+    range: {
+      type: Number,
       required: true
     }
   }
@@ -24,14 +24,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.letter {
-  position: absolute;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: -0.3rem;  
-}
 .icon {
-  margin-left: 1.1rem;
-  height: 1.7rem;
+  width: 3rem;
+}
+.shipLevel {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.2rem;
+  margin-left: 1.2rem;
 }
 </style>

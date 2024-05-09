@@ -1,46 +1,40 @@
 <template>
   <div class="supportInfo">
-    <StructureSelection v-if="structure" :type="botAction.structure!"/>
-    <TerrainPriority v-if="terrainPriority" :type="botAction.terrainPriority!"/>
-    <DirectionalSelection v-if="directionalSelection" :type="botAction.directionalSelection!" :count="botAction.directionalSelectionCount!"/>
-    <ResearchAreaSelection v-if="cultTrackSelection" :type="botAction.cultTrackSelection!"/>
+    <ScoringFinalTiebreaker v-if="scoringFinalTiebreaker && botAction.scoringFinalTiebreaker" :type="botAction.scoringFinalTiebreaker"/>
+    <NavigationRange v-if="range && botAction.range" :range="botAction.range"/>
+    <DirectionalSelection v-if="directionalSelection && botAction.directionalSelection && botAction.directionalSelectionCount"
+        :type="botAction.directionalSelection" :count="botAction.directionalSelectionCount"/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import BotAction from '@/services/BotAction'
-import StructureSelection from '@/components/turn/supportInfo/StructureSelection.vue'
+import ScoringFinalTiebreaker from '@/components/turn/supportInfo/ScoringFinalTiebreaker.vue'
+import NavigationRange from '@/components/turn/supportInfo/NavigationRange.vue'
 import DirectionalSelection from '@/components/turn/supportInfo/DirectionalSelection.vue'
-import TerrainPriority from '@/components/turn/supportInfo/TerrainPriority.vue'
-import ResearchAreaSelection from '@/components/turn/supportInfo/CultTrackSelection.vue'
 
 export default defineComponent({
   name: 'SupportInfo',
   components: {
-    StructureSelection,
-    DirectionalSelection,
-    TerrainPriority,
-    ResearchAreaSelection
+    ScoringFinalTiebreaker,
+    NavigationRange,
+    DirectionalSelection
   },
   props: {
     botAction: {
       type: Object as PropType<BotAction>,
       required: true
     },
-    structure: {
+    scoringFinalTiebreaker: {
       type: Boolean,
       required: false
     },
-    terrainPriority: {
+    range: {
       type: Boolean,
       required: false
     },
     directionalSelection: {
-      type: Boolean,
-      required: false
-    },
-    cultTrackSelection: {
       type: Boolean,
       required: false
     }

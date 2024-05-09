@@ -2,7 +2,6 @@
   <ol>
     <li>
       <span v-html="t('endOfGame.areaScoring')"></span>
-      <ShipLevel :shipLevel="shipLevel"/>
     </li>
     <ul v-if="isStrongholdSancturaryScoring || isOutpostsScoring">
       <li class="fire-ice" v-if="isStrongholdSancturaryScoring">
@@ -25,13 +24,11 @@ import { useStateStore } from '@/store/state'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '../structure/AppIcon.vue'
-import ShipLevel from './supportInfo/ShipLevel.vue'
 
 export default defineComponent({
   name: 'EndOfGame',
   components: {
-    AppIcon,
-    ShipLevel
+    AppIcon
   },
   setup() {
     const { t } = useI18n()
