@@ -61,10 +61,10 @@ export default defineComponent({
   },
   computed: {
     maxPlayerCount() : number {
-      return 3 - this.botCount
+      return 4 - this.botCount
     },
     maxBotCount() : number {
-      return 3 - this.playerCount
+      return 4 - this.playerCount
     }
   },
   watch: {

@@ -11,9 +11,9 @@
     "players": {
       "title": "Player",
       "playerCount": "Human Players",
-      "playerCountItem": "{count} Player | {count} Players (Experimental)",
+      "playerCountItem": "{count} Player | {count} Players",
       "botCount": "Automa",
-      "botCountItem": "{count} Automa | {count} Automas (Experimental)",
+      "botCountItem": "{count} Automa | {count} Automas",
       "botFaction": "Automa Faction | Automa {bot} Faction"
     },
     "difficultyLevel": {
