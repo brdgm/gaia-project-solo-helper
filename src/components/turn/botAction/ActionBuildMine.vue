@@ -8,43 +8,43 @@
       <SupportInfo :bot-action="botAction" :structure="true" :terrain-priority="true" :directional-selection="true"/>
     </div>
     <div class="actionCol text-muted small">
-      <button type="button" class="btn btn-outline-secondary btn-sm" @click="isUpgrade=true">{{t('botAction.transformAndBuild.noDwelling')}}</button>
+      <button type="button" class="btn btn-outline-secondary btn-sm" @click="isUpgrade=true">{{t('botAction.buildMine.noDwelling')}}</button>
       <ol class="mt-2">
-        <li v-if="isWanderers"><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.transformAndBuild.validSpaces.factionWanderers')"></span></li>
-        <li v-else v-html="t(`botAction.transformAndBuild.validSpaces.${botAction.structure}`)"></li>
-        <li v-html="t('botAction.transformAndBuild.tiebreaker.title')"></li>
+        <li v-if="isWanderers"><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.validSpaces.factionWanderers')"></span></li>
+        <li v-else v-html="t(`botAction.buildMine.validSpaces.${botAction.structure}`)"></li>
+        <li v-html="t('botAction.buildMine.tiebreaker.title')"></li>
         <ol type="a">
           <template v-if="isKuddlers">
-            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.transformAndBuild.tiebreaker.structureClosest')"></span></li>
-            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.transformAndBuild.tiebreaker.terrainPriorityYourTerrainType',{terrainPriority:botAction.terrainPriority})"></span></li>
-            <li v-html="t('botAction.transformAndBuild.tiebreaker.directionalSelection')"></li>
+            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.structureClosest')"></span></li>
+            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.terrainPriorityYourTerrainType',{terrainPriority:botAction.terrainPriority})"></span></li>
+            <li v-html="t('botAction.buildMine.tiebreaker.directionalSelection')"></li>
           </template>
           <template v-else-if="isMimics">
-            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.transformAndBuild.tiebreaker.terrainPriorityYourTerrainType',{terrainPriority:botAction.terrainPriority})"></span></li>
-            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.transformAndBuild.tiebreaker.structureClosest')"></span></li>
-            <li v-html="t('botAction.transformAndBuild.tiebreaker.directionalSelection')"></li>
+            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.terrainPriorityYourTerrainType',{terrainPriority:botAction.terrainPriority})"></span></li>
+            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.structureClosest')"></span></li>
+            <li v-html="t('botAction.buildMine.tiebreaker.directionalSelection')"></li>
           </template>
           <template v-else>
-            <li v-if="isPowerMongers"><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.transformAndBuild.tiebreaker.factionPowerMongers')"></span></li>
-            <li v-html="t('botAction.transformAndBuild.tiebreaker.terrainPriority',{terrainPriority:botAction.terrainPriority})"></li>
-            <li v-if="useSpaceFurthestAway" class="fire-ice"><span v-html="t('botAction.transformAndBuild.tiebreaker.structureFurthest')"></span></li>
-            <li v-else v-html="t('botAction.transformAndBuild.tiebreaker.structureClosest')"></li>
-            <li v-html="t('botAction.transformAndBuild.tiebreaker.directionalSelection')"></li>
+            <li v-if="isPowerMongers"><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.factionPowerMongers')"></span></li>
+            <li v-html="t('botAction.buildMine.tiebreaker.terrainPriority',{terrainPriority:botAction.terrainPriority})"></li>
+            <li v-if="useSpaceFurthestAway" class="fire-ice"><span v-html="t('botAction.buildMine.tiebreaker.structureFurthest')"></span></li>
+            <li v-else v-html="t('botAction.buildMine.tiebreaker.structureClosest')"></li>
+            <li v-html="t('botAction.buildMine.tiebreaker.directionalSelection')"></li>
           </template>
         </ol>
-        <li v-html="t('botAction.transformAndBuild.execute.title')"></li>
+        <li v-html="t('botAction.buildMine.execute.title')"></li>
         <ol type="a">
-          <li v-html="t('botAction.transformAndBuild.execute.homeTerrainTile')"></li>
-          <li v-html="t('botAction.transformAndBuild.execute.dwelling')"></li>
-          <li v-if="isMarkedStructure" v-html="t('botAction.transformAndBuild.execute.marked')"></li>
+          <li v-html="t('botAction.buildMine.execute.homeTerrainTile')"></li>
+          <li v-html="t('botAction.buildMine.execute.dwelling')"></li>
+          <li v-if="isMarkedStructure" v-html="t('botAction.buildMine.execute.marked')"></li>
         </ol>
       </ol>
     </div>
 
-    <ModalDialog id="modalReaching" :title="t('botAction.transformAndBuild.reaching.title')">
+    <ModalDialog id="modalReaching" :title="t('botAction.buildMine.reaching.title')">
       <template #body>
-        <p v-html="t('botAction.transformAndBuild.reaching.text1')"></p>
-        <p v-html="t('botAction.transformAndBuild.reaching.text2')"></p>
+        <p v-html="t('botAction.buildMine.reaching.text1')"></p>
+        <p v-html="t('botAction.buildMine.reaching.text2')"></p>
       </template>
     </ModalDialog>
 

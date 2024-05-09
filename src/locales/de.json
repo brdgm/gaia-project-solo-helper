@@ -67,7 +67,7 @@
     "gainVictoryPoints": {
       "text": "Automa erhält {count} Punkt. | Automa erhält {count} Punkte."
     },
-    "transformAndBuild": {
+    "buildMine": {
       "noDwelling": "Kein Wohnhaus übrig",
       "validSpaces": {
         "marked": "In Reichweite eines markierten Gebäudes",
@@ -110,13 +110,13 @@
         "motsShipyardPreferred": "Hat Automa die Auswahl zwischen ihrer Festung und ihrer Werft, wählt sie die Werft."
       }
     },
-    "blockPowerAction": {
+    "powerQic": {
       "gameBoard": "Decke ein offenes Machtfeld auf dem Spielplan ab",
       "directionalSelection": "Richtungsauswahl.",
       "gameBoardExecute": "Ausführung: Decke das gewählte Machtfeld mit einer Aktionsmarke ab. Automa erhält nichts durch diese Aktion.",
       "motsPowerActionBoard": "Decke ein offenes Machtfeld auf dem Tableau mit Machtaktionen aus <i>Die Händler</i> ab."
     },
-    "advanceCultTrack": {
+    "researchArea": {
       "factionDruids": "<b>Aufsteigen auf einer Kultskala: Automa setzt keinen Priester ein und steigt um 2 Stufen auf</b>.",
       "factionPowerMongers": "<b>Dauerhafte Fähigkeit: Erhältst du durch ein Automa-Gebäude min. 2 Macht, steigt Automa ohne Priestereinsatz um 1 Stufe auf 1 Kultskala auf (Methode: Aufholen).</b>",
       "notMarker10": "Automa schreitet nur auf Kultskalen voran ohne Markierungsstein auf Stufe 10.",
@@ -136,31 +136,6 @@
         "placePriest": "Setze 1 Priester aus Automas Vorrat unterhalb der gewählten Skala auf das freie Feld mit der höchsten Zahl. Automa steigt mit ihrem Markierungsstein um die entsprechende Anzahl an Stufen auf.",
         "noPriest": "Hat Automa keinen Priester mehr oder gibt es unter der gewählten Skala kein freies Feld mehr, steigt Automa dort um 1 Stufe auf, ohne einen Priester einzusetzen."
       }
-    },
-    "trade": {
-      "selectStructure": {
-        "title": "Wähle Gebäude, direkt benachbart zu einem Flussfeld, unter welchen noch kein Automa-Handelsmarker liegt:",
-        "highestPower": "Gebäude mit der höchsten Machtstufe.",
-        "directionalSelection": "Richtungsauswahl."
-      },
-      "execute": {
-        "title": "Ausführung:",
-        "placeMarker": "Lege einen Automa-Handelsmarker unter das gewählte Gebäude.",
-        "victoryPoints": "Automa erhält die Anzahl an Punkten, die der Machtstufe des gewählten Gebäudes entspricht.",
-        "gainPower": "Du darfst durch Automas Handel regulär Macht erhalten."
-      }
-    },
-    "takeFavorTile": {
-      "selectCultFavorTile": "Nimm ein Gunstplättchen, die einen Kult um 3 Stufen erhöhen und auf deren Kultskala sich kein Markierungsstein auf Stufe 10 befindet.",
-      "execute": "Ausführung: Automa nimmt das ausgewählte Plättchen und steigt auf der entsprechenden Kultskala um 3 Felder auf."
-    },
-    "factionSymbiontsPlaceCube": {
-      "validSpaces": "Mögliche Optionen: Alle Felder direkt benachbart zu deinen Gebäuden.",
-      "symbiontYouthATP": "Landschaftsprioriät <b>{terrainPriority}</b>. Nutze die LTP-Karte der <b>Jugend</b>.",
-      "placeCube": "Setze 1 <b>Arbeiterklötzchen</b> auf das gewählte Feld."
-    },
-    "factionBlightTransformFallowLand": {
-      "transform": "Wandle <b>2 Brachland</B>-Felder in <b>Verwüstetes Land</b> um."
     }
   },
   "botPass": {
@@ -197,13 +172,6 @@
   },
   "expansion": {
     "lost-fleet": "The Lost Fleet"
-  },
-  "finalScoringTile": {
-    "default": "Standard (Grundspiel)",
-    "greatest-distance": "Größte Entfernung (Feuer & Eis)",
-    "stronghold-sanctuary": "Heiligtum und Festung (Feuer & Eis)",
-    "outposts": "Außenposten (Feuer & Eis)",
-    "settlements": "Ansiedlungen (Feuer & Eis)"
   },
   "botFaction": {
     "terrans": "Terraner",

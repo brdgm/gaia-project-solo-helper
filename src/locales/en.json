@@ -67,7 +67,7 @@
     "gainVictoryPoints": {
       "text": "Automa gains {count} victory point. | Automa gains {count} victory points."
     },
-    "transformAndBuild": {
+    "buildMine": {
       "noDwelling": "No dwelling left",
       "validSpaces": {
         "marked": "Withing Range of any marked Structure",
@@ -110,13 +110,13 @@
         "motsShipyardPreferred": "If there’s a tie between Stronghold and Shipyard Automa builds her Shipyard."
       }
     },
-    "blockPowerAction": {
+    "powerQic": {
       "gameBoard": "Block one uncovered power action on game board",
       "directionalSelection": "Directional Selection.",
       "gameBoardExecute": "Execute: Place an Action token on the selected Power action. Automa gains no benefit from this.",
       "motsPowerActionBoard": "Block one uncovered power action on Merchant Power Actions Board."
     },
-    "advanceCultTrack": {
+    "researchArea": {
       "factionDruids": "<b>Automa advances 2 spaces on a single track (without placing a Priest)</b>.",
       "factionPowerMongers": "<b>Ongoing Benefit: Whenever you gain 2 or more Power via structures, Automa advances 1 space on a Cult track (Cult Catch-up action without placing a Priest).</b>",
       "notMarker10": "Automa advances only on tracks without a Marker on space 10.",
@@ -136,31 +136,6 @@
         "placePriest": "Place an available Automa Priest on the highest numbered Priest space below the chosen track and advance Automa‘s Marker the corresponding number of spaces.",
         "noPriest": "If Automa has no more available Priests, or if there’s no empty Priest space available below the track, advance Automa‘s Marker by 1 on that track without placing a Priest."
       }
-    },
-    "trade": {
-      "selectStructure": {
-        "title": "Select structure adjacent to a river space without one of Automa's Trade tokens:",
-        "highestPower": "Structures with the highest Power value.",
-        "directionalSelection": "Directional Selection."
-      },
-      "execute": {
-        "title": "Execute:",
-        "placeMarker": "Place one of Automa’s Trade markers beneath the selected Structure.",
-        "victoryPoints": "Automa gains Victory points equal to the Power value of the selected Structure.",
-        "gainPower": "You may gain Power for the trade, as normal."
-      }
-    },
-    "takeFavorTile": {
-      "selectCultFavorTile": "Take one of the +3 Cult Favor tiles for Cult tracks without a Marker on space 10.",
-      "execute": "Execute: Give the chosen tile to Automa and increase her Marker by 3 on the track shown on the tile."
-    },
-    "factionSymbiontsPlaceCube": {
-      "validSpaces": "Valid Spaces: All Terrain spaces directly adjacent to any of your structures.",
-      "symbiontYouthATP": "Terrain Priority <b>{terrainPriority}</b> with Symbiont <b>youth</b> ATP card.",
-      "placeCube": "Place a <b>worker cube</b> on the selected Terrain space."
-    },
-    "factionBlightTransformFallowLand": {
-      "transform": "Transform <b>Fallow Land</B> into <b>Blighted Land twice</b>."
     }
   },
   "botPass": {
@@ -197,13 +172,6 @@
   },
   "expansion": {
     "lost-fleet": "The Lost Fleet"
-  },
-  "finalScoringTile": {
-    "default": "Default (Base Game)",
-    "greatest-distance": "Greatest Distance (Fire & Ice)",
-    "stronghold-sanctuary": "Stronghold and Sanctuary (Fire & Ice)",
-    "outposts": "Outposts (Fire & Ice)",
-    "settlements": "Settlements (Fire & Ice)"
   },
   "botFaction": {
     "terrans": "Terrans",

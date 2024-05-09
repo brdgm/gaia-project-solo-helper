@@ -7,10 +7,10 @@
   </div>
   <div class="actionCol text-muted small">
     <ol>
-      <li v-html="t('botAction.blockPowerAction.gameBoard')"></li>
+      <li v-html="t('botAction.powerQic.gameBoard')"></li>
       <ol type="a">
-        <li v-html="t('botAction.blockPowerAction.directionalSelection')"></li>
-        <li v-html="t('botAction.blockPowerAction.gameBoardExecute')"></li>
+        <li v-html="t('botAction.powerQic.directionalSelection')"></li>
+        <li v-html="t('botAction.powerQic.gameBoardExecute')"></li>
       </ol>
     </ol>
   </div>
