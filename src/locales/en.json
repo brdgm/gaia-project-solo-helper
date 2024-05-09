@@ -50,7 +50,8 @@
   "income": {
     "title": "Income",
     "turnInfo": "Round {round}",
-    "collect": "Collect new Workers, Coins, Priests and Power."
+    "collect": "Income: Collect ore, knowledge, credits and power.",
+    "gaia": "Gaia: Get power tokens from Gaia area, transform Transdim planets with Gaiaformers."
   },
   "roundTurn": {
     "turnInfo": "Round {round}, Turn {turn}",
@@ -60,7 +61,7 @@
   "playerTurn": {
     "text": "Please make your turn - or pass.",
     "passConfirm": "Do you want to pass?",
-    "passInfo": "Collect your round bonus victory points (if any) and take a new Bonus card."
+    "passInfo": "Collect your round booster victory points (if any) and take a new round booster."
   },
   "botAction": {
     "gainVictoryPoints": {

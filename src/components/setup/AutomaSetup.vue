@@ -58,6 +58,9 @@ export default defineComponent({
   components: {
     AppIcon
   },
+  emits: {
+    scoringTiles: (_scoringRoundTiles: ScoringRoundTile[], _scoringFinalTiles: ScoringFinalTile[]) => true  // eslint-disable-line @typescript-eslint/no-unused-vars
+  },
   setup() {
     const { t } = useI18n()
     const state = useStateStore()
@@ -114,6 +117,9 @@ export default defineComponent({
     randomDirectionalSelection() : DirectionalSelection {
       return randomEnum(DirectionalSelection)
     }
+  },
+  mounted() {
+    this.$emit('scoringTiles', this.scoringRoundTiles, this.scoringFinalTiles)  
   }
 })
 </script>

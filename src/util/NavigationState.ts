@@ -125,7 +125,7 @@ export default class NavigationState {
         turnData = playerOrderPreviousRound.getLastTurn(player)
         if (turnData?.cardDeck) {
           cardDeck = CardDeck.fromPersistence(turnData.cardDeck)
-          cardDeck.prepareForNextRound(round, false)
+          cardDeck.prepareForNextRound()
           cardDeck.draw()
           return cardDeck
         }
@@ -133,7 +133,7 @@ export default class NavigationState {
     }
 
     // prepare new card deck
-    cardDeck = CardDeck.new(this.state.setup.difficultyLevel, false)
+    cardDeck = CardDeck.new(this.state.setup.difficultyLevel)
     cardDeck.draw()
     return cardDeck
   }

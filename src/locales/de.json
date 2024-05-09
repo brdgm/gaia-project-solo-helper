@@ -50,7 +50,8 @@
   "income": {
     "title": "Einkommen",
     "turnInfo": "Runde {round}",
-    "collect": "Erhalte neue Arbeiter, Geldmünzen, Priester und Macht."
+    "collect": "Einkommen: Erhalte Erz, Wissen, Credits und Macht.",
+    "gaia": "Gaia-Phase: Erhalte Machtsteine aus dem Gaia-Bereich, wandle Transdim-Planeten mit Gaiaformern um."
   },
   "roundTurn": {
     "turnInfo": "Runde {round}, Zug {turn}",
@@ -58,9 +59,9 @@
     "titleBot": "Automa: {faction} | Automa {bot}: {faction}"
   },
   "playerTurn": {
-    "text": "Bitte führe deinen Zug durch - oder passe.",
+    "text": "Führe deinen Zug durch - oder passe.",
     "passConfirm": "Möchtest du passen?",
-    "passInfo": "Erhalte Siegpunkte von deiner Rundenbonuskarte (falls vorhanden) und nimm eine neue Rundenbonuskarte."
+    "passInfo": "Erhalte Siegpunkte deines Rundenboosters (falls vorhanden) und nimm einen neue Rundenbooster."
   },
   "botAction": {
     "gainVictoryPoints": {

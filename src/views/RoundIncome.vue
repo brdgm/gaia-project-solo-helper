@@ -4,7 +4,10 @@
   </div>
   <h1>{{t('income.title')}}</h1>
 
-  <p v-html="t('income.collect')"></p>
+  <ul>
+    <li v-html="t('income.collect')"></li>
+    <li v-html="t('income.gaia')"></li>
+  </ul>
 
   <router-link :to="nextButtonRouteTo" class="btn btn-primary btn-lg mt-4">
     {{t('action.next')}}
