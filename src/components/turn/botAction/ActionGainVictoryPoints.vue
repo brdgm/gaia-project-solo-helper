@@ -40,13 +40,12 @@ export default defineComponent({
 }
 .count {
   position: absolute;
-  width: 5.5rem;
-  padding-top: 0.5rem;
-  font-size: 3rem;
+  width: 6rem;
+  padding-top: 0.15rem;
+  font-size: 3.5rem;
   font-weight: bold;
   text-align: center;
   color: white;
   text-shadow: 1px 1px 10px #000, 1px 1px 10px #000;
-  transform: rotate(-5deg)
 }
 </style>

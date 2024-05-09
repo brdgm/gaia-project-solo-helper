@@ -30,7 +30,7 @@ export default class BotActions {
         botFaction : BotFaction) : BotAction[] {
     let result : BotAction[]
     
-    if (action == Action.FACTION_ACTION) {
+    if (action == Action.FACTION) {
       result = this.getFactionBotActions(botFaction)
     }
     else {
@@ -56,20 +56,20 @@ export default class BotActions {
     switch (botFaction) {
       case BotFaction.TERRANS:
         return [
-          {action: Action.RESEARCH_TRACK_SPECIFIC, researchArea: ResearchArea.GAIA_PROJECT},
+          {action: Action.RESEARCH_AREA_SPECIFIC, researchArea: ResearchArea.GAIA_PROJECT},
           {action: Action.BUILD_MINE, range: 4, botFaction: BotFaction.TERRANS},
           {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
         ]
       case BotFaction.XENOS:
         return [
           {action: Action.BUILD_MINE, range: 2},
-          {action: Action.POWER_QIC_ACTION},
+          {action: Action.POWER_QIC},
           {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
         ]
       case BotFaction.TAKLONS:
         return [
           {action: Action.BUILD_MINE, range: 3, botFaction: BotFaction.TAKLONS},
-          {action: Action.POWER_QIC_ACTION},
+          {action: Action.POWER_QIC},
           {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
         ]
       case BotFaction.HADSCH_HALLAS:
@@ -79,8 +79,8 @@ export default class BotActions {
         ]
       case BotFaction.GEODENS:
         return [
-          {action: Action.RESEARCH_TRACK_RANDOM},
-          {action: Action.POWER_QIC_ACTION},
+          {action: Action.RESEARCH_AREA_RANDOM},
+          {action: Action.POWER_QIC},
           {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 1}
         ]
       case BotFaction.FIRAKS:
@@ -90,8 +90,8 @@ export default class BotActions {
         ]
       case BotFaction.ITARS:
         return [
-          {action: Action.POWER_QIC_ACTION},
-          {action: Action.POWER_QIC_ACTION},
+          {action: Action.POWER_QIC},
+          {action: Action.POWER_QIC},
           {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 4}
         ]
       default:

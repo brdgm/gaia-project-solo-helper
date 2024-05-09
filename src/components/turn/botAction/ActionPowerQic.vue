@@ -3,13 +3,15 @@
     <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
   </div>
   <div class="actionCol">
-    <SupportInfo :bot-action="botAction" :directional-selection="true" :cult-track-selection="true"/>
+    <SupportInfo :bot-action="botAction" :directional-selection="true"/>
   </div>
   <div class="actionCol text-muted small">
     <ol>
-      <li v-html="t('botAction.takeFavorTile.selectCultFavorTile')"></li>
-      <AdvanceCultTrackTrackSelection :bot-action="botAction"/>
-      <li v-html="t('botAction.takeFavorTile.execute')"></li>
+      <li v-html="t('botAction.blockPowerAction.gameBoard')"></li>
+      <ol type="a">
+        <li v-html="t('botAction.blockPowerAction.directionalSelection')"></li>
+        <li v-html="t('botAction.blockPowerAction.gameBoardExecute')"></li>
+      </ol>
     </ol>
   </div>
 </template>
@@ -20,19 +22,19 @@ import { useI18n } from 'vue-i18n'
 import BotAction from '@/services/BotAction'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import SupportInfo from '../supportInfo/SupportInfo.vue'
-import AdvanceCultTrackTrackSelection from './AdvanceCultTrackTrackSelection.vue'
+import { useStateStore } from '@/store/state'
 
 export default defineComponent({
-  name: 'ActionTakeFavorTile',
+  name: 'ActionPowerQic',
   inheritAttrs: false,
   components: {
     AppIcon,
-    SupportInfo,
-    AdvanceCultTrackTrackSelection
+    SupportInfo
   },
   setup() {
     const { t } = useI18n()
-    return { t }
+    const state = useStateStore()
+    return { t, state }
   },
   props: {
     botAction: {
@@ -46,5 +48,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 .actionIcon {
   width: 6rem;
+}
+.mots {
+  color: #007f93;
 }
 </style>

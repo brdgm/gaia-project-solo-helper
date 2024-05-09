@@ -29,29 +29,25 @@ import BotFaction from '@/services/enum/BotFaction'
 import CardDeck from '@/services/CardDeck'
 import BotActions from '@/services/BotActions'
 import BotAction from '@/services/BotAction'
-import ActionAdvanceCultTrack from './botAction/ActionAdvanceCultTrack.vue'
-import ActionBlockPowerAction from './botAction/ActionBlockPowerAction.vue'
+import ActionBuildMine from './botAction/ActionBuildMine.vue'
 import ActionGainVictoryPoints from './botAction/ActionGainVictoryPoints.vue'
-import ActionTakeFavorTile from './botAction/ActionTakeFavorTile.vue'
-import ActionTrade from './botAction/ActionTrade.vue'
-import ActionTransformAndBuild from './botAction/ActionTransformAndBuild.vue'
+import ActionPowerQic from './botAction/ActionPowerQic.vue'
+import ActionResearchAreaHighest from './botAction/ActionResearchAreaHighest.vue'
+import ActionResearchAreaRandom from './botAction/ActionResearchAreaRandom.vue'
+import ActionResearchAreaSpecific from './botAction/ActionResearchAreaSpecific.vue'
 import ActionUpgrade from './botAction/ActionUpgrade.vue'
-import ActionFactionSymbiontsPlaceCube from './botAction/ActionFactionSymbiontsPlaceCube.vue'
-import ActionFactionBlightTransformFallowLand from './botAction/ActionFactionBlightTransformFallowLand.vue'
 import BotPass from './BotPass.vue'
 
 export default defineComponent({
   name: 'BotTurn',
   components: {
-    ActionAdvanceCultTrack,
-    ActionBlockPowerAction,
+    ActionBuildMine,
     ActionGainVictoryPoints,
-    ActionTakeFavorTile,
-    ActionTrade,
-    ActionTransformAndBuild,
+    ActionPowerQic,
+    ActionResearchAreaHighest,
+    ActionResearchAreaRandom,
+    ActionResearchAreaSpecific,
     ActionUpgrade,
-    ActionFactionSymbiontsPlaceCube,
-    ActionFactionBlightTransformFallowLand,
     BotPass
   },
   setup() {

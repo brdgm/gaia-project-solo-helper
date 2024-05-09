@@ -68,7 +68,7 @@ import NavigationState from '@/util/NavigationState'
 import BotFaction from '@/services/enum/BotFaction'
 
 export default defineComponent({
-  name: 'ActionTransformAndBuild',
+  name: 'ActionBuildMine',
   inheritAttrs: false,
   components: {
     AppIcon,

@@ -36,7 +36,7 @@ const cards = [
   {
     id: 3,
     pass: true,
-    action: Action.RESEARCH_TRACK_HIGHEST,
+    action: Action.RESEARCH_AREA_HIGHEST,
     victoryPoints: 1,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
@@ -61,7 +61,7 @@ const cards = [
     id: 5,
     starter: true,
     pass: true,
-    action: Action.POWER_QIC_ACTION,
+    action: Action.POWER_QIC,
     victoryPoints: 1,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 2,
@@ -84,7 +84,7 @@ const cards = [
   {
     id: 7,
     starter: true,
-    action: Action.RESEARCH_TRACK_RANDOM,
+    action: Action.RESEARCH_AREA_RANDOM,
     victoryPoints: 0,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
@@ -107,7 +107,7 @@ const cards = [
   },
   {
     id: 9,
-    action: Action.FACTION_ACTION,
+    action: Action.FACTION,
     victoryPoints: 0,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 2,
@@ -142,7 +142,7 @@ const cards = [
   {
     id: 12,
     pass: true,
-    action: Action.POWER_QIC_ACTION,
+    action: Action.POWER_QIC,
     victoryPoints: 3,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
@@ -154,7 +154,7 @@ const cards = [
   {
     id: 13,
     starter: true,
-    action: Action.FACTION_ACTION,
+    action: Action.FACTION,
     victoryPoints: 0,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.NONE,
     range: 2,
@@ -165,7 +165,7 @@ const cards = [
   },
   {
     id: 14,
-    action: Action.POWER_QIC_ACTION,
+    action: Action.POWER_QIC,
     victoryPoints: 3,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 2,
@@ -176,7 +176,7 @@ const cards = [
   },
   {
     id: 15,
-    action: Action.RESEARCH_TRACK_HIGHEST,
+    action: Action.RESEARCH_AREA_HIGHEST,
     victoryPoints: 1,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
@@ -188,7 +188,7 @@ const cards = [
   {
     id: 16,
     pass: true,
-    action: Action.POWER_QIC_ACTION,
+    action: Action.POWER_QIC,
     victoryPoints: 3,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
@@ -199,7 +199,7 @@ const cards = [
   },
   {
     id: 17,
-    action: Action.RESEARCH_TRACK_RANDOM,
+    action: Action.RESEARCH_AREA_RANDOM,
     victoryPoints: 2,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 2,

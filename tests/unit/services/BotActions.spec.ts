@@ -30,7 +30,7 @@ describe('BotActions', () => {
 
     expect(botActions.actions.length).to.eq(3)
     expect(botActions.actions[0]).to.eql({
-      action: Action.RESEARCH_TRACK_SPECIFIC, researchArea: ResearchArea.GAIA_PROJECT,
+      action: Action.RESEARCH_AREA_SPECIFIC, researchArea: ResearchArea.GAIA_PROJECT,
       scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM, range: 2,
       directionalSelection: DirectionalSelection.RIGHT_DOWN, directionalSelectionCount: 2
     })
@@ -55,7 +55,7 @@ describe('BotActions', () => {
       directionalSelection: DirectionalSelection.RIGHT_DOWN, directionalSelectionCount: 2
     })
     expect(botActions.actions[1]).to.eql({
-      action: Action.POWER_QIC_ACTION,
+      action: Action.POWER_QIC,
       scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM, range: 2,
       directionalSelection: DirectionalSelection.RIGHT_DOWN, directionalSelectionCount: 2
     })
@@ -75,7 +75,7 @@ describe('BotActions', () => {
       directionalSelection: DirectionalSelection.RIGHT_DOWN, directionalSelectionCount: 2
     })
     expect(botActions.actions[1]).to.eql({
-      action: Action.POWER_QIC_ACTION,
+      action: Action.POWER_QIC,
       scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM, range: 2,
       directionalSelection: DirectionalSelection.RIGHT_DOWN, directionalSelectionCount: 2
     })
@@ -105,12 +105,12 @@ describe('BotActions', () => {
 
     expect(botActions.actions.length).to.eq(3)
     expect(botActions.actions[0]).to.eql({
-      action: Action.RESEARCH_TRACK_RANDOM,
+      action: Action.RESEARCH_AREA_RANDOM,
       scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM, range: 2,
       directionalSelection: DirectionalSelection.RIGHT_DOWN, directionalSelectionCount: 2
     })
     expect(botActions.actions[1]).to.eql({
-      action: Action.POWER_QIC_ACTION,
+      action: Action.POWER_QIC,
       scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM, range: 2,
       directionalSelection: DirectionalSelection.RIGHT_DOWN, directionalSelectionCount: 2
     })
@@ -140,12 +140,12 @@ describe('BotActions', () => {
 
     expect(botActions.actions.length).to.eq(3)
     expect(botActions.actions[0]).to.eql({
-      action: Action.POWER_QIC_ACTION,
+      action: Action.POWER_QIC,
       scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM, range: 2,
       directionalSelection: DirectionalSelection.RIGHT_DOWN, directionalSelectionCount: 2
     })
     expect(botActions.actions[1]).to.eql({
-      action: Action.POWER_QIC_ACTION,
+      action: Action.POWER_QIC,
       scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM, range: 2,
       directionalSelection: DirectionalSelection.RIGHT_DOWN, directionalSelectionCount: 2
     })
