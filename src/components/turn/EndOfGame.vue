@@ -21,7 +21,6 @@
 
 <script lang="ts">
 import DifficultyLevelParameters from '@/services/DifficultyLevelParameters'
-import BotFaction from '@/services/enum/BotFaction'
 import FinalScoringTile from '@/services/enum/FinalScoringTile'
 import { useStateStore } from '@/store/state'
 import { defineComponent } from 'vue'
@@ -58,10 +57,10 @@ export default defineComponent({
       return params.shipLevel
     },
     isFactionWanderers() : boolean {
-      return this.state.setup.playerSetup.botFaction.includes(BotFaction.WANDERERS)
+      return false
     },
     isFactionGognomes() : boolean {
-      return this.state.setup.playerSetup.botFaction.includes(BotFaction.GOGNOMES)
+      return false
     }
   }
 })

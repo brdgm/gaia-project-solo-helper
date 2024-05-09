@@ -11,7 +11,7 @@
     </li>
     <li>
       <span v-html="t('botPass.bonusCard')"></span>
-      <AppIcon type="bonus-card-selection" :name="bonusCardSelection" class="bonusCardSelection"/>
+      <AppIcon type="round-booster-selection" :name="roundBoosterSelection" class="roundBoosterSelection"/>
     </li>
     <li v-html="t('botPass.bonusCardGold')"></li>
   </ol>
@@ -23,8 +23,7 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import NavigationState from '@/util/NavigationState'
-import BonusCardSelection from '@/services/enum/BonusCardSelection'
-import BotFaction from '@/services/enum/BotFaction'
+import RoundBoosterSelection from '@/services/enum/RoundBoosterSelection'
 
 export default defineComponent({
   name: 'BotPass',
@@ -42,11 +41,11 @@ export default defineComponent({
     }
   },
   computed: {
-    bonusCardSelection() : BonusCardSelection {
-      return this.navigationState.cardDeck?.supportCard?.bonusCardSelection as BonusCardSelection
+    roundBoosterSelection() : RoundBoosterSelection {
+      return this.navigationState.cardDeck?.supportCard?.roundBoosterSelection ?? RoundBoosterSelection.LEFT
     },
     isFactionRacelings() : boolean {
-      return this.navigationState.botFaction == BotFaction.RACELINGS
+      return false
     },
     isStartPlayer(): boolean {
       return this.navigationState.roundTurn?.startPlayer ?? false
@@ -63,7 +62,7 @@ export default defineComponent({
   margin-bottom: 0.5rem;
   margin-left: 3rem;
 }
-.bonusCardSelection {
+.roundBoosterSelection {
   display: block;
   width: 6rem; 
   margin-top: 0.5rem;

@@ -90,13 +90,13 @@ export default defineComponent({
       return allCards[index - 1]
     },    
     isFactionSymbionts() : boolean {
-      return this.state.setup.playerSetup.botFaction.includes(BotFaction.SYMBIONTS)
+      return false
     },
     isFactionBlight() : boolean {
-      return this.state.setup.playerSetup.botFaction.includes(BotFaction.BLIGHT)
+      return false
     },
     isFactionGognomes() : boolean {
-      return this.state.setup.playerSetup.botFaction.includes(BotFaction.GOGNOMES)
+      return false
     },
     factions() : BotFaction[] {
       return this.state.setup.playerSetup.botFaction
