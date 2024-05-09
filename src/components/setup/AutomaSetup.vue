@@ -5,6 +5,14 @@
   <ol>
     <li v-html="t('setupGameAutoma.generalSetup.gameBoard', {playerCount:gameBoardPlayerCount})"></li>
     <li v-html="t('setupGameAutoma.generalSetup.federationTokens')"></li>
+    <li>
+      <span v-html="t('setupGameAutoma.generalSetup.roundScoringTiles')"></span><br/>
+      <AppIcon v-for="tile of scoringRoundTiles" :key="tile"  type="scoring-round" :name="tile" class="scoringRoundTileIcon"/>
+    </li>
+    <li>
+      <span v-html="t('setupGameAutoma.generalSetup.finalScoringTiles')"></span><br/>
+      <AppIcon v-for="tile of scoringFinalTiles" :key="tile"  type="scoring-final" :name="tile" class="scoringFinalTileIcon"/>
+    </li>
   </ol>
   <h4>{{t('setupGameAutoma.faction.title')}}</h4>
   <ul>
@@ -40,6 +48,8 @@ import BotFaction from '@/services/enum/BotFaction'
 import { useStateStore } from '@/store/state'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import DirectionalSelection from '@/services/enum/DirectionalSelection'
+import ScoringRoundTile from '@/services/enum/ScoringRoundTile'
+import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
 
 export default defineComponent({
   name: 'AutomaSetup',
@@ -62,6 +72,12 @@ export default defineComponent({
       else {
         return '1-2'
       }
+    },
+    scoringRoundTiles() : ScoringRoundTile[] {
+      return Object.values(ScoringRoundTile)
+    },
+    scoringFinalTiles() : ScoringFinalTile[] {
+      return Object.values(ScoringFinalTile)
     },
     roundBoosterCount() : number {
       return this.totalPlayerCount + 3
@@ -132,5 +148,15 @@ li {
 .bonusIcon, .directionalSelectionIcon {
   height: 1.5rem;
   margin-left: 0.25rem;
+}
+.scoringRoundTileIcon {
+  height: 6rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+.scoringFinalTileIcon {
+  height: 4rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
 }
 </style>
