@@ -35,18 +35,19 @@ export default class BotActions {
     }
     else {
       result = [{action: action}]
+      if (actionCard.victoryPoints > 0) {
+        result.push({action: Action.GAIN_VICTORY_POINTS, victoryPoints: actionCard.victoryPoints})
+      }
     }
 
     // apply defaults
-    result.forEach(botAction => {
-      if (action != Action.FACTION_ACTION) {
-        botAction.victoryPoints = botAction.victoryPoints ?? actionCard.victoryPoints 
-      }
-      botAction.scoringFinalTiebreaker = botAction.scoringFinalTiebreaker ?? supportCard.scoringFinalTiebreaker
-      botAction.range = botAction.range ?? supportCard.range
-      botAction.directionalSelection = botAction.directionalSelection ?? supportCard.directionalSelection
-      botAction.directionalSelectionCount = botAction.directionalSelectionCount ?? supportCard.directionalSelectionCount
-    })
+    result.filter(botAction => botAction.action != Action.GAIN_VICTORY_POINTS)
+      .forEach(botAction => {
+        botAction.scoringFinalTiebreaker = botAction.scoringFinalTiebreaker ?? supportCard.scoringFinalTiebreaker
+        botAction.range = botAction.range ?? supportCard.range
+        botAction.directionalSelection = botAction.directionalSelection ?? supportCard.directionalSelection
+        botAction.directionalSelectionCount = botAction.directionalSelectionCount ?? supportCard.directionalSelectionCount
+      })
 
     return result
   }
@@ -56,35 +57,42 @@ export default class BotActions {
       case BotFaction.TERRANS:
         return [
           {action: Action.RESEARCH_TRACK_SPECIFIC, researchArea: ResearchArea.GAIA_PROJECT},
-          {action: Action.BUILD_MINE, range: 4, victoryPoints: 2, botFaction: BotFaction.TERRANS}
+          {action: Action.BUILD_MINE, range: 4, botFaction: BotFaction.TERRANS},
+          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
         ]
       case BotFaction.XENOS:
         return [
           {action: Action.BUILD_MINE, range: 2},
-          {action: Action.POWER_QIC_ACTION, victoryPoints: 2}
+          {action: Action.POWER_QIC_ACTION},
+          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
         ]
       case BotFaction.TAKLONS:
         return [
           {action: Action.BUILD_MINE, range: 3, botFaction: BotFaction.TAKLONS},
-          {action: Action.POWER_QIC_ACTION, victoryPoints: 2}
+          {action: Action.POWER_QIC_ACTION},
+          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
         ]
       case BotFaction.HADSCH_HALLAS:
         return [
           {action: Action.UPGRADE, range: 3, botFaction: BotFaction.HADSCH_HALLAS},
+          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 1}
         ]
       case BotFaction.GEODENS:
         return [
           {action: Action.RESEARCH_TRACK_RANDOM},
-          {action: Action.POWER_QIC_ACTION, victoryPoints: 1}
+          {action: Action.POWER_QIC_ACTION},
+          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 1}
         ]
       case BotFaction.FIRAKS:
         return [
-          {action: Action.UPGRADE, botFaction: BotFaction.FIRAKS, victoryPoints: 2}
+          {action: Action.UPGRADE, botFaction: BotFaction.FIRAKS},
+          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
         ]
       case BotFaction.ITARS:
         return [
           {action: Action.POWER_QIC_ACTION},
-          {action: Action.POWER_QIC_ACTION, victoryPoints: 4}
+          {action: Action.POWER_QIC_ACTION},
+          {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 4}
         ]
       default:
         throw new Error('Invalid bot faction: ' + botFaction)
