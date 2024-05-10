@@ -1,0 +1,205 @@
+{
+  "gameTitle": "Gaia Project",
+  "home": {
+    "title": "Gaia Project Solo Helper",
+    "play1": "Play the Automa Solo Mode of <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>.",
+    "play2": "This helper application replaces the Automa cards and guides you through the solo rules. You can play against up to 3 Automas.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Setup Game",
+    "players": {
+      "title": "Player",
+      "playerCount": "Human Players",
+      "playerCountItem": "{count} Player | {count} Players",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automas",
+      "botFaction": "Automa Faction | Automa {bot} Faction"
+    },
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard"
+    },
+    "expansions": {
+      "title": "Expansions"
+    }
+  }, 
+  "setupGameAutoma": {
+    "title": "Automa Setup",
+    "generalSetup": {
+      "title": "General Setup",
+      "intro": "Set up the game as normal with the following changes:",
+      "gameBoard": "Setup the game board for {playerCount} players. Rotate the whole board so that the spaces of the board form horizontal rows.",
+      "federationTokens": "Federation Tokens: Return one of each federation token to the box. Randomly place the token on the research board and place the remaining tokens as normal.",
+      "roundScoringTiles": "Round scoring tiles:",
+      "finalScoringTiles": "Final scoring tiles:"
+    },
+    "faction": {
+      "title": "Automa Faction Setup",
+      "structures": "Prepare the Automa supply with all it's structures.",
+      "playerTokens": "Place player tokens on the VP track and on the research areas.",
+      "startVP": "Automa starts the game with <b>{count} VP</b>.",
+      "satellites": "Place one satellite on each \"0\" space on the scoring board.",
+      "bonus": "Setup Bonus:",
+      "initialMinePlacement": "Place <b>{count}</b> mines on planets of the Automa's home type (closest to the center space).",
+      "roundBooster": "Take Round Booster <b>#{index}</b>",
+      "neutralPlayer": "<b>Neutral Player</b>: Take two satellites of an unused color and place one on each ranking track next to the final scoring tiles; the number on each final scoring tile determines the satellite's position on that ranking track."
+    }
+  },
+  "income": {
+    "title": "Income",
+    "turnInfo": "Round {round}",
+    "collect": "Income: Collect ore, knowledge, credits and power.",
+    "gaia": "Gaia: Get power tokens from Gaia area, transform Transdim planets with Gaiaformers."
+  },
+  "roundTurn": {
+    "turnInfo": "Round {round}, Turn {turn}",
+    "titlePlayer": "Player | Player {player}",
+    "titleBot": "Automa: {faction} | Automa {bot}: {faction}"
+  },
+  "playerTurn": {
+    "text": "Please make your turn - or pass.",
+    "passConfirm": "Do you want to pass?",
+    "passInfo": "Collect your round booster victory points (if any) and take a new round booster."
+  },
+  "botAction": {
+    "gainVictoryPoints": {
+      "text": "Automa gains {count} victory point. | Automa gains {count} victory points."
+    },
+    "buildMine": {
+      "noMine": "No mine left",
+      "validPlanets": "Valid Planets: Empty, in range (including Transdim Planet).",
+      "tiebreaker": {
+        "title": "Tiebreaker:",
+        "faction": {
+          "terrans": "Transdim Planet.",
+          "taklons": "Shortest distance to one of your planets."
+        },
+        "finalScoring": "Final Scoring",
+        "scoringFinalTile": {
+          "gaia-planets": "Gaia or Transdim Planets.",
+          "planet-types": "Planets of a type the Automa has not colonized yet.",
+          "space-sector-tiles": "Planets in a sector without Automa planets."
+        },
+        "fewestTerraformingSteps": "Fewest terraforming steps.",
+        "closestToYourPlanet": "Closest to your planets.",
+        "directionalSelection":"Directional Selection."
+      },
+      "execute": {
+        "title": "Execute:",
+        "placeMine": "Place mine",
+        "placeSatellite": "Place <b>satellite</b> adjacent to new mine if it is not adjacent to another Automa structure.",
+        "planetTypeVP": "If this mine is the Automa's first on that planet type, it gains +2 VP."
+      }
+    },
+    "upgrade": {
+      "choose": {
+        "title": "Choose structure by priority:",
+        "planetaryInstitute": "Planetary Institute (from trading station)",
+        "tradingStation": "Trading Station (from mine)",
+        "academy": "Academy (from research lab)",
+        "researchLab": "Research Lab (from trading station)",
+        "downgradeResearchLab": "Trading station (downgrade from research lab)"
+      },
+      "tiebreaker": {
+        "title": "Tiebreaker:",
+        "closest": "Closest to your planets.",
+        "directionalSelection": "Directional selection."
+      },
+      "execute": {
+        "title": "Execute:",
+        "upgrade": "Upgrade structure.",
+        "researchLabAdvanceResearchAreaRandom": "If upgraded to a research lab:",
+        "advanceResearchAreaRandom": "Advance Research Area (random)",
+        "tradingStationVP": "After upgrading to a trading station, the Automa gains +3 VP."
+      }
+    },
+    "powerQic": {
+      "placeToken": "Place action token on an uncovered Power/Q.I.C. action space.",
+      "numberedSelection": "Numbered selection.",
+      "executeTwice": "Execute this action twice."
+    },
+    "researchArea": {
+      "validResearchArea": "Valid: Any research area where Automa can advance or an advanced tech tile is available.",
+      "tiebreaker": {
+        "title": "Tiebreaker:",
+        "highest": "<b>Highest</b> research level.",
+        "specific": "Prefer <b>{researchArea}</b> research area.",
+        "numberedSelection": "Numbered selection."
+      },
+      "execute": {
+        "title": "Execute:",
+        "techTile": "If level 4 and advanced tech tile, remove the tile.",
+        "advance": "Otherwise: Advance 1 level."
+      }
+    }
+  },
+  "botPass": {
+    "title": "Automa <i>passes</i>.",
+    "scoringTile": "Automa scores victory points:",
+    "roundBoosterTake": "Automa takes a Round booster:",
+    "roundBoosterReturn": "Place old round booster to the right of the others."
+  },
+  "endOfRound": {
+    "title": "End of Round",
+    "turnInfo": "Round {round}",
+    "returnActionTokens": "Return action tokens.",
+    "removeScoringTile": "Remove this round's round scoring tile."
+  },
+  "endOfGame": {
+    "title": "End of Game",
+    "scoringFinalTileScoring": "Automa gains victory points from <b>Final Scoring Tiles</b>.",
+    "scoringFinalTileFederationStructures": "For the final scoring tile \"most structures in federations\", count the Automa’s total number of structures and subtract one from that to determine its number of structures in federations.",
+    "researchScoring": "Automa gains victory points from <b>Research Scoring</b>.",
+    "resourceScoring": "Automa doesn't get any points from Resource scoring."
+  },
+  "difficultyLevel": {
+    "1": "Automalein",
+    "2": "Automa",
+    "3": "Automächtig",
+    "4": "Ultoma",
+    "5": "Alptrauma"
+  },
+  "expansion": {
+    "lost-fleet": "The Lost Fleet"
+  },
+  "botFaction": {
+    "terrans": "Terrans",
+    "xenos": "Xenos",
+    "taklons": "Taklons",
+    "hadsch-hallas": "Hadsch Hallas",
+    "geodens": "Geodens",
+    "firaks": "Firaks",
+    "itars": "Itars"
+  },
+  "researchArea": {
+    "gaia-project": "Gaia Project"
+  },
+  "notfound": {
+    "title": "Not Found"
+  },
+  "action": {
+    "playGame": "Play Game",
+    "startGame": "Start Game",
+    "next": "Next",
+    "nextRound": "Next Round",
+    "abortGame": "Abort Game",
+    "abortGameConfirm": "Aborting the running game - are you sure?",
+    "endGame": "End Game",
+    "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "cancel": "Cancel",
+    "backToHome": "Back to Home",
+    "back": "Back",
+    "close": "Close",
+    "reset": "Reset",
+    "pass": "Pass"
+  },
+  "footer": {
+    "credits": "Credits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Refresh Application",
+    "notice": "The application was updated - do you want to refresh to use the latest version?"
+  }
+}
