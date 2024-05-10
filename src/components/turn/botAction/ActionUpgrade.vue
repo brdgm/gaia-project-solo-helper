@@ -7,15 +7,33 @@
   </div>
   <div class="actionCol text-muted small">
     <ol>
+      <li v-html="t('botAction.upgrade.choose.title')"></li>
+      <ol>
+        <li v-html="t('botAction.upgrade.choose.planetaryInstitute')"></li>
+        <li v-if="isFactionFiraks">
+          <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
+          <span class="fw-bold" v-html="t('botAction.upgrade.choose.downgradeResearchLab')"></span>
+        </li>
+        <li v-html="t('botAction.upgrade.choose.tradingStation')"></li>
+        <li v-html="t('botAction.upgrade.choose.academy')"></li>
+        <li v-html="t('botAction.upgrade.choose.researchLab')"></li>
+      </ol>
       <li v-html="t('botAction.upgrade.tiebreaker.title')"></li>
       <ol type="a">
-        <li v-html="t('botAction.upgrade.tiebreaker.tradingHouse')"></li>
-        <li v-html="t('botAction.upgrade.tiebreaker.littlePower')"></li>
+        <li v-html="t('botAction.upgrade.tiebreaker.closest')"></li>
         <li v-html="t('botAction.upgrade.tiebreaker.directionalSelection')"></li>
       </ol>
       <li v-html="t('botAction.upgrade.execute.title')"></li>
       <ol type="a">
-        <li v-html="t('botAction.upgrade.execute.highestPowerStructure')"></li>
+        <li v-html="t('botAction.upgrade.execute.upgrade')"></li>
+        <li v-if="isFactionFiraks">
+          <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
+          <span class="fw-bold" v-html="t('botAction.upgrade.execute.advanceResearchAreaRandom')"></span>
+        </li>
+        <li v-if="isFactionHadschHallas">
+          <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
+          <span class="fw-bold" v-html="t('botAction.upgrade.execute.tradingStationVP')"></span>
+        </li>
       </ol>
     </ol>
   </div>
@@ -56,6 +74,12 @@ export default defineComponent({
   computed: {
     botFaction() : BotFaction|undefined {
       return this.navigationState.botFaction
+    },
+    isFactionFiraks() : boolean {
+      return this.botFaction === BotFaction.FIRAKS
+    },
+    isFactionHadschHallas() : boolean {
+      return this.botFaction === BotFaction.HADSCH_HALLAS
     }
   }
 })

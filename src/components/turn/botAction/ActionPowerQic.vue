@@ -10,7 +10,7 @@
       <li v-html="t('botAction.powerQic.placeToken')"></li>
       <li v-html="t('botAction.powerQic.numberedSelection')"></li>
       <li v-if="isFactionXenosNormalAction">
-        <span v-html="t(`botFaction.${botFaction}`)"></span>:
+        <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
         <span class="fw-bold" v-html="t(`botAction.powerQic.executeTwice`)"></span>
       </li>
     </ol>

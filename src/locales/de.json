@@ -94,16 +94,22 @@
       }
     },
     "upgrade": {
+      "choose": {
+        "title": "Wähle Gebäude nach Priorität:",
+        "planetaryInstitute": "Regierungssitz (von Handelszentrum)",
+        "tradingStation": "Handelszentrum (von Mine)",
+        "academy": "Akademie (von Forschungslabor)",
+        "researchLab": "Forschungslabor (von Handelszentrum)",
+        "downgradeResearchLab": "Handelszentrum (Downgrade von Forschungslabor)"
+      },
       "tiebreaker": {
-        "title": "Gebäude wählen:",
-        "tradingHouse": "Falls Automa ein Handelshaus in ihrem Vorrat hat: Automa-Wohnhäuser direkt benachbart zu einem deiner Gebäude. Andernfalls alle Gebäude, die Automa aufwerten kann.",
-        "littlePower": "Gebäude, durch deren Aufwertung sie dir am wenigsten Macht gibt.",
+        "title": "Gleichstand:",
+        "closest": "Am nächstem zu deinen Planeten.",
         "directionalSelection": "Richtungsauswahl."
       },
       "execute": {
         "title": "Ausführung:",
-        "highestPowerStructure": "Ersetze das gewählte Gebäude durch das Gebäude mit der höchsten Machtstufe, auf das Automa regulär aufwerten kann.",
-        "motsShipyardPreferred": "Hat Automa die Auswahl zwischen ihrer Festung und ihrer Werft, wählt sie die Werft."
+        "upgrade": "Führe das Aufwerten durch."
       }
     },
     "powerQic": {

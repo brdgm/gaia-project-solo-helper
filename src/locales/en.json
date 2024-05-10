@@ -94,16 +94,22 @@
       }
     },
     "upgrade": {
+      "choose": {
+        "title": "Choose structure by priority:",
+        "planetaryInstitute": "Planetary Institute (from trading station)",
+        "tradingStation": "Trading Station (from mine)",
+        "academy": "Academy (from research lab)",
+        "researchLab": "Research Lab (from trading station)",
+        "downgradeResearchLab": "Trading station (downgrade from research lab)"
+      },
       "tiebreaker": {
-        "title": "Choose structure:",
-        "tradingHouse": "If Automa has a Trading house available: Automa Dwellings adjacent to any of your Structures. Otherwise, any Structure that Automa can upgrade.",
-        "littlePower": "Giving you as little Power as possible.",
-        "directionalSelection": "Directional Selection."
+        "title": "Tiebreaker:",
+        "closest": "Closest to your planets.",
+        "directionalSelection": "Directional selection."
       },
       "execute": {
         "title": "Execute:",
-        "highestPowerStructure": "Replace the chosen Structure with the highest Power value Structure it can be legally upgraded to.",
-        "motsShipyardPreferred": "If there’s a tie between Stronghold and Shipyard Automa builds her Shipyard."
+        "upgrade": "Upgrade structure."
       }
     },
     "powerQic": {
