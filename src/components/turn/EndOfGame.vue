@@ -13,14 +13,10 @@
 import { useStateStore } from '@/store/state'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import AppIcon from '../structure/AppIcon.vue'
 import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
 
 export default defineComponent({
   name: 'EndOfGame',
-  components: {
-    AppIcon
-  },
   setup() {
     const { t } = useI18n()
     const state = useStateStore()
