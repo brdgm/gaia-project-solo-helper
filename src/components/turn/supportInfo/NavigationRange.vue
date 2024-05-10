@@ -33,7 +33,6 @@ export default defineComponent({
 .range {
   position: absolute;
   color: #fff;
-  font-weight: bold;
   font-size: 1.5rem;
   font-weight: bold;
   top: -0.25rem;

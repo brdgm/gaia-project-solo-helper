@@ -5,10 +5,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import AppIcon from '@/components/structure/AppIcon.vue'
-import { PropType } from 'vue';
-import ScoringFinalTiebreaker from '@/services/enum/ScoringFinalTiebreaker';
+import ScoringFinalTiebreaker from '@/services/enum/ScoringFinalTiebreaker'
 
 export default defineComponent({
   name: 'ScoringFinalTiebreaker',
