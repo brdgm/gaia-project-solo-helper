@@ -106,10 +106,8 @@
       }
     },
     "powerQic": {
-      "gameBoard": "Block one uncovered power action on game board",
-      "directionalSelection": "Directional Selection.",
-      "gameBoardExecute": "Execute: Place an Action token on the selected Power action. Automa gains no benefit from this.",
-      "motsPowerActionBoard": "Block one uncovered power action on Merchant Power Actions Board."
+      "placeToken": "Place action token on an uncovered Power/Q.I.C. action space.",
+      "numberedSelection": "Numbered selection."
     },
     "researchArea": {
       "validResearchArea": "Valid: Any research area where Automa can advance or an advanced tech tile is available.",

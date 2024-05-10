@@ -106,10 +106,8 @@
       }
     },
     "powerQic": {
-      "gameBoard": "Decke ein offenes Machtfeld auf dem Spielplan ab",
-      "directionalSelection": "Richtungsauswahl.",
-      "gameBoardExecute": "Ausführung: Decke das gewählte Machtfeld mit einer Aktionsmarke ab. Automa erhält nichts durch diese Aktion.",
-      "motsPowerActionBoard": "Decke ein offenes Machtfeld auf dem Tableau mit Machtaktionen aus <i>Die Händler</i> ab."
+      "placeToken": "Lege ein Aktionsmarker auf eine offenes Macht-/Q.I.C.-Aktionsfeld.",
+      "numberedSelection": "Auswahl nach Zahlen."
     },
     "researchArea": {
       "validResearchArea": "Auswahl: Forschungsbereiche in dem der Automa aufsteigen kann oder in dem noch eine fortgeschrittene Technologie verfügbar ist.",
