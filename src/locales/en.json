@@ -90,7 +90,7 @@
         "title": "Execute:",
         "placeMine": "Place mine",
         "placeSatellite": "Place <b>satellite</b> adjacent to new mine if it is not adjacent to another Automa structure.",
-        "planetTypeVP": "If this mine is the Automa's first on that planet type, it gains 2 VP."
+        "planetTypeVP": "If this mine is the Automa's first on that planet type, it gains +2 VP."
       }
     },
     "upgrade": {
@@ -109,7 +109,10 @@
       },
       "execute": {
         "title": "Execute:",
-        "upgrade": "Upgrade structure."
+        "upgrade": "Upgrade structure.",
+        "researchLabAdvanceResearchAreaRandom": "If upgraded to a research lab:",
+        "advanceResearchAreaRandom": "Advance Research Area (random)",
+        "tradingStationVP": "After upgrading to a trading station, the Automa gains +3 VP."
       }
     },
     "powerQic": {

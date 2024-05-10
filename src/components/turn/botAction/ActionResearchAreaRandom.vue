@@ -36,6 +36,9 @@ export default defineComponent({
     AppIcon,
     SupportInfo
   },
+  emits: {
+    showBotAction: (_botAction: BotAction, _hideInitialAction: boolean) => true  // eslint-disable-line @typescript-eslint/no-unused-vars
+  },
   setup() {
     const { t } = useI18n()
     return { t }

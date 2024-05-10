@@ -28,7 +28,8 @@
         <li v-html="t('botAction.upgrade.execute.upgrade')"></li>
         <li v-if="isFactionFiraks">
           <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
-          <span class="fw-bold" v-html="t('botAction.upgrade.execute.advanceResearchAreaRandom')"></span>
+          <span class="fw-bold" v-html="t('botAction.upgrade.execute.researchLabAdvanceResearchAreaRandom')"></span><br/>
+          <button type="button" class="btn btn-outline-secondary btn-sm mt-1" @click="showResearchAreaRandom()" :disabled="advanceResearchAreaRandom">{{t('botAction.upgrade.execute.advanceResearchAreaRandom')}}</button>
         </li>
         <li v-if="isFactionHadschHallas">
           <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
@@ -48,6 +49,7 @@ import SupportInfo from '../supportInfo/SupportInfo.vue'
 import { useStateStore } from '@/store/state'
 import BotFaction from '@/services/enum/BotFaction'
 import NavigationState from '@/util/NavigationState'
+import Action from '@/services/enum/Action'
 
 export default defineComponent({
   name: 'ActionUpgrade',
@@ -56,10 +58,18 @@ export default defineComponent({
     AppIcon,
     SupportInfo
   },
+  emits: {
+    showBotAction: (_botAction: BotAction, _hideInitialAction: boolean) => true  // eslint-disable-line @typescript-eslint/no-unused-vars
+  },
   setup() {
     const { t } = useI18n()
     const state = useStateStore()
     return { t, state }
+  },
+  data() {
+    return {
+      advanceResearchAreaRandom: false
+    }
   },
   props: {
     botAction: {
@@ -81,6 +91,16 @@ export default defineComponent({
     isFactionHadschHallas() : boolean {
       return this.botFaction === BotFaction.HADSCH_HALLAS
     }
+  },
+  methods: {
+    showResearchAreaRandom() {
+      this.$emit('showBotAction', {
+        action: Action.RESEARCH_AREA_RANDOM,
+        numberedSelection: this.botAction.numberedSelection,
+        numberedSelectionCount: this.botAction.numberedSelectionCount
+      }, false)
+      this.advanceResearchAreaRandom = true
+    }  
   }
 })
 </script>

@@ -90,7 +90,7 @@
         "title": "Ausführung:",
         "placeMine": "Setze die Mine ein.",
         "placeSatellite": "Platziere einen <b>Satelliten</b> benachbart zur neuen Mine, wenn diese nicht direkt an ein Gebäude des Automa angrenzt.",
-        "planetTypeVP": "Wenn diese Mine die erste auf einer neuen Planetenart ist, erhält der Automa 2 VP."
+        "planetTypeVP": "Wenn diese Mine die erste auf einer neuen Planetenart ist, erhält der Automa +2 VP."
       }
     },
     "upgrade": {
@@ -109,7 +109,10 @@
       },
       "execute": {
         "title": "Ausführung:",
-        "upgrade": "Führe das Aufwerten durch."
+        "upgrade": "Führe das Aufwerten durch.",
+        "researchLabAdvanceResearchAreaRandom": "Wenn in ein Forschungslabor aufgewertet wurde:",
+        "advanceResearchAreaRandom": "Aufstieg Forschungsbereich (zufällig)",
+        "tradingStationVP": "Nach dem Aufwerten in ein Handelszentrum erhält der Automa +3 SP."
       }
     },
     "powerQic": {

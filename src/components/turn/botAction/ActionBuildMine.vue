@@ -1,45 +1,40 @@
 <template>
-  <template v-if="!isUpgrade">
-    <div class="actionCol action">
-      <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
-    </div>
-    <div class="actionCol support">
-      <SupportInfo :botAction="botAction" :navigationState="navigationState"
-          :scoringFinalTiebreaker="scoringFinalTileTiebreaker != undefined" :range="true" :directionalSelection="true" :terraformingReference="true"/>
-    </div>
-    <div class="actionCol text-muted small">
-      <button type="button" class="btn btn-outline-secondary btn-sm" @click="isUpgrade=true">{{t('botAction.buildMine.noMine')}}</button>
-      <ol class="mt-2">
-        <li v-html="t('botAction.buildMine.validPlanets')"></li>
-        <li v-html="t('botAction.buildMine.tiebreaker.title')"></li>
-        <ol type="a">
-          <li v-if="isFactionActionTiebreaker">
-            <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
-            <span class="fw-bold" v-html="t(`botAction.buildMine.tiebreaker.faction.${botFaction}`)"></span>
-          </li>
-          <li v-if="isFactionActionTiebreaker">
-            <span v-html="t('botAction.buildMine.tiebreaker.finalScoring')"></span>:
-            <span class="fw-bold" v-html="t(`botAction.buildMine.tiebreaker.scoringFinalTile.${scoringFinalTileTiebreaker}`)"></span>
-          </li>
-          <li v-html="t('botAction.buildMine.tiebreaker.fewestTerraformingSteps')"></li>
-          <li v-html="t('botAction.buildMine.tiebreaker.closestToYourPlanet')"></li>
-          <li v-html="t('botAction.buildMine.tiebreaker.directionalSelection')"></li>
-        </ol>
-        <li v-html="t('botAction.buildMine.execute.title')"></li>
-        <ol type="a">
-          <li v-html="t('botAction.buildMine.execute.placeMine')"></li>
-          <li v-if="hasScoringFinalTileSatellites" v-html="t('botAction.buildMine.execute.placeSatellite')"></li>
-          <li v-if="isFactionGeodens">
-            <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
-            <span class="fw-bold" v-html="t('botAction.buildMine.execute.planetTypeVP')"></span>
-          </li>
-        </ol>
+  <div class="actionCol action">
+    <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
+  </div>
+  <div class="actionCol support">
+    <SupportInfo :botAction="botAction" :navigationState="navigationState"
+        :scoringFinalTiebreaker="scoringFinalTileTiebreaker != undefined" :range="true" :directionalSelection="true" :terraformingReference="true"/>
+  </div>
+  <div class="actionCol text-muted small">
+    <button type="button" class="btn btn-outline-secondary btn-sm" @click="showUgrade()">{{t('botAction.buildMine.noMine')}}</button>
+    <ol class="mt-2">
+      <li v-html="t('botAction.buildMine.validPlanets')"></li>
+      <li v-html="t('botAction.buildMine.tiebreaker.title')"></li>
+      <ol type="a">
+        <li v-if="isFactionActionTiebreaker">
+          <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
+          <span class="fw-bold" v-html="t(`botAction.buildMine.tiebreaker.faction.${botFaction}`)"></span>
+        </li>
+        <li v-if="isFactionActionTiebreaker">
+          <span v-html="t('botAction.buildMine.tiebreaker.finalScoring')"></span>:
+          <span class="fw-bold" v-html="t(`botAction.buildMine.tiebreaker.scoringFinalTile.${scoringFinalTileTiebreaker}`)"></span>
+        </li>
+        <li v-html="t('botAction.buildMine.tiebreaker.fewestTerraformingSteps')"></li>
+        <li v-html="t('botAction.buildMine.tiebreaker.closestToYourPlanet')"></li>
+        <li v-html="t('botAction.buildMine.tiebreaker.directionalSelection')"></li>
       </ol>
-    </div>
-  </template>
-  <template v-else>
-    <Upgrade :bot-action="upgradeBotAction" :navigation-state="navigationState"/>
-  </template>
+      <li v-html="t('botAction.buildMine.execute.title')"></li>
+      <ol type="a">
+        <li v-html="t('botAction.buildMine.execute.placeMine')"></li>
+        <li v-if="hasScoringFinalTileSatellites" v-html="t('botAction.buildMine.execute.placeSatellite')"></li>
+        <li v-if="isFactionGeodens">
+          <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
+          <span class="fw-bold" v-html="t('botAction.buildMine.execute.planetTypeVP')"></span>
+        </li>
+      </ol>
+    </ol>
+  </div>
 </template>
 
 <script lang="ts">
@@ -48,7 +43,6 @@ import { useI18n } from 'vue-i18n'
 import BotAction from '@/services/BotAction'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import SupportInfo from '../supportInfo/SupportInfo.vue'
-import Upgrade from './ActionUpgrade.vue'
 import Action from '@/services/enum/Action'
 import { useStateStore } from '@/store/state'
 import NavigationState from '@/util/NavigationState'
@@ -61,8 +55,10 @@ export default defineComponent({
   inheritAttrs: false,
   components: {
     AppIcon,
-    SupportInfo,
-    Upgrade
+    SupportInfo
+  },
+  emits: {
+    showBotAction: (_botAction: BotAction, _hideInitialAction: boolean) => true  // eslint-disable-line @typescript-eslint/no-unused-vars
   },
   setup() {
     const { t } = useI18n()
@@ -79,18 +75,7 @@ export default defineComponent({
       required: true
     }
   },
-  data() {
-    return {
-      isUpgrade: false,
-    }
-  },
   computed: {
-    upgradeBotAction() : BotAction {
-      return {
-        action: Action.UPGRADE,
-        directionalSelection: this.botAction.directionalSelection
-      }
-    },
     botFaction() : BotFaction|undefined {
       return this.navigationState.botFaction
     },
@@ -120,6 +105,14 @@ export default defineComponent({
     },
     hasScoringFinalTileSatellites() : boolean {
       return this.scoringFinalTiles.includes(ScoringFinalTile.SATELLITES)
+    }
+  },
+  methods: {
+    showUgrade() {  
+      this.$emit('showBotAction', {
+        action: Action.UPGRADE,
+        directionalSelection: this.botAction.directionalSelection
+      }, true)
     }
   }
 })

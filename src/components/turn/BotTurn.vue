@@ -10,7 +10,8 @@
     <template v-for="(botAction, index) of botActions" :key="index">
       <hr v-if="index > 0" class="actionSeparator"/>
       <div class="actionRow">
-        <component :is="`action-${botAction.action}`" :botAction="botAction" :navigationState="navigationState"/>
+        <component :is="`action-${botAction.action}`" :botAction="botAction" :navigationState="navigationState"
+            @showBotAction="(botAction:BotAction,hideInitialAction:boolean) => showBotAction(botAction, hideInitialAction, index)"/>
       </div>
     </template>
   </div>
@@ -22,11 +23,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import NavigationState from '@/util/NavigationState'
 import BotFaction from '@/services/enum/BotFaction'
-import CardDeck from '@/services/CardDeck'
 import BotActions from '@/services/BotActions'
 import BotAction from '@/services/BotAction'
 import ActionBuildMine from './botAction/ActionBuildMine.vue'
@@ -50,9 +50,19 @@ export default defineComponent({
     ActionUpgrade,
     BotPass
   },
-  setup() {
+  setup(props) {
     const { t } = useI18n()
-    return { t }
+
+    const navigationState = props.navigationState
+    const cardDeck = navigationState.cardDeck!
+
+    const botActions = ref([] as BotAction[])
+    if (cardDeck.actionCard && cardDeck.supportCard && navigationState.botFaction) {
+      botActions.value = [...new BotActions(cardDeck.actionCard, cardDeck.supportCard,
+        navigationState.round, navigationState.botFaction, navigationState.difficultyLevel).actions]
+    }
+
+    return { t, cardDeck, botActions }
   },
   props: {
     navigationState: {
@@ -65,22 +75,18 @@ export default defineComponent({
     }
   },
   computed: {
-    botFaction() : BotFaction {
-      return this.navigationState.botFaction as BotFaction
-    },
-    cardDeck() : CardDeck {
-      return this.navigationState.cardDeck as CardDeck
-    },
     isPass() : boolean {
       return this.cardDeck.isPass()
-    },
-    botActions() : readonly BotAction[] {
-      if (!this.cardDeck.actionCard || !this.cardDeck.supportCard) {
-        return []
+    }
+  },
+  methods: {
+    showBotAction(botAction: BotAction, hideInitialAction: boolean, initialActionIndex: number) : void {
+      if (hideInitialAction) {
+        this.botActions.splice(initialActionIndex, 1, botAction)
       }
-      const botActions = new BotActions(this.cardDeck.actionCard, this.cardDeck.supportCard,
-          this.navigationState.round, this.botFaction, this.navigationState.difficultyLevel)
-      return botActions.actions
+      else {
+        this.botActions.splice(initialActionIndex + 1, 0, botAction)
+      }
     }
   }
 })
