@@ -1,8 +1,6 @@
 <template>
   <ol>
-    <li v-html="t('endOfRound.cultBonuses')"></li>
     <li v-html="t('endOfRound.returnActionTokens')"></li>
-    <li v-html="t('endOfRound.bonusCardsCoin')"></li>
     <li v-html="t('endOfRound.removeScoringTile')"></li>
   </ol>
 

@@ -144,19 +144,14 @@
   "endOfRound": {
     "title": "End of Round",
     "turnInfo": "Round {round}",
-    "cultBonuses": "You gain the <b>Cult Bonus</b>.",
     "returnActionTokens": "Return action tokens.",
-    "bonusCardsCoin": "Put <b>1 Coin</b> on each of the three leftover Bonus Cards.",
-    "removeScoringTile": "Remove current scoring tile from board."
+    "removeScoringTile": "Remove this round's round scoring tile."
   },
   "endOfGame": {
     "title": "End of Game",
-    "cultScoring": "Automa gains victory points from <b>Cult scoring</b>.",
-    "areaScoring": "Automa gains victory points from <b>Area scoring</b>.",
-    "areaScoringFireIceStrongholdSanctuary": "Stronghold and Sanctuary for Automa: Divide <i>Greatest Distance</i> by 2 and round up.",
-    "areaScoringFireIceOutposts": "Outposts for Automa: Subtract 2 from <i>Settlements</i>.",
-    "factionWanderers": "<b>Wanderers:</b> Gain 1 victory point per structure anywhere on the board.",
-    "factionGognomes": "<b>Gognomes</b>: Ensure Gognomes got victory points for their achievements.",
+    "scoringFinalTileScoring": "Automa gains victory points from <b>Final Scoring Tiles</b>.",
+    "scoringFinalTileFederationStructures": "For the final scoring tile \"most structures in federations\", count the Automa’s total number of structures and subtract one from that to determine its number of structures in federations.",
+    "researchScoring": "Automa gains victory points from <b>Research Scoring</b>.",
     "resourceScoring": "Automa doesn't get any points from Resource scoring."
   },
   "difficultyLevel": {
