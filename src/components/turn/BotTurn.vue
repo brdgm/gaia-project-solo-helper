@@ -94,6 +94,7 @@ export default defineComponent({
     flex-flow: wrap;
     .actionCol {
       margin: 0.5rem;
+      max-width: 500px;
       &.action {
         padding: 0.5rem;
         background-color: #000;

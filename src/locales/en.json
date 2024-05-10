@@ -117,24 +117,17 @@
       "motsPowerActionBoard": "Block one uncovered power action on Merchant Power Actions Board."
     },
     "researchArea": {
-      "factionDruids": "<b>Automa advances 2 spaces on a single track (without placing a Priest)</b>.",
-      "factionPowerMongers": "<b>Ongoing Benefit: Whenever you gain 2 or more Power via structures, Automa advances 1 space on a Cult track (Cult Catch-up action without placing a Priest).</b>",
-      "notMarker10": "Automa advances only on tracks without a Marker on space 10.",
-      "scoringTile": {
-        "title": "Prefer cult track matching the <b>color</b> of the Automa icon on current <b>Scoring tile</b>."
-      },
-      "catchUp": {
-        "title": "Use <b>Catch-Up</b> selection:",
-        "otherwiseTitle": "Otherwise use Catch-Up selection:",
-        "marketAt0": "The Cult track where Automa‘s Marker is at 0.",
-        "highestMarker": "The Cult track where Automa‘s Marker is nearest to your Marker; it can be on the same space or above or below you.",
-        "highestMarkerMultipleHumans": "The Cult track, where Automa‘s Marker is nearest to the highest Marker; it can be on the same space or above or below the other marker.",
-        "directionalSelection": "Directional Selection."
+      "validResearchArea": "Valid: Any research area where Automa can advance or an advanced tech tile is available.",
+      "tiebreaker": {
+        "title": "Tiebreaker:",
+        "highest": "<b>Highest</b> research level.",
+        "specific": "Prefer <b>{researchArea}</b> research area.",
+        "numberedSelection": "Numbered selection."
       },
       "execute": {
         "title": "Execute:",
-        "placePriest": "Place an available Automa Priest on the highest numbered Priest space below the chosen track and advance Automa‘s Marker the corresponding number of spaces.",
-        "noPriest": "If Automa has no more available Priests, or if there’s no empty Priest space available below the track, advance Automa‘s Marker by 1 on that track without placing a Priest."
+        "techTile": "If level 4 and advanced tech tile, remove the tile.",
+        "advance": "Otherwise: Advance 1 level."
       }
     }
   },
@@ -181,6 +174,9 @@
     "geodens": "Geodens",
     "firaks": "Firaks",
     "itars": "Itars"
+  },
+  "researchArea": {
+    "gaia-project": "Gaia Project"
   },
   "notfound": {
     "title": "Not Found"

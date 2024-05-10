@@ -7,11 +7,16 @@
   </div>
   <div class="actionCol text-muted small">
     <ol>
-      <li v-html="t('botAction.researchArea.notMarker10')"></li>
+      <li v-html="t('botAction.researchArea.validResearchArea')"></li>
+      <li v-html="t('botAction.researchArea.tiebreaker.title')"></li>
+      <ol type="a">
+        <li v-html="t('botAction.researchArea.tiebreaker.specific', {researchArea:t(`researchArea.${botAction.researchArea}`)})"></li>
+        <li v-html="t('botAction.researchArea.tiebreaker.numberedSelection')"></li>
+      </ol>
       <li v-html="t('botAction.researchArea.execute.title')"></li>
       <ol type="a">
-        <li v-html="t('botAction.researchArea.execute.placePriest')"></li>
-        <li v-html="t('botAction.researchArea.execute.noPriest')"></li>
+        <li v-html="t('botAction.researchArea.execute.techTile')"></li>
+        <li v-html="t('botAction.researchArea.execute.advance')"></li>
       </ol>
     </ol>
   </div>
