@@ -68,7 +68,29 @@
       "text": "Automa erhält {count} Punkt. | Automa erhält {count} Punkte."
     },
     "buildMine": {
-      "noMine": "Keine Mine übrig"
+      "noMine": "Keine Mine übrig",
+      "validPlanets": "Auswahl: Leere Planeten in Reichweite (einschließlich Transdim-Planeten).",
+      "tiebreaker": {
+        "title": "Gleichstand:",
+        "faction": {
+          "terrans": "Transdim-Planet.",
+          "taklons": "Planeten, die einem deiner Planeten am nächsten sind."
+        },
+        "finalScoring": "Schlusswertung",
+        "scoringFinalTile": {
+          "gaia-planets": "Gaia- oder Transdim-Planeten.",
+          "planet-types": "Planeten eines Typs, den der Automa noch nicht besiedelt hat.",
+          "space-sector-tiles": "Planeten in einem Sektor ohne vom Automa besiedelte Planeten."
+        },
+        "fewestTerraformingSteps": "Wenigste Transformingschritte.",
+        "closestToYourPlanet": "Am nächsten zu deinen Planeten.",
+        "directionalSelection":"Richtungsauswahl."
+      },
+      "execute": {
+        "title": "Ausführung:",
+        "placeMine": "Setze die Mine ein.",
+        "placeSatellite": "Platziere einen <b>Satelliten</b> benachbart zur neuen Mine, wenn diese nicht direkt an ein Gebäude des Automa angrenzt."
+      }
     },
     "upgrade": {
       "tiebreaker": {

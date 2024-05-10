@@ -14,6 +14,7 @@ import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import BotAction from '@/services/BotAction'
 import AppIcon from '@/components/structure/AppIcon.vue'
+import NavigationState from '@/util/NavigationState'
 
 export default defineComponent({
   name: 'ActionGainVictoryPoints',
@@ -28,6 +29,10 @@ export default defineComponent({
   props: {
     botAction: {
       type: Object as PropType<BotAction>,
+      required: true
+    },
+    navigationState: {
+      type: NavigationState,
       required: true
     }
   }

@@ -3,7 +3,7 @@
     <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
   </div>
   <div class="actionCol support">
-    <SupportInfo :botAction="botAction" :numberedSelection="true"/>
+    <SupportInfo :botAction="botAction" :navigationState="navigationState" :numberedSelection="true"/>
   </div>
   <div class="actionCol text-muted small">
     <ol>
@@ -27,6 +27,7 @@ import { useI18n } from 'vue-i18n'
 import BotAction from '@/services/BotAction'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import SupportInfo from '../supportInfo/SupportInfo.vue'
+import NavigationState from '@/util/NavigationState'
 
 export default defineComponent({
   name: 'ActionResearchAreaRandom',
@@ -43,10 +44,13 @@ export default defineComponent({
     botAction: {
       type: Object as PropType<BotAction>,
       required: true
+    },
+    navigationState: {
+      type: NavigationState,
+      required: true
     }
   }
-  }
-)
+})
 </script>
 
 <style lang="scss" scoped>

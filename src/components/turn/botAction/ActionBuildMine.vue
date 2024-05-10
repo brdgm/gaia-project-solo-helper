@@ -4,7 +4,8 @@
       <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
     </div>
     <div class="actionCol support">
-      <SupportInfo :botAction="botAction" :scoringFinalTiebreaker="scoringFinalTileTiebreaker != undefined" :range="true" :directionalSelection="true"/>
+      <SupportInfo :botAction="botAction" :navigationState="navigationState"
+          :scoringFinalTiebreaker="scoringFinalTileTiebreaker != undefined" :range="true" :directionalSelection="true" :terraformingReference="true"/>
     </div>
     <div class="actionCol text-muted small">
       <button type="button" class="btn btn-outline-secondary btn-sm" @click="isUpgrade=true">{{t('botAction.buildMine.noMine')}}</button>
@@ -27,18 +28,10 @@
         <li v-html="t('botAction.buildMine.execute.title')"></li>
         <ol type="a">
           <li v-html="t('botAction.buildMine.execute.placeMine')"></li>
-          <li v-html="t('botAction.buildMine.execute.placeSatellite')"></li>
+          <li v-if="hasScoringFinalTileSatellites" v-html="t('botAction.buildMine.execute.placeSatellite')"></li>
         </ol>
       </ol>
     </div>
-
-    <ModalDialog id="modalReaching" :title="t('botAction.buildMine.reaching.title')">
-      <template #body>
-        <p v-html="t('botAction.buildMine.reaching.text1')"></p>
-        <p v-html="t('botAction.buildMine.reaching.text2')"></p>
-      </template>
-    </ModalDialog>
-
   </template>
   <template v-else>
     <Upgrade :bot-action="upgradeBotAction" :navigation-state="navigationState"/>
@@ -52,7 +45,6 @@ import BotAction from '@/services/BotAction'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import SupportInfo from '../supportInfo/SupportInfo.vue'
 import Upgrade from './ActionUpgrade.vue'
-import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
 import Action from '@/services/enum/Action'
 import { useStateStore } from '@/store/state'
 import NavigationState from '@/util/NavigationState'
@@ -66,8 +58,7 @@ export default defineComponent({
   components: {
     AppIcon,
     SupportInfo,
-    Upgrade,
-    ModalDialog
+    Upgrade
   },
   setup() {
     const { t } = useI18n()

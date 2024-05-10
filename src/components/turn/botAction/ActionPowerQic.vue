@@ -3,7 +3,7 @@
     <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
   </div>
   <div class="actionCol support">
-    <SupportInfo :botAction="botAction" :numberedSelection="true"/>
+    <SupportInfo :botAction="botAction" :navigationState="navigationState" :numberedSelection="true"/>
   </div>
   <div class="actionCol text-muted small">
     <ol>
@@ -23,6 +23,7 @@ import BotAction from '@/services/BotAction'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import SupportInfo from '../supportInfo/SupportInfo.vue'
 import { useStateStore } from '@/store/state'
+import NavigationState from '@/util/NavigationState'
 
 export default defineComponent({
   name: 'ActionPowerQic',
@@ -39,6 +40,10 @@ export default defineComponent({
   props: {
     botAction: {
       type: Object as PropType<BotAction>,
+      required: true
+    },
+    navigationState: {
+      type: NavigationState,
       required: true
     }
   }
