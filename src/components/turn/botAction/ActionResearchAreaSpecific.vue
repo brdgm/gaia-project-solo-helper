@@ -1,9 +1,9 @@
 <template>
-  <div class="actionCol">
+  <div class="actionCol action">
     <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
   </div>
-  <div class="actionCol">
-    <SupportInfo :botAction="botAction" :scoringFinalTiebreaker="true" :range="true" :directionalSelection="true" />
+  <div class="actionCol support">
+    <SupportInfo :botAction="botAction" :numberedSelection="true"/>
   </div>
   <div class="actionCol text-muted small">
     <ol>

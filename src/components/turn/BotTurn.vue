@@ -94,6 +94,19 @@ export default defineComponent({
     flex-flow: wrap;
     .actionCol {
       margin: 0.5rem;
+      &.action {
+        padding: 0.5rem;
+        background-color: #000;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        margin-right: 0;
+      }
+      &.support {
+        background-color: #000;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        margin-left: 0;
+      }
     }
   }
   .actionSeparator {

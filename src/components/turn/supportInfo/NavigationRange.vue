@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="range">{{range}}</div>
     <AppIcon name="range" class="icon"/>
   </div>
@@ -27,11 +27,15 @@ export default defineComponent({
 .icon {
   width: 3rem;
 }
+.wrapper {
+  position: relative;
+}
 .range {
   position: absolute;
-  font-size: 1.2rem;
+  color: #fff;
   font-weight: bold;
-  margin-top: 0.2rem;
-  margin-left: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  top: -0.25rem;
 }
 </style>

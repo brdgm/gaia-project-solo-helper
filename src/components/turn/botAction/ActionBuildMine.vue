@@ -1,11 +1,10 @@
 <template>
   <template v-if="!isUpgrade">
-    <div class="actionCol">
-      <div class="shipLevel">{{botAction.shipLevel}}</div>
+    <div class="actionCol action">
       <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
     </div>
-    <div class="actionCol">
-      <SupportInfo :bot-action="botAction" :structure="true" :terrain-priority="true" :directional-selection="true"/>
+    <div class="actionCol support">
+      <SupportInfo :botAction="botAction" :scoringFinalTiebreaker="true" :range="true" :directionalSelection="true"/>
     </div>
     <div class="actionCol text-muted small">
       <button type="button" class="btn btn-outline-secondary btn-sm" @click="isUpgrade=true">{{t('botAction.buildMine.noDwelling')}}</button>
@@ -100,8 +99,7 @@ export default defineComponent({
     upgradeBotAction() : BotAction {
       return {
         action: Action.UPGRADE,
-        directionalSelection: this.botAction.directionalSelection,
-        directionalSelectionCount: this.botAction.directionalSelectionCount
+        directionalSelection: this.botAction.directionalSelection
       }
     },
     useSpaceFurthestAway() : boolean {
@@ -147,14 +145,5 @@ export default defineComponent({
   text-decoration: underline;
   text-decoration-style: dotted;
   color: #000;
-}
-.shipLevel {
-  position: absolute;
-  margin-left: 3rem;
-  margin-top: 3.65rem;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  color: black;
 }
 </style>

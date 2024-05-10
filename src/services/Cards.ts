@@ -5,6 +5,7 @@ import DirectionalSelection from './enum/DirectionalSelection'
 import RoundBoosterSelection from './enum/RoundBoosterSelection'
 import InitialRoundBoosterSelection from './enum/InitialRoundBoosterSelection'
 import ScoringFinalTiebreaker from './enum/ScoringFinalTiebreaker'
+import NumberedSelection from './enum/NumberedSelection'
 
 const cards = [
   {
@@ -16,7 +17,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 4,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 1,
+    numberedSelection: NumberedSelection.RIGHT,
+    numberedSelectionCount: 1,
     roundBoosterSelection: RoundBoosterSelection.LEFT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
@@ -29,7 +31,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 2,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 2,
+    numberedSelection: NumberedSelection.RIGHT,
+    numberedSelectionCount: 2,
     roundBoosterSelection: RoundBoosterSelection.MIDDLE,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
   },
@@ -41,7 +44,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 3,
+    numberedSelection: NumberedSelection.RIGHT,
+    numberedSelectionCount: 3,
     roundBoosterSelection: RoundBoosterSelection.RIGHT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_3
   },
@@ -53,7 +57,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.NONE,
     range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 4,
+    numberedSelection: NumberedSelection.LEFT,
+    numberedSelectionCount: 4,
     roundBoosterSelection: RoundBoosterSelection.LEFT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_4
   },
@@ -66,7 +71,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 5,
+    numberedSelection: NumberedSelection.LEFT,
+    numberedSelectionCount: 5,
     roundBoosterSelection: RoundBoosterSelection.MIDDLE,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_5
   },
@@ -77,7 +83,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 1,
+    numberedSelection: NumberedSelection.LEFT,
+    numberedSelectionCount: 1,
     roundBoosterSelection: RoundBoosterSelection.RIGHT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
@@ -89,7 +96,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 4,
+    numberedSelection: NumberedSelection.RIGHT,
+    numberedSelectionCount: 4,
     roundBoosterSelection: RoundBoosterSelection.RIGHT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
   },
@@ -101,7 +109,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 4,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 1,
+    numberedSelection: NumberedSelection.LEFT,
+    numberedSelectionCount: 1,
     roundBoosterSelection: RoundBoosterSelection.MIDDLE,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_3
   },
@@ -112,7 +121,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 2,
+    numberedSelection: NumberedSelection.LEFT,
+    numberedSelectionCount: 2,
     roundBoosterSelection: RoundBoosterSelection.RIGHT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_4
   },
@@ -124,7 +134,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 3,
+    numberedSelection: NumberedSelection.LEFT,
+    numberedSelectionCount: 3,
     roundBoosterSelection: RoundBoosterSelection.LEFT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_5
   },
@@ -135,7 +146,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 4,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 1,
+    numberedSelection: NumberedSelection.RIGHT,
+    numberedSelectionCount: 1,
     roundBoosterSelection: RoundBoosterSelection.MIDDLE,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
@@ -147,7 +159,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 1,
+    numberedSelection: NumberedSelection.LEFT,
+    numberedSelectionCount: 1,
     roundBoosterSelection: RoundBoosterSelection.RIGHT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
   },
@@ -159,7 +172,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.NONE,
     range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 2,
+    numberedSelection: NumberedSelection.LEFT,
+    numberedSelectionCount: 2,
     roundBoosterSelection: RoundBoosterSelection.RIGHT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_3
   },
@@ -170,7 +184,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 3,
+    numberedSelection: NumberedSelection.LEFT,
+    numberedSelectionCount: 3,
     roundBoosterSelection: RoundBoosterSelection.MIDDLE,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_4
   },
@@ -181,7 +196,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
     directionalSelection: DirectionalSelection.LEFT_UP,
-    directionalSelectionCount: 2,
+    numberedSelection: NumberedSelection.RIGHT,
+    numberedSelectionCount: 2,
     roundBoosterSelection: RoundBoosterSelection.LEFT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_5
   },
@@ -193,7 +209,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
     range: 2,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 3,
+    numberedSelection: NumberedSelection.RIGHT,
+    numberedSelectionCount: 3,
     roundBoosterSelection: RoundBoosterSelection.LEFT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
@@ -204,7 +221,8 @@ const cards = [
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
     range: 2,
     directionalSelection: DirectionalSelection.RIGHT_DOWN,
-    directionalSelectionCount: 5,
+    numberedSelection: NumberedSelection.RIGHT,
+    numberedSelectionCount: 5,
     roundBoosterSelection: RoundBoosterSelection.LEFT,
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
   }

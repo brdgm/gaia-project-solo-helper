@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppIcon type="scoring-final-tiebreaker" :name="scoringFinalTiebreaker" class="icon"/>
+    <AppIcon type="scoring-final-tiebreaker" :name="type" class="icon"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default defineComponent({
     AppIcon
   },
   props: {
-    scoringFinalTiebreaker: {
+    type: {
       type: String as PropType<ScoringFinalTiebreaker>,
       required: true
     }
@@ -26,6 +26,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .icon {
-  height: 1.7rem;
+  height: 3rem;
+  margin-bottom: 0.25rem;
+  margin-left: 0.25rem;
 }
 </style>

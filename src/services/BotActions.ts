@@ -46,7 +46,8 @@ export default class BotActions {
         botAction.scoringFinalTiebreaker = botAction.scoringFinalTiebreaker ?? supportCard.scoringFinalTiebreaker
         botAction.range = botAction.range ?? supportCard.range
         botAction.directionalSelection = botAction.directionalSelection ?? supportCard.directionalSelection
-        botAction.directionalSelectionCount = botAction.directionalSelectionCount ?? supportCard.directionalSelectionCount
+        botAction.numberedSelection = botAction.numberedSelection ?? supportCard.numberedSelection
+        botAction.numberedSelectionCount = botAction.numberedSelectionCount ?? supportCard.numberedSelectionCount
       })
 
     return result

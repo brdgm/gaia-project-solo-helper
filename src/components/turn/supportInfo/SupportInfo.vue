@@ -1,9 +1,10 @@
 <template>
   <div class="supportInfo">
-    <ScoringFinalTiebreaker v-if="scoringFinalTiebreaker && botAction.scoringFinalTiebreaker" :scoringFinalTiebreaker="botAction.scoringFinalTiebreaker"/>
+    <ScoringFinalTiebreaker v-if="scoringFinalTiebreaker && botAction.scoringFinalTiebreaker" :type="botAction.scoringFinalTiebreaker"/>
     <NavigationRange v-if="range && botAction.range" :range="botAction.range"/>
-    <DirectionalSelection v-if="directionalSelection && botAction.directionalSelection && botAction.directionalSelectionCount"
-        :type="botAction.directionalSelection" :count="botAction.directionalSelectionCount"/>
+    <DirectionalSelection v-if="directionalSelection && botAction.directionalSelection" :type="botAction.directionalSelection"/>
+    <NumberedSelection v-if="numberedSelection && botAction.numberedSelection && botAction.numberedSelectionCount"
+        :type="botAction.numberedSelection" :count="botAction.numberedSelectionCount"/>
   </div>
 </template>
 
@@ -13,13 +14,15 @@ import BotAction from '@/services/BotAction'
 import ScoringFinalTiebreaker from '@/components/turn/supportInfo/ScoringFinalTiebreaker.vue'
 import NavigationRange from '@/components/turn/supportInfo/NavigationRange.vue'
 import DirectionalSelection from '@/components/turn/supportInfo/DirectionalSelection.vue'
+import NumberedSelection from './NumberedSelection.vue'
 
 export default defineComponent({
   name: 'SupportInfo',
   components: {
     ScoringFinalTiebreaker,
     NavigationRange,
-    DirectionalSelection
+    DirectionalSelection,
+    NumberedSelection
   },
   props: {
     botAction: {
@@ -37,6 +40,10 @@ export default defineComponent({
     directionalSelection: {
       type: Boolean,
       required: false
+    },
+    numberedSelection: {
+      type: Boolean,
+      required: false
     }
   }
 })
@@ -44,8 +51,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .supportInfo {
-  background-color: #000;
-  border-radius: 0.5rem;
   padding: 0.5rem;
   div {
     margin: 0.2rem;

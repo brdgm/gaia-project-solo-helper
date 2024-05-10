@@ -1,9 +1,9 @@
 <template>
-  <div class="actionCol">
+  <div class="actionCol action">
     <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
   </div>
-  <div class="actionCol">
-    <SupportInfo :bot-action="botAction" :directional-selection="true"/>
+  <div class="actionCol support">
+    <SupportInfo :botAction="botAction" :directionalSelection="true"/>
   </div>
   <div class="actionCol text-muted small">
     <ol>
