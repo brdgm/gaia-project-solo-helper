@@ -4,38 +4,30 @@
       <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
     </div>
     <div class="actionCol support">
-      <SupportInfo :botAction="botAction" :scoringFinalTiebreaker="true" :range="true" :directionalSelection="true"/>
+      <SupportInfo :botAction="botAction" :scoringFinalTiebreaker="scoringFinalTileTiebreaker != undefined" :range="true" :directionalSelection="true"/>
     </div>
     <div class="actionCol text-muted small">
-      <button type="button" class="btn btn-outline-secondary btn-sm" @click="isUpgrade=true">{{t('botAction.buildMine.noDwelling')}}</button>
+      <button type="button" class="btn btn-outline-secondary btn-sm" @click="isUpgrade=true">{{t('botAction.buildMine.noMine')}}</button>
       <ol class="mt-2">
-        <li v-if="isWanderers"><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.validSpaces.factionWanderers')"></span></li>
-        <li v-else v-html="t(`botAction.buildMine.validSpaces.${botAction.structure}`)"></li>
+        <li v-html="t('botAction.buildMine.validPlanets')"></li>
         <li v-html="t('botAction.buildMine.tiebreaker.title')"></li>
         <ol type="a">
-          <template v-if="isKuddlers">
-            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.structureClosest')"></span></li>
-            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.terrainPriorityYourTerrainType',{terrainPriority:botAction.terrainPriority})"></span></li>
-            <li v-html="t('botAction.buildMine.tiebreaker.directionalSelection')"></li>
-          </template>
-          <template v-else-if="isMimics">
-            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.terrainPriorityYourTerrainType',{terrainPriority:botAction.terrainPriority})"></span></li>
-            <li><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.structureClosest')"></span></li>
-            <li v-html="t('botAction.buildMine.tiebreaker.directionalSelection')"></li>
-          </template>
-          <template v-else>
-            <li v-if="isPowerMongers"><AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botAction.buildMine.tiebreaker.factionPowerMongers')"></span></li>
-            <li v-html="t('botAction.buildMine.tiebreaker.terrainPriority',{terrainPriority:botAction.terrainPriority})"></li>
-            <li v-if="useSpaceFurthestAway" class="fire-ice"><span v-html="t('botAction.buildMine.tiebreaker.structureFurthest')"></span></li>
-            <li v-else v-html="t('botAction.buildMine.tiebreaker.structureClosest')"></li>
-            <li v-html="t('botAction.buildMine.tiebreaker.directionalSelection')"></li>
-          </template>
+          <li v-if="isFactionActionTiebreaker">
+            <span v-html="t(`botFaction.${botFaction}`)"></span>:
+            <span class="fw-bold" v-html="t(`botAction.buildMine.tiebreaker.faction.${botFaction}`)"></span>
+          </li>
+          <li v-if="isFactionActionTiebreaker">
+            <span v-html="t('botAction.buildMine.tiebreaker.finalScoring')"></span>:
+            <span class="fw-bold" v-html="t(`botAction.buildMine.tiebreaker.scoringFinalTile.${scoringFinalTileTiebreaker}`)"></span>
+          </li>
+          <li v-html="t('botAction.buildMine.tiebreaker.fewestTerraformingSteps')"></li>
+          <li v-html="t('botAction.buildMine.tiebreaker.closestToYourPlanet')"></li>
+          <li v-html="t('botAction.buildMine.tiebreaker.directionalSelection')"></li>
         </ol>
         <li v-html="t('botAction.buildMine.execute.title')"></li>
         <ol type="a">
-          <li v-html="t('botAction.buildMine.execute.homeTerrainTile')"></li>
-          <li v-html="t('botAction.buildMine.execute.dwelling')"></li>
-          <li v-if="isMarkedStructure" v-html="t('botAction.buildMine.execute.marked')"></li>
+          <li v-html="t('botAction.buildMine.execute.placeMine')"></li>
+          <li v-html="t('botAction.buildMine.execute.placeSatellite')"></li>
         </ol>
       </ol>
     </div>
@@ -65,6 +57,8 @@ import Action from '@/services/enum/Action'
 import { useStateStore } from '@/store/state'
 import NavigationState from '@/util/NavigationState'
 import BotFaction from '@/services/enum/BotFaction'
+import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
+import ScoringFinalTiebreaker from '@/services/enum/ScoringFinalTiebreaker'
 
 export default defineComponent({
   name: 'ActionBuildMine',
@@ -102,29 +96,32 @@ export default defineComponent({
         directionalSelection: this.botAction.directionalSelection
       }
     },
-    useSpaceFurthestAway() : boolean {
-      return false
-    },
     botFaction() : BotFaction|undefined {
       return this.botAction.botFaction
     },
-    isFactionAction() : boolean {
+    isFactionActionTiebreaker() : boolean {
       return this.botFaction != undefined
     },
-    isKuddlers() : boolean {
-      return false
+    scoringFinalTiles() : ScoringFinalTile[] {
+      return this.state.setup.scoringFinalTiles ?? []
     },
-    isWanderers() : boolean {
-      return false
+    scoringFinalTileTiebreaker() : ScoringFinalTile|undefined {
+      let result : ScoringFinalTile|undefined = undefined
+      if (this.botAction.scoringFinalTiebreaker == ScoringFinalTiebreaker.TOP) {
+        result = this.scoringFinalTiles[0]
+      }
+      else if (this.botAction.scoringFinalTiebreaker == ScoringFinalTiebreaker.BOTTOM) {
+        result = this.scoringFinalTiles[1]
+      }
+      if (!(result == ScoringFinalTile.GAIA_PLANETS
+          || result == ScoringFinalTile.PLANET_TYPES
+          || result == ScoringFinalTile.SPACE_SECTOR_TILES)) {
+        result = undefined
+      }
+      return result
     },
-    isMimics() : boolean {
-      return false
-    },
-    isPowerMongers() : boolean {
-      return false
-    },
-    isMarkedStructure() : boolean {
-      return false
+    hasScoringFinalTileSatellites() : boolean {
+      return this.scoringFinalTiles.includes(ScoringFinalTile.SATELLITES)
     }
   }
 })

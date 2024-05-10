@@ -68,33 +68,28 @@
       "text": "Automa gains {count} victory point. | Automa gains {count} victory points."
     },
     "buildMine": {
-      "noDwelling": "No dwelling left",
-      "validSpaces": {
-        "marked": "Withing Range of any marked Structure",
-        "marked-reaching": "Withing Range of any marked Structure (with <a href='#modalReaching' data-bs-toggle='modal'>Reaching</a>)",
-        "unmarked": "Withing Range of any unmarked Structure",
-        "unmarked-reaching": "Withing Range of any unmarked Structure (with <a href='#modalReaching' data-bs-toggle='modal'>Reaching</a>)",
-        "factionWanderers": "<b>Ignore range restrictions.</b>"
-      },
+      "noMine": "No mine left",
+      "validPlanets": "Valid Planets: Empty, in range (including Transdim Planet).",
       "tiebreaker": {
-        "title": "Select Space:",
-        "factionPowerMongers": "Giving you the <b>most power</b>.",
-        "terrainPriority": "Automa Terrain Priority <b>{terrainPriority}</b>.",
-        "terrainPriorityYourTerrainType": "Terrain Priority <b>{terrainPriority}</b> with ATP card of <b>your</b> terrain type.",
-        "structureClosest": "Space <b>closest</b> to any of your Structures.",
-        "structureFurthest": "Space <b>furthest away</b> from any Automa Structures.",
-        "directionalSelection": "Directional Selection."
+        "title": "Tiebreaker:",
+        "faction": {
+          "terrans": "Transdim Planet.",
+          "taklons": "Shortest distance to one of your planets."
+        },
+        "finalScoring": "Final Scoring",
+        "scoringFinalTile": {
+          "gaia-planets": "Gaia or Transdim Planets.",
+          "planet-types": "Planets of a type the Automa has not colonized yet.",
+          "space-sector-tiles": "Planets in a sector without Automa planets."
+        },
+        "fewestTerraformingSteps": "Fewest terraforming steps.",
+        "closestToYourPlanet": "Closest to your planets.",
+        "directionalSelection":"Directional Selection."
       },
       "execute": {
         "title": "Execute:",
-        "homeTerrainTile": "Place an Automa Home Terrain tile (if transforming was required).",
-        "dwelling": "Place an Automa Dwelling.",
-        "marked": "Mark the new Dwelling by placing a Power token on its space."
-      },
-      "reaching": {
-        "title": "Reaching",
-        "text1": "If none of the marked Structures are adjacent (directly or indirectly) to any of the unmarked Structures the valid spaces are further limited to only those that would decrease the current <i>shortest distance</i> between <i>marked and unmarked structures</i>.",
-        "text2": "If there are none that would decrease it, all the spaces previously identified remain valid."
+        "placeMine": "Place mine",
+        "placeSatellite": "Place <b>satellite</b> adjacent to new mine if it is not adjacent to another Automa structure."
       }
     },
     "upgrade": {
