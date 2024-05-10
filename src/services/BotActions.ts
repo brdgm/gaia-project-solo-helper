@@ -64,7 +64,7 @@ export default class BotActions {
       case BotFaction.XENOS:
         return [
           {action: Action.BUILD_MINE, range: 2},
-          {action: Action.POWER_QIC},
+          {action: Action.POWER_QIC, botFaction: BotFaction.XENOS},
           {action: Action.GAIN_VICTORY_POINTS, victoryPoints: 2}
         ]
       case BotFaction.TAKLONS:

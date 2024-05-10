@@ -89,7 +89,8 @@
       "execute": {
         "title": "Execute:",
         "placeMine": "Place mine",
-        "placeSatellite": "Place <b>satellite</b> adjacent to new mine if it is not adjacent to another Automa structure."
+        "placeSatellite": "Place <b>satellite</b> adjacent to new mine if it is not adjacent to another Automa structure.",
+        "planetTypeVP": "If this mine is the Automa's first on that planet type, it gains 2 VP."
       }
     },
     "upgrade": {
@@ -107,7 +108,8 @@
     },
     "powerQic": {
       "placeToken": "Place action token on an uncovered Power/Q.I.C. action space.",
-      "numberedSelection": "Numbered selection."
+      "numberedSelection": "Numbered selection.",
+      "executeTwice": "Execute this action twice."
     },
     "researchArea": {
       "validResearchArea": "Valid: Any research area where Automa can advance or an advanced tech tile is available.",

@@ -9,6 +9,10 @@
     <ol>
       <li v-html="t('botAction.powerQic.placeToken')"></li>
       <li v-html="t('botAction.powerQic.numberedSelection')"></li>
+      <li v-if="isFactionXenosNormalAction">
+        <span v-html="t(`botFaction.${botFaction}`)"></span>:
+        <span class="fw-bold" v-html="t(`botAction.powerQic.executeTwice`)"></span>
+      </li>
     </ol>
   </div>
 </template>
@@ -21,6 +25,7 @@ import AppIcon from '@/components/structure/AppIcon.vue'
 import SupportInfo from '../supportInfo/SupportInfo.vue'
 import { useStateStore } from '@/store/state'
 import NavigationState from '@/util/NavigationState'
+import BotFaction from '@/services/enum/BotFaction'
 
 export default defineComponent({
   name: 'ActionPowerQic',
@@ -42,6 +47,14 @@ export default defineComponent({
     navigationState: {
       type: NavigationState,
       required: true
+    }
+  },
+  computed: {
+    botFaction() : BotFaction|undefined {
+      return this.navigationState.botFaction
+    },
+    isFactionXenosNormalAction() : boolean {
+      return this.botFaction === BotFaction.XENOS && this.botAction.botFaction == undefined
     }
   }
 })

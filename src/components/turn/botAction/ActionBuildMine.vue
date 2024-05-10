@@ -29,6 +29,10 @@
         <ol type="a">
           <li v-html="t('botAction.buildMine.execute.placeMine')"></li>
           <li v-if="hasScoringFinalTileSatellites" v-html="t('botAction.buildMine.execute.placeSatellite')"></li>
+          <li v-if="isFactionGeodens">
+            <span v-html="t(`botFaction.${botFaction}`)"></span>:
+            <span class="fw-bold" v-html="t('botAction.buildMine.execute.planetTypeVP')"></span>
+          </li>
         </ol>
       </ol>
     </div>
@@ -88,10 +92,13 @@ export default defineComponent({
       }
     },
     botFaction() : BotFaction|undefined {
-      return this.botAction.botFaction
+      return this.navigationState.botFaction
     },
     isFactionActionTiebreaker() : boolean {
-      return this.botFaction != undefined
+      return this.botAction.botFaction != undefined
+    },
+    isFactionGeodens() : boolean {
+      return this.botFaction === BotFaction.GEODENS
     },
     scoringFinalTiles() : ScoringFinalTile[] {
       return this.state.setup.scoringFinalTiles ?? []

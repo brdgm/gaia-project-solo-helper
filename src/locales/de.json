@@ -89,7 +89,8 @@
       "execute": {
         "title": "Ausführung:",
         "placeMine": "Setze die Mine ein.",
-        "placeSatellite": "Platziere einen <b>Satelliten</b> benachbart zur neuen Mine, wenn diese nicht direkt an ein Gebäude des Automa angrenzt."
+        "placeSatellite": "Platziere einen <b>Satelliten</b> benachbart zur neuen Mine, wenn diese nicht direkt an ein Gebäude des Automa angrenzt.",
+        "planetTypeVP": "Wenn diese Mine die erste auf einer neuen Planetenart ist, erhält der Automa 2 VP."
       }
     },
     "upgrade": {
@@ -107,7 +108,8 @@
     },
     "powerQic": {
       "placeToken": "Lege ein Aktionsmarker auf eine offenes Macht-/Q.I.C.-Aktionsfeld.",
-      "numberedSelection": "Auswahl nach Zahlen."
+      "numberedSelection": "Auswahl nach Zahlen.",
+      "executeTwice": "Führe diese Aktion zweimal aus."
     },
     "researchArea": {
       "validResearchArea": "Auswahl: Forschungsbereiche in dem der Automa aufsteigen kann oder in dem noch eine fortgeschrittene Technologie verfügbar ist.",
