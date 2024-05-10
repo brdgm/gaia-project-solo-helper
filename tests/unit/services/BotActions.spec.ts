@@ -56,7 +56,7 @@ describe('BotActions', () => {
       directionalSelection: DirectionalSelection.RIGHT_DOWN, numberedSelection: NumberedSelection.RIGHT, numberedSelectionCount: 2
     })
     expect(botActions.actions[1]).to.eql({
-      action: Action.POWER_QIC,
+      action: Action.POWER_QIC, botFaction: BotFaction.XENOS,
       scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM, range: 2,
       directionalSelection: DirectionalSelection.RIGHT_DOWN, numberedSelection: NumberedSelection.RIGHT, numberedSelectionCount: 2
     })
