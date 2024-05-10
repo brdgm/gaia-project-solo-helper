@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="count" :class="{leftUp: isLeftUp, rightDown: !isLeftUp}">{{count}}</div>
     <AppIcon type="directional-selection" :name="type" class="icon"/>
+    <AppIcon type="directional-selection-count" :name="type" class="icon"/>
   </div>
 </template>
 
@@ -37,19 +38,21 @@ export default defineComponent({
 .icon {
   width: 3rem;
 }
+.wrapper {
+  position: relative;
+}
 .count {
   position: absolute;
-  width: 3rem;
-  font-size: 1.2rem;
+  color: #fff;
+  top: 0rem;
+  margin-top: -0.25rem;  
+  font-size: 1.75rem;
   font-weight: bold;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
   &.leftUp {
-    text-align: right;
-    margin-top: -0.1rem;
+    left: 4.25rem;
   }
   &.rightDown {
-    margin-top: 0.1rem;
+    left: 3.75rem;
   }
 }
 </style>

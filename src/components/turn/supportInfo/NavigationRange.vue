@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="shipLevel">{{range}}</div>
-    <AppIcon name="ship-level" class="icon"/>
+    <div class="range">{{range}}</div>
+    <AppIcon name="range" class="icon"/>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default defineComponent({
 .icon {
   width: 3rem;
 }
-.shipLevel {
+.range {
   position: absolute;
   font-size: 1.2rem;
   font-weight: bold;

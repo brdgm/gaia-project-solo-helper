@@ -1,7 +1,7 @@
 <template>
   <div class="actionCol">
     <div class="count">{{botAction.victoryPoints}}</div>
-    <AppIcon name="gain-victory-point" class="actionIcon"/>
+    <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
   </div>
   <div class="actionCol"></div>
   <div class="actionCol text-muted small">

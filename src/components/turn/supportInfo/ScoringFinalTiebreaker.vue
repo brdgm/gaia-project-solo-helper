@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppIcon type="structure" :name="type" class="icon"/>
+    <AppIcon type="scoring-final-tiebreaker" :name="scoringFinalTiebreaker" class="icon"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default defineComponent({
     AppIcon
   },
   props: {
-    type: {
+    scoringFinalTiebreaker: {
       type: String as PropType<ScoringFinalTiebreaker>,
       required: true
     }

@@ -1,6 +1,6 @@
 <template>
   <div class="supportInfo">
-    <ScoringFinalTiebreaker v-if="scoringFinalTiebreaker && botAction.scoringFinalTiebreaker" :type="botAction.scoringFinalTiebreaker"/>
+    <ScoringFinalTiebreaker v-if="scoringFinalTiebreaker && botAction.scoringFinalTiebreaker" :scoringFinalTiebreaker="botAction.scoringFinalTiebreaker"/>
     <NavigationRange v-if="range && botAction.range" :range="botAction.range"/>
     <DirectionalSelection v-if="directionalSelection && botAction.directionalSelection && botAction.directionalSelectionCount"
         :type="botAction.directionalSelection" :count="botAction.directionalSelectionCount"/>
@@ -44,7 +44,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .supportInfo {
-  background-color: #f7d39c;
+  background-color: #000;
   border-radius: 0.5rem;
   padding: 0.5rem;
   div {
