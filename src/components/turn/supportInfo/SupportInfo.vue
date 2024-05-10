@@ -3,6 +3,7 @@
     <ScoringFinalTiebreaker v-if="scoringFinalTiebreaker && botAction.scoringFinalTiebreaker" :type="botAction.scoringFinalTiebreaker"/>
     <NavigationRange v-if="range && botAction.range" :range="botAction.range"/>
     <DirectionalSelection v-if="directionalSelection && botAction.directionalSelection" :type="botAction.directionalSelection"/>
+    <ResearchArea v-if="researchArea && botAction.researchArea" :type="botAction.researchArea"/>
     <NumberedSelection v-if="numberedSelection && botAction.numberedSelection && botAction.numberedSelectionCount"
         :type="botAction.numberedSelection" :count="botAction.numberedSelectionCount"/>
   </div>
@@ -14,6 +15,7 @@ import BotAction from '@/services/BotAction'
 import ScoringFinalTiebreaker from '@/components/turn/supportInfo/ScoringFinalTiebreaker.vue'
 import NavigationRange from '@/components/turn/supportInfo/NavigationRange.vue'
 import DirectionalSelection from '@/components/turn/supportInfo/DirectionalSelection.vue'
+import ResearchArea from './ResearchArea.vue'
 import NumberedSelection from './NumberedSelection.vue'
 
 export default defineComponent({
@@ -22,6 +24,7 @@ export default defineComponent({
     ScoringFinalTiebreaker,
     NavigationRange,
     DirectionalSelection,
+    ResearchArea,
     NumberedSelection
   },
   props: {
@@ -38,6 +41,10 @@ export default defineComponent({
       required: false
     },
     directionalSelection: {
+      type: Boolean,
+      required: false
+    },
+    researchArea: {
       type: Boolean,
       required: false
     },

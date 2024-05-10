@@ -3,7 +3,7 @@
     <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
   </div>
   <div class="actionCol support">
-    <SupportInfo :botAction="botAction" :numberedSelection="true"/>
+    <SupportInfo :botAction="botAction" :researchArea="true" :numberedSelection="true"/>
   </div>
   <div class="actionCol text-muted small">
     <ol>
