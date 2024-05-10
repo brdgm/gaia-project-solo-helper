@@ -137,10 +137,9 @@
   },
   "botPass": {
     "title": "Automa <i>passt</i>.",
-    "scoringTile": "Automa erhält die auf dem aktuellen Wertungsplättchen rechts unten <b>angegebenen Punkte</b>.",
-    "scoringTileFactionRacelings": "Sprinter: Automa hat als erste gepasst and erhält die auf dem aktuellen Wertungsplättchen rechts unten <b>angegebenen Punkte nochmals</b>.",
-    "bonusCard": "Automa nimmt eine <b>Rundenbonuskarte</b>:",
-    "bonusCardGold": "Lege alle Geldmünzen von dieser Karte zurück in den allgemeinen Vorrat."
+    "scoringTile": "Automa erhält Siegpunkte:",
+    "roundBoosterTake": "Automa nimmt einen Rundenbooster:",
+    "roundBoosterReturn": "Lege den vorherigen Rundenbooster des Automa rechts neben die anderen."
   },
   "endOfRound": {
     "title": "Rundenende",

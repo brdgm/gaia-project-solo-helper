@@ -137,10 +137,9 @@
   },
   "botPass": {
     "title": "Automa <i>passes</i>.",
-    "scoringTile": "Automa gains a <b>fixed number of Victory points</b> as shown in the lower right corner of the current Scoring tile.",
-    "scoringTileFactionRacelings": "Racelings: Automa passed first this round and gains the <b>fixed number of Victory Points</b> on the current Scoring tile <b>again</b>.",
-    "bonusCard": "Automa takes a <b>Bonus card</b>:",
-    "bonusCardGold": "If there are any coins on the Bonus card return them to the general supply."
+    "scoringTile": "Automa scores victory points:",
+    "roundBoosterTake": "Automa takes a Round booster:",
+    "roundBoosterReturn": "Place old round booster to the right of the others."
   },
   "endOfRound": {
     "title": "End of Round",

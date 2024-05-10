@@ -3,8 +3,8 @@
     <div class="count">{{botAction.victoryPoints}}</div>
     <AppIcon type="action" :name="botAction.action" class="actionIcon"/>
   </div>
-  <div class="actionCol"></div>
-  <div class="actionCol text-muted small">
+  <div v-if="!hideText" class="actionCol"></div>
+  <div v-if="!hideText" class="actionCol text-muted small">
     <p v-html="t('botAction.gainVictoryPoints.text', {count:botAction.victoryPoints}, botAction.victoryPoints!)"></p>
   </div>
 </template>
@@ -37,6 +37,10 @@ export default defineComponent({
     navigationState: {
       type: NavigationState,
       required: true
+    },
+    hideText: {
+      type: Boolean,
+      default: false
     }
   }
 })

@@ -3,17 +3,17 @@
   <ol>
     <li>
       <span v-html="t('botPass.scoringTile')"></span>
-      <AppIcon name="scoring-tile-cult-color" class="scoringTile"/>
-    </li>
-    <li v-if="isFactionRacelings && isStartPlayer">
-      <AppIcon type="action" name="faction-action" class="factionActionIcon"/><span v-html="t('botPass.scoringTileFactionRacelings')"></span>
-      <AppIcon name="scoring-tile-cult-color" class="scoringTile"/>
+      <div class="ms-4 mt-2 mb-3">
+        <ActionGainVictoryPoints :botAction="victoryPointsBotAction" :navigationState="navigationState" :hideText="true"/>
+      </div>
     </li>
     <li>
-      <span v-html="t('botPass.bonusCard')"></span>
-      <AppIcon type="round-booster-selection" :name="roundBoosterSelection" class="roundBoosterSelection"/>
+      <span v-html="t('botPass.roundBoosterTake')"></span>
+      <div class="ms-4 mt-2 mb-3">
+        <AppIcon type="round-booster-selection" :name="roundBoosterSelection" class="roundBoosterSelection"/>
+      </div>
     </li>
-    <li v-html="t('botPass.bonusCardGold')"></li>
+    <li v-html="t('botPass.roundBoosterReturn')"></li>
   </ol>
     
 </template>
@@ -24,15 +24,22 @@ import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import NavigationState from '@/util/NavigationState'
 import RoundBoosterSelection from '@/services/enum/RoundBoosterSelection'
+import { useStateStore } from '@/store/state'
+import getScoringRoundVP from '@/util/getScoringRoundVP'
+import ActionGainVictoryPoints from './botAction/ActionGainVictoryPoints.vue'
+import BotAction from '@/services/BotAction'
+import Action from '@/services/enum/Action'
 
 export default defineComponent({
   name: 'BotPass',
   components: {
-    AppIcon
+    AppIcon,
+    ActionGainVictoryPoints
   },
   setup() {
     const { t } = useI18n()
-    return { t }
+    const state = useStateStore()
+    return { t, state }
   },
   props: {
     navigationState: {
@@ -44,33 +51,23 @@ export default defineComponent({
     roundBoosterSelection() : RoundBoosterSelection {
       return this.navigationState.cardDeck?.supportCard?.roundBoosterSelection ?? RoundBoosterSelection.LEFT
     },
-    isFactionRacelings() : boolean {
-      return false
+    scoreVP() : number {
+      const scoreRoundTile = (this.state.setup.scoringRoundTiles ?? [])[this.navigationState.round-1]
+      if (scoreRoundTile) {
+        return getScoringRoundVP(scoreRoundTile, this.navigationState.round)
+      }
+      return 0
     },
-    isStartPlayer(): boolean {
-      return this.navigationState.roundTurn?.startPlayer ?? false
+    victoryPointsBotAction() : BotAction {
+      return { action: Action.GAIN_VICTORY_POINTS, victoryPoints: this.scoreVP }
     }
   }
 })
 </script>
 
 <style lang="scss" scoped>
-.scoringTile {
-  display: block;
-  width: 6rem; 
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  margin-left: 3rem;
-}
 .roundBoosterSelection {
   display: block;
   width: 6rem; 
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  margin-left: 3rem;
-}
-.factionActionIcon {
-  height: 1.3rem;
-  margin-right: 0.2rem;
 }
 </style>

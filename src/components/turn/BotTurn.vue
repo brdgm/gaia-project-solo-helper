@@ -26,7 +26,6 @@
 import { defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import NavigationState from '@/util/NavigationState'
-import BotFaction from '@/services/enum/BotFaction'
 import BotActions from '@/services/BotActions'
 import BotAction from '@/services/BotAction'
 import ActionBuildMine from './botAction/ActionBuildMine.vue'
