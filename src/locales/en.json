@@ -56,7 +56,8 @@
   "roundTurn": {
     "turnInfo": "Round {round}, Turn {turn}",
     "titlePlayer": "Player | Player {player}",
-    "titleBot": "Automa: {faction} | Automa {bot}: {faction}"
+    "titleBot": "Automa: {faction} | Automa {bot}: {faction}",
+    "alptraumaNotice": "<b>Alptrauma</b>: Automa scores 1 extra VP every time it gains any VP."
   },
   "playerTurn": {
     "text": "Please make your turn - or pass.",

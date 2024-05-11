@@ -1,4 +1,5 @@
 <template>
+  <div v-if="isAlptrauma" class="alert alert-warning" v-html="t('roundTurn.alptraumaNotice')"></div>
   <template v-if="isPass">
     <BotPass :navigationState="navigationState"/>
   </template>
@@ -32,6 +33,7 @@ import ActionResearchAreaRandom from './botAction/ActionResearchAreaRandom.vue'
 import ActionResearchAreaSpecific from './botAction/ActionResearchAreaSpecific.vue'
 import ActionUpgrade from './botAction/ActionUpgrade.vue'
 import BotPass from './BotPass.vue'
+import DifficultyLevel from '@/services/enum/DifficultyLevel'
 
 export default defineComponent({
   name: 'BotTurn',
@@ -72,6 +74,9 @@ export default defineComponent({
   computed: {
     isPass() : boolean {
       return this.cardDeck.isPass()
+    },
+    isAlptrauma() : boolean {
+      return this.navigationState.difficultyLevel == DifficultyLevel.ALPTRAUMA
     }
   },
   methods: {
