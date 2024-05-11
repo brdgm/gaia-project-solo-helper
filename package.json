@@ -1,6 +1,6 @@
 {
   "name": "@brdgm/gaia-project-solo-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Gaia Project Solo Helper",
   "appDeployName": "gaia-project",
