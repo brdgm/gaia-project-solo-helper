@@ -25,7 +25,7 @@
     <button class="btn btn-outline-secondary me-2" data-bs-toggle="collapse" data-bs-target="#randomizedSetup">
       {{t('setupTiles.tileRandomizer.title')}} &#x25BC;      
     </button>
-    <a href="https://rygg-gaard.no/gaia/" target="_blank" class="btn btn-outline-secondary me-2">
+    <a href="https://rygg-gaard.no/gaia/" target="_blank" rel="noopener" class="btn btn-outline-secondary me-2">
       {{t('setupTiles.map')}}
     </a>
   </div>
