@@ -6,11 +6,15 @@
     <li v-html="t('setupTiles.federationTokens')"></li>
     <li>
       <span v-html="t('setupTiles.roundScoringTiles')"></span><br/>
-      <AppIcon v-for="tile of scoringRoundTiles" :key="tile" type="scoring-round" :name="tile" class="scoringRoundTileIcon"/>
+      <AppIcon v-for="tile of scoringRoundTiles" :key="tile" type="scoring-round" :name="tile" class="scoringRoundTileIcon"/><br/>
+      <button class="btn btn-sm btn-secondary me-2" @click="randomizeRoundBoostersResearchBoard">{{t('setupTiles.select')}}</button>
+      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringRoundTiles">{{t('setupTiles.randomize')}}</button>
     </li>
     <li>
       <span v-html="t('setupTiles.finalScoringTiles')"></span><br/>
-      <AppIcon v-for="tile of scoringFinalTiles" :key="tile" type="scoring-final" :name="tile" class="scoringFinalTileIcon"/>
+      <AppIcon v-for="tile of scoringFinalTiles" :key="tile" type="scoring-final" :name="tile" class="scoringFinalTileIcon"/><br/>
+      <button class="btn btn-sm btn-secondary me-2" @click="randomizeRoundBoostersResearchBoard">{{t('setupTiles.select')}}</button>
+      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringFinalTiles">{{t('setupTiles.randomize')}}</button>
     </li>
     <li>
       <span v-html="t('setupTiles.roundBooster', {count:roundBoosterCount})"></span><br/>
@@ -18,9 +22,12 @@
   </ol>
 
   <div>
-    <button class="btn btn-outline-secondary" data-bs-toggle="collapse" data-bs-target="#randomizedSetup">
+    <button class="btn btn-outline-secondary me-2" data-bs-toggle="collapse" data-bs-target="#randomizedSetup">
       {{t('setupTiles.tileRandomizer.title')}} &#x25BC;      
     </button>
+    <a href="https://rygg-gaard.no/gaia/" target="_blank" class="btn btn-outline-secondary me-2">
+      {{t('setupTiles.map')}}
+    </a>
   </div>
   <div class="collapse mt-2" id="randomizedSetup">
     <div class="alert alert-secondary fst-italic">
@@ -103,6 +110,12 @@ export default defineComponent({
     }
   },
   methods: {
+    randomizeScoringRoundTiles() : void {
+      this.scoringRoundTiles = randomEnumMultiDifferentValue(ScoringRoundTile, SCORING_ROUND_TILES_COUNT)
+    },
+    randomizeScoringFinalTiles() : void {
+      this.scoringFinalTiles = randomEnumMultiDifferentValue(ScoringFinalTile, SCORING_FINAL_TILES_COUNT)
+    },
     randomizeRoundBoostersResearchBoard() : void {
       this.researchFederationToken = rollDice(FEDERATION_TOKEN_TOTAL)
       this.roundBoosterTiles = rollDiceMultiDifferentValue(ROUND_BOOSTER_TOTAL, this.roundBoosterCount)
@@ -133,6 +146,7 @@ li {
   height: 6rem;
   margin-right: 0.5rem;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .scoringFinalTileIcon {
   height: 4rem;

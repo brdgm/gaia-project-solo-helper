@@ -33,7 +33,9 @@
     "roundScoringTiles": "Round scoring tiles:",
     "finalScoringTiles": "Final scoring tiles:",
     "roundBooster": "Randomly select {count} round boosters.",
+    "select": "Select",
     "randomize": "Randomize",
+    "map": "Map Randomizer (external)",
     "tileRandomizer": {
       "title": "Round Boosters and Research Board",
       "notice": "The actual selection of round boosters and research board tiles is not relevant for the application.",

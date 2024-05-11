@@ -33,7 +33,9 @@
     "roundScoringTiles": "Rundenwertungsplättchen:",
     "finalScoringTiles": "Schlusswertungsplättchen:",
     "roundBooster": "Wähle zufällig {count} Rundenbooster aus.",
-    "randomize": "Neu wählen",
+    "select": "Auswählen",
+    "randomize": "Zufällig wählen",
+    "map": "Kartengenerator (extern)",
     "tileRandomizer": {
       "title": "Rundenbooster und Forschungstableau",
       "notice": "Die konkrete Auswahl von Rundenboostern und Plättchen auf dem Forschungstableau ist für die Applikation nicht relevant.",
