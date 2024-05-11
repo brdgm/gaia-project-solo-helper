@@ -13,6 +13,8 @@
     {{t('action.next')}}
   </router-link>
 
+  <DebugInfo :navigationState="navigationState"/>
+
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
 </template>
 
@@ -22,20 +24,24 @@ import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
+import DebugInfo from '@/components/turn/DebugInfo.vue'
+import NavigationState from '@/util/NavigationState'
 
 export default defineComponent({
   name: 'RoundIncome',
   components: {
-    FooterButtons
+    FooterButtons,
+    DebugInfo
   },
   setup() {
     const { t } = useI18n()
     const state = useStateStore()
     const route = useRoute()
 
-    const round = parseInt(route.params['round'] as string)
+    const navigationState = new NavigationState(route)
+    const round = navigationState.round
 
-    return { t, state, round }
+    return { t, state, navigationState, round }
   },
   computed: {
     backButtonRouteTo() : string {

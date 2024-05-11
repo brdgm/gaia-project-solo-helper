@@ -58,6 +58,7 @@ export interface Setup {
   playerSetup: PlayerSetup
   scoringRoundTiles?: ScoringRoundTile[]
   scoringFinalTiles?: ScoringFinalTile[]
+  debugMode?: boolean
 }
 export interface PlayerSetup {
   playerCount: number

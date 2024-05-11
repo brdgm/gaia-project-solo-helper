@@ -1,8 +1,4 @@
 <template>
-  <div class="fixed-bottom text-muted cardDebugInfo">
-    {{cardDeck.actionCard?.id}} / {{cardDeck.supportCard?.id}}
-  </div>
-
   <template v-if="isPass">
     <BotPass :navigationState="navigationState"/>
   </template>
@@ -121,12 +117,5 @@ export default defineComponent({
     margin-right: auto;
     color: gray;
   }
-}
-.cardDebugInfo {
-  margin-bottom: 2rem;
-  padding-right: 0.5rem;
-  font-size: 0.6rem;
-  background-color: transparent;
-  text-align: right;
 }
 </style>

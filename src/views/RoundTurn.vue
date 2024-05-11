@@ -16,6 +16,8 @@
   <EndOfGame v-if="endOfGame" :round="round"/>
   <EndOfRound v-else-if="endOfRound" :nextButtonRouteTo="nextButtonRouteTo"/>
 
+  <DebugInfo :navigationState="navigationState"/>
+
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" :endGameButtonType="endOfGame ? 'endGame' : 'abortGame'"/>
 </template>
 
@@ -29,6 +31,7 @@ import BotTurn from '@/components/turn/BotTurn.vue'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import EndOfRound from '@/components/turn/EndOfRound.vue'
 import EndOfGame from '@/components/turn/EndOfGame.vue'
+import DebugInfo from '@/components/turn/DebugInfo.vue'
 
 export default defineComponent({
   name: 'RoundTurn',
@@ -37,7 +40,8 @@ export default defineComponent({
     BotTurn,
     FooterButtons,
     EndOfRound,
-    EndOfGame
+    EndOfGame,
+    DebugInfo
   },
   setup() {
     const { t } = useI18n()
