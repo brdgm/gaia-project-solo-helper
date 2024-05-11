@@ -1,0 +1,216 @@
+{
+  "gameTitle": "Gaia Project",
+  "home": {
+    "title": "Gaia Project Solo Helper",
+    "play1": "Spiele den Automa Solo-Modus von <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>.",
+    "play2": "Diese Applikation ersetzt die Automa-Karten und führt dich durch die Solo-Regeln. Du kannst gegen bis zu 3 Automas spielen.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Spielaufbau",
+    "players": {
+      "title": "Spieler",
+      "playerCount": "Menschliche Spieler",
+      "playerCountItem": "{count} Spieler | {count} Spieler",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automas",
+      "botFaction": "Automa Volk | Automa {bot} Volk"
+    },
+    "difficultyLevel": {
+      "title": "Schwierigkeitsgrad",
+      "easy": "Leicht",
+      "hard": "Schwer"
+    },
+    "expansions": {
+      "title": "Erweiterungen"
+    }
+  }, 
+  "setupTiles": {
+    "title": "Spielbereich vorbereiten",
+    "intro": "Baue das Spiel wie gewohnt, aber mit diesen Änderungen auf:",
+    "gameBoard": "Bereite das Spielfeld für {playerCount} Spieler vor. Lege die Raumteile so aus, dass die einzelnen Sechsecke horizontale Linien bilden.",
+    "federationTokens": "Allianzmarken: Lege 2 von jeder Allianzmarke bereit. Lege eine zufällige davon auf das Forschungstableau.",
+    "scoringRoundTiles": "Rundenwertungsplättchen",
+    "scoringFinalTiles": "Schlusswertungsplättchen",
+    "roundBooster": "Wähle zufällig {count} Rundenbooster aus.",
+    "select": "Auswählen",
+    "available": "Verfügbar:",
+    "selected": "Ausgewählt:",
+    "none": "(keine)",
+    "randomize": "Zufällig wählen",
+    "map": "Kartengenerator (extern)",
+    "tileRandomizer": {
+      "title": "Rundenbooster und Forschungstableau",
+      "notice": "Die konkrete Auswahl von Rundenboostern und Plättchen auf dem Forschungstableau ist für die Applikation nicht relevant.",
+      "roundBoosters": "Rundenbooster",
+      "researchBoard": "Forschungstableau"
+    }
+  },
+  "setupGameAutoma": {
+    "title": "Automa Spielaufbau",
+    "structures": "Der Automa erhält alle seine Gebäude.",
+    "playerTokens": "Platziere die Markierungssteine auf der Siegpunktleiste und dem Forschungstableau.",
+    "startVP": "Automa beginnt das Spiel mit <b>{count} SP</b>.",
+    "satellites": "Platziere je einen Satellit auf den \"0\"-Positionen auf dem Wertungstableau.",
+    "bonus": "Aufbau-Bonus:",
+    "initialMinePlacement": "Platziere <b>{count}</b> Startminen auf Heimatplaneten des Automa (am nächsten zum Zentrum).",
+    "roundBooster": "Nimm Rundenbooster <b>#{index}</b>",
+    "neutralPlayer": "<b>Neutraler Spieler</b>: Platziere 2 Satelliten einer nicht verwendeten Spielerfarbe auf der Zählleiste links neben den Schlusswertungsplättchen - entsprechend der Zahl auf diesen Plättchen."
+  },
+  "income": {
+    "title": "Einkommen",
+    "turnInfo": "Runde {round}",
+    "collect": "Einkommen: Erhalte Erz, Wissen, Credits und Macht.",
+    "gaia": "Gaia-Phase: Erhalte Machtsteine aus dem Gaia-Bereich, wandle Transdim-Planeten mit Gaiaformern um."
+  },
+  "roundTurn": {
+    "turnInfo": "Runde {round}, Zug {turn}",
+    "titlePlayer": "Spieler | Spieler {player}",
+    "titleBot": "Automa: {faction} | Automa {bot}: {faction}",
+    "alptraumaNotice": "<b>Alptrauma</b>: Automa erhält jedes Mal, wenn er SP erhält, 1 zusätzlichen SP."
+  },
+  "playerTurn": {
+    "text": "Führe deinen Zug durch - oder passe.",
+    "passConfirm": "Möchtest du passen?",
+    "passInfo": "Erhalte Siegpunkte deines Rundenboosters (falls vorhanden) und nimm einen neue Rundenbooster."
+  },
+  "botAction": {
+    "gainVictoryPoints": {
+      "text": "Automa erhält {count} Punkt. | Automa erhält {count} Punkte."
+    },
+    "buildMine": {
+      "noMine": "Keine Mine übrig",
+      "validPlanets": "Auswahl: Freie Planeten in Reichweite (einschließlich Transdim-Planeten).",
+      "tiebreaker": {
+        "title": "Gleichstand:",
+        "faction": {
+          "terrans": "Transdim-Planet.",
+          "taklons": "Einem deiner Planeten am nächsten."
+        },
+        "finalScoring": "Schlusswertung",
+        "scoringFinalTile": {
+          "gaia-planets": "Gaia- oder Transdim-Planeten.",
+          "planet-types": "Planeten einer Art, die der Automa noch nicht besiedelt hat.",
+          "space-sector-tiles": "Planeten in Sektor ohne Automa-Planeten."
+        },
+        "fewestTerraformingSteps": "Wenigste Transformingschritte.",
+        "closestToYourPlanet": "Am nächsten zu deinen Planeten.",
+        "directionalSelection":"Richtungsauswahl."
+      },
+      "execute": {
+        "title": "Ausführung:",
+        "placeMine": "Platziere eine Mine.",
+        "placeSatellite": "Platziere 1 <b>Satelliten</b> neben der neuen Mine, falls nicht angrenzend zu anderem Automa Gebäude.",
+        "planetTypeVP": "Wenn diese Mine die erste auf einer neuen Planetenart ist, erhält der Automa +2 VP."
+      }
+    },
+    "upgrade": {
+      "choose": {
+        "title": "Wähle Gebäude nach Priorität:",
+        "planetaryInstitute": "Regierungssitz (von Handelszentrum)",
+        "tradingStation": "Handelszentrum (von Mine)",
+        "academy": "Akademie (von Forschungslabor)",
+        "researchLab": "Forschungslabor (von Handelszentrum)",
+        "downgradeResearchLab": "Handelszentrum (Downgrade von Forschungslabor)"
+      },
+      "tiebreaker": {
+        "title": "Gleichstand:",
+        "closest": "Einem deiner Planeten am nächsten.",
+        "directionalSelection": "Richtungsauswahl."
+      },
+      "execute": {
+        "title": "Ausführung:",
+        "upgrade": "Führe das Aufwerten durch.",
+        "researchLabAdvanceResearchAreaRandom": "Wenn in ein Forschungslabor aufgewertet wurde:",
+        "advanceResearchAreaRandom": "Aufstieg Forschungsbereich (zufällig)",
+        "tradingStationVP": "Nach dem Aufwerten in ein Handelszentrum erhält der Automa +3 SP."
+      }
+    },
+    "powerQic": {
+      "placeToken": "Lege ein Aktionsmarker auf eine offenes Macht-/Q.I.C.-Aktionsfeld.",
+      "numberedSelection": "Auswahl nach Zahlen.",
+      "executeTwice": "Führe diese Aktion zweimal aus."
+    },
+    "researchArea": {
+      "validResearchArea": "Auswahl: Forschungsbereich, in dem der Automa aufsteigen kann oder in dem noch eine Ausbautechnologie vorhanden ist.",
+      "tiebreaker": {
+        "title": "Gleichstand:",
+        "highest": "Im <b>höchsten</b> möglichen Level.",
+        "specific": "Bevorzuge Forschungsbereich <b>{researchArea}</b>.",
+        "numberedSelection": "Auswahl nach Zahlen."
+      },
+      "execute": {
+        "title": "Ausführung:",
+        "techTile": "Wenn bereits auf Level 4 und Ausbautechnologie vorhanden: Technologie entfernen.",
+        "advance": "Ansonsten: Aufstieg um 1 Level."
+      }
+    }
+  },
+  "botPass": {
+    "title": "Automa <i>passt</i>.",
+    "scoringTile": "Automa erhält Siegpunkte:",
+    "roundBoosterTake": "Automa nimmt einen Rundenbooster:",
+    "roundBoosterReturn": "Lege den vorherigen Rundenbooster des Automa rechts neben die anderen."
+  },
+  "endOfRound": {
+    "title": "Rundenende",
+    "turnInfo": "Runde {round}",
+    "returnActionTokens": "Aktionsmarken zurücknehmen.",
+    "removeScoringTile": "Entferne das aktuelle Wertungsplättchen aus dem Spiel."
+  },
+  "endOfGame": {
+    "title": "Spielende",
+    "scoringFinalTileScoring": "Automa erhält Punkte durch die <b>Plättchenwertung</b>.",
+    "scoringFinalTileFederationStructures": "Beim Schlusswertungsplättchen \"die meisten Gebäude in Allianzen\": Um die Anzahl der Gebäude in Allianzen für den Automa zu bestimmen, zähle alle seine gebauten Gebäude und ziehe 1 ab. Nimm diesen Wert als die Anzahl seiner Gebäude in Allianzen.",
+    "researchScoring": "Automa erhält Punkte durch die <b>Forschungswertung</b>.",
+    "resourceScoring": "Automa erhält keine Punkte durch die Ressourcenwertung."
+  },
+  "difficultyLevel": {
+    "1": "Automalein",
+    "2": "Automa",
+    "3": "Automächtig",
+    "4": "Ultoma",
+    "5": "Alptrauma"
+  },
+  "expansion": {
+    "lost-fleet": "The Lost Fleet"
+  },
+  "botFaction": {
+    "terrans": "Terraner",
+    "xenos": "Xenos",
+    "taklons": "Taklons",
+    "hadsch-hallas": "Hadsch Halla",
+    "geodens": "Geoden",
+    "firaks": "Firaks",
+    "itars": "Itar"
+  },
+  "researchArea": {
+    "gaia-project": "Gaia-Projekt"
+  },
+  "notfound": {
+    "title": "Nicht Gefunden"
+  },
+  "action": {
+    "playGame": "Spielen",
+    "startGame": "Spiel starten",
+    "next": "Weiter",
+    "nextRound": "Nächste Runde",
+    "abortGame": "Spiel abbrechen",
+    "abortGameConfirm": "Das aktuelle Spiel wird abgebrochen - bist Du sicher?",
+    "endGame": "Spiel beenden",
+    "endGameConfirm": "Dieses Spiel wird beendet - bist Du sicher?",
+    "cancel": "Abbrechen",
+    "backToHome": "Zurück zum Anfang",
+    "back": "Zurück",
+    "close": "Schließen",
+    "reset": "Zurücksetzen",
+    "pass": "Passen"
+  },
+  "footer": {
+    "credits": "Credits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Applikation neu laden",
+    "notice": "Die Applikation wurde aktualisiert - möchtest du die Seite neu laden um die neueste Version zu nutzen?"
+  }
+}
