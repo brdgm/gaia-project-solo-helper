@@ -79,7 +79,7 @@ export interface RoundTurn {
   cardDeck?: CardDeckPersistence
 }
 export interface CardDeckPersistence {
-  deck: number[]
-  reserve: number[]
-  discard: number[]
+  deck: string[]
+  reserve: string[]
+  discard: string[]
 }

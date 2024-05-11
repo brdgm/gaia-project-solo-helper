@@ -11,9 +11,9 @@ import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 export default class CardDeck {
 
   // special cards for setup
-  private static readonly CARD_2 = 2
-  private static readonly CARD_9 = 9
-  private static readonly CARD_15 = 15
+  private static readonly CARD_2 = '2'
+  private static readonly CARD_9 = '9'
+  private static readonly CARD_15 = '15'
 
   private _deck : Card[]
   private _reserve : Card[]
@@ -135,7 +135,7 @@ export default class CardDeck {
 
 }
 
-function moveCardToDeck(deck1: Card[], deck2: Card[], cardId: number) {
+function moveCardToDeck(deck1: Card[], deck2: Card[], cardId: string) {
   const cardIndex = deck1.findIndex(card => card.id == cardId)
   const movedCard = deck1.splice(cardIndex, 1)[0]
   deck2.unshift(movedCard)
