@@ -1,13 +1,13 @@
 <template>
   <h1>{{t('setupGameAutoma.title')}}</h1>
 
-  <AutomaSetup @scoringTiles="setScoringTiles"/>
+  <AutomaSetup/>
 
-  <button class="btn btn-primary btn-lg mt-4" @click="startGame" :disabled="!scoringRoundTiles || !scoringFinalTiles">
+  <button class="btn btn-primary btn-lg mt-4" @click="startGame">
     {{t('action.startGame')}}
   </button>
 
-  <FooterButtons backButtonRouteTo="/setupGame" endGameButtonType="abortGame"/>
+  <FooterButtons backButtonRouteTo="/setupGameTiles" endGameButtonType="abortGame"/>
 </template>
 
 <script lang="ts">
@@ -30,25 +30,9 @@ export default defineComponent({
     const state = useStateStore()
     return { t, state }
   },
-  data() {
-    return {
-      scoringRoundTiles: undefined as ScoringRoundTile[]|undefined,
-      scoringFinalTiles: undefined as ScoringFinalTile[]|undefined
-    }
-  },
   methods: {
     startGame() : void {
-      if (!this.scoringRoundTiles || !this.scoringFinalTiles) {
-        return
-      }
-      this.state.resetGame()
-      this.state.setup.scoringRoundTiles = this.scoringRoundTiles
-      this.state.setup.scoringFinalTiles = this.scoringFinalTiles
       this.$router.push('/round/1/income')
-    },
-    setScoringTiles(scoringRoundTiles: ScoringRoundTile[], scoringFinalTiles: ScoringFinalTile[]) : void {
-      this.scoringRoundTiles = scoringRoundTiles
-      this.scoringFinalTiles = scoringFinalTiles
     }
   }
 })

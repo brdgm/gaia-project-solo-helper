@@ -25,27 +25,24 @@
       "title": "Erweiterungen"
     }
   }, 
+  "setupTiles": {
+    "title": "Spielbereich vorbereiten",
+    "intro": "Baue das Spiel wie gewohnt, aber mit diesen Änderungen auf:",
+    "gameBoard": "Bereite das Spielfeld für {playerCount} Spieler vor. Lege die Raumteile so aus, dass die einzelnen Sechsecke horizontale Linien bilden.",
+    "federationTokens": "Allianzmarken: Nimm 2 von jeder Allianzmarke und lege die überzähligen Marken wieder in die Schachtel zurück. Wie im Basisspiel, lege eine zufällige Allianzmarke auf das Forschungstableau.",
+    "roundScoringTiles": "Rundenwertungsplättchen:",
+    "finalScoringTiles": "Schlusswertungsplättchen:"
+  },
   "setupGameAutoma": {
     "title": "Automa Spielaufbau",
-    "generalSetup": {
-      "title": "Allgemeiner Aufbau",
-      "intro": "Baue das Spiel wie gewohnt, aber mit diesen Änderungen auf:",
-      "gameBoard": "Bereite das Spielfeld für {playerCount} Spieler vor. Lege die Raumteile so aus, dass die einzelnen Sechsecke horizontale Linien bilden.",
-      "federationTokens": "Allianzmarken: Nimm 2 von jeder Allianzmarke und lege die überzähligen Marken wieder in die Schachtel zurück. Wie im Basisspiel, lege eine zufällige Allianzmarke auf das Forschungstableau.",
-      "roundScoringTiles": "Rundenwertungsplättchen:",
-      "finalScoringTiles": "Schlusswertungsplättchen:"
-    },
-    "faction": {
-      "title": "Automa Völker-Aufbau",
-      "structures": "Der Automa erhält alle seine Gebäude.",
-      "playerTokens": "Platziere die Markierungssteine auf der Siegpunktleiste und dem Forschungstableau.",
-      "startVP": "Automa beginnt das Spiel mit <b>{count} SP</b>.",
-      "satellites": "Platziere je einen Satellit auf den \"0\"-Positionen auf dem Wertungstableau.",
-      "bonus": "Aufbau-Bonus:",
-      "initialMinePlacement": "Platziere <b>{count}</b> Startminen auf Heimatplaneten des Automa (am nächsten zum Zentrum).",
-      "roundBooster": "Nimm Rundenbooster <b>#{index}</b>",
-      "neutralPlayer": "<b>Neutraler Spieler</b>: Platziere 2 Satelliten einer nicht verwendeten Spielerfarbe auf der Zählleiste links neben den Schlusswertungsplättchen - entsprechend der Zahl auf diesen Plättchen."
-    }
+    "structures": "Der Automa erhält alle seine Gebäude.",
+    "playerTokens": "Platziere die Markierungssteine auf der Siegpunktleiste und dem Forschungstableau.",
+    "startVP": "Automa beginnt das Spiel mit <b>{count} SP</b>.",
+    "satellites": "Platziere je einen Satellit auf den \"0\"-Positionen auf dem Wertungstableau.",
+    "bonus": "Aufbau-Bonus:",
+    "initialMinePlacement": "Platziere <b>{count}</b> Startminen auf Heimatplaneten des Automa (am nächsten zum Zentrum).",
+    "roundBooster": "Nimm Rundenbooster <b>#{index}</b>",
+    "neutralPlayer": "<b>Neutraler Spieler</b>: Platziere 2 Satelliten einer nicht verwendeten Spielerfarbe auf der Zählleiste links neben den Schlusswertungsplättchen - entsprechend der Zahl auf diesen Plättchen."
   },
   "income": {
     "title": "Einkommen",

@@ -25,27 +25,24 @@
       "title": "Expansions"
     }
   }, 
+  "setupTiles": {
+    "title": "Setup Game Board",
+    "intro": "Set up the game as normal with the following changes:",
+    "gameBoard": "Setup the game board for {playerCount} players. Rotate the whole board so that the spaces of the board form horizontal rows.",
+    "federationTokens": "Federation Tokens: Return one of each federation token to the box. Randomly place the token on the research board and place the remaining tokens as normal.",
+    "roundScoringTiles": "Round scoring tiles:",
+    "finalScoringTiles": "Final scoring tiles:"
+  },
   "setupGameAutoma": {
     "title": "Automa Setup",
-    "generalSetup": {
-      "title": "General Setup",
-      "intro": "Set up the game as normal with the following changes:",
-      "gameBoard": "Setup the game board for {playerCount} players. Rotate the whole board so that the spaces of the board form horizontal rows.",
-      "federationTokens": "Federation Tokens: Return one of each federation token to the box. Randomly place the token on the research board and place the remaining tokens as normal.",
-      "roundScoringTiles": "Round scoring tiles:",
-      "finalScoringTiles": "Final scoring tiles:"
-    },
-    "faction": {
-      "title": "Automa Faction Setup",
-      "structures": "Prepare the Automa supply with all it's structures.",
-      "playerTokens": "Place player tokens on the VP track and on the research areas.",
-      "startVP": "Automa starts the game with <b>{count} VP</b>.",
-      "satellites": "Place one satellite on each \"0\" space on the scoring board.",
-      "bonus": "Setup Bonus:",
-      "initialMinePlacement": "Place <b>{count}</b> mines on planets of the Automa's home type (closest to the center space).",
-      "roundBooster": "Take Round Booster <b>#{index}</b>",
-      "neutralPlayer": "<b>Neutral Player</b>: Take two satellites of an unused color and place one on each ranking track next to the final scoring tiles; the number on each final scoring tile determines the satellite's position on that ranking track."
-    }
+    "structures": "Prepare the Automa supply with all it's structures.",
+    "playerTokens": "Place player tokens on the VP track and on the research areas.",
+    "startVP": "Automa starts the game with <b>{count} VP</b>.",
+    "satellites": "Place one satellite on each \"0\" space on the scoring board.",
+    "bonus": "Setup Bonus:",
+    "initialMinePlacement": "Place <b>{count}</b> mines on planets of the Automa's home type (closest to the center space).",
+    "roundBooster": "Take Round Booster <b>#{index}</b>",
+    "neutralPlayer": "<b>Neutral Player</b>: Take two satellites of an unused color and place one on each ranking track next to the final scoring tiles; the number on each final scoring tile determines the satellite's position on that ranking track."
   },
   "income": {
     "title": "Income",
