@@ -4,7 +4,7 @@
   <PlayersSetup/>
   <DifficultyLevel/>
 
-  <router-link to="/setupGameAutoma" class="btn btn-primary btn-lg mt-4">
+  <router-link to="/setupGameTiles" class="btn btn-primary btn-lg mt-4">
     {{t('action.next')}}
   </router-link>
 
