@@ -69,18 +69,18 @@
     },
     "buildMine": {
       "noMine": "Keine Mine übrig",
-      "validPlanets": "Auswahl: Leere Planeten in Reichweite (einschließlich Transdim-Planeten).",
+      "validPlanets": "Auswahl: Freie Planeten in Reichweite (einschließlich Transdim-Planeten).",
       "tiebreaker": {
         "title": "Gleichstand:",
         "faction": {
           "terrans": "Transdim-Planet.",
-          "taklons": "Planeten, die einem deiner Planeten am nächsten sind."
+          "taklons": "Einem deiner Planeten am nächsten."
         },
         "finalScoring": "Schlusswertung",
         "scoringFinalTile": {
           "gaia-planets": "Gaia- oder Transdim-Planeten.",
-          "planet-types": "Planeten eines Typs, den der Automa noch nicht besiedelt hat.",
-          "space-sector-tiles": "Planeten in einem Sektor ohne vom Automa besiedelte Planeten."
+          "planet-types": "Planeten einer Art, die der Automa noch nicht besiedelt hat.",
+          "space-sector-tiles": "Planeten in Sektor ohne Automa-Planeten."
         },
         "fewestTerraformingSteps": "Wenigste Transformingschritte.",
         "closestToYourPlanet": "Am nächsten zu deinen Planeten.",
@@ -88,8 +88,8 @@
       },
       "execute": {
         "title": "Ausführung:",
-        "placeMine": "Setze die Mine ein.",
-        "placeSatellite": "Platziere einen <b>Satelliten</b> benachbart zur neuen Mine, wenn diese nicht direkt an ein Gebäude des Automa angrenzt.",
+        "placeMine": "Platziere eine Mine.",
+        "placeSatellite": "Platziere 1 <b>Satelliten</b> neben der neuen Mine, falls nicht angrenzend zu anderem Automa Gebäude.",
         "planetTypeVP": "Wenn diese Mine die erste auf einer neuen Planetenart ist, erhält der Automa +2 VP."
       }
     },
@@ -104,7 +104,7 @@
       },
       "tiebreaker": {
         "title": "Gleichstand:",
-        "closest": "Am nächstem zu deinen Planeten.",
+        "closest": "Einem deiner Planeten am nächsten.",
         "directionalSelection": "Richtungsauswahl."
       },
       "execute": {
@@ -121,17 +121,17 @@
       "executeTwice": "Führe diese Aktion zweimal aus."
     },
     "researchArea": {
-      "validResearchArea": "Auswahl: Forschungsbereiche in dem der Automa aufsteigen kann oder in dem noch eine fortgeschrittene Technologie verfügbar ist.",
+      "validResearchArea": "Auswahl: Forschungsbereich, in dem der Automa aufsteigen kann oder in dem noch eine Ausbautechnologie vorhanden ist.",
       "tiebreaker": {
         "title": "Gleichstand:",
-        "highest": "Der <b>höchste</b> Level.",
+        "highest": "Im <b>höchsten</b> möglichen Level.",
         "specific": "Bevorzuge Forschungsbereich <b>{researchArea}</b>.",
         "numberedSelection": "Auswahl nach Zahlen."
       },
       "execute": {
         "title": "Ausführung:",
-        "techTile": "Wenn in Level 4 und fortgeschrittenes Technologieplättchen verfügbar, entferne dieses.",
-        "advance": "Ansonsten: 1 Level aufsteigen."
+        "techTile": "Wenn bereits auf Level 4 und Ausbautechnologie vorhanden: Technologie entfernen.",
+        "advance": "Ansonsten: Aufstieg um 1 Level."
       }
     }
   },
