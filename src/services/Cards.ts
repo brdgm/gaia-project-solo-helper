@@ -9,7 +9,7 @@ import NumberedSelection from './enum/NumberedSelection'
 
 const cards = [
   {
-    id: 1,
+    id: '1',
     starter: true,
     pass: true,
     action: Action.UPGRADE,
@@ -23,7 +23,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
   {
-    id: 2,
+    id: '2',
     starter: true,
     pass: true,
     action: Action.UPGRADE,
@@ -37,7 +37,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
   },
   {
-    id: 3,
+    id: '3',
     pass: true,
     action: Action.RESEARCH_AREA_HIGHEST,
     victoryPoints: 1,
@@ -50,7 +50,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_3
   },
   {
-    id: 4,
+    id: '4',
     starter: true,
     action: Action.BUILD_MINE,
     victoryPoints: 1,
@@ -63,7 +63,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_4
   },
   {
-    id: 5,
+    id: '5',
     starter: true,
     pass: true,
     action: Action.POWER_QIC,
@@ -77,7 +77,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_5
   },
   {
-    id: 6,
+    id: '6',
     action: Action.BUILD_MINE,
     victoryPoints: 3,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
@@ -89,7 +89,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
   {
-    id: 7,
+    id: '7',
     starter: true,
     action: Action.RESEARCH_AREA_RANDOM,
     victoryPoints: 0,
@@ -102,7 +102,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
   },
   {
-    id: 8,
+    id: '8',
     pass: true,
     action: Action.BUILD_MINE,
     victoryPoints: 3,
@@ -115,7 +115,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_3
   },
   {
-    id: 9,
+    id: '9',
     action: Action.FACTION,
     victoryPoints: 0,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
@@ -127,7 +127,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_4
   },
   {
-    id: 10,
+    id: '10',
     pass: true,
     action: Action.UPGRADE,
     victoryPoints: 3,
@@ -140,7 +140,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_5
   },
   {
-    id: 11,
+    id: '11',
     action: Action.UPGRADE,
     victoryPoints: 2,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
@@ -152,7 +152,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
   {
-    id: 12,
+    id: '12',
     pass: true,
     action: Action.POWER_QIC,
     victoryPoints: 3,
@@ -165,7 +165,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_2
   },
   {
-    id: 13,
+    id: '13',
     starter: true,
     action: Action.FACTION,
     victoryPoints: 0,
@@ -178,7 +178,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_3
   },
   {
-    id: 14,
+    id: '14',
     action: Action.POWER_QIC,
     victoryPoints: 3,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
@@ -190,7 +190,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_4
   },
   {
-    id: 15,
+    id: '15',
     action: Action.RESEARCH_AREA_HIGHEST,
     victoryPoints: 1,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.TOP,
@@ -202,7 +202,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_5
   },
   {
-    id: 16,
+    id: '16',
     pass: true,
     action: Action.POWER_QIC,
     victoryPoints: 3,
@@ -215,7 +215,7 @@ const cards = [
     initialRoundBoosterSelection: InitialRoundBoosterSelection.SLOT_1
   },
   {
-    id: 17,
+    id: '17',
     action: Action.RESEARCH_AREA_RANDOM,
     victoryPoints: 2,
     scoringFinalTiebreaker: ScoringFinalTiebreaker.BOTTOM,
@@ -228,7 +228,7 @@ const cards = [
   }
 ]
 
-const cardsMap = new Map<number,Card>()
+const cardsMap = new Map<string,Card>()
 cards.forEach(card => cardsMap.set(card.id, card))
 
 export default {
@@ -238,7 +238,7 @@ export default {
    * @param id ID
    * @returns Card
    */
-  get(id: number) : Card {
+  get(id: string) : Card {
     return findMandatory(cardsMap, id)
   },
 

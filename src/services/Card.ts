@@ -6,7 +6,7 @@ import RoundBoosterSelection from './enum/RoundBoosterSelection'
 import ScoringFinalTiebreaker from './enum/ScoringFinalTiebreaker'
 
 export default interface Card {
-  id: number
+  id: string
   starter?: boolean
   action: Action
   victoryPoints: number
