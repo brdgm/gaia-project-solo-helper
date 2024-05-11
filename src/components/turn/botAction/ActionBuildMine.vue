@@ -16,7 +16,7 @@
           <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
           <span class="fw-bold" v-html="t(`botAction.buildMine.tiebreaker.faction.${botFaction}`)"></span>
         </li>
-        <li v-if="isFactionActionTiebreaker">
+        <li v-if="scoringFinalTileTiebreaker">
           <span v-html="t('botAction.buildMine.tiebreaker.finalScoring')"></span>:
           <span class="fw-bold" v-html="t(`botAction.buildMine.tiebreaker.scoringFinalTile.${scoringFinalTileTiebreaker}`)"></span>
         </li>
