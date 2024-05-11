@@ -29,7 +29,7 @@
     "title": "Spielbereich vorbereiten",
     "intro": "Baue das Spiel wie gewohnt, aber mit diesen Änderungen auf:",
     "gameBoard": "Bereite das Spielfeld für {playerCount} Spieler vor. Lege die Raumteile so aus, dass die einzelnen Sechsecke horizontale Linien bilden.",
-    "federationTokens": "Allianzmarken: Nimm 2 von jeder Allianzmarke und lege die überzähligen Marken wieder in die Schachtel zurück. Wie im Basisspiel, lege eine zufällige Allianzmarke auf das Forschungstableau.",
+    "federationTokens": "Allianzmarken: Nimm 2 von jeder Allianzmarke und lege die überzähligen Marken wieder in die Schachtel zurück. Lege eine zufällige Allianzmarke auf das Forschungstableau.",
     "roundScoringTiles": "Rundenwertungsplättchen:",
     "finalScoringTiles": "Schlusswertungsplättchen:"
   },

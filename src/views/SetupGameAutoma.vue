@@ -16,8 +16,6 @@ import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import AutomaSetup from '@/components/setup/AutomaSetup.vue'
 import { useStateStore } from '@/store/state'
-import ScoringRoundTile from '@/services/enum/ScoringRoundTile'
-import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
 
 export default defineComponent({
   name: 'SetupGameAutoma',

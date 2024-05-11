@@ -29,7 +29,7 @@
     "title": "Setup Game Board",
     "intro": "Set up the game as normal with the following changes:",
     "gameBoard": "Setup the game board for {playerCount} players. Rotate the whole board so that the spaces of the board form horizontal rows.",
-    "federationTokens": "Federation Tokens: Return one of each federation token to the box. Randomly place the token on the research board and place the remaining tokens as normal.",
+    "federationTokens": "Federation Tokens: Return one of each federation token to the box. Randomly place one token on the research board and place the remaining tokens as normal.",
     "roundScoringTiles": "Round scoring tiles:",
     "finalScoringTiles": "Final scoring tiles:"
   },
