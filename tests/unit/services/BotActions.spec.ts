@@ -11,7 +11,7 @@ import { expect } from 'chai'
 
 describe('BotActions', () => {
   it('1,6-round1', () => {
-    const botActions = new BotActions(Cards.get(1), Cards.get(6),
+    const botActions = new BotActions(Cards.get('1'), Cards.get('6'),
         1, BotFaction.TERRANS, DifficultyLevel.AUTOMA)
 
     expect(botActions.actions.length).to.eq(2)
@@ -26,7 +26,7 @@ describe('BotActions', () => {
   })
 
   it('13/2-terrans', () => {
-    const botActions = new BotActions(Cards.get(13), Cards.get(2),
+    const botActions = new BotActions(Cards.get('13'), Cards.get('2'),
         1, BotFaction.TERRANS, DifficultyLevel.AUTOMA)
 
     expect(botActions.actions.length).to.eq(3)
@@ -46,7 +46,7 @@ describe('BotActions', () => {
   })
 
   it('13/2-xenos', () => {
-    const botActions = new BotActions(Cards.get(13), Cards.get(2),
+    const botActions = new BotActions(Cards.get('13'), Cards.get('2'),
         1, BotFaction.XENOS, DifficultyLevel.AUTOMA)
 
     expect(botActions.actions.length).to.eq(3)
@@ -66,7 +66,7 @@ describe('BotActions', () => {
   })
 
   it('13/2-taklons', () => {
-    const botActions = new BotActions(Cards.get(13), Cards.get(2),
+    const botActions = new BotActions(Cards.get('13'), Cards.get('2'),
         1, BotFaction.TAKLONS, DifficultyLevel.AUTOMA)
 
     expect(botActions.actions.length).to.eq(3)
@@ -86,7 +86,7 @@ describe('BotActions', () => {
   })
 
   it('13/2-hadsch-hallas', () => {
-    const botActions = new BotActions(Cards.get(13), Cards.get(2),
+    const botActions = new BotActions(Cards.get('13'), Cards.get('2'),
         1, BotFaction.HADSCH_HALLAS, DifficultyLevel.AUTOMA)
 
     expect(botActions.actions.length).to.eq(2)
@@ -101,7 +101,7 @@ describe('BotActions', () => {
   })
 
   it('13/2-geodens', () => {
-    const botActions = new BotActions(Cards.get(13), Cards.get(2),
+    const botActions = new BotActions(Cards.get('13'), Cards.get('2'),
         1, BotFaction.GEODENS, DifficultyLevel.AUTOMA)
 
     expect(botActions.actions.length).to.eq(3)
@@ -121,7 +121,7 @@ describe('BotActions', () => {
   })
 
   it('13/2-firaks', () => {
-    const botActions = new BotActions(Cards.get(13), Cards.get(2),
+    const botActions = new BotActions(Cards.get('13'), Cards.get('2'),
         1, BotFaction.FIRAKS, DifficultyLevel.AUTOMA)
 
     expect(botActions.actions.length).to.eq(2)
@@ -136,7 +136,7 @@ describe('BotActions', () => {
   })
 
   it('13/2-itars', () => {
-    const botActions = new BotActions(Cards.get(13), Cards.get(2),
+    const botActions = new BotActions(Cards.get('13'), Cards.get('2'),
         1, BotFaction.ITARS, DifficultyLevel.AUTOMA)
 
     expect(botActions.actions.length).to.eq(3)

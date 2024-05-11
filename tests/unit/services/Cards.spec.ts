@@ -4,10 +4,10 @@ import { expect } from 'chai'
 
 describe('Cards', () => {
   it('get', () => {
-    const card = Cards.get(1)
+    const card = Cards.get('1')
 
     expect(card).not.undefined
-    expect(card?.id).to.eq(1)
+    expect(card?.id).to.eq('1')
   })
 
   it('getAll', () => {
