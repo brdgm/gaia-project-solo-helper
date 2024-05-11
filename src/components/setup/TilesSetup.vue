@@ -5,15 +5,15 @@
     <li v-html="t('setupTiles.gameBoard', {playerCount:gameBoardPlayerCount})"></li>
     <li v-html="t('setupTiles.federationTokens')"></li>
     <li>
-      <span v-html="t('setupTiles.roundScoringTiles')"></span><br/>
+      <span v-html="t('setupTiles.scoringRoundTiles')"></span>:<br/>
       <AppIcon v-for="tile of scoringRoundTiles" :key="tile" type="scoring-round" :name="tile" class="scoringRoundTileIcon"/><br/>
-      <button class="btn btn-sm btn-secondary me-2" @click="randomizeRoundBoostersResearchBoard">{{t('setupTiles.select')}}</button>
+      <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringRoundTilesModal">{{t('setupTiles.select')}}</button>
       <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringRoundTiles">{{t('setupTiles.randomize')}}</button>
     </li>
     <li>
-      <span v-html="t('setupTiles.finalScoringTiles')"></span><br/>
+      <span v-html="t('setupTiles.scoringFinalTiles')"></span>:<br/>
       <AppIcon v-for="tile of scoringFinalTiles" :key="tile" type="scoring-final" :name="tile" class="scoringFinalTileIcon"/><br/>
-      <button class="btn btn-sm btn-secondary me-2" @click="randomizeRoundBoostersResearchBoard">{{t('setupTiles.select')}}</button>
+      <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringFinalTilesModal">{{t('setupTiles.select')}}</button>
       <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringFinalTiles">{{t('setupTiles.randomize')}}</button>
     </li>
     <li>
@@ -51,6 +51,47 @@
       </div>
     </div>
   </div>
+
+  <ModalDialog id="scoringRoundTilesModal" :title="t('setupTiles.scoringRoundTiles')" :size-lg="true">
+    <template #body>
+      {{t('setupTiles.available')}}<br/>
+      <AppIcon v-for="tile of scoringRoundTilesAllWithoutSelection" :key="tile" type="scoring-round" :name="tile"
+          class="scoringRoundTileIcon select" @click="selectScoringRoundTile(tile)"/>
+      <hr/>
+      {{t('setupTiles.selected')}}<br/>
+      <AppIcon v-for="tile of scoringRoundTilesSelection" :key="tile" type="scoring-round" :name="tile"
+          class="scoringRoundTileIcon select" @click="deselectScoringRoundTile(tile)"/>
+      <p v-if="scoringRoundTilesSelection.length == 0" class="fst-italic">
+        {{t('setupTiles.none')}}
+      </p>
+    </template>
+    <template #footer>
+      <button class="btn btn-outline-secondary" @click="scoringRoundTilesSelection=[]">{{t('action.reset')}}</button>
+      <button class="btn btn-success" data-bs-dismiss="modal" :disabled="scoringRoundTilesSelection.length != 6" @click="setScoringRoundTileSelection">{{t('setupTiles.select')}}</button>
+      <button class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.cancel')}}</button>
+    </template>
+  </ModalDialog>
+  
+  <ModalDialog id="scoringFinalTilesModal" :title="t('setupTiles.scoringFinalTiles')" :size-lg="true">
+    <template #body>
+      {{t('setupTiles.available')}}<br/>
+      <AppIcon v-for="tile of scoringFinalTilesAllWithoutSelection" :key="tile" type="scoring-final" :name="tile"
+          class="scoringFinalTileIcon select" @click="selectScoringFinalTile(tile)"/>
+      <hr/>
+      {{t('setupTiles.selected')}}<br/>
+      <AppIcon v-for="tile of scoringFinalTilesSelection" :key="tile" type="scoring-final" :name="tile"
+          class="scoringFinalTileIcon select" @click="deselectScoringFinalTile(tile)"/>
+      <p v-if="scoringFinalTilesSelection.length == 0" class="fst-italic">
+        {{t('setupTiles.none')}}
+      </p>
+    </template>
+    <template #footer>
+      <button class="btn btn-outline-secondary" @click="scoringFinalTilesSelection=[]">{{t('action.reset')}}</button>
+      <button class="btn btn-success" data-bs-dismiss="modal" :disabled="scoringFinalTilesSelection.length != 2" @click="setScoringFinalTileSelection">{{t('setupTiles.select')}}</button>
+      <button class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.cancel')}}</button>
+    </template>
+  </ModalDialog>
+  
 </template>
 
 <script lang="ts">
@@ -63,6 +104,7 @@ import AppIcon from '../structure/AppIcon.vue'
 import { useStateStore } from '@/store/state'
 import ScoringRoundTile from '@/services/enum/ScoringRoundTile'
 import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
+import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
 
 const SCORING_ROUND_TILES_COUNT = 6
 const SCORING_FINAL_TILES_COUNT = 2
@@ -76,7 +118,8 @@ const TECH_ADVANCED_TILE_COUNT = 6
 export default defineComponent({
   name: 'TilesSetup',
   components: {
-    AppIcon
+    AppIcon,
+    ModalDialog
   },
   emits: {
     scoringTiles: (_scoringRoundTiles: ScoringRoundTile[], _scoringFinalTiles: ScoringFinalTile[]) => true  // eslint-disable-line @typescript-eslint/no-unused-vars
@@ -90,6 +133,8 @@ export default defineComponent({
 
     const scoringRoundTiles = ref(randomEnumMultiDifferentValue(ScoringRoundTile, SCORING_ROUND_TILES_COUNT))
     const scoringFinalTiles = ref(randomEnumMultiDifferentValue(ScoringFinalTile, SCORING_FINAL_TILES_COUNT))
+    const scoringRoundTilesSelection = ref([] as ScoringRoundTile[])
+    const scoringFinalTilesSelection = ref([] as ScoringFinalTile[])
 
     const researchFederationToken = ref(rollDice(FEDERATION_TOKEN_TOTAL))
     const roundBoosterTiles = ref(rollDiceMultiDifferentValue(ROUND_BOOSTER_TOTAL, roundBoosterCount))
@@ -97,7 +142,8 @@ export default defineComponent({
     const techAdvancedTiles = ref(rollDiceMultiDifferentValue(TECH_ADVANCED_TILE_TOTAL, TECH_ADVANCED_TILE_COUNT))
 
     return { t, state, totalPlayerCount, roundBoosterCount,
-        researchFederationToken, scoringRoundTiles, scoringFinalTiles, roundBoosterTiles, techStandardTiles, techAdvancedTiles }
+        scoringRoundTiles, scoringFinalTiles, scoringRoundTilesSelection, scoringFinalTilesSelection,
+        researchFederationToken,  roundBoosterTiles, techStandardTiles, techAdvancedTiles }
   },
   computed: {
     gameBoardPlayerCount(): string {
@@ -107,14 +153,51 @@ export default defineComponent({
       else {
         return '1-2'
       }
+    },
+    scoringRoundTilesAllWithoutSelection() : ScoringRoundTile[] {
+      return Object.values(ScoringRoundTile).filter(tile => !this.scoringRoundTilesSelection.includes(tile))
+    },
+    scoringFinalTilesAllWithoutSelection() : ScoringFinalTile[] {
+      return Object.values(ScoringFinalTile).filter(tile => !this.scoringFinalTilesSelection.includes(tile))
     }
   },
   methods: {
+    emitScoringTiles() {
+      this.$emit('scoringTiles', this.scoringRoundTiles, this.scoringFinalTiles)
+    },
     randomizeScoringRoundTiles() : void {
       this.scoringRoundTiles = randomEnumMultiDifferentValue(ScoringRoundTile, SCORING_ROUND_TILES_COUNT)
+      this.scoringRoundTilesSelection = []
+      this.emitScoringTiles()
+    },
+    selectScoringRoundTile(tile: ScoringRoundTile) : void {
+      if (this.scoringRoundTilesSelection.length < SCORING_ROUND_TILES_COUNT) {
+        this.scoringRoundTilesSelection.push(tile)
+      }
+    },
+    deselectScoringRoundTile(tile: ScoringRoundTile) : void {
+      this.scoringRoundTilesSelection = this.scoringRoundTilesSelection.filter(t => t != tile)
+    },
+    setScoringRoundTileSelection() : void {
+      this.scoringRoundTiles = this.scoringRoundTilesSelection
+      this.emitScoringTiles()
     },
     randomizeScoringFinalTiles() : void {
       this.scoringFinalTiles = randomEnumMultiDifferentValue(ScoringFinalTile, SCORING_FINAL_TILES_COUNT)
+      this.scoringFinalTilesSelection = []
+      this.emitScoringTiles()
+    },
+    selectScoringFinalTile(tile: ScoringFinalTile) : void {
+      if (this.scoringFinalTilesSelection.length < SCORING_FINAL_TILES_COUNT) {
+        this.scoringFinalTilesSelection.push(tile)
+      }
+    },
+    deselectScoringFinalTile(tile: ScoringFinalTile) : void {
+      this.scoringFinalTilesSelection = this.scoringFinalTilesSelection.filter(t => t != tile)
+    },
+    setScoringFinalTileSelection() : void {
+      this.scoringFinalTiles = this.scoringFinalTilesSelection
+      this.emitScoringTiles()
     },
     randomizeRoundBoostersResearchBoard() : void {
       this.researchFederationToken = rollDice(FEDERATION_TOKEN_TOTAL)
@@ -124,7 +207,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.$emit('scoringTiles', this.scoringRoundTiles, this.scoringFinalTiles)  
+    this.emitScoringTiles()
   }
 })
 </script>
@@ -147,12 +230,18 @@ li {
   margin-right: 0.5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  &.select {
+    cursor: pointer;
+  }
 }
 .scoringFinalTileIcon {
   height: 4rem;
   margin-right: 0.5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  &.select {
+    cursor: pointer;
+  }
 }
 .roundBoosterTile {
   height: 10rem;
