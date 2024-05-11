@@ -5,7 +5,10 @@
   </div>
   <h1>
     <template v-if="roundTurn?.player">{{t('roundTurn.titlePlayer', {player:roundTurn?.player}, playerCount)}}</template>
-    <template v-if="roundTurn?.bot">{{t('roundTurn.titleBot', {bot:roundTurn?.bot, faction:t('botFaction.'+botFaction)}, botCount)}}</template>
+    <template v-if="roundTurn?.bot">
+      {{t('roundTurn.titleBot', {bot:roundTurn?.bot, faction:t('botFaction.'+botFaction)}, botCount)}}
+      <AppIcon v-if="navigationState.botFaction" type="faction" :name="navigationState.botFaction" class="factionIcon"/>
+    </template>
     <img v-if="startPlayer" src="@/assets/icons/start-player-token.png" class="startPlayerIcon" alt=""/>
     <template v-if="endOfGame">{{t('endOfGame.title')}}</template>
     <template v-else-if="endOfRound">{{t('endOfRound.title')}}</template>
@@ -32,6 +35,7 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import EndOfRound from '@/components/turn/EndOfRound.vue'
 import EndOfGame from '@/components/turn/EndOfGame.vue'
 import DebugInfo from '@/components/turn/DebugInfo.vue'
+import AppIcon from '@/components/structure/AppIcon.vue'
 
 export default defineComponent({
   name: 'RoundTurn',
@@ -41,7 +45,8 @@ export default defineComponent({
     FooterButtons,
     EndOfRound,
     EndOfGame,
-    DebugInfo
+    DebugInfo,
+    AppIcon
   },
   setup() {
     const { t } = useI18n()
@@ -84,6 +89,10 @@ export default defineComponent({
 .startPlayerIcon {
   height: 2.8rem;
   margin-left: 0.75rem;
+  margin-top: -0.5rem;
+}
+.factionIcon {
+  height: 2.25rem;
   margin-top: -0.5rem;
 }
 </style>
