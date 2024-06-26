@@ -109,7 +109,7 @@ import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDial
 const SCORING_ROUND_TILES_COUNT = 6
 const SCORING_FINAL_TILES_COUNT = 2
 const FEDERATION_TOKEN_TOTAL = 6
-const ROUND_BOOSTER_TOTAL = 6
+const ROUND_BOOSTER_TOTAL = 10
 const TECH_STANDARD_TILE_TOTAL = 9
 const TECH_STANDARD_TILE_COUNT = 9
 const TECH_ADVANCED_TILE_TOTAL = 15
