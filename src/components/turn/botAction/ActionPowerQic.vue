@@ -67,7 +67,4 @@ export default defineComponent({
 .actionIcon {
   width: 6rem;
 }
-.mots {
-  color: #007f93;
-}
 </style>

@@ -113,7 +113,4 @@ export default defineComponent({
   height: 1.3rem;
   margin-right: 0.2rem;
 }
-.mots {
-  color: #007f93;
-}
 </style>
