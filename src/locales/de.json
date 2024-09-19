@@ -72,7 +72,8 @@
   "playerTurn": {
     "text": "Führe deinen Zug durch - oder passe.",
     "passConfirm": "Möchtest du passen?",
-    "passInfo": "Erhalte Siegpunkte deines Rundenboosters (falls vorhanden) und nimm einen neue Rundenbooster."
+    "passInfo": "Erhalte Siegpunkte deines Rundenboosters (falls vorhanden) und nimm einen neuen Rundenbooster.",
+    "passInfoRound6": "Erhalte Siegpunkte deines Rundenboosters (falls vorhanden), nimm <b>keinen</b> neuen Rundenbooster."
   },
   "botAction": {
     "gainVictoryPoints": {
