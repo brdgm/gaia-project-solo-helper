@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4" v-if="state.setup.debugMode">
     <hr/>
-    <p class="debug">
+    <div class="debug">
       <ul>
         <li v-if="cardDeck?.actionCard">Action card: {{cardDeck?.actionCard}}</li>
         <li v-if="cardDeck?.supportCard">Support card: {{cardDeck?.supportCard}}</li>
@@ -9,7 +9,7 @@
         <li>Round Scoring: {{state.setup.scoringRoundTiles}}</li>
         <li>Final Scoring: {{state.setup.scoringFinalTiles}}</li>
       </ul>
-    </p>
+    </div>
   </div>
 </template>
 
