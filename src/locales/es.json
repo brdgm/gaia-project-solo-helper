@@ -1,0 +1,218 @@
+{
+  "gameTitle": "Gaia Proyect",
+  "home": {
+    "title": "Ayudante en Solitario de Gaia Proyect",
+    "play1": "Juega el modo solitario de Automa de <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Proyect</b></a>.",
+    "play2": "Esta aplicación de ayuda reemplaza las cartas de Automa y te guía a través de las reglas en solitario. Puedes jugar contra hasta 3 Automas.",
+    "feedback": "Discusión y comentarios:"
+  },
+  "setup": {
+    "title": "Configurar Juego",
+    "players": {
+      "title": "Jugador",
+      "playerCount": "Jugadores Humanos",
+      "playerCountItem": "{count} Jugador | {count} Jugadores",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automas",
+      "botFaction": "Facción Automa | Facción Automa {bot}"
+    },
+    "difficultyLevel": {
+      "title": "Nivel de Dificultad",
+      "easy": "Fácil",
+      "hard": "Difícil"
+    },
+    "expansions": {
+      "title": "Expansiones"
+    }
+  },
+  "setupTiles": {
+    "title": "Configurar Tablero de Juego",
+    "intro": "Configura el juego de manera normal con los siguientes cambios:",
+    "gameBoard": "Configura el tablero para {playerCount} jugadores. Gira todo el tablero para que los espacios formen filas horizontales.",
+    "federationTokens": "Fichas de Federación: Proporciona un suministro con 2 fichas de federación de cada tipo. Coloca una al azar en el tablero de investigación.",
+    "scoringRoundTiles": "Fichas de puntuación de ronda",
+    "scoringFinalTiles": "Fichas de puntuación final",
+    "roundBooster": "Selecciona al azar {count} potenciadores de ronda.",
+    "select": "Seleccionar",
+    "available": "Disponible:",
+    "selected": "Seleccionado:",
+    "none": "(ninguno)",
+    "randomize": "Aleatorizar",
+    "map": "Aleatorizador de Mapa (externo)",
+    "tileRandomizer": {
+      "title": "Potenciadores de Ronda y Tablero de Investigación",
+      "notice": "La selección real de potenciadores de ronda y fichas del tablero de investigación no es relevante para la aplicación.",
+      "roundBoosters": "Potenciadores de Ronda",
+      "researchBoard": "Tablero de Investigación"
+    }
+  },
+  "setupGameAutoma": {
+    "title": "Configuración de Automa",
+    "structures": "Prepara el suministro de Automa con todas sus estructuras.",
+    "playerTokens": "Coloca las fichas de jugador en la pista de PV y en las áreas de investigación.",
+    "startVP": "Automa comienza el juego con <b>{count} PV</b>.",
+    "satellites": "Coloca un satélite en cada espacio \"0\" del tablero de puntuación.",
+    "bonus": "Bonus de Configuración:",
+    "initialMinePlacement": "Coloca <b>{count}</b> minas en planetas del tipo de hogar de Automa (más cercanos al espacio central).",
+    "roundBooster": "Toma el potenciador de ronda <b>#{index}</b>",
+    "neutralPlayer": "<b>Jugador Neutral</b>: Toma dos satélites de un color no utilizado y coloca uno en cada pista de clasificación junto a las fichas de puntuación final; el número en cada ficha de puntuación final determina la posición del satélite en esa pista."
+  },
+  "income": {
+    "title": "Ingresos",
+    "turnInfo": "Ronda {round}",
+    "collect": "Ingresos: Recoge mineral, conocimiento, créditos y energía.",
+    "gaia": "Gaia: Obtén fichas de energía del área Gaia, transforma planetas Transdim con formadores de Gaia."
+  },
+  "roundTurn": {
+    "turnInfo": "Ronda {round}, Turno {turn}",
+    "titlePlayer": "Jugador | Jugador {player}",
+    "titleBot": "Automa: {faction} | Automa {bot}: {faction}",
+    "alptraumaNotice": "<b>Alptrauma</b>: Automa gana 1 PV extra cada vez que obtiene PV."
+  },
+  "playerTurn": {
+    "text": "Haz tu turno - o pasa.",
+    "passConfirm": "¿Quieres pasar?",
+    "passInfo": "Recoge tus puntos de victoria del potenciador de ronda (si hay alguno) y toma un nuevo potenciador de ronda.",
+    "passInfoRound6": "Recoge tus puntos de victoria del potenciador de ronda (si hay alguno), <b>no</b> tomes un nuevo potenciador de ronda."
+  },
+  "botAction": {
+    "gainVictoryPoints": {
+      "text": "Automa gana {count} punto de victoria. | Automa gana {count} puntos de victoria."
+    },
+    "buildMine": {
+      "noMine": "No queda ninguna mina",
+      "validPlanets": "Planetas válidos: Vacíos, dentro del alcance (incluido el planeta Transdim).",
+      "tiebreaker": {
+        "title": "Desempate:",
+        "faction": {
+          "terrans": "Planeta Transdim.",
+          "taklons": "Distancia más corta a uno de tus planetas."
+        },
+        "finalScoring": "Puntuación final",
+        "scoringFinalTile": {
+          "gaia-planets": "Planetas Gaia o Transdim.",
+          "planet-types": "Planetas de un tipo que el Automa no ha colonizado todavía.",
+          "space-sector-tiles": "Planetas en un sector sin planetas del Automa."
+        },
+        "fewestTerraformingSteps": "Menos pasos de terraformación.",
+        "closestToYourPlanet": "Más cercano a tus planetas.",
+        "directionalSelection": "Selección direccional."
+      },
+      "execute": {
+        "title": "Ejecutar:",
+        "placeMine": "Coloca mina",
+        "placeSatellite": "Coloca <b>satélite</b> adyacente a la nueva mina si no está adyacente a otra estructura de Automa.",
+        "planetTypeVP": "Si esta mina es la primera de Automa en ese tipo de planeta, gana +2 PV."
+      }
+    },
+    "upgrade": {
+      "choose": {
+        "title": "Elige estructura por prioridad:",
+        "planetaryInstitute": "Instituto Planetario (de estación comercial)",
+        "tradingStation": "Estación comercial (de mina)",
+        "academy": "Academia (de laboratorio de investigación)",
+        "researchLab": "Laboratorio de investigación (de estación comercial)",
+        "downgradeResearchLab": "Estación comercial (descenso de laboratorio de investigación)"
+      },
+      "tiebreaker": {
+        "title": "Desempate:",
+        "closest": "Más cercano a tus planetas.",
+        "directionalSelection": "Selección direccional."
+      },
+      "execute": {
+        "title": "Ejecutar:",
+        "upgrade": "Mejorar estructura.",
+        "researchLabAdvanceResearchAreaRandom": "Si se mejora a laboratorio de investigación:",
+        "advanceResearchAreaRandom": "Avanzar en área de investigación (al azar)",
+        "tradingStationVP": "Después de mejorar a estación comercial, Automa gana +3 PV."
+      }
+    },
+    "powerQic": {
+      "placeToken": "Coloca ficha de acción en un espacio de acción de Energía/Q.I.C. descubierto.",
+      "numberedSelection": "Selección numerada.",
+      "executeTwice": "Ejecuta esta acción dos veces."
+    },
+    "researchArea": {
+      "validResearchArea": "Válido: Cualquier área de investigación donde Automa pueda avanzar o haya una ficha de tecnología avanzada disponible.",
+      "tiebreaker": {
+        "title": "Desempate:",
+        "highest": "Área de investigación de <b>mayor</b> nivel.",
+        "specific": "Prefiere el área de investigación de <b>{researchArea}</b>.",
+        "numberedSelection": "Selección numerada."
+      },
+      "execute": {
+        "title": "Ejecutar:",
+        "techTile": "Si está en nivel 4 y hay una ficha de tecnología avanzada, retira la ficha.",
+        "advance": "De lo contrario: Avanza 1 nivel."
+      }
+    }
+  },
+  "botPass": {
+    "title": "Automa <i>pasa</i>.",
+    "scoringTile": "Automa gana puntos de victoria de las fichas de puntuación:",
+    "roundBoosterTake": "Automa toma un potenciador de ronda:",
+    "roundBoosterReturn": "Coloca el potenciador de ronda anterior a la derecha de los demás."
+  },
+  "endOfRound": {
+    "title": "Fin de la Ronda",
+    "turnInfo": "Ronda {round}",
+    "returnActionTokens": "Devuelve las fichas de acción.",
+    "removeScoringTile": "Elimina la ficha de puntuación de esta ronda."
+  },
+  "endOfGame": {
+    "title": "Fin del Juego",
+    "scoringFinalTileScoring": "Automa gana puntos de victoria de las <b>Fichas de Puntuación Final</b>.",
+    "scoringFinalTileFederationStructures": "Para la ficha de puntuación final \"mayor número de estructuras en federaciones\", cuenta el número total de estructuras de Automa y réstale uno para determinar su número de estructuras en federaciones.",
+    "researchScoring": "Automa gana puntos de victoria de la <b>Puntuación de Investigación</b>.",
+    "resourceScoring": "Automa no obtiene ningún punto por la puntuación de Recursos."
+  },
+  "difficultyLevel": {
+    "1": "Automalein",
+    "2": "Automa",
+    "3": "Automächtig",
+    "4": "Ultoma",
+    "5": "Alptrauma"
+  },
+  "expansion": {
+    "lost-fleet": "La Flota Perdida"
+  },
+  "botFaction": {
+    "terrans": "Terranos",
+    "xenos": "Xenos",
+    "taklons": "Taklons",
+    "hadsch-hallas": "Hadsch Hallas",
+    "geodens": "Geodens",
+    "firaks": "Firaks",
+    "itars": "Itars"
+  },
+  "researchArea": {
+    "gaia-project": "Gaia Proyect"
+  },
+  "notfound": {
+    "title": "No Encontrado"
+  },
+  "action": {
+    "playGame": "Jugar Juego",
+    "startGame": "Iniciar Juego",
+    "next": "Siguiente",
+    "nextRound": "Siguiente Ronda",
+    "abortGame": "Abortar Juego",
+    "abortGameConfirm": "Abortando el juego en curso - ¿estás seguro?",
+    "endGame": "Finalizar Juego",
+    "endGameConfirm": "Finalizar este juego y volver a la pantalla principal - ¿estás seguro?",
+    "cancel": "Cancelar",
+    "backToHome": "Volver a Inicio",
+    "back": "Atrás",
+    "close": "Cerrar",
+    "reset": "Reiniciar",
+    "pass": "Pasar"
+  },
+  "footer": {
+    "credits": "Créditos"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Actualizar Aplicación",
+    "notice": "La aplicación se ha actualizado - ¿quieres refrescar para usar la última versión?"
+  }
+}
+
