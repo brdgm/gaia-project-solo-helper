@@ -1,8 +1,8 @@
 {
-  "gameTitle": "Gaia Proyect",
+  "gameTitle": "Gaia Project",
   "home": {
-    "title": "Ayudante en Solitario de Gaia Proyect",
-    "play1": "Juega el modo solitario de Automa de <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Proyect</b></a>.",
+    "title": "Ayudante en Solitario de Gaia Project",
+    "play1": "Juega al modo solitario de Automa de <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>.",
     "play2": "Esta aplicación de ayuda reemplaza las cartas de Automa y te guía a través de las reglas en solitario. Puedes jugar contra hasta 3 Automas.",
     "feedback": "Discusión y comentarios:"
   },
@@ -186,7 +186,7 @@
     "itars": "Itars"
   },
   "researchArea": {
-    "gaia-project": "Gaia Proyect"
+    "gaia-project": "Gaia Project"
   },
   "notfound": {
     "title": "No Encontrado"
@@ -196,8 +196,8 @@
     "startGame": "Iniciar Juego",
     "next": "Siguiente",
     "nextRound": "Siguiente Ronda",
-    "abortGame": "Abortar Juego",
-    "abortGameConfirm": "Abortando el juego en curso - ¿estás seguro?",
+    "abortGame": "Finalizar Juego",
+    "abortGameConfirm": "Finalizando el juego en curso - ¿estás seguro?",
     "endGame": "Finalizar Juego",
     "endGameConfirm": "Finalizar este juego y volver a la pantalla principal - ¿estás seguro?",
     "cancel": "Cancelar",
