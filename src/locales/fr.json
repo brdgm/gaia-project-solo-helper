@@ -1,0 +1,217 @@
+{
+  "gameTitle": "Projet Gaia",
+  "home": {
+    "title": "Aide Solo pour Projet Gaia",
+    "play1": "Jouez au mode solo Automa de <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Projet Gaia</b></a>.",
+    "play2": "Cette application d'aide remplace les cartes Automa et vous guide à travers les règles solo. Vous pouvez jouer contre jusqu'à 3 Automas.",
+    "feedback": "Discussion et Retours :"
+  },
+  "setup": {
+    "title": "Configurer le Jeu",
+    "players": {
+      "title": "Joueur",
+      "playerCount": "Joueurs Humains",
+      "playerCountItem": "{count} Joueur | {count} Joueurs",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automas",
+      "botFaction": "Faction Automa | Faction Automa {bot}"
+    },
+    "difficultyLevel": {
+      "title": "Niveau de Difficulté",
+      "easy": "Facile",
+      "hard": "Difficile"
+    },
+    "expansions": {
+      "title": "Extensions"
+    }
+  },
+  "setupTiles": {
+    "title": "Configurer le Plateau de Jeu",
+    "intro": "Configurez le jeu comme d'habitude avec les changements suivants :",
+    "gameBoard": "Configurer le plateau de jeu pour {playerCount} joueurs. Faites pivoter le plateau entier pour que les espaces forment des rangées horizontales.",
+    "federationTokens": "Jetons de Fédération : Fournissez un approvisionnement avec 2 jetons de fédération de chaque type. Placez-en un aléatoirement sur le plateau de recherche.",
+    "scoringRoundTiles": "Jetons de score de round",
+    "scoringFinalTiles": "Jetons de score final",
+    "roundBooster": "Sélectionnez aléatoirement {count} boosters de round.",
+    "select": "Sélectionner",
+    "available": "Disponible :",
+    "selected": "Sélectionné :",
+    "none": "(aucun)",
+    "randomize": "Aléatoire",
+    "map": "Randomiseur de Carte (externe)",
+    "tileRandomizer": {
+      "title": "Boosters de Round et Plateau de Recherche",
+      "notice": "La sélection réelle des boosters de round et des tuiles de plateau de recherche n'est pas pertinente pour l'application.",
+      "roundBoosters": "Boosters de Round",
+      "researchBoard": "Plateau de Recherche"
+    }
+  },
+  "setupGameAutoma": {
+    "title": "Configuration de l'Automa",
+    "structures": "Préparez l'approvisionnement de l'Automa avec toutes ses structures.",
+    "playerTokens": "Placez les jetons des joueurs sur le suivi des PV et sur les zones de recherche.",
+    "startVP": "L'Automa commence la partie avec <b>{count} PV</b>.",
+    "satellites": "Placez un satellite sur chaque espace \"0\" du tableau de score.",
+    "bonus": "Bonus de Configuration :",
+    "initialMinePlacement": "Placez <b>{count}</b> mines sur des planètes du type d'origine de l'Automa (les plus proches de l'espace central).",
+    "roundBooster": "Prenez le Booster de Round <b>#{index}</b>",
+    "neutralPlayer": "<b>Joueur Neutre</b> : Prenez deux satellites d'une couleur non utilisée et placez-en un sur chaque piste de classement à côté des jetons de score final ; le numéro sur chaque jeton de score final détermine la position du satellite sur cette piste de classement."
+  },
+  "income": {
+    "title": "Revenu",
+    "turnInfo": "Round {round}",
+    "collect": "Revenu : Collectez des ressources, des connaissances, des crédits et de l'énergie.",
+    "gaia": "Gaia : Obtenez des jetons d'énergie de la zone Gaia, transformez les planètes Transdim avec des Gaiaformers."
+  },
+  "roundTurn": {
+    "turnInfo": "Round {round}, Tour {turn}",
+    "titlePlayer": "Joueur | Joueur {player}",
+    "titleBot": "Automa : {faction} | Automa {bot} : {faction}",
+    "alptraumaNotice": "<b>Alptrauma</b> : L'Automa marque 1 PV supplémentaire chaque fois qu'il gagne des PV."
+  },
+  "playerTurn": {
+    "text": "Veuillez faire votre tour - ou passer.",
+    "passConfirm": "Voulez-vous passer ?",
+    "passInfo": "Collectez vos points de victoire du booster de round (le cas échéant) et prenez un nouveau booster de round.",
+    "passInfoRound6": "Collectez vos points de victoire du bonus de round (le cas échéant), <b>ne prenez pas</b> un nouveau booster de round."
+  },
+  "botAction": {
+    "gainVictoryPoints": {
+      "text": "L'Automa gagne {count} point de victoire. | L'Automa gagne {count} points de victoire."
+    },
+    "buildMine": {
+      "noMine": "Aucune mine restante",
+      "validPlanets": "Planètes Valides : Vides, dans la portée (y compris les planètes Transdim).",
+      "tiebreaker": {
+        "title": "Critère de départage :",
+        "faction": {
+          "terrans": "Planète Transdim.",
+          "taklons": "Distance la plus courte vers l'une de vos planètes."
+        },
+        "finalScoring": "Score Final",
+        "scoringFinalTile": {
+          "gaia-planets": "Planètes Gaia ou Transdim.",
+          "planet-types": "Planètes d'un type que l'Automa n'a pas encore colonisé.",
+          "space-sector-tiles": "Planètes dans un secteur sans planètes Automa."
+        },
+        "fewestTerraformingSteps": "Le moins d'étapes de terraformation.",
+        "closestToYourPlanet": "Le plus proche de vos planètes.",
+        "directionalSelection": "Sélection Directionnelle."
+      },
+      "execute": {
+        "title": "Exécuter :",
+        "placeMine": "Placer une mine",
+        "placeSatellite": "Placer un <b>satellite</b> adjacent à la nouvelle mine si ce n'est pas adjacent à une autre structure Automa.",
+        "planetTypeVP": "Si cette mine est la première de l'Automa sur ce type de planète, il gagne +2 PV."
+      }
+    },
+    "upgrade": {
+      "choose": {
+        "title": "Choisissez une structure par priorité :",
+        "planetaryInstitute": "Institut Planétaire (de la station de commerce)",
+        "tradingStation": "Station de Commerce (de la mine)",
+        "academy": "Académie (du laboratoire de recherche)",
+        "researchLab": "Laboratoire de Recherche (de la station de commerce)",
+        "downgradeResearchLab": "Station de commerce (déclassement depuis le laboratoire de recherche)"
+      },
+      "tiebreaker": {
+        "title": "Critère de départage :",
+        "closest": "Le plus proche de vos planètes.",
+        "directionalSelection": "Sélection directionnelle."
+      },
+      "execute": {
+        "title": "Exécuter :",
+        "upgrade": "Améliorer la structure.",
+        "researchLabAdvanceResearchAreaRandom": "Si amélioré en laboratoire de recherche :",
+        "advanceResearchAreaRandom": "Avancer la Zone de Recherche (aléatoire)",
+        "tradingStationVP": "Après l'amélioration en station de commerce, l'Automa gagne +3 PV."
+      }
+    },
+    "powerQic": {
+      "placeToken": "Placer un jeton d'action sur un espace d'action non couvert Power/Q.I.C.",
+      "numberedSelection": "Sélection numérotée.",
+      "executeTwice": "Exécutez cette action deux fois."
+    },
+    "researchArea": {
+      "validResearchArea": "Valide : Toute zone de recherche où l'Automa peut avancer ou un jeton technologique avancé est disponible.",
+      "tiebreaker": {
+        "title": "Critère de départage :",
+        "highest": "<b>Niveau</b> de recherche le plus élevé.",
+        "specific": "Préférer la zone de recherche <b>{researchArea}</b>.",
+        "numberedSelection": "Sélection numérotée."
+      },
+      "execute": {
+        "title": "Exécuter :",
+        "techTile": "Si niveau 4 et jeton technologique avancé, retirez le jeton.",
+        "advance": "Sinon : Avancer de 1 niveau."
+      }
+    }
+  },
+  "botPass": {
+    "title": "L'Automa <i>passe</i>.",
+    "scoringTile": "L'Automa marque des points de victoire :",
+    "roundBoosterTake": "L'Automa prend un booster de round :",
+    "roundBoosterReturn": "Placez l'ancien booster de round à droite des autres."
+  },
+  "endOfRound": {
+    "title": "Fin du Round",
+    "turnInfo": "Round {round}",
+    "returnActionTokens": "Rendez les jetons d'action.",
+    "removeScoringTile": "Retirez le jeton de score de ce round."
+  },
+  "endOfGame": {
+    "title": "Fin du Jeu",
+    "scoringFinalTileScoring": "L'Automa gagne des points de victoire à partir des <b>Jetons de Score Final</b>.",
+    "scoringFinalTileFederationStructures": "Pour le jeton de score final \"le plus de structures dans des fédérations\", comptez le nombre total de structures de l'Automa et soustrayez-en un pour déterminer son nombre de structures dans des fédérations.",
+    "researchScoring": "L'Automa gagne des points de victoire à partir du <b>Score de Recherche</b>.",
+    "resourceScoring": "L'Automa ne marque aucun point pour le score de ressources."
+  },
+  "difficultyLevel": {
+    "1": "Automalein",
+    "2": "Automa",
+    "3": "Automächtig",
+    "4": "Ultoma",
+    "5": "Alptrauma"
+  },
+  "expansion": {
+    "lost-fleet": "La Flotte Perdue"
+  },
+  "botFaction": {
+    "terrans": "Terrans",
+    "xenos": "Xenos",
+    "taklons": "Taklons",
+    "hadsch-hallas": "Hadsch Hallas",
+    "geodens": "Geodens",
+    "firaks": "Firaks",
+    "itars": "Itars"
+  },
+  "researchArea": {
+    "gaia-project": "Gaia Project"
+  },
+  "notfound": {
+    "title": "Non Trouvé"
+  },
+  "action": {
+    "playGame": "Jouer au Jeu",
+    "startGame": "Démarrer le Jeu",
+    "next": "Suivant",
+    "nextRound": "Prochain Round",
+    "abortGame": "Abandonner le Jeu",
+    "abortGameConfirm": "Abandonner la partie en cours - êtes-vous sûr ?",
+    "endGame": "Fin du Jeu",
+    "endGameConfirm": "Mettre fin à ce jeu et revenir à l'écran d'accueil - êtes-vous sûr ?",
+    "cancel": "Annuler",
+    "backToHome": "Retour à l'Accueil",
+    "back": "Retour",
+    "close": "Fermer",
+    "reset": "Réinitialiser",
+    "pass": "Passer"
+  },
+  "footer": {
+    "credits": "Crédits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Actualiser l'Application",
+    "notice": "L'application a été mise à jour - voulez-vous rafraîchir pour utiliser la dernière version ?"
+  }
+}
