@@ -1,0 +1,217 @@
+{
+  "gameTitle": "Gaia Project",
+  "home": {
+    "title": "Gaia Project Solo Helper",
+    "play1": "Gioca a <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a> contro l'avversario automa.",
+    "play2": "Questa applicazione sostituisce il mazzo di carte Automa e ti guida attraverso le regole dell'Automa. Supporta tutti i livelli di difficoltà. Puoi giocare contro un massimo di tre giocatori Automa.",
+    "feedback": "Discussioni e Feedback:"
+  },
+  "setup": {
+    "title": "Imposta Gioco",
+    "players": {
+      "title": "Giocatore",
+      "playerCount": "Giocatori umani",
+      "playerCountItem": "{count} Giocatore  | {count} Giocatori",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automi",
+      "botFaction": "Fazione dell'Automa | Fazione dell'Automa {bot} "
+    },
+    "difficultyLevel": {
+      "title": "Livello di difficoltà",
+      "easy": "Facile",
+      "hard": "Difficile"
+    },
+    "expansions": {
+      "title": "Espansioni"
+    }
+  }, 
+  "setupTiles": {
+    "title": "Impostazioni di gioco",
+    "intro": "Configura il gioco normalmente con le seguenti modifiche:",
+    "gameBoard": "Configura il tabellone di gioco per {playerCount} giocatori. Ruota l'intero tabellone in modo che gli spazi del tabellone formino file orizzontali.",
+    "federationTokens": "Tessere Federazione: Prendi 2 tessere Federazione di ogni tipo. Posizionane una a caso sul livello 5 della plancia di ricerca Terraformazione.",
+    "scoringRoundTiles": "Tesere punteggio per round",
+    "scoringFinalTiles": "Tessere punteggio finale",
+    "roundBooster": "Seleziona casualmente {count} tessere bonus.",
+    "select": "Seleziona",
+    "available": "Disponibile:",
+    "selected": "Selezionata:",
+    "none": "(nessuna)",
+    "randomize": "Casuale",
+    "map": "Mappa Casuale (esterna)",
+    "tileRandomizer": {
+      "title": "Tessere bonus e tessere tecnologia",
+      "notice": "L'effettiva selezione di tessere bonus, tessere tecnologia e tecnologia avanzata non è rilevante per l'applicazione",
+      "roundBoosters": "Tessere bonus",
+      "researchBoard": "Plancia Ricerca"
+    }
+  },
+  "setupGameAutoma": {
+    "title": "Impostazioni Automa",
+    "structures": "Prepara l'Automa con tutte le sue strutture.",
+    "playerTokens": "Posiziona i segnalini giocatore sul tracciato PV e sulle aree di ricerca.",
+    "startVP": "l'Automa inizia il gioco con <b>{count} PV</b>.",
+    "satellites": "Posiziona un satellite su ogni spazio \"0\" sul tabellone punteggio.",
+    "bonus": "Bonus di preparazione:",
+    "initialMinePlacement": "Posiziona <b>{count}</b> colonie minerarie sui pianeti del tipo di pianeta dell'Automa (più vicini al centro della plancia spazio).",
+    "roundBooster": "Prendi la tessera bonus <b>#{index}</b>",
+    "neutralPlayer": "<b>Giocatore Neutrale</b>: prendi due satelliti di un colore inutilizzato e posizionane uno su ciascun tracciato delle tessere punteggio finale; il numero su ciascuna tessera punteggio finale determina la posizione del satellite su quel tracciato."
+  },
+  "income": {
+    "title": "Rendita",
+    "turnInfo": "Round {round}",
+    "collect": "Rendita: Raccogli minerali, conoscenze, crediti e potere.",
+    "gaia": "Gaia: ottieni i segnalini potere dall'area Gaia, trasforma i pianeti Transdim con Gaiaformers."
+  },
+  "roundTurn": {
+    "turnInfo": "Round {round}, Turno {turn}",
+    "titlePlayer": "Giocatore | Giocatore {player}",
+    "titleBot": "Automa: {faction} | Automa {bot}: {faction}",
+    "alptraumaNotice": "<b>Automa Incubo</b>: L'Automa ottiene 1 PV extra ogni volta che guadagna qualsiasi PV."
+  },
+  "playerTurn": {
+    "text": "Per favore, fai il tuo turno - o passa.",
+    "passConfirm": "Vuoi passare?",
+    "passInfo": "Ottieni i punti vittoria della tessera bonus (se presenti) e prendi una nuova tessera bonus.",
+    "passInfoRound6": "Ottieni i punti vittoria della tessera bonus (se presenti) e <b>non</b> prendere una nuova tessera bonus."
+  },
+  "botAction": {
+    "gainVictoryPoints": {
+      "text": "L'Automa ottiene {count} punto vittoria. | L'Automa ottiene {count} punti vittoria."
+    },
+    "buildMine": {
+      "noMine": "Non ci sono colonie minerarie",
+      "validPlanets": "Pianeti validi: Vuoto, nel raggio d'azione (incluso il pianeta Transdim).",
+      "tiebreaker": {
+        "title": "Spareggio:",
+        "faction": {
+          "terrans": "Pianeta Transdim.",
+          "taklons": "Il più vicino da uno dei tuoi pianeti."
+        },
+        "finalScoring": "Tessera Punteggio finale",
+        "scoringFinalTile": {
+          "gaia-planets": "Pianeti Gaia o Transdim .",
+          "planet-types": "Planeti del tipo non ancora colonizzato dall'Automa.",
+          "space-sector-tiles": "Planeti di un settore senza pianeti cololonizzati dall'Automa."
+        },
+        "fewestTerraformingSteps": "Minor numero di passaggi di terraformazione.",
+        "closestToYourPlanet": "Il più vicino ai tuoi pianeti.",
+        "directionalSelection":"Seleziona per direzione."
+      },
+      "execute": {
+        "title": "Esecuzione:",
+        "placeMine": "Piazza la colonia mineraria",
+        "placeSatellite": "Piazza <b> un satellite</b> adiacente alla colonia se questa non è già vicina un altra struttura dell'Automa.",
+        "planetTypeVP": "Se questa colonia mineraria è la prima dell'Automa su quel tipo di pianeta, guadagna +2 PV."
+      }
+    },
+    "upgrade": {
+      "choose": {
+        "title": "Scegli una struttura in base alla priorità:",
+        "planetaryInstitute": "Istituto Planetario(dalla Stazione Commerciale)",
+        "tradingStation": "Stazione Commerciale (dalla Colonia Mineraria)",
+        "academy": "Accademia (dal Centro Ricerche)",
+        "researchLab": "Centro Ricerche (dalla Stazione Commerciale)",
+        "downgradeResearchLab": "Stazione Commerciale (retrocessione da Centro Ricerche)"
+      },
+      "tiebreaker": {
+        "title": "Spareggio:",
+        "closest": "Il più vicino ai tuoi pianeti.",
+        "directionalSelection": "Seleziona per direzione."
+      },
+      "execute": {
+        "title": "Esecuzione:",
+        "upgrade": "Migliorare una struttura.",
+        "researchLabAdvanceResearchAreaRandom": "Se aggiorni al Centro Ricerche:",
+        "advanceResearchAreaRandom": "Avanzi in una Area di ricerche casuale",
+        "tradingStationVP": "Dopo l'aggiornamento alla Stazione Commerciale, l'Automa guadagna +3 PV."
+      }
+    },
+    "powerQic": {
+      "placeToken": "Piazza un segnalino su una qualsiasi azione Potere/C.I.Q. non coperta.",
+      "numberedSelection": "Seleziona per numero.",
+      "executeTwice": "Esegui questa azione 2 volte."
+    },
+    "researchArea": {
+      "validResearchArea": "Opzione valida: Una qualsiasi aread di ricerca dove l'Automa può avanzare  o in cui sia presente una tessera tecnologia avanzata.",
+      "tiebreaker": {
+        "title": "Spareggio:",
+        "highest": "L'area di ricerca di livello più <b>alto</b>.",
+        "specific": "L'area di ricerca preferita <b>{researchArea}</b>.",
+        "numberedSelection": "Seleziona per numero."
+      },
+      "execute": {
+        "title": "Esecuzione:",
+        "techTile": "Se l'Automa è di livello 4 ed è presente una tessera teconologia avanzata, rimuovila.",
+        "advance": "Altrimenti avanza di 1 livello."
+      }
+    }
+  },
+  "botPass": {
+    "title": "L'Automa <i>passa</i>.",
+    "scoringTile": "L'Automa ottiene punti vittoria:",
+    "roundBoosterTake": "L'automa prende una tessera bonus Automa:",
+    "roundBoosterReturn": "Posiziona la vecchia tessera bonus a destra delle rimanti"
+  },
+  "endOfRound": {
+    "title": "Fine del round",
+    "turnInfo": "Round {round}",
+    "returnActionTokens": "Rimuovi i segnalini azione.",
+    "removeScoringTile": "Rimuovi la tessera punteggio del round di questo round."
+  },
+  "endOfGame": {
+    "title": "Fine del Gioco",
+    "scoringFinalTileScoring": "L' Automa ottiene punti vittoria dalle <b>Tessere Punteggio Finale</b>.",
+    "scoringFinalTileFederationStructures": "Per la tessera punteggio finale \"maggior numero di strutture nelle federazioni\", conta il numero totale di strutture dell'Automa e togline 1 per determinareil numero di strutture valide per questa tessera punteggio.",
+    "researchScoring": "L'Automa ottiene punti vittoria dalle <b>Aree di ricerca</b> come il giocatore umano.",
+    "resourceScoring": "L'Automa non ottiene punti dalle risorse."
+  },
+  "difficultyLevel": {
+    "1": "Automino",
+    "2": "Automa",
+    "3": "Automa avanzato",
+    "4": "UltrAutoma",
+    "5": "Automa Incubo"
+  },
+  "expansion": {
+    "lost-fleet": "La Flotta Perduta"
+  },
+  "botFaction": {
+    "terrans": "Terrestri",
+    "xenos": "Xenos",
+    "taklons": "Taklons",
+    "hadsch-hallas": "Hadsalla",
+    "geodens": "Geoden",
+    "firaks": "Firak",
+    "itars": "Itar"
+  },
+  "researchArea": {
+    "gaia-project": "Progetto Gaia"
+  },
+  "notfound": {
+    "title": "Non trovato"
+  },
+  "action": {
+    "playGame": "Gioca",
+    "startGame": "Inizia Partita",
+    "next": "Avanti",
+    "nextRound": "Prossimo Round",
+    "abortGame": "Interrompi Partita",
+    "abortGameConfirm": "Interrompere la partita in corso - sei sicuro?",
+    "endGame": "Termina Partita",
+    "endGameConfirm": "Terminare questa partita e tornare alla schermata principale - sei sicuro?",
+    "cancel": "Cancel",
+    "backToHome": "Torna alla Home",
+    "back": "Indietro",
+    "close": "Chiudi",
+    "reset": "Ok",
+    "pass": "Passa"
+  },
+  "footer": {
+    "credits": "Crediti"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Aggiorna Applicazione",
+    "notice": "L'applicazione è stata aggiornata - vuoi ricaricare per usare l'ultima versione?"
+  }
+}
