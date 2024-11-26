@@ -7,6 +7,7 @@
     <li v-html="t('endOfGame.researchScoring')"></li>
     <li v-html="t('endOfGame.resourceScoring')"></li>
   </ol>
+  <p>{{t('setup.difficultyLevel.title')}}: <b>{{t(`difficultyLevel.${state.setup.difficultyLevel}`)}}</b></p>
 </template>
 
 <script lang="ts">
