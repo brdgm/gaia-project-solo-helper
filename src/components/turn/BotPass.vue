@@ -7,13 +7,15 @@
         <ActionGainVictoryPoints :botAction="victoryPointsBotAction" :navigationState="navigationState" :hideText="true"/>
       </div>
     </li>
-    <li>
-      <span v-html="t('botPass.roundBoosterTake')"></span>
-      <div class="ms-4 mt-2 mb-3">
-        <AppIcon type="round-booster-selection" :name="roundBoosterSelection" class="roundBoosterSelection"/>
-      </div>
-    </li>
-    <li v-html="t('botPass.roundBoosterReturn')"></li>
+    <template v-if="!isLastRound">
+      <li>
+        <span v-html="t('botPass.roundBoosterTake')"></span>
+        <div class="ms-4 mt-2 mb-3">
+          <AppIcon type="round-booster-selection" :name="roundBoosterSelection" class="roundBoosterSelection"/>
+        </div>
+      </li>
+      <li v-html="t('botPass.roundBoosterReturn')"></li>
+    </template>
   </ol>
     
 </template>
@@ -60,6 +62,9 @@ export default defineComponent({
     },
     victoryPointsBotAction() : BotAction {
       return { action: Action.GAIN_VICTORY_POINTS, victoryPoints: this.scoreVP }
+    },
+    isLastRound() : boolean {
+      return this.navigationState.round == 6
     }
   }
 })
