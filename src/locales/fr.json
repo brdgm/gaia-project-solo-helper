@@ -38,7 +38,7 @@
     "selected": "Sélectionné :",
     "none": "(aucun)",
     "randomize": "Aléatoire",
-    "map": "Randomiseur de Carte (externe)",
+    "map": "Randomiseur de Carte",
     "tileRandomizer": {
       "title": "Boosters de Round et Plateau de Recherche",
       "notice": "La sélection réelle des boosters de round et des tuiles de plateau de recherche n'est pas pertinente pour l'application.",

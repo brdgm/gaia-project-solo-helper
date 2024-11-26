@@ -38,7 +38,7 @@
     "selected": "Ausgewählt:",
     "none": "(keine)",
     "randomize": "Zufällig wählen",
-    "map": "Kartengenerator (extern)",
+    "map": "Kartengenerator",
     "tileRandomizer": {
       "title": "Rundenbooster und Forschungstableau",
       "notice": "Die konkrete Auswahl von Rundenboostern und Plättchen auf dem Forschungstableau ist für die Applikation nicht relevant.",

@@ -38,7 +38,7 @@
     "selected": "Selected:",
     "none": "(none)",
     "randomize": "Randomize",
-    "map": "Map Randomizer (external)",
+    "map": "Map Randomizer",
     "tileRandomizer": {
       "title": "Round Boosters and Research Board",
       "notice": "The actual selection of round boosters and research board tiles is not relevant for the application.",

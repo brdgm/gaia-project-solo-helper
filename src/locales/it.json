@@ -38,7 +38,7 @@
     "selected": "Selezionata:",
     "none": "(nessuna)",
     "randomize": "Casuale",
-    "map": "Mappa Casuale (esterna)",
+    "map": "Mappa Casuale",
     "tileRandomizer": {
       "title": "Tessere bonus e tessere tecnologia",
       "notice": "L'effettiva selezione di tessere bonus, tessere tecnologia e tecnologia avanzata non è rilevante per l'applicazione",
