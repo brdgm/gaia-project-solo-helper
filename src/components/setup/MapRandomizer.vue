@@ -44,6 +44,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .map {
+  z-index: -10;
   .spaceSector {
     position: absolute;
     display: inline-block;
