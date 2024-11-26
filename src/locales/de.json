@@ -13,7 +13,7 @@
       "playerCount": "Menschliche Spieler",
       "playerCountItem": "{count} Spieler | {count} Spieler",
       "botCount": "Automa",
-      "botCountItem": "{count} Automa | {count} Automas",
+      "botCountItem": "{count} Automa | {count} Automas (Experimentell)",
       "botFaction": "Automa Volk | Automa {bot} Volk"
     },
     "difficultyLevel": {

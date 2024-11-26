@@ -12,7 +12,7 @@
   <ModalDialog id="passModal" :title="t('action.pass')">
     <template #body>
       <p v-html="t('playerTurn.passConfirm')"></p>
-      <p v-if="navigationState.round == 6" v-html="t('playerTurn.passInfoRound6')"></p>
+      <p v-if="isLastRound" v-html="t('playerTurn.passInfoRound6')"></p>
       <p v-else v-html="t('playerTurn.passInfo')"></p>
     </template>
     <template #footer>
@@ -55,6 +55,9 @@ export default defineComponent({
   computed: {
     hasPassed() : boolean|undefined {
       return this.navigationState.roundTurn?.pass
+    },
+    isLastRound() : boolean {
+      return this.navigationState.round == 6
     }
   },
   methods: {
