@@ -39,15 +39,17 @@
     <AppIcon v-for="id of roundBoosterTiles" :key="id" type="round-booster" :name="id.toString()" class="roundBoosterTile"/>
 
     <h5 v-html="t('setupTiles.tileRandomizer.researchBoard')"></h5>
-    <div class="researchBoard">
-      <img src="@/assets/research-board.jpg" alt="" class="background"/>
-      <AppIcon type="federation-token" :name="researchFederationToken.toString()" class="federationToken"/>
-      <div class="techAdvanced">
-        <AppIcon v-for="id of techAdvancedTiles" :key="id" type="tech-advanced-tile" :name="id.toString()" class="tile"/>
-      </div>
-      <div class="techStandard">
-        <AppIcon v-for="(id,index) of techStandardTiles" :key="id" type="tech-standard-tile" :name="id.toString()" class="tile"
-            :class="{'column': index < 6, 'common': index >= 6}"/>
+    <div class="researchBoardWrapper">
+      <div class="researchBoard">
+        <img src="@/assets/research-board.jpg" alt="" class="background"/>
+        <AppIcon type="federation-token" :name="researchFederationToken.toString()" class="federationToken"/>
+        <div class="techAdvanced">
+          <AppIcon v-for="id of techAdvancedTiles" :key="id" type="tech-advanced-tile" :name="id.toString()" class="tile"/>
+        </div>
+        <div class="techStandard">
+          <AppIcon v-for="(id,index) of techStandardTiles" :key="id" type="tech-standard-tile" :name="id.toString()" class="tile"
+              :class="{'column': index < 6, 'common': index >= 6}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -247,6 +249,10 @@ li {
   height: 10rem;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
+}
+.researchBoardWrapper {
+  width: 100%;
+  overflow-x: auto;
 }
 .researchBoard {
   position: relative;
