@@ -1,7 +1,9 @@
 <template>
-  <div class="map" :class="{large:!twoPlayerMap,small:twoPlayerMap}">
-    <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector">
-      <AppIcon type="map-space-sector" :name="`${spaceSector.id + (spaceSector.outline ? '-outline' : '')}`" extension="webp"/>
+  <div class="mapWrapper">
+    <div class="map" :class="{large:!twoPlayerMap,small:twoPlayerMap}">
+      <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector">
+        <AppIcon type="map-space-sector" :name="`${spaceSector.id + (spaceSector.outline ? '-outline' : '')}`" extension="webp"/>
+      </div>
     </div>
   </div>
 </template>
@@ -43,6 +45,11 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.mapWrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
 .map {
   z-index: -10;
   .spaceSector {
