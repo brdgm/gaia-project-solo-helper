@@ -8,13 +8,13 @@
       <span v-html="t('setupTiles.scoringRoundTiles')"></span>:<br/>
       <AppIcon v-for="tile of scoringRoundTiles" :key="tile" type="scoring-round" :name="tile" class="scoringRoundTileIcon"/><br/>
       <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringRoundTilesModal">{{t('setupTiles.select')}}</button>
-      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringRoundTiles">{{t('setupTiles.randomize')}}</button>
+      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringRoundTiles">{{t('action.randomize')}}</button>
     </li>
     <li>
       <span v-html="t('setupTiles.scoringFinalTiles')"></span>:<br/>
       <AppIcon v-for="tile of scoringFinalTiles" :key="tile" type="scoring-final" :name="tile" class="scoringFinalTileIcon"/><br/>
       <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringFinalTilesModal">{{t('setupTiles.select')}}</button>
-      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringFinalTiles">{{t('setupTiles.randomize')}}</button>
+      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringFinalTiles">{{t('action.randomize')}}</button>
     </li>
     <li>
       <span v-html="t('setupTiles.roundBooster', {count:roundBoosterCount})"></span><br/>
@@ -25,30 +25,37 @@
     <button class="btn btn-outline-secondary me-2 mb-2" data-bs-toggle="collapse" data-bs-target="#randomizedSetup">
       {{t('setupTiles.tileRandomizer.title')}} &#x25BC;      
     </button>
-    <a href="https://rygg-gaard.no/gaia/" target="_blank" rel="noopener" class="btn btn-outline-secondary me-2 mb-2">
-      {{t('setupTiles.map')}}
-    </a>
+    <button class="btn btn-outline-secondary me-2 mb-2" data-bs-toggle="collapse" data-bs-target="#mapRandomizer">
+      {{t('setupTiles.map')}} &#x25BC;      
+    </button>
   </div>
-  <div class="collapse mt-2" id="randomizedSetup">
-    <div class="alert alert-secondary fst-italic">
-      <span v-html="t('setupTiles.tileRandomizer.notice')"></span>
-      <button class="btn btn-sm btn-secondary ms-2" @click="randomizeRoundBoostersResearchBoard">{{t('setupTiles.randomize')}}</button>
+  <div id="randomizerCollapseParent">
+    <div class="collapse mt-2" id="randomizedSetup" data-bs-parent="#randomizerCollapseParent">
+      <div class="alert alert-secondary fst-italic">
+        <span v-html="t('setupTiles.tileRandomizer.notice')"></span>
+        <button class="btn btn-sm btn-secondary ms-2" @click="randomizeRoundBoostersResearchBoard">{{t('action.randomize')}}</button>
+      </div>
+
+      <h5 v-html="t('setupTiles.tileRandomizer.roundBoosters')"></h5>
+      <AppIcon v-for="id of roundBoosterTiles" :key="id" type="round-booster" :name="id.toString()" class="roundBoosterTile"/>
+
+      <h5 v-html="t('setupTiles.tileRandomizer.researchBoard')"></h5>
+      <div class="researchBoardWrapper">
+        <div class="researchBoard">
+          <img src="@/assets/research-board.jpg" alt="" class="background"/>
+          <AppIcon type="federation-token" :name="researchFederationToken.toString()" class="federationToken"/>
+          <div class="techAdvanced">
+            <AppIcon v-for="id of techAdvancedTiles" :key="id" type="tech-advanced-tile" :name="id.toString()" class="tile"/>
+          </div>
+          <div class="techStandard">
+            <AppIcon v-for="(id,index) of techStandardTiles" :key="id" type="tech-standard-tile" :name="id.toString()" class="tile"
+                :class="{'column': index < 6, 'common': index >= 6}"/>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <h5 v-html="t('setupTiles.tileRandomizer.roundBoosters')"></h5>
-    <AppIcon v-for="id of roundBoosterTiles" :key="id" type="round-booster" :name="id.toString()" class="roundBoosterTile"/>
-
-    <h5 v-html="t('setupTiles.tileRandomizer.researchBoard')"></h5>
-    <div class="researchBoard">
-      <img src="@/assets/research-board.jpg" alt="" class="background"/>
-      <AppIcon type="federation-token" :name="researchFederationToken.toString()" class="federationToken"/>
-      <div class="techAdvanced">
-        <AppIcon v-for="id of techAdvancedTiles" :key="id" type="tech-advanced-tile" :name="id.toString()" class="tile"/>
-      </div>
-      <div class="techStandard">
-        <AppIcon v-for="(id,index) of techStandardTiles" :key="id" type="tech-standard-tile" :name="id.toString()" class="tile"
-            :class="{'column': index < 6, 'common': index >= 6}"/>
-      </div>
+    <div class="collapse mt-2" id="mapRandomizer" data-bs-parent="#randomizerCollapseParent">
+      <MapRandomizer/>
     </div>
   </div>
 
@@ -105,6 +112,7 @@ import { useStateStore } from '@/store/state'
 import ScoringRoundTile from '@/services/enum/ScoringRoundTile'
 import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
 import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
+import MapRandomizer from './MapRandomizer.vue'
 
 const SCORING_ROUND_TILES_COUNT = 6
 const SCORING_FINAL_TILES_COUNT = 2
@@ -119,7 +127,8 @@ export default defineComponent({
   name: 'TilesSetup',
   components: {
     AppIcon,
-    ModalDialog
+    ModalDialog,
+    MapRandomizer
   },
   emits: {
     scoringTiles: (_scoringRoundTiles: ScoringRoundTile[], _scoringFinalTiles: ScoringFinalTile[]) => true  // eslint-disable-line @typescript-eslint/no-unused-vars
@@ -247,6 +256,10 @@ li {
   height: 10rem;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
+}
+.researchBoardWrapper {
+  width: 100%;
+  overflow-x: auto;
 }
 .researchBoard {
   position: relative;

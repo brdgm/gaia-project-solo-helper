@@ -37,8 +37,7 @@
     "available": "Disponible:",
     "selected": "Seleccionado:",
     "none": "(ninguno)",
-    "randomize": "Aleatorizar",
-    "map": "Aleatorizador de Mapa (externo)",
+    "map": "Aleatorizador de Mapa",
     "tileRandomizer": {
       "title": "Potenciadores de Ronda y Tablero de Investigación",
       "notice": "La selección real de potenciadores de ronda y fichas del tablero de investigación no es relevante para la aplicación.",
@@ -205,7 +204,8 @@
     "back": "Atrás",
     "close": "Cerrar",
     "reset": "Reiniciar",
-    "pass": "Pasar"
+    "pass": "Pasar",
+    "randomize": "Aleatorizar"
   },
   "footer": {
     "credits": "Créditos"
