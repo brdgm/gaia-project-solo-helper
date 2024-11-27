@@ -45,6 +45,9 @@
       "researchBoard": "Research Board"
     }
   },
+  "mapRandomizer": {
+    "simpleNotice": "This is a simple map randomizer. If you want more control and more options, you can use an <a href='https://boardgamehelpers.com/GaiaProject/' target='_blank' rel='noopener'>external Map Generator</a>."
+  },
   "setupGameAutoma": {
     "title": "Automa Setup",
     "structures": "Prepare the Automa supply with all it's structures.",

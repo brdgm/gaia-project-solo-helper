@@ -17,6 +17,11 @@
       </div>
     </div>
   </div>
+  <div class="row mt-3">
+    <div class="col">
+      <div class="alert alert-info" v-html="t('mapRandomizer.simpleNotice')"></div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

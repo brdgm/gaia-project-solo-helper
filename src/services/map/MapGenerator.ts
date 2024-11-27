@@ -9,14 +9,14 @@ import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 export default class MapGenerator {
 
   readonly playerCount : number
-  private _spaceSectors = ref([] as SpaceSector[])
+  private readonly _spaceSectors = ref([] as SpaceSector[])
 
   constructor(playerCount: number) {
     this.playerCount = playerCount
     this.reset()
   }
 
-  get spaceSectors() : SpaceSector[] {
+  get spaceSectors() : readonly SpaceSector[] {
     return this._spaceSectors.value
   }
 
