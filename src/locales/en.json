@@ -13,7 +13,7 @@
       "playerCount": "Human Players",
       "playerCountItem": "{count} Player | {count} Players",
       "botCount": "Automa",
-      "botCountItem": "{count} Automa | {count} Automas",
+      "botCountItem": "{count} Automa | {count} Automas (Experimental)",
       "botFaction": "Automa Faction | Automa {bot} Faction"
     },
     "difficultyLevel": {
@@ -37,14 +37,17 @@
     "available": "Available:",
     "selected": "Selected:",
     "none": "(none)",
-    "randomize": "Randomize",
-    "map": "Map Randomizer (external)",
+    "map": "Map Randomizer",
     "tileRandomizer": {
       "title": "Round Boosters and Research Board",
       "notice": "The actual selection of round boosters and research board tiles is not relevant for the application.",
       "roundBoosters": "Round Boosters",
       "researchBoard": "Research Board"
     }
+  },
+  "mapRandomizer": {
+    "invalidMap": "This Map is invalid.",
+    "externalMapGenerator": "Alternatively, you can use use an <a href='https://boardgamehelpers.com/GaiaProject/' target='_blank' rel='noopener'>external Map Generator</a> with more options."
   },
   "setupGameAutoma": {
     "title": "Automa Setup",
@@ -205,7 +208,8 @@
     "back": "Back",
     "close": "Close",
     "reset": "Reset",
-    "pass": "Pass"
+    "pass": "Pass",
+    "randomize": "Randomize"
   },
   "footer": {
     "credits": "Credits"

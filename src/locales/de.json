@@ -13,7 +13,7 @@
       "playerCount": "Menschliche Spieler",
       "playerCountItem": "{count} Spieler | {count} Spieler",
       "botCount": "Automa",
-      "botCountItem": "{count} Automa | {count} Automas",
+      "botCountItem": "{count} Automa | {count} Automas (Experimentell)",
       "botFaction": "Automa Volk | Automa {bot} Volk"
     },
     "difficultyLevel": {
@@ -37,14 +37,17 @@
     "available": "Verfügbar:",
     "selected": "Ausgewählt:",
     "none": "(keine)",
-    "randomize": "Zufällig wählen",
-    "map": "Kartengenerator (extern)",
+    "map": "Kartengenerator",
     "tileRandomizer": {
       "title": "Rundenbooster und Forschungstableau",
       "notice": "Die konkrete Auswahl von Rundenboostern und Plättchen auf dem Forschungstableau ist für die Applikation nicht relevant.",
       "roundBoosters": "Rundenbooster",
       "researchBoard": "Forschungstableau"
     }
+  },
+  "mapRandomizer": {
+    "invalidMap": "Diese Karte ist ungültig.",
+    "externalMapGenerator": "Alternativ kannst du einen <a href='https://boardgamehelpers.com/GaiaProject/' target='_blank' rel='noopener'>externen Map Generator</a> mit mehr Möglichkeiten verwenden."
   },
   "setupGameAutoma": {
     "title": "Automa Spielaufbau",
@@ -205,7 +208,8 @@
     "back": "Zurück",
     "close": "Schließen",
     "reset": "Zurücksetzen",
-    "pass": "Passen"
+    "pass": "Passen",
+    "randomize": "Zufällig"
   },
   "footer": {
     "credits": "Credits"
