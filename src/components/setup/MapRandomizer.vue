@@ -1,25 +1,29 @@
 <template>
-  <button class="btn btn-sm btn-secondary me-2 mb-2" @click="mapGenerator.randomize()">{{t('action.randomize')}}</button>
-  <button class="btn btn-sm btn-secondary me-2 mb-2" @click="mapGenerator.reset()">{{t('action.reset')}}</button>
-  <div class="mapWrapper">
-    <div class="map" :class="{large:!twoPlayerMap,small:twoPlayerMap}">
-      <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector" @click="spaceSector.rotate()"
-          :style="`transform: rotate(${spaceSector.rotation*60}deg);`">
-        <AppIcon type="map-space-sector" :name="`${spaceSector.id + (spaceSector.outline ? '-outline' : '')}`" extension="webp"/>
-        <svg class="overlay">
-          <defs>
-            <polygon id="spaceSectorArrow" points="8,5 13,10 3,10" style="fill:#fff" />
-          </defs>
-          <circle cx="74.75" cy="81" r="25" class="circle" />
-          <text x="61" y="90" class="id" :class="{outline:spaceSector.outline}">{{spaceSector.id}}</text>
-          <use x="68" y="55" xlink:href="#spaceSectorArrow"/>
-        </svg>
+  <button class="btn btn-sm btn-secondary me-2" @click="mapGenerator.randomize()">{{t('action.randomize')}}</button>
+  <button class="btn btn-sm btn-secondary me-2" @click="mapGenerator.reset()">{{t('action.reset')}}</button>
+  <div class="row mt-3">
+    <div class="col">
+      <div class="mapWrapper" :class="{'alert':!isValid, 'alert-danger':!isValid}">
+        <p v-if="!isValid" v-html="t('mapRandomizer.invalidMap')"></p>
+        <div class="map" :class="{large:!twoPlayerMap,small:twoPlayerMap}">
+          <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector" @click="spaceSector.rotate()"
+              :style="`transform: rotate(${spaceSector.rotation*60}deg);`">
+            <AppIcon type="map-space-sector" :name="`${spaceSector.id + (spaceSector.outline ? '-outline' : '')}`" extension="webp"/>
+            <svg class="overlay">
+              <defs>
+                <polygon id="spaceSectorArrow" points="8,5 13,10 3,10" style="fill:#fff" />
+              </defs>
+              <circle cx="74.75" cy="81" r="25" class="circle" />
+              <text x="61" y="90" class="id" :class="{outline:spaceSector.outline}">{{spaceSector.id}}</text>
+              <use x="68" y="55" xlink:href="#spaceSectorArrow"/>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col">
-      <div v-if="!isValid" class="alert alert-danger" v-html="t('mapRandomizer.invalidMap')"></div>
       <div class="alert alert-info" v-html="t('mapRandomizer.simpleNotice')"></div>
     </div>
   </div>

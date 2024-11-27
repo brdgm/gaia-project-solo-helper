@@ -38,6 +38,9 @@ export default class MapGenerator {
     }
   }
 
+  /**
+   * @returns true if map is valid, that means no two faction home planets are directly adjacent.
+   */
   isValid() : boolean {
     for (let sectorIndex=0; sectorIndex<this.spaceSectors.length; sectorIndex++) {
       const currentSector = this.spaceSectors[sectorIndex]
@@ -47,10 +50,10 @@ export default class MapGenerator {
           const adjacentSectorIndexes = this.getAdjacentSectorsIndexes(sectorIndex)
           const adjacentSectorHexes = this.getAdjacentSectorHexes(hexIndex)
           for (let adjacentSector=0;adjacentSector<adjacentSectorHexes.length;adjacentSector++) {
-            const sectorIndex = adjacentSectorIndexes[adjacentSector]
+            const otherSectorIndex = adjacentSectorIndexes[adjacentSector]
             const otherSectorHexes = adjacentSectorHexes[adjacentSector]
-            if (sectorIndex && otherSectorHexes) {
-              const otherSectorFactionPlanets = this.spaceSectors[sectorIndex].getRotatedFactionPlanets()
+            if (otherSectorIndex && otherSectorHexes) {
+              const otherSectorFactionPlanets = this.spaceSectors[otherSectorIndex].getRotatedFactionPlanets()
               for (const otherSectorHex of otherSectorHexes) {
                 if (otherSectorFactionPlanets[otherSectorHex] == currentHexFactionPlanet) {
                   return false
