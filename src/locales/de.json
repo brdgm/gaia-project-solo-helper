@@ -46,6 +46,7 @@
     }
   },
   "mapRandomizer": {
+    "invalidMap": "Diese Karte ist ungültig.",
     "simpleNotice": "Dies ist ein einfacher Karten-Generator. Wenn du mehr Kontrolle und Möglichkeiten willst, kannst du einen <a href='https://boardgamehelpers.com/GaiaProject/' target='_blank' rel='noopener'>externen Map Generator</a> verwenden."
   },
   "setupGameAutoma": {

@@ -19,6 +19,7 @@
   </div>
   <div class="row mt-3">
     <div class="col">
+      <div v-if="!isValid" class="alert alert-danger" v-html="t('mapRandomizer.invalidMap')"></div>
       <div class="alert alert-info" v-html="t('mapRandomizer.simpleNotice')"></div>
     </div>
   </div>
@@ -50,6 +51,9 @@ export default defineComponent({
   computed: {
     spaceSectors() : readonly SpaceSector[] {
       return this.mapGenerator.spaceSectors
+    },
+    isValid() : boolean {
+      return this.mapGenerator.isValid()
     },
     twoPlayerMap() : boolean {
       return this.totalPlayerCount < 3

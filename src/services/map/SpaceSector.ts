@@ -26,6 +26,18 @@ export default class SpaceSector {
     }
   }
 
+  /**
+   * Returns faction planets on the tile, taking current rotation into account.
+   * @returns Faction planets on the outer edge of the sector tile.
+   *   Top hex is index 0, further hexes are counted in clockwise order.
+   *              0
+   *          11     1
+   *       10           2
+   *        9           3
+   *        8           4
+   *           7     5
+   *              6
+   */
   getRotatedFactionPlanets() : (BotFaction|undefined)[] {
     const result : (BotFaction|undefined)[] = []
     for (let i = 0; i < 12; i++) {
