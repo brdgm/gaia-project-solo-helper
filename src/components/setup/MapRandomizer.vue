@@ -1,15 +1,16 @@
 <template>
   <div class="mapWrapper">
     <div class="map" :class="{large:!twoPlayerMap,small:twoPlayerMap}">
-      <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector">
+      <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector" @click="spaceSector.rotate()"
+          :style="`transform: rotate(${spaceSector.rotation.value*60}deg);`">
         <AppIcon type="map-space-sector" :name="`${spaceSector.id + (spaceSector.outline ? '-outline' : '')}`" extension="webp"/>
         <svg class="overlay">
           <defs>
             <polygon id="spaceSectorArrow" points="8,5 13,10 3,10" style="fill:#fff" />
           </defs>
-          <circle cx="80" cy="80" r="25" class="circle" />
-          <text x="66" y="90" class="id" :class="{outline:spaceSector.outline}">{{spaceSector.id}}</text>
-          <use x="72" y="55" xlink:href="#spaceSectorArrow"/>
+          <circle cx="74.75" cy="81" r="25" class="circle" />
+          <text x="61" y="90" class="id" :class="{outline:spaceSector.outline}">{{spaceSector.id}}</text>
+          <use x="68" y="55" xlink:href="#spaceSectorArrow"/>
         </svg>
       </div>
     </div>
@@ -59,12 +60,13 @@ export default defineComponent({
   overflow-y: hidden;
 }
 .map {
-  z-index: -10;
   .spaceSector {
     position: absolute;
     display: inline-block;
     width: 150px;
     filter: drop-shadow(0 0 0.25rem #fff);
+    cursor: pointer;
+    user-select: none;
     img {
       width: 100%;
     }
