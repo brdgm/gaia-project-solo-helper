@@ -3,6 +3,14 @@
     <div class="map" :class="{large:!twoPlayerMap,small:twoPlayerMap}">
       <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector">
         <AppIcon type="map-space-sector" :name="`${spaceSector.id + (spaceSector.outline ? '-outline' : '')}`" extension="webp"/>
+        <svg class="overlay">
+          <defs>
+            <polygon id="spaceSectorArrow" points="8,5 13,10 3,10" style="fill:#fff" />
+          </defs>
+          <circle cx="80" cy="80" r="25" class="circle" />
+          <text x="66" y="90" class="id" :class="{outline:spaceSector.outline}">{{spaceSector.id}}</text>
+          <use x="72" y="55" xlink:href="#spaceSectorArrow"/>
+        </svg>
       </div>
     </div>
   </div>
@@ -59,6 +67,26 @@ export default defineComponent({
     filter: drop-shadow(0 0 0.25rem #fff);
     img {
       width: 100%;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      .circle {
+        fill:#000;
+        filter: drop-shadow(0 0 0.25rem #fff);
+      }
+      .id {
+        fill: #fff;
+        font-size: 1.5rem;
+        font-weight: bold;
+        &.outline {
+          fill: none;
+          stroke: #fff;
+          stroke-width: 1px;
+          font-weight: 800;
+        }
+      }
     }
   }
   &.large {
