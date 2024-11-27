@@ -47,7 +47,7 @@
   },
   "mapRandomizer": {
     "invalidMap": "This Map is invalid.",
-    "simpleNotice": "This is a simple map randomizer. If you want more control and more options, you can use an <a href='https://boardgamehelpers.com/GaiaProject/' target='_blank' rel='noopener'>external Map Generator</a>."
+    "externalMapGenerator": "This is a simple map randomizer. If you want more control and more options, you can use an <a href='https://boardgamehelpers.com/GaiaProject/' target='_blank' rel='noopener'>external Map Generator</a>."
   },
   "setupGameAutoma": {
     "title": "Automa Setup",
