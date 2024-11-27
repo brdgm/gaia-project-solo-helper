@@ -84,20 +84,43 @@ describe('CardDeck', () => {
 
   it('draw-pass-last-3', () => {
     const cardDeck = CardDeck.fromPersistence({
-      deck: ['1','2','3','4'],
+      deck: ['6','7','1','2','3'],
       discard: [],
       reserve: []
     })
 
     expect(cardDeck.draw(), '1st draw').to.true
-    expect(cardDeck.actionCard?.id, '1st action card').to.eq('2')
-    expect(cardDeck.supportCard?.id, '1st support card').to.eq('1')
+    expect(cardDeck.actionCard?.id, '1st action card').to.eq('7')
+    expect(cardDeck.supportCard?.id, '1st support card').to.eq('6')
     expect(cardDeck.isPass(), '1st pass').to.false
 
     expect(cardDeck.draw(), '2nd draw').to.true
-    expect(cardDeck.actionCard?.id, '2nd action card').to.eq('3')
-    expect(cardDeck.supportCard?.id, '2nd support card').to.eq('2')
+    expect(cardDeck.actionCard?.id, '2nd action card').to.eq('1')
+    expect(cardDeck.supportCard?.id, '2nd support card').to.eq('7')
     expect(cardDeck.isPass(), '2nd pass').to.true
+  })
+
+  it('draw-pass-last-2', () => {
+    const cardDeck = CardDeck.fromPersistence({
+      deck: ['6','1','7','2','3'],
+      discard: [],
+      reserve: []
+    })
+
+    expect(cardDeck.draw(), '1st draw').to.true
+    expect(cardDeck.actionCard?.id, '1st action card').to.eq('1')
+    expect(cardDeck.supportCard?.id, '1st support card').to.eq('6')
+    expect(cardDeck.isPass(), '1st pass').to.false
+
+    expect(cardDeck.draw(), '2nd draw').to.true
+    expect(cardDeck.actionCard?.id, '2nd action card').to.eq('7')
+    expect(cardDeck.supportCard?.id, '2nd support card').to.eq('1')
+    expect(cardDeck.isPass(), '2nd pass').to.false
+
+    expect(cardDeck.draw(), '3nd draw').to.true
+    expect(cardDeck.actionCard?.id, '3rd action card').to.eq('2')
+    expect(cardDeck.supportCard?.id, '3rd support card').to.eq('7')
+    expect(cardDeck.isPass(), '3rd pass').to.true
   })
 
   it('prepareForNextRound', () => {
