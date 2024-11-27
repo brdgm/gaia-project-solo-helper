@@ -1,8 +1,10 @@
 <template>
+  <button class="btn btn-sm btn-secondary me-2 mb-2" @click="mapGenerator.randomize()">{{t('action.randomize')}}</button>
+  <button class="btn btn-sm btn-secondary me-2 mb-2" @click="mapGenerator.reset()">{{t('action.reset')}}</button>
   <div class="mapWrapper">
     <div class="map" :class="{large:!twoPlayerMap,small:twoPlayerMap}">
       <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector" @click="spaceSector.rotate()"
-          :style="`transform: rotate(${spaceSector.rotation.value*60}deg);`">
+          :style="`transform: rotate(${spaceSector.rotation*60}deg);`">
         <AppIcon type="map-space-sector" :name="`${spaceSector.id + (spaceSector.outline ? '-outline' : '')}`" extension="webp"/>
         <svg class="overlay">
           <defs>

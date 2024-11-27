@@ -37,7 +37,6 @@
     "available": "Available:",
     "selected": "Selected:",
     "none": "(none)",
-    "randomize": "Randomize",
     "map": "Map Randomizer",
     "tileRandomizer": {
       "title": "Round Boosters and Research Board",
@@ -205,7 +204,8 @@
     "back": "Back",
     "close": "Close",
     "reset": "Reset",
-    "pass": "Pass"
+    "pass": "Pass",
+    "randomize": "Randomize"
   },
   "footer": {
     "credits": "Credits"

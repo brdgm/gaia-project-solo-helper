@@ -37,7 +37,6 @@
     "available": "Disponible:",
     "selected": "Seleccionado:",
     "none": "(ninguno)",
-    "randomize": "Aleatorizar",
     "map": "Aleatorizador de Mapa",
     "tileRandomizer": {
       "title": "Potenciadores de Ronda y Tablero de Investigación",
@@ -205,7 +204,8 @@
     "back": "Atrás",
     "close": "Cerrar",
     "reset": "Reiniciar",
-    "pass": "Pasar"
+    "pass": "Pasar",
+    "randomize": "Aleatorizar"
   },
   "footer": {
     "credits": "Créditos"

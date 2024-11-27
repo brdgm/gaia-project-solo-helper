@@ -1,21 +1,39 @@
-import SpaceSector from "./SpaceSector"
+import { shuffle } from 'lodash'
+import SpaceSector from './SpaceSector'
+import { ref } from 'vue'
+import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 
 /**
  * Map Generator.
  */
 export default class MapGenerator {
 
-  readonly spaceSectors : SpaceSector[]
+  readonly playerCount : number
+  private _spaceSectors = ref([] as SpaceSector[])
 
   constructor(playerCount: number) {
-    if (playerCount > 2) {
-      this.spaceSectors = INITIAL_SETUP_PLAYER_34
-    }
-    else {
-      this.spaceSectors = INITIAL_SETUP_PLAYER_12
-    }
+    this.playerCount = playerCount
+    this.reset()
   }
 
+  get spaceSectors() : SpaceSector[] {
+    return this._spaceSectors.value
+  }
+
+  reset() : void {
+    if (this.playerCount > 2) {
+      this._spaceSectors.value = INITIAL_SETUP_PLAYER_34
+    }
+    else {
+      this._spaceSectors.value = INITIAL_SETUP_PLAYER_12
+    }
+    this.spaceSectors.forEach(sector => sector.rotation = 0)
+  }
+
+  randomize() : void {
+    this._spaceSectors.value = shuffle(this._spaceSectors.value)
+    this.spaceSectors.forEach(sector => sector.rotation = rollDice(6) - 1)
+  }
 
 }
 

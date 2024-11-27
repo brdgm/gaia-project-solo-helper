@@ -37,7 +37,6 @@
     "available": "Disponible :",
     "selected": "Sélectionné :",
     "none": "(aucun)",
-    "randomize": "Aléatoire",
     "map": "Randomiseur de Carte",
     "tileRandomizer": {
       "title": "Boosters de Round et Plateau de Recherche",
@@ -205,7 +204,8 @@
     "back": "Retour",
     "close": "Fermer",
     "reset": "Réinitialiser",
-    "pass": "Passer"
+    "pass": "Passer",
+    "randomize": "Aléatoire"
   },
   "footer": {
     "credits": "Crédits"

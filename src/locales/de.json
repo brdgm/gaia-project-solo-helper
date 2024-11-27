@@ -37,7 +37,6 @@
     "available": "Verfügbar:",
     "selected": "Ausgewählt:",
     "none": "(keine)",
-    "randomize": "Zufällig wählen",
     "map": "Kartengenerator",
     "tileRandomizer": {
       "title": "Rundenbooster und Forschungstableau",
@@ -205,7 +204,8 @@
     "back": "Zurück",
     "close": "Schließen",
     "reset": "Zurücksetzen",
-    "pass": "Passen"
+    "pass": "Passen",
+    "randomize": "Zufällig"
   },
   "footer": {
     "credits": "Credits"

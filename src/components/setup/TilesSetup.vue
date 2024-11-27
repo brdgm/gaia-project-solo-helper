@@ -8,13 +8,13 @@
       <span v-html="t('setupTiles.scoringRoundTiles')"></span>:<br/>
       <AppIcon v-for="tile of scoringRoundTiles" :key="tile" type="scoring-round" :name="tile" class="scoringRoundTileIcon"/><br/>
       <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringRoundTilesModal">{{t('setupTiles.select')}}</button>
-      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringRoundTiles">{{t('setupTiles.randomize')}}</button>
+      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringRoundTiles">{{t('action.randomize')}}</button>
     </li>
     <li>
       <span v-html="t('setupTiles.scoringFinalTiles')"></span>:<br/>
       <AppIcon v-for="tile of scoringFinalTiles" :key="tile" type="scoring-final" :name="tile" class="scoringFinalTileIcon"/><br/>
       <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringFinalTilesModal">{{t('setupTiles.select')}}</button>
-      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringFinalTiles">{{t('setupTiles.randomize')}}</button>
+      <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringFinalTiles">{{t('action.randomize')}}</button>
     </li>
     <li>
       <span v-html="t('setupTiles.roundBooster', {count:roundBoosterCount})"></span><br/>
@@ -33,7 +33,7 @@
     <div class="collapse mt-2" id="randomizedSetup" data-bs-parent="#randomizerCollapseParent">
       <div class="alert alert-secondary fst-italic">
         <span v-html="t('setupTiles.tileRandomizer.notice')"></span>
-        <button class="btn btn-sm btn-secondary ms-2" @click="randomizeRoundBoostersResearchBoard">{{t('setupTiles.randomize')}}</button>
+        <button class="btn btn-sm btn-secondary ms-2" @click="randomizeRoundBoostersResearchBoard">{{t('action.randomize')}}</button>
       </div>
 
       <h5 v-html="t('setupTiles.tileRandomizer.roundBoosters')"></h5>
