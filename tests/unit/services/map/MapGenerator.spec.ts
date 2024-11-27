@@ -1,7 +1,7 @@
 import MapGenerator from '@/services/map/MapGenerator'
 import { expect } from 'chai'
 
-describe('MapGenerator', () => {
+describe('services/map/MapGenerator', () => {
   it('2player', () => {
     const map = new MapGenerator(2)
     map.randomize()

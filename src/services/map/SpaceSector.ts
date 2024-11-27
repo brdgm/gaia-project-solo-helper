@@ -7,14 +7,14 @@ export default class SpaceSector {
 
   readonly id: string
   readonly outline: boolean
-  readonly factionPlanets: (BotFaction|undefined)[]
   rotation: number
+  readonly factionPlanets: (BotFaction|undefined)[]
   
   constructor(id: string, outline?: boolean) {
     this.id = id
     this.outline = outline ?? false
-    this.factionPlanets = getFactionPlanets(id, outline)
     this.rotation = 0
+    this.factionPlanets = getFactionPlanets(id, outline)
   }
 
   rotate() : void {
@@ -24,6 +24,14 @@ export default class SpaceSector {
     else {
       this.rotation += 1
     }
+  }
+
+  getRotatedFactionPlanets() : (BotFaction|undefined)[] {
+    const result : (BotFaction|undefined)[] = []
+    for (let i = 0; i < 12; i++) {
+      result.push(this.factionPlanets[(i - this.rotation*2 + 12) % 12])
+    }
+    return result
   }
 
 }
