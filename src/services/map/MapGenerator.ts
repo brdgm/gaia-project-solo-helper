@@ -86,6 +86,10 @@ export default class MapGenerator {
    *      0     1     2
    *   3     4     5     6
    *      7     8     9
+   * 3 player (lost fleet):
+   *      0     1     2
+   *   3     4     5
+   *      6     7     8
    * 1-2 player:
    *      0     1
    *   2     3     4
@@ -96,7 +100,22 @@ export default class MapGenerator {
    *       3  2
    */
   private getAdjacentSectorsIndexes(sectorIndex: number) : (number|undefined)[] {
-    if (this.playerCount > 2) {
+    if (this.playerCount == 3 && this.hasLostFleet) {
+      switch (sectorIndex) {
+        case 0: return [,1,4,3,,]
+        case 1: return [,2,5,4,0,]
+        case 2: return [,,,5,1,]
+        case 3: return [0,4,6,,,]
+        case 4: return [1,5,7,6,3,0]
+        case 5: return [2,,8,7,4,1]
+        case 6: return [4,7,,,,3]
+        case 7: return [5,8,,,6,4]
+        case 8: return [,,,,7,5]
+        default:
+          throw new Error(`Invalid index: ${sectorIndex}`)
+      }
+    }
+    else if (this.playerCount > 2) {
       switch (sectorIndex) {
         case 0: return [,1,4,3,,]
         case 1: return [,2,5,4,0,]
@@ -132,21 +151,41 @@ export default class MapGenerator {
    * @returns Outer array: Array indexes (see above), inner array hex indexes on adjacent sector tile.
    */
   private getAdjacentSectorHexes(hexIndex: number) : (number[]|undefined)[] {
-    switch (hexIndex) {
-      case 0: return [[8],,,,,[4,5]]
-      case 1: return [[7,8]]
-      case 2: return [[6,7],[10]]
-      case 3: return [,[9,10]]
-      case 4: return [,[8,9],[0]]
-      case 5: return [,,[0,11]]
-      case 6: return [,,[10,11],[2]]
-      case 7: return [,,,[1,2]]
-      case 8: return [,,,[0,1],[4]]
-      case 9: return [,,,,[3,4]]
-      case 10: return [,,,,[2,3],[6]]
-      case 11: return [,,,,,[5,6]]
-      default:
-        throw new Error(`Invalid index: ${hexIndex}`)
+    if (this.hasLostFleet) {
+      switch (hexIndex) {
+        case 0: return [[6,7]]
+        case 1: return [[6]]
+        case 2: return [,[8,9]]
+        case 3: return [,[8]]
+        case 4: return [,,[10,11]]
+        case 5: return [,,[10]]
+        case 6: return [,,,[0,1]]
+        case 7: return [,,,[0]]
+        case 8: return [,,,,[2,3]]
+        case 9: return [,,,,[2]]
+        case 10: return [,,,,,[4,5]]
+        case 11: return [,,,,,[4]]
+        default:
+          throw new Error(`Invalid index: ${hexIndex}`)
+      }
+    }
+    else {
+      switch (hexIndex) {
+        case 0: return [[8],,,,,[4,5]]
+        case 1: return [[7,8]]
+        case 2: return [[6,7],[10]]
+        case 3: return [,[9,10]]
+        case 4: return [,[8,9],[0]]
+        case 5: return [,,[0,11]]
+        case 6: return [,,[10,11],[2]]
+        case 7: return [,,,[1,2]]
+        case 8: return [,,,[0,1],[4]]
+        case 9: return [,,,,[3,4]]
+        case 10: return [,,,,[2,3],[6]]
+        case 11: return [,,,,,[5,6]]
+        default:
+          throw new Error(`Invalid index: ${hexIndex}`)
+      }
     }
   }
 
