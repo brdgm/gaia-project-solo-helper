@@ -3,6 +3,7 @@
 
   <PlayersSetup/>
   <DifficultyLevel/>
+  <ExpansionsSetup/>
 
   <router-link to="/setupGameTiles" class="btn btn-primary btn-lg mt-4">
     {{t('action.next')}}
@@ -17,12 +18,14 @@ import { useI18n } from 'vue-i18n'
 import PlayersSetup from '@/components/setup/PlayersSetup.vue'
 import DifficultyLevel from '@/components/setup/DifficultyLevel.vue'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
+import ExpansionsSetup from '@/components/setup/ExpansionsSetup.vue'
 
 export default defineComponent({
   name: 'SetupGame',
   components: {
     PlayersSetup,
     DifficultyLevel,
+    ExpansionsSetup,
     FooterButtons
   },
   setup() {
