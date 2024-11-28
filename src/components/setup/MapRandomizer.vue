@@ -48,7 +48,7 @@ export default defineComponent({
     
     const { playerCount, botCount } = state.setup.playerSetup
     const totalPlayerCount = playerCount + botCount
-    const mapGenerator = new MapGenerator(totalPlayerCount)
+    const mapGenerator = new MapGenerator(totalPlayerCount, state.setup.expansions)
 
     return { t, state, totalPlayerCount, mapGenerator }
   },

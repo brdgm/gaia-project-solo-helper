@@ -2,6 +2,7 @@ import { shuffle } from 'lodash'
 import SpaceSector from './SpaceSector'
 import { ref } from 'vue'
 import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
+import Expansion from '../enum/Expansion'
 
 /**
  * Map Generator.
@@ -9,10 +10,12 @@ import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 export default class MapGenerator {
 
   readonly playerCount : number
+  private readonly hasLostFleet : boolean
   private readonly _spaceSectors = ref([] as SpaceSector[])
 
-  constructor(playerCount: number) {
+  constructor(playerCount: number, expansions: Expansion[]) {
     this.playerCount = playerCount
+    this.hasLostFleet = expansions.includes(Expansion.LOST_FLEET)
     this.reset()
   }
 
@@ -21,7 +24,18 @@ export default class MapGenerator {
   }
 
   reset() : void {
-    if (this.playerCount > 2) {
+    if (this.hasLostFleet) {
+      if (this.playerCount == 4) {
+        this._spaceSectors.value = INITIAL_SETUP_LOST_FLEET_PLAYER_4
+      }
+      else if (this.playerCount == 3) {
+        this._spaceSectors.value = INITIAL_SETUP_LOST_FLEET_PLAYER_3
+      }
+      else {
+        this._spaceSectors.value = INITIAL_SETUP_LOST_FLEET_PLAYER_12
+      }
+    }
+    else if (this.playerCount > 2) {
       this._spaceSectors.value = INITIAL_SETUP_PLAYER_34
     }
     else {
@@ -139,6 +153,21 @@ export default class MapGenerator {
 }
 
 /**
+ *     01    05*
+ *  02    03    06*
+ *     04    07*
+ */
+const INITIAL_SETUP_PLAYER_12 : SpaceSector[] = [
+  new SpaceSector('01'),
+  new SpaceSector('05', true),
+  new SpaceSector('02'),
+  new SpaceSector('03'),
+  new SpaceSector('06', true),
+  new SpaceSector('04'),
+  new SpaceSector('07', true)
+]
+
+/**
  *      10    01    05
  *   09    02    03    06
  *      08    04    07
@@ -157,16 +186,51 @@ const INITIAL_SETUP_PLAYER_34 : SpaceSector[] = [
 ]
 
 /**
- *     01    05*
- *  02    03    06*
- *     04    07*
+ *     04    03
+ *  05*   01    02
+ *     06*   07*
  */
-const INITIAL_SETUP_PLAYER_12 : SpaceSector[] = [
-  new SpaceSector('01'),
-  new SpaceSector('05', true),
-  new SpaceSector('02'),
-  new SpaceSector('03'),
-  new SpaceSector('06', true),
+const INITIAL_SETUP_LOST_FLEET_PLAYER_12 : SpaceSector[] = [
   new SpaceSector('04'),
-  new SpaceSector('07', true)
+  new SpaceSector('03'),
+  new SpaceSector('05', true),
+  new SpaceSector('01'),
+  new SpaceSector('02'),
+  new SpaceSector('06', true),
+  new SpaceSector('07', true),
+]
+
+/**
+ *      04    03    09
+ *   05*   01    02
+ *      06*   07*   10
+ */
+const INITIAL_SETUP_LOST_FLEET_PLAYER_3 : SpaceSector[] = [
+  new SpaceSector('04'),
+  new SpaceSector('03'),
+  new SpaceSector('09'),
+  new SpaceSector('05', true),
+  new SpaceSector('01'),
+  new SpaceSector('02'),
+  new SpaceSector('06', true),
+  new SpaceSector('07', true),
+  new SpaceSector('10')
+]
+
+/**
+ *      04    03    09
+ *   05    01    02    08
+ *      06    07    10
+ */
+const INITIAL_SETUP_LOST_FLEET_PLAYER_4 : SpaceSector[] = [
+  new SpaceSector('04'),
+  new SpaceSector('03', false, 1),
+  new SpaceSector('09'),
+  new SpaceSector('05', false, 2),
+  new SpaceSector('01'),
+  new SpaceSector('02'),
+  new SpaceSector('08', false, 5),
+  new SpaceSector('06'),
+  new SpaceSector('07', false, 1),
+  new SpaceSector('10')
 ]

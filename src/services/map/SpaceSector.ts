@@ -10,10 +10,10 @@ export default class SpaceSector {
   rotation: number
   readonly factionPlanets: (BotFaction|undefined)[]
   
-  constructor(id: string, outline?: boolean) {
+  constructor(id: string, outline: boolean = false, rotation: number = 0) {
     this.id = id
     this.outline = outline ?? false
-    this.rotation = 0
+    this.rotation = rotation
     this.factionPlanets = getFactionPlanets(id, outline)
   }
 
