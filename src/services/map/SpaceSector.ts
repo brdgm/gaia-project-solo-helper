@@ -7,13 +7,15 @@ export default class SpaceSector {
 
   readonly id: string
   readonly outline: boolean
+  readonly initialRotation: number
   rotation: number
   readonly factionPlanets: (BotFaction|undefined)[]
   
-  constructor(id: string, outline: boolean = false, rotation: number = 0) {
+  constructor(id: string, outline: boolean = false, initialRotation: number = 0) {
     this.id = id
     this.outline = outline ?? false
-    this.rotation = rotation
+    this.initialRotation = initialRotation
+    this.rotation = this.initialRotation
     this.factionPlanets = getFactionPlanets(id, outline)
   }
 
@@ -24,6 +26,10 @@ export default class SpaceSector {
     else {
       this.rotation += 1
     }
+  }
+
+  reset() : void {
+    this.rotation = this.initialRotation
   }
 
   /**

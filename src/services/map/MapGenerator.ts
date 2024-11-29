@@ -41,12 +41,12 @@ export default class MapGenerator {
     else {
       this._spaceSectors.value = INITIAL_SETUP_PLAYER_12
     }
-    this.spaceSectors.forEach(sector => sector.rotation = 0)
+    this._spaceSectors.value.forEach(sector => sector.reset())
   }
 
   randomize() : void {
     this._spaceSectors.value = shuffle(this._spaceSectors.value)
-    this.spaceSectors.forEach(sector => sector.rotation = rollDice(6) - 1)
+    this._spaceSectors.value.forEach(sector => sector.rotation = rollDice(6) - 1)
     if (!this.isValid()) {
       this.randomize()
     }
