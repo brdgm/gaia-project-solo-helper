@@ -5,7 +5,13 @@
     <div class="col">
       <div class="mapWrapper" :class="{'alert':!isValid, 'alert-danger':!isValid}">
         <p v-if="!isValid" v-html="t('mapRandomizer.invalidMap')"></p>
-        <div class="map" :class="{large:!twoPlayerMap,small:twoPlayerMap}">
+        <div class="map" :class="{
+            baseGame:!hatLostFleet,
+            lostFleet:hatLostFleet,
+            twoPlayer:totalPlayerCount == 2,
+            threePlayer:totalPlayerCount == 3 && hatLostFleet,
+            fourPlayer:totalPlayerCount == 4 || (totalPlayerCount == 3 && !hatLostFleet)
+          }">
           <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector" @click="spaceSector.rotate()"
               :style="`transform: rotate(${spaceSector.rotation*60}deg);`">
             <AppIcon type="map-space-sector" :name="`${spaceSector.id + (spaceSector.outline ? '-outline' : '')}`" extension="webp"/>
@@ -34,8 +40,9 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '../structure/AppIcon.vue'
 import { useStateStore } from '@/store/state'
-import MapGenerator from '@/services/map/MapGenerator';
-import SpaceSector from '@/services/map/SpaceSector';
+import MapGenerator from '@/services/map/MapGenerator'
+import SpaceSector from '@/services/map/SpaceSector'
+import Expansion from '@/services/enum/Expansion'
 
 export default defineComponent({
   name: 'MapRandomizer',
@@ -59,8 +66,8 @@ export default defineComponent({
     isValid() : boolean {
       return this.mapGenerator.isValid()
     },
-    twoPlayerMap() : boolean {
-      return this.totalPlayerCount < 3
+    hatLostFleet() : boolean {
+      return this.state.setup.expansions.includes(Expansion.LOST_FLEET)
     }
   },
   methods: {
@@ -106,7 +113,7 @@ export default defineComponent({
       }
     }
   }
-  &.large {
+  &.baseGame.fourPlayer {
     position: relative;
     height: 440px;
     width: 570px;
@@ -151,7 +158,7 @@ export default defineComponent({
       left: calc(56px + 140px + 140px);
     }
   }
-  &.small {
+  &.baseGame.twoPlayer {
     position: relative;
     height: 440px;
     width: 430px;
@@ -182,6 +189,129 @@ export default defineComponent({
     .spaceSector:nth-child(7) {
       top: calc(244px + 16px);
       left: calc(56px + 140px);
+    }
+  }
+  &.lostFleet.fourPlayer {
+    position: relative;
+    height: 504px;
+    width: 570px;
+    transform: translate(14px,-22px) rotate(30deg);
+    margin-bottom: -42px;
+    .spaceSector:nth-child(1) {
+      top: 96px;
+      left: 28px;
+    }
+    .spaceSector:nth-child(2) {
+      top: 48px;
+      left: calc(28px + 140px);
+    }
+    .spaceSector:nth-child(3) {
+      left: calc(28px + 140px + 140px);
+    }
+    .spaceSector:nth-child(4) {
+      top: calc(146px + 96px);
+      left: 0px;
+    }
+    .spaceSector:nth-child(5) {
+      top: calc(146px + 48px);
+      left: calc(0px + 140px);
+    }
+    .spaceSector:nth-child(6) {
+      top: calc(146px + 0px);
+      left: calc(0px + 140px + 140px);
+    }
+    .spaceSector:nth-child(7) {
+      top: calc(146px - 48px);
+      left: calc(0px + 140px + 140px + 140px);
+    }
+    .spaceSector:nth-child(8) {
+      top: calc(244px + 96px);
+      left: 112px;
+    }
+    .spaceSector:nth-child(9) {
+      top: calc(244px + 48px);
+      left: calc(112px + 140px);
+    }
+    .spaceSector:nth-child(10) {
+      top: calc(244px + 0px);
+      left: calc(112px + 140px + 140px);
+    }
+  }
+  &.lostFleet.threePlayer {
+    position: relative;
+    height: 504px;
+    width: 570px;
+    transform: translate(14px,-22px) rotate(30deg);
+    margin-bottom: -42px;
+    .spaceSector:nth-child(1) {
+      top: 96px;
+      left: 28px;
+    }
+    .spaceSector:nth-child(2) {
+      top: 48px;
+      left: calc(28px + 140px);
+    }
+    .spaceSector:nth-child(3) {
+      left: calc(28px + 140px + 140px);
+    }
+    .spaceSector:nth-child(4) {
+      top: calc(146px + 96px);
+      left: 0px;
+    }
+    .spaceSector:nth-child(5) {
+      top: calc(146px + 48px);
+      left: calc(0px + 140px);
+    }
+    .spaceSector:nth-child(6) {
+      top: calc(146px + 0px);
+      left: calc(0px + 140px + 140px);
+    }
+    .spaceSector:nth-child(7) {
+      top: calc(244px + 96px);
+      left: 112px;
+    }
+    .spaceSector:nth-child(8) {
+      top: calc(244px + 48px);
+      left: calc(112px + 140px);
+    }
+    .spaceSector:nth-child(9) {
+      top: calc(244px + 0px);
+      left: calc(112px + 140px + 140px);
+    }
+  }
+  &.lostFleet.twoPlayer {
+    position: relative;
+    height: 504px;
+    width: 570px;
+    transform: translate(14px,-22px) rotate(30deg);
+    margin-bottom: -42px;
+    .spaceSector:nth-child(1) {
+      top: 96px;
+      left: 28px;
+    }
+    .spaceSector:nth-child(2) {
+      top: 48px;
+      left: calc(28px + 140px);
+    }
+    .spaceSector:nth-child(3) {
+      top: calc(146px + 96px);
+      left: 0px;
+    }
+    .spaceSector:nth-child(4) {
+      top: calc(146px + 48px);
+      left: calc(0px + 140px);
+    }
+    .spaceSector:nth-child(5) {
+      top: calc(146px + 0px);
+      left: calc(0px + 140px + 140px);
+    }
+    .spaceSector:nth-child(6) {
+      top: calc(244px + 96px);
+      left: 112px;
+    }
+    .spaceSector:nth-child(7) {
+      top: calc(244px + 48px);
+      left: calc(112px + 140px);
     }
   }
 }
