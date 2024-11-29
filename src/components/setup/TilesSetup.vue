@@ -37,19 +37,27 @@
       </div>
 
       <h5 v-html="t('setupTiles.tileRandomizer.roundBoosters')"></h5>
-      <AppIcon v-for="id of roundBoosterTiles" :key="id" type="round-booster" :name="id.toString()" class="roundBoosterTile"/>
+      <template v-for="id of roundBoosterTiles" :key="id">
+        <AppIcon v-if="id > 10" type="round-booster" :name="`${id}-lost-fleet`" extension="webp" class="roundBoosterTile"/>
+        <AppIcon v-else type="round-booster" :name="`${id}`" class="roundBoosterTile"/>
+      </template>
 
       <h5 v-html="t('setupTiles.tileRandomizer.researchBoard')"></h5>
       <div class="researchBoardWrapper">
         <div class="researchBoard">
           <img src="@/assets/research-board.jpg" alt="" class="background"/>
-          <AppIcon type="federation-token" :name="researchFederationToken.toString()" class="federationToken"/>
+          <AppIcon type="federation-token" :name="`${researchFederationToken}`" class="federationToken"/>
           <div class="techAdvanced">
-            <AppIcon v-for="id of techAdvancedTiles" :key="id" type="tech-advanced-tile" :name="id.toString()" class="tile"/>
+            <template v-for="id of techAdvancedTiles" :key="id">
+              <AppIcon v-if="id > 15" type="tech-advanced-tile" :name="`${id}-lost-fleet`" extension="webp" class="tile"/>
+              <AppIcon v-else type="tech-advanced-tile" :name="`${id}`" class="tile"/>
+            </template> 
           </div>
           <div class="techStandard">
-            <AppIcon v-for="(id,index) of techStandardTiles" :key="id" type="tech-standard-tile" :name="id.toString()" class="tile"
-                :class="{'column': index < 6, 'common': index >= 6}"/>
+            <template v-for="(id,index) of techStandardTiles" :key="id">
+              <AppIcon v-if="id==2 && hasLostFleet" type="tech-standard-tile" :name="`${id}-lost-fleet`" extension="webp" class="tile" :class="{'column': index < 6, 'common': index >= 6}"/>
+              <AppIcon v-else type="tech-standard-tile" :name="`${id}`" class="tile" :class="{'column': index < 6, 'common': index >= 6}"/>
+            </template>
           </div>
         </div>
       </div>
@@ -114,14 +122,17 @@ import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDial
 import MapRandomizer from './MapRandomizer.vue'
 import getScoringRoundTiles from '@/util/getScoringRoundTiles'
 import getScoringFinalTiles from '@/util/getScoringFinalTiles'
+import Expansion from '@/services/enum/Expansion'
 
 const SCORING_ROUND_TILES_COUNT = 6
 const SCORING_FINAL_TILES_COUNT = 2
 const FEDERATION_TOKEN_TOTAL = 6
 const ROUND_BOOSTER_TOTAL = 10
+const ROUND_BOOSTER_TOTAL_LOST_FLEET = 14
 const TECH_STANDARD_TILE_TOTAL = 9
 const TECH_STANDARD_TILE_COUNT = 9
 const TECH_ADVANCED_TILE_TOTAL = 15
+const TECH_ADVANCED_TILE_TOTAL_LOST_FLEET = 21
 const TECH_ADVANCED_TILE_COUNT = 6
 
 export default defineComponent({
@@ -138,11 +149,15 @@ export default defineComponent({
     const { t } = useI18n()
     const state = useStateStore()
 
+    const hasLostFleet = state.setup.expansions.includes(Expansion.LOST_FLEET)
+
     const totalPlayerCount = state.setup.playerSetup.botCount + state.setup.playerSetup.playerCount
     const roundBoosterCount = totalPlayerCount + 3
 
     const scoringRoundTilesAll = getScoringRoundTiles(state.setup.expansions)
     const scoringFinalTilesAll = getScoringFinalTiles(state.setup.expansions)
+    const roundBoosterTotal = hasLostFleet ? ROUND_BOOSTER_TOTAL_LOST_FLEET : ROUND_BOOSTER_TOTAL
+    const techAdvancedTileTotal = hasLostFleet ? TECH_ADVANCED_TILE_TOTAL_LOST_FLEET : TECH_ADVANCED_TILE_TOTAL
 
     const scoringRoundTiles = ref(randomListMultiDifferentValue(scoringRoundTilesAll, SCORING_ROUND_TILES_COUNT))
     const scoringFinalTiles = ref(randomListMultiDifferentValue(scoringFinalTilesAll, SCORING_FINAL_TILES_COUNT))
@@ -150,12 +165,12 @@ export default defineComponent({
     const scoringFinalTilesSelection = ref([] as ScoringFinalTile[])
 
     const researchFederationToken = ref(rollDice(FEDERATION_TOKEN_TOTAL))
-    const roundBoosterTiles = ref(rollDiceMultiDifferentValue(ROUND_BOOSTER_TOTAL, roundBoosterCount))
+    const roundBoosterTiles = ref(rollDiceMultiDifferentValue(roundBoosterTotal, roundBoosterCount))
     const techStandardTiles = ref(rollDiceMultiDifferentValue(TECH_STANDARD_TILE_TOTAL, TECH_STANDARD_TILE_COUNT))
-    const techAdvancedTiles = ref(rollDiceMultiDifferentValue(TECH_ADVANCED_TILE_TOTAL, TECH_ADVANCED_TILE_COUNT))
+    const techAdvancedTiles = ref(rollDiceMultiDifferentValue(techAdvancedTileTotal, TECH_ADVANCED_TILE_COUNT))
 
-    return { t, state, totalPlayerCount, roundBoosterCount,
-        scoringRoundTilesAll, scoringFinalTilesAll,
+    return { t, state, totalPlayerCount, roundBoosterCount, hasLostFleet,
+        scoringRoundTilesAll, scoringFinalTilesAll, roundBoosterTotal, techAdvancedTileTotal,
         scoringRoundTiles, scoringFinalTiles, scoringRoundTilesSelection, scoringFinalTilesSelection,
         researchFederationToken,  roundBoosterTiles, techStandardTiles, techAdvancedTiles }
   },
@@ -215,9 +230,9 @@ export default defineComponent({
     },
     randomizeRoundBoostersResearchBoard() : void {
       this.researchFederationToken = rollDice(FEDERATION_TOKEN_TOTAL)
-      this.roundBoosterTiles = rollDiceMultiDifferentValue(ROUND_BOOSTER_TOTAL, this.roundBoosterCount)
+      this.roundBoosterTiles = rollDiceMultiDifferentValue(this.roundBoosterTotal, this.roundBoosterCount)
       this.techStandardTiles = rollDiceMultiDifferentValue(TECH_STANDARD_TILE_TOTAL, TECH_STANDARD_TILE_COUNT)
-      this.techAdvancedTiles = rollDiceMultiDifferentValue(TECH_ADVANCED_TILE_TOTAL, TECH_ADVANCED_TILE_COUNT)
+      this.techAdvancedTiles = rollDiceMultiDifferentValue(this.techAdvancedTileTotal, TECH_ADVANCED_TILE_COUNT)
     }
   },
   mounted() {
