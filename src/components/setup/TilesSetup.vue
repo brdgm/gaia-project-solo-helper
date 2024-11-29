@@ -37,9 +37,7 @@
       </div>
 
       <h5 v-html="t('setupTiles.tileRandomizer.roundBoosters')"></h5>
-      <template v-for="id of roundBoosterTiles" :key="id">
-        <AppIcon type="round-booster" :name="`${id}`" extension="webp" class="roundBoosterTile"/>
-      </template>
+      <AppIcon v-for="id of roundBoosterTiles" :key="id" type="round-booster" :name="`${id}`" extension="webp" class="roundBoosterTile"/>
 
       <h5 v-html="t('setupTiles.tileRandomizer.researchBoard')"></h5>
       <div class="researchBoardWrapper">
