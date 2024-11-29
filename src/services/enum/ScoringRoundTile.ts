@@ -11,6 +11,9 @@ enum ScoringRoundTile {
   RESEARCH_AREA = 'research-area',
   TERRAFORMING = 'terraforming',
   TRADING_STATION_1 = 'trading-station-1',
-  TRADING_STATION_2 = 'trading-station-2'
+  TRADING_STATION_2 = 'trading-station-2',
+  LOST_FLEET_PLANET_TYPE = 'lost-fleet-planet-type',
+  LOST_FLEET_RESEARCH_LAB = 'lost-fleet-research-lab',
+  LOST_FLEET_SECTOR_DEEP = 'lost-fleet-sector-deep'
 }
 export default ScoringRoundTile

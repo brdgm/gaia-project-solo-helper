@@ -6,13 +6,13 @@
     <li v-html="t('setupTiles.federationTokens')"></li>
     <li>
       <span v-html="t('setupTiles.scoringRoundTiles')"></span>:<br/>
-      <AppIcon v-for="tile of scoringRoundTiles" :key="tile" type="scoring-round" :name="tile" class="scoringRoundTileIcon"/><br/>
+      <AppIcon v-for="tile of scoringRoundTiles" :key="tile" type="scoring-round" extension="webp" :name="tile" class="scoringRoundTileIcon"/><br/>
       <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringRoundTilesModal">{{t('setupTiles.select')}}</button>
       <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringRoundTiles">{{t('action.randomize')}}</button>
     </li>
     <li>
       <span v-html="t('setupTiles.scoringFinalTiles')"></span>:<br/>
-      <AppIcon v-for="tile of scoringFinalTiles" :key="tile" type="scoring-final" :name="tile" class="scoringFinalTileIcon"/><br/>
+      <AppIcon v-for="tile of scoringFinalTiles" :key="tile" type="scoring-final" extension="webp" :name="tile" class="scoringFinalTileIcon"/><br/>
       <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringFinalTilesModal">{{t('setupTiles.select')}}</button>
       <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringFinalTiles">{{t('action.randomize')}}</button>
     </li>
@@ -62,11 +62,11 @@
   <ModalDialog id="scoringRoundTilesModal" :title="t('setupTiles.scoringRoundTiles')" :size-lg="true">
     <template #body>
       {{t('setupTiles.available')}}<br/>
-      <AppIcon v-for="tile of scoringRoundTilesAllWithoutSelection" :key="tile" type="scoring-round" :name="tile"
+      <AppIcon v-for="tile of scoringRoundTilesAllWithoutSelection" :key="tile" type="scoring-round" extension="webp" :name="tile"
           class="scoringRoundTileIcon select" @click="selectScoringRoundTile(tile)"/>
       <hr/>
       {{t('setupTiles.selected')}}<br/>
-      <AppIcon v-for="tile of scoringRoundTilesSelection" :key="tile" type="scoring-round" :name="tile"
+      <AppIcon v-for="tile of scoringRoundTilesSelection" :key="tile" type="scoring-round" extension="webp" :name="tile"
           class="scoringRoundTileIcon select" @click="deselectScoringRoundTile(tile)"/>
       <p v-if="scoringRoundTilesSelection.length == 0" class="fst-italic">
         {{t('setupTiles.none')}}
@@ -82,11 +82,11 @@
   <ModalDialog id="scoringFinalTilesModal" :title="t('setupTiles.scoringFinalTiles')" :size-lg="true">
     <template #body>
       {{t('setupTiles.available')}}<br/>
-      <AppIcon v-for="tile of scoringFinalTilesAllWithoutSelection" :key="tile" type="scoring-final" :name="tile"
+      <AppIcon v-for="tile of scoringFinalTilesAllWithoutSelection" :key="tile" type="scoring-final" extension="webp" :name="tile"
           class="scoringFinalTileIcon select" @click="selectScoringFinalTile(tile)"/>
       <hr/>
       {{t('setupTiles.selected')}}<br/>
-      <AppIcon v-for="tile of scoringFinalTilesSelection" :key="tile" type="scoring-final" :name="tile"
+      <AppIcon v-for="tile of scoringFinalTilesSelection" :key="tile" type="scoring-final" extension="webp" :name="tile"
           class="scoringFinalTileIcon select" @click="deselectScoringFinalTile(tile)"/>
       <p v-if="scoringFinalTilesSelection.length == 0" class="fst-italic">
         {{t('setupTiles.none')}}
@@ -105,7 +105,6 @@
 import { defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
-import randomEnumMultiDifferentValue from '@brdgm/brdgm-commons/src/util/random/randomEnumMultiDifferentValue'
 import rollDiceMultiDifferentValue from '@brdgm/brdgm-commons/src/util/random/rollDiceMultiDifferentValue'
 import AppIcon from '../structure/AppIcon.vue'
 import { useStateStore } from '@/store/state'
@@ -113,6 +112,8 @@ import ScoringRoundTile from '@/services/enum/ScoringRoundTile'
 import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
 import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
 import MapRandomizer from './MapRandomizer.vue'
+import getScoringRoundTiles from '@/util/getScoringRoundTiles'
+import getScoringFinalTiles from '@/util/getScoringFinalTiles'
 
 const SCORING_ROUND_TILES_COUNT = 6
 const SCORING_FINAL_TILES_COUNT = 2
@@ -140,8 +141,11 @@ export default defineComponent({
     const totalPlayerCount = state.setup.playerSetup.botCount + state.setup.playerSetup.playerCount
     const roundBoosterCount = totalPlayerCount + 3
 
-    const scoringRoundTiles = ref(randomEnumMultiDifferentValue(ScoringRoundTile, SCORING_ROUND_TILES_COUNT))
-    const scoringFinalTiles = ref(randomEnumMultiDifferentValue(ScoringFinalTile, SCORING_FINAL_TILES_COUNT))
+    const scoringRoundTilesAll = getScoringRoundTiles(state.setup.expansions)
+    const scoringFinalTilesAll = getScoringFinalTiles(state.setup.expansions)
+
+    const scoringRoundTiles = ref(randomListMultiDifferentValue(scoringRoundTilesAll, SCORING_ROUND_TILES_COUNT))
+    const scoringFinalTiles = ref(randomListMultiDifferentValue(scoringFinalTilesAll, SCORING_FINAL_TILES_COUNT))
     const scoringRoundTilesSelection = ref([] as ScoringRoundTile[])
     const scoringFinalTilesSelection = ref([] as ScoringFinalTile[])
 
@@ -151,6 +155,7 @@ export default defineComponent({
     const techAdvancedTiles = ref(rollDiceMultiDifferentValue(TECH_ADVANCED_TILE_TOTAL, TECH_ADVANCED_TILE_COUNT))
 
     return { t, state, totalPlayerCount, roundBoosterCount,
+        scoringRoundTilesAll, scoringFinalTilesAll,
         scoringRoundTiles, scoringFinalTiles, scoringRoundTilesSelection, scoringFinalTilesSelection,
         researchFederationToken,  roundBoosterTiles, techStandardTiles, techAdvancedTiles }
   },
@@ -164,10 +169,10 @@ export default defineComponent({
       }
     },
     scoringRoundTilesAllWithoutSelection() : ScoringRoundTile[] {
-      return Object.values(ScoringRoundTile).filter(tile => !this.scoringRoundTilesSelection.includes(tile))
+      return this.scoringRoundTilesAll.filter(tile => !this.scoringRoundTilesSelection.includes(tile))
     },
     scoringFinalTilesAllWithoutSelection() : ScoringFinalTile[] {
-      return Object.values(ScoringFinalTile).filter(tile => !this.scoringFinalTilesSelection.includes(tile))
+      return this.scoringFinalTilesAll.filter(tile => !this.scoringFinalTilesSelection.includes(tile))
     }
   },
   methods: {
@@ -175,7 +180,7 @@ export default defineComponent({
       this.$emit('scoringTiles', this.scoringRoundTiles, this.scoringFinalTiles)
     },
     randomizeScoringRoundTiles() : void {
-      this.scoringRoundTiles = randomEnumMultiDifferentValue(ScoringRoundTile, SCORING_ROUND_TILES_COUNT)
+      this.scoringRoundTiles = randomListMultiDifferentValue(this.scoringRoundTilesAll, SCORING_ROUND_TILES_COUNT)
       this.scoringRoundTilesSelection = []
       this.emitScoringTiles()
     },
@@ -192,7 +197,7 @@ export default defineComponent({
       this.emitScoringTiles()
     },
     randomizeScoringFinalTiles() : void {
-      this.scoringFinalTiles = randomEnumMultiDifferentValue(ScoringFinalTile, SCORING_FINAL_TILES_COUNT)
+      this.scoringFinalTiles = randomListMultiDifferentValue(this.scoringFinalTilesAll, SCORING_FINAL_TILES_COUNT)
       this.scoringFinalTilesSelection = []
       this.emitScoringTiles()
     },
@@ -219,6 +224,10 @@ export default defineComponent({
     this.emitScoringTiles()
   }
 })
+
+function randomListMultiDifferentValue<T>(values: T[], count: number): T[] {
+  return rollDiceMultiDifferentValue(values.length, count).map(index => values[index-1])
+}
 </script>
 
 <style lang="scss" scoped>
