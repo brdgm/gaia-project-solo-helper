@@ -7,6 +7,8 @@ describe('services/map/MapGenerator', () => {
     const map = new MapGenerator(2, [])
     map.randomize()
     expect(map.spaceSectors.length).to.eq(7)
+    expect(map.deepSpaceSectors.length).to.eq(0)
+    expect(map.interspaces.length).to.eq(0)
     expect(map.isValid()).to.eq(true)
   })
 
@@ -14,6 +16,8 @@ describe('services/map/MapGenerator', () => {
     const map = new MapGenerator(3, [])
     map.randomize()
     expect(map.spaceSectors.length).to.eq(10)
+    expect(map.deepSpaceSectors.length).to.eq(0)
+    expect(map.interspaces.length).to.eq(0)
     expect(map.isValid()).to.eq(true)
   })
 
@@ -21,6 +25,8 @@ describe('services/map/MapGenerator', () => {
     const map = new MapGenerator(4, [])
     map.randomize()
     expect(map.spaceSectors.length).to.eq(10)
+    expect(map.deepSpaceSectors.length).to.eq(0)
+    expect(map.interspaces.length).to.eq(0)
     expect(map.isValid()).to.eq(true)
   })
 
@@ -28,6 +34,8 @@ describe('services/map/MapGenerator', () => {
     const map = new MapGenerator(2, [Expansion.LOST_FLEET])
     map.randomize()
     expect(map.spaceSectors.length).to.eq(7)
+    expect(map.deepSpaceSectors.length).to.eq(6)
+    expect(map.interspaces.length).to.eq(6)
     expect(map.isValid()).to.eq(true)
   })
 
@@ -35,6 +43,8 @@ describe('services/map/MapGenerator', () => {
     const map = new MapGenerator(3, [Expansion.LOST_FLEET])
     map.randomize()
     expect(map.spaceSectors.length).to.eq(9)
+    expect(map.deepSpaceSectors.length).to.eq(8)
+    expect(map.interspaces.length).to.eq(8)
     expect(map.isValid()).to.eq(true)
   })
 
@@ -42,6 +52,8 @@ describe('services/map/MapGenerator', () => {
     const map = new MapGenerator(4, [Expansion.LOST_FLEET])
     map.randomize()
     expect(map.spaceSectors.length).to.eq(10)
+    expect(map.deepSpaceSectors.length).to.eq(8)
+    expect(map.interspaces.length).to.eq(10)
     expect(map.isValid()).to.eq(true)
   })
 })

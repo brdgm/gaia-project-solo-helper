@@ -1,8 +1,9 @@
 import { shuffle } from 'lodash'
 import SpaceSector from './SpaceSector'
 import { ref } from 'vue'
-import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 import Expansion from '../enum/Expansion'
+import DeepSpaceSector from './DeepSpaceSector'
+import Interspace from './Interspace'
 
 /**
  * Map Generator.
@@ -12,6 +13,8 @@ export default class MapGenerator {
   readonly playerCount : number
   private readonly hasLostFleet : boolean
   private readonly _spaceSectors = ref([] as SpaceSector[])
+  private readonly _deepSpaceSectors = ref([] as DeepSpaceSector[])
+  private readonly _interspaces = ref([] as Interspace[])
 
   constructor(playerCount: number, expansions: Expansion[]) {
     this.playerCount = playerCount
@@ -23,6 +26,14 @@ export default class MapGenerator {
     return this._spaceSectors.value
   }
 
+  get deepSpaceSectors() : readonly DeepSpaceSector[] {
+    return this._deepSpaceSectors.value
+  }
+
+  get interspaces() : readonly Interspace[] {
+    return this._interspaces.value
+  }
+
   reset() : void {
     if (this.hasLostFleet) {
       if (this.playerCount == 4) {
@@ -32,21 +43,31 @@ export default class MapGenerator {
         this._spaceSectors.value = INITIAL_SETUP_LOST_FLEET_PLAYER_3
       }
       else {
-        this._spaceSectors.value = INITIAL_SETUP_LOST_FLEET_PLAYER_12
+        this._spaceSectors.value = INITIAL_SETUP_LOST_FLEET_PLAYER_2
       }
-    }
-    else if (this.playerCount > 2) {
-      this._spaceSectors.value = INITIAL_SETUP_PLAYER_34
-    }
+      this._deepSpaceSectors.value = this.getRandomDeepSpaceSectors()
+      this._interspaces.value = this.getRandomInterspaces()
+      }
     else {
-      this._spaceSectors.value = INITIAL_SETUP_PLAYER_12
+      if (this.playerCount > 2) {
+        this._spaceSectors.value = INITIAL_SETUP_PLAYER_34
+      }
+      else {
+        this._spaceSectors.value = INITIAL_SETUP_PLAYER_2
+      }
+      this._deepSpaceSectors.value = []
+      this._interspaces.value = []
     }
     this._spaceSectors.value.forEach(sector => sector.reset())
   }
 
   randomize() : void {
     this._spaceSectors.value = shuffle(this._spaceSectors.value)
-    this._spaceSectors.value.forEach(sector => sector.rotation = rollDice(6) - 1)
+    this._spaceSectors.value.forEach(sector => sector.randomizeRotation())
+    if (this.hasLostFleet) {
+      this._deepSpaceSectors.value = this.getRandomDeepSpaceSectors()
+      this._interspaces.value = this.getRandomInterspaces()
+    }
     if (!this.isValid()) {
       this.randomize()
     }
@@ -189,6 +210,42 @@ export default class MapGenerator {
     }
   }
 
+  private getRandomDeepSpaceSectors() : DeepSpaceSector[] {
+    const sectors = shuffle(this.playerCount == 2 ? LOST_FLEET_DEEP_SPACE_SECTORS_PLAYER_2 : LOST_FLEET_DEEP_SPACE_SECTORS_PLAYER_34)
+    sectors.forEach(sector => sector.randomizeRotationFlip())
+    return sectors
+  }
+
+  private getRandomInterspaces() : Interspace[] {
+    let interspaces;
+    let adjacents;
+    if (this.playerCount == 2) {
+      interspaces = shuffle(LOST_FLEET_INTERSPACE_PLAYER_2)
+      adjacents = LOST_FLEET_ADJACENT_INTERSPACES_PLAYER_2
+    }
+    else if (this.playerCount == 3) {
+      interspaces = shuffle(LOST_FLEET_INTERSPACE_PLAYER_3)
+      adjacents = LOST_FLEET_ADJACENT_INTERSPACES_PLAYER_3
+    }
+    else {
+      interspaces = shuffle(LOST_FLEET_INTERSPACE_PLAYER_4)
+      adjacents = LOST_FLEET_ADJACENT_INTERSPACES_PLAYER_4
+    }
+    for (let i=0; i<interspaces.length && i<adjacents.length; i++) {
+      const interspace = interspaces[i]
+      const adjacentInterspaces = adjacents[i]
+      if (isFleetInterspace(interspace)) {
+        for (const adjacentInterspace of adjacentInterspaces) {
+          if (isFleetInterspace(interspaces[adjacentInterspace])) {
+            // adjacent interspaces must not be occupied by fleet tiles, try again
+            return this.getRandomInterspaces()
+          }
+        }
+      }
+    }
+    return interspaces
+  }
+
 }
 
 /**
@@ -196,7 +253,7 @@ export default class MapGenerator {
  *  02    03    06*
  *     04    07*
  */
-const INITIAL_SETUP_PLAYER_12 : SpaceSector[] = [
+const INITIAL_SETUP_PLAYER_2 : SpaceSector[] = [
   new SpaceSector('01'),
   new SpaceSector('05', true),
   new SpaceSector('02'),
@@ -229,7 +286,7 @@ const INITIAL_SETUP_PLAYER_34 : SpaceSector[] = [
  *  05*   01    02
  *     06*   07*
  */
-const INITIAL_SETUP_LOST_FLEET_PLAYER_12 : SpaceSector[] = [
+const INITIAL_SETUP_LOST_FLEET_PLAYER_2 : SpaceSector[] = [
   new SpaceSector('04'),
   new SpaceSector('03'),
   new SpaceSector('05', true),
@@ -273,3 +330,120 @@ const INITIAL_SETUP_LOST_FLEET_PLAYER_4 : SpaceSector[] = [
   new SpaceSector('07', false, 1),
   new SpaceSector('10')
 ]
+
+const LOST_FLEET_DEEP_SPACE_SECTORS_PLAYER_2 : DeepSpaceSector[] = [
+  new DeepSpaceSector('11'),
+  new DeepSpaceSector('12'),
+  new DeepSpaceSector('13'),
+  new DeepSpaceSector('14'),
+  new DeepSpaceSector('15'),
+  new DeepSpaceSector('16')
+]
+
+const LOST_FLEET_DEEP_SPACE_SECTORS_PLAYER_34 : DeepSpaceSector[] = [
+  new DeepSpaceSector('11'),
+  new DeepSpaceSector('12'),
+  new DeepSpaceSector('13'),
+  new DeepSpaceSector('14'),
+  new DeepSpaceSector('15'),
+  new DeepSpaceSector('16'),
+  new DeepSpaceSector('17'),
+  new DeepSpaceSector('18')
+]
+
+const LOST_FLEET_INTERSPACE_PLAYER_4 : Interspace[] = [
+  Interspace.EMPTY,
+  Interspace.ASTEROID,
+  Interspace.ASTEROID,
+  Interspace.ASTEROID,
+  Interspace.ASTEROID,
+  Interspace.PROTOPLANET,
+  Interspace.FLEET_ECLIPSE,
+  Interspace.FLEET_REBELLION,
+  Interspace.FLEET_TFMARS,
+  Interspace.FLEET_TWILIGHT
+]
+
+const LOST_FLEET_INTERSPACE_PLAYER_3 : Interspace[] = [
+  Interspace.EMPTY,
+  Interspace.ASTEROID,
+  Interspace.ASTEROID,
+  Interspace.PROTOPLANET,
+  Interspace.FLEET_ECLIPSE,
+  Interspace.FLEET_REBELLION,
+  Interspace.FLEET_TFMARS,
+  Interspace.FLEET_TWILIGHT
+]
+
+const LOST_FLEET_INTERSPACE_PLAYER_2 : Interspace[] = [
+  Interspace.ASTEROID,
+  Interspace.ASTEROID,
+  Interspace.PROTOPLANET,
+  Interspace.FLEET_ECLIPSE,
+  Interspace.FLEET_REBELLION,
+  Interspace.FLEET_TFMARS
+]
+
+/**
+ * Adjacent interspaces for 4 player. Two fleet place tiles must not be placed to each other here.
+ * Outer array: interspace index. Inner Array: adjacent interspace indexes.
+ *                  0     2
+ *               9     1     3
+ *               8     6     4
+ *                  7     5
+ */
+const LOST_FLEET_ADJACENT_INTERSPACES_PLAYER_4 : number[][] = [
+  /*0:*/ [9,1],
+  /*1:*/ [0,2,6],
+  /*2:*/ [1,3],
+  /*3:*/ [2,4],
+  /*4:*/ [3,5],
+  /*5:*/ [4,6],
+  /*6:*/ [1,5,7],
+  /*7:*/ [6,8],
+  /*8:*/ [7,9],
+  /*9:*/ [8,0]
+]
+
+/**
+ * Adjacent interspaces for 3 player. Two fleet place tiles must not be placed to each other here.
+ * Outer array: interspace index. Inner Array: adjacent interspace indexes.
+ *                  0     2
+ *               7     1
+ *               6     4
+ *                  5     3
+ */
+const LOST_FLEET_ADJACENT_INTERSPACES_PLAYER_3 : number[][] = [
+  /*0:*/ [7,1],
+  /*1:*/ [0,2,4],
+  /*2:*/ [1],
+  /*3:*/ [4],
+  /*4:*/ [1,3,5],
+  /*5:*/ [4,6],
+  /*6:*/ [5,7],
+  /*7:*/ [6,0]
+]
+
+/**
+ * Adjacent interspaces for 2 player. Two fleet place tiles must not be placed to each other here.
+ * Outer array: interspace index. Inner Array: adjacent interspace indexes.
+ *                  0
+ *               5     1
+ *               4     2
+ *                  3
+ */
+const LOST_FLEET_ADJACENT_INTERSPACES_PLAYER_2 : number[][] = [
+  /*0:*/ [5,1],
+  /*1:*/ [0,2],
+  /*2:*/ [1,3],
+  /*3:*/ [2,4],
+  /*4:*/ [3,5],
+  /*5:*/ [4,0]
+]
+
+function isFleetInterspace(interspace : Interspace) : boolean {
+  return interspace == Interspace.FLEET_ECLIPSE
+      || interspace == Interspace.FLEET_REBELLION
+      || interspace == Interspace.FLEET_TFMARS
+      || interspace == Interspace.FLEET_TWILIGHT
+}

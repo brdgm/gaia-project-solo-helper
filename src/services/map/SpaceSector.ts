@@ -1,3 +1,4 @@
+import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 import BotFaction from '../enum/BotFaction'
 
 /**
@@ -13,7 +14,7 @@ export default class SpaceSector {
   
   constructor(id: string, outline: boolean = false, initialRotation: number = 0) {
     this.id = id
-    this.outline = outline ?? false
+    this.outline = outline
     this.initialRotation = initialRotation
     this.rotation = this.initialRotation
     this.factionPlanets = getFactionPlanets(id, outline)
@@ -26,6 +27,10 @@ export default class SpaceSector {
     else {
       this.rotation += 1
     }
+  }
+
+  randomizeRotation() {
+    this.rotation = rollDice(6) - 1
   }
 
   reset() : void {
