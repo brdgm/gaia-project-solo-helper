@@ -38,8 +38,7 @@
 
       <h5 v-html="t('setupTiles.tileRandomizer.roundBoosters')"></h5>
       <template v-for="id of roundBoosterTiles" :key="id">
-        <AppIcon v-if="id > 10" type="round-booster" :name="`${id}-lost-fleet`" extension="webp" class="roundBoosterTile"/>
-        <AppIcon v-else type="round-booster" :name="`${id}`" class="roundBoosterTile"/>
+        <AppIcon type="round-booster" :name="`${id}`" extension="webp" class="roundBoosterTile"/>
       </template>
 
       <h5 v-html="t('setupTiles.tileRandomizer.researchBoard')"></h5>
@@ -48,9 +47,8 @@
           <img src="@/assets/research-board.jpg" alt="" class="background"/>
           <AppIcon type="federation-token" :name="`${researchFederationToken}`" class="federationToken"/>
           <div class="techAdvanced">
-            <template v-for="id of techAdvancedTiles" :key="id">
-              <AppIcon v-if="id > 15" type="tech-advanced-tile" :name="`${id}-lost-fleet`" extension="webp" class="tile"/>
-              <AppIcon v-else type="tech-advanced-tile" :name="`${id}`" class="tile"/>
+            <template v-for="(id,index) of techAdvancedTiles" :key="id">
+              <AppIcon v-if="index < 6" type="tech-advanced-tile" :name="`${id}${id==7 && hasLostFleet ?'-lost-fleet':''}`" extension="webp" class="tile"/>
             </template> 
           </div>
           <div class="techStandard">
@@ -61,6 +59,11 @@
           </div>
         </div>
       </div>
+
+      <template v-if="hasLostFleet">
+        <h5 v-html="t('expansion.lost-fleet')" class="mt-3"></h5>
+      </template>
+
     </div>
     <div class="collapse mt-2" id="mapRandomizer" data-bs-parent="#randomizerCollapseParent">
       <MapRandomizer/>
@@ -131,9 +134,16 @@ const ROUND_BOOSTER_TOTAL = 10
 const ROUND_BOOSTER_TOTAL_LOST_FLEET = 14
 const TECH_STANDARD_TILE_TOTAL = 9
 const TECH_STANDARD_TILE_COUNT = 9
+const TECH_STANDARD_LOST_FLEET_TILE_TOTAL = 3
+const TECH_STANDARD_LOST_FLEET_TILE_COUNT = 3
 const TECH_ADVANCED_TILE_TOTAL = 15
 const TECH_ADVANCED_TILE_TOTAL_LOST_FLEET = 21
 const TECH_ADVANCED_TILE_COUNT = 6
+const TECH_ADVANCED_TILE_COUNT_LOST_FLEET = 7
+const FEDERATION_TOKEN_LOST_FLEET_TOTAL = 8
+const FEDERATION_TOKEN_LOST_FLEET_COUNT = 4
+const LOST_FLEET_TWILIGHT_ARTIFACT_TOTAL = 13
+const LOST_FLEET_TWILIGHT_ARTIFACT_COUNT = 4
 
 export default defineComponent({
   name: 'TilesSetup',
@@ -158,6 +168,7 @@ export default defineComponent({
     const scoringFinalTilesAll = getScoringFinalTiles(state.setup.expansions)
     const roundBoosterTotal = hasLostFleet ? ROUND_BOOSTER_TOTAL_LOST_FLEET : ROUND_BOOSTER_TOTAL
     const techAdvancedTileTotal = hasLostFleet ? TECH_ADVANCED_TILE_TOTAL_LOST_FLEET : TECH_ADVANCED_TILE_TOTAL
+    const techAdvancedTileCount = hasLostFleet ? TECH_ADVANCED_TILE_COUNT_LOST_FLEET : TECH_ADVANCED_TILE_COUNT
 
     const scoringRoundTiles = ref(randomListMultiDifferentValue(scoringRoundTilesAll, SCORING_ROUND_TILES_COUNT))
     const scoringFinalTiles = ref(randomListMultiDifferentValue(scoringFinalTilesAll, SCORING_FINAL_TILES_COUNT))
@@ -167,12 +178,16 @@ export default defineComponent({
     const researchFederationToken = ref(rollDice(FEDERATION_TOKEN_TOTAL))
     const roundBoosterTiles = ref(rollDiceMultiDifferentValue(roundBoosterTotal, roundBoosterCount))
     const techStandardTiles = ref(rollDiceMultiDifferentValue(TECH_STANDARD_TILE_TOTAL, TECH_STANDARD_TILE_COUNT))
-    const techAdvancedTiles = ref(rollDiceMultiDifferentValue(techAdvancedTileTotal, TECH_ADVANCED_TILE_COUNT))
+    const techAdvancedTiles = ref(rollDiceMultiDifferentValue(techAdvancedTileTotal, techAdvancedTileCount))
+    const techStandardLostFleetTiles = ref(rollDiceMultiDifferentValue(TECH_STANDARD_LOST_FLEET_TILE_TOTAL, TECH_STANDARD_LOST_FLEET_TILE_COUNT))
+    const federationTokenLostFleetTiles = ref(rollDiceMultiDifferentValue(FEDERATION_TOKEN_LOST_FLEET_TOTAL, FEDERATION_TOKEN_LOST_FLEET_COUNT))
+    const lostFleetTwilightArtifactTiles = ref(rollDiceMultiDifferentValue(LOST_FLEET_TWILIGHT_ARTIFACT_TOTAL, LOST_FLEET_TWILIGHT_ARTIFACT_COUNT))
 
     return { t, state, totalPlayerCount, roundBoosterCount, hasLostFleet,
-        scoringRoundTilesAll, scoringFinalTilesAll, roundBoosterTotal, techAdvancedTileTotal,
+        scoringRoundTilesAll, scoringFinalTilesAll, roundBoosterTotal, techAdvancedTileTotal, techAdvancedTileCount,
         scoringRoundTiles, scoringFinalTiles, scoringRoundTilesSelection, scoringFinalTilesSelection,
-        researchFederationToken,  roundBoosterTiles, techStandardTiles, techAdvancedTiles }
+        researchFederationToken,  roundBoosterTiles, techStandardTiles, techAdvancedTiles, techStandardLostFleetTiles,
+        federationTokenLostFleetTiles, lostFleetTwilightArtifactTiles }
   },
   computed: {
     gameBoardPlayerCount(): string {
@@ -232,7 +247,10 @@ export default defineComponent({
       this.researchFederationToken = rollDice(FEDERATION_TOKEN_TOTAL)
       this.roundBoosterTiles = rollDiceMultiDifferentValue(this.roundBoosterTotal, this.roundBoosterCount)
       this.techStandardTiles = rollDiceMultiDifferentValue(TECH_STANDARD_TILE_TOTAL, TECH_STANDARD_TILE_COUNT)
-      this.techAdvancedTiles = rollDiceMultiDifferentValue(this.techAdvancedTileTotal, TECH_ADVANCED_TILE_COUNT)
+      this.techAdvancedTiles = rollDiceMultiDifferentValue(this.techAdvancedTileTotal, this.techAdvancedTileCount)
+      this.techStandardLostFleetTiles = rollDiceMultiDifferentValue(TECH_STANDARD_LOST_FLEET_TILE_TOTAL, TECH_STANDARD_LOST_FLEET_TILE_COUNT)
+      this.federationTokenLostFleetTiles = rollDiceMultiDifferentValue(FEDERATION_TOKEN_LOST_FLEET_TOTAL, FEDERATION_TOKEN_LOST_FLEET_COUNT)
+      this.lostFleetTwilightArtifactTiles = rollDiceMultiDifferentValue(LOST_FLEET_TWILIGHT_ARTIFACT_TOTAL, LOST_FLEET_TWILIGHT_ARTIFACT_COUNT)
     }
   },
   mounted() {
