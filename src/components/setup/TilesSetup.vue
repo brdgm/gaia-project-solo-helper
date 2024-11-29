@@ -62,6 +62,22 @@
 
       <template v-if="hasLostFleet">
         <h5 v-html="t('expansion.lost-fleet')" class="mt-3"></h5>
+        <div v-for="(ship,index) of lostFleetShips" :key="ship" class="lostFleetShipWrapper">
+          <div class="lostFleetShip" :class="{[ship]:true}">
+            <AppIcon class="board" type="lost-fleet-ship-board" :name="ship" extension="webp"/>
+            <AppIcon class="federationToken" type="federation-token-lost-fleet" :name="`${federationTokenLostFleetTiles[index]}`" extension="webp"/>
+            <AppIcon class="techStandard" v-if="index<3" type="tech-standard-tile-lost-fleet" :name="`${techStandardLostFleetTiles[index]}`" extension="webp"/>
+            <div v-if="index==3">
+              <AppIcon v-for="artifact of lostFleetTwilightArtifactTiles" :key="artifact" class="artifact" type="lost-fleet-twilight-artifact" :name="`${artifact}`" extension="webp"/>
+            </div>
+          </div>
+        </div>
+        <div class="lostFleetScoringExtension">
+          <AppIcon class="board" type="lost-fleet-scoring-extension" :name="totalPlayerCount > 2 ? 'player-34' : 'player-12'" extension="webp"/>
+          <template v-for="(id,index) of techAdvancedTiles" :key="id">
+            <AppIcon v-if="index == 6" type="tech-advanced-tile" :name="`${id}${id==7 && hasLostFleet ?'-lost-fleet':''}`" extension="webp" class="techAdvanced"/>
+          </template> 
+        </div>
       </template>
 
     </div>
@@ -126,6 +142,7 @@ import MapRandomizer from './MapRandomizer.vue'
 import getScoringRoundTiles from '@/util/getScoringRoundTiles'
 import getScoringFinalTiles from '@/util/getScoringFinalTiles'
 import Expansion from '@/services/enum/Expansion'
+import LostFleetShip from '@/services/enum/LostFleetShip'
 
 const SCORING_ROUND_TILES_COUNT = 6
 const SCORING_FINAL_TILES_COUNT = 2
@@ -203,6 +220,15 @@ export default defineComponent({
     },
     scoringFinalTilesAllWithoutSelection() : ScoringFinalTile[] {
       return this.scoringFinalTilesAll.filter(tile => !this.scoringFinalTilesSelection.includes(tile))
+    },
+    lostFleetShips() : LostFleetShip[] {
+      const ships = Object.values(LostFleetShip)
+      if (this.totalPlayerCount == 2) {
+        return ships.filter(ship => ship != LostFleetShip.TWILIGHT)
+      }
+      else {
+        return ships
+      }
     }
   },
   methods: {
@@ -347,6 +373,87 @@ li {
     .tile:nth-child(9) {
       margin-left: 94px;
     }
+  }
+}
+.lostFleetShipWrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 0.5rem;
+}
+.lostFleetShip {
+  position: relative;
+  width: 570px;
+  img {
+    filter: drop-shadow(5px 5px 4px #555);
+  }
+  .board {
+    width: 100%;
+    opacity: 60%;
+  }
+  .federationToken {
+    position: absolute;
+    height: 4rem;
+    left: 371px;
+    top: 96px;
+    z-index: 100;
+  }
+  &.rebellion .federationToken {
+    left: 367px;
+    top: 85px;
+  }
+  &.twilight .federationToken {
+    left: 327px;
+    top: 104px;
+  }
+  .techStandard {
+    position: absolute;
+    width: 100px;
+    left: 420px;
+    top: 47px;
+    z-index: 100;
+  }
+  &.tfmars .techStandard {
+    top: 42px;
+  }
+  &.eclipse .techStandard {
+    left: 406px;
+    top: 24px;
+  }
+  .artifact {
+    position: absolute;
+    width: 70px;
+    z-index: 100;
+    &:nth-child(1) {
+      left: 393px;
+      top: 16px;
+    }
+    &:nth-child(2) {
+      left: 489px;
+      top: 21.5px;
+    }
+    &:nth-child(3) {
+      left: 392px;
+      top: 96px;
+    }
+    &:nth-child(4) {
+      left: 488px;
+      top: 90px;
+    }
+  }
+}
+.lostFleetScoringExtension {
+  position: relative;
+  width: 320px;
+  .board {
+    width: 100%;
+    opacity: 60%;
+  }
+  .techAdvanced {
+    position: absolute;
+    width: 81px;
+    left: 118px;
+    top: 40px;
+    filter: drop-shadow(5px 5px 4px #555);
   }
 }
 </style>
