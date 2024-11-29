@@ -1,6 +1,6 @@
 <template>
   <button class="btn btn-sm btn-secondary me-2" @click="mapGenerator.randomize()">{{t('action.randomize')}}</button>
-  <button class="btn btn-sm btn-secondary me-2" @click="mapGenerator.reset()">{{t('action.reset')}}</button>
+  <button class="btn btn-sm btn-secondary me-2" @click="mapGenerator.reset()" v-if="!hatLostFleet">{{t('action.reset')}}</button>
   <div class="row mt-3">
     <div class="col">
       <div class="mapWrapper" :class="{'alert':!isValid, 'alert-danger':!isValid}">

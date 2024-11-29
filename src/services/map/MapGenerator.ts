@@ -45,9 +45,8 @@ export default class MapGenerator {
       else {
         this._spaceSectors.value = INITIAL_SETUP_LOST_FLEET_PLAYER_2
       }
-      this._deepSpaceSectors.value = this.getRandomDeepSpaceSectors()
-      this._interspaces.value = this.getRandomInterspaces()
-      }
+      this.randomize()
+    }
     else {
       if (this.playerCount > 2) {
         this._spaceSectors.value = INITIAL_SETUP_PLAYER_34
@@ -55,10 +54,10 @@ export default class MapGenerator {
       else {
         this._spaceSectors.value = INITIAL_SETUP_PLAYER_2
       }
+      this._spaceSectors.value.forEach(sector => sector.reset())
       this._deepSpaceSectors.value = []
       this._interspaces.value = []
     }
-    this._spaceSectors.value.forEach(sector => sector.reset())
   }
 
   randomize() : void {
@@ -97,6 +96,18 @@ export default class MapGenerator {
             }
           }
         }
+      }
+    }
+    if (this.hasLostFleet) {
+      const centerSectors = ['01','02','03','04']
+      if (this.playerCount == 2 && !centerSectors.includes(this.spaceSectors[3].id)) {
+        return false
+      }
+      if (this.playerCount == 3 && !centerSectors.includes(this.spaceSectors[4].id)) {
+        return false
+      }
+      if (this.playerCount == 4 && (!centerSectors.includes(this.spaceSectors[4].id) || !centerSectors.includes(this.spaceSectors[5].id))) {
+        return false
       }
     }
     return true
