@@ -116,7 +116,6 @@ export default defineComponent({
     filter: drop-shadow(0 0 0.25rem #fff);
     cursor: pointer;
     user-select: none;
-    z-index: 30;
     img {
       width: 100%;
     }
@@ -146,7 +145,6 @@ export default defineComponent({
     width: 76px;
     cursor: pointer;
     user-select: none;
-    z-index: 20;
     img {
       width: 100%;
     }
@@ -155,7 +153,6 @@ export default defineComponent({
     position: absolute;
     width: 46px;
     user-select: none;
-    z-index: 20;
     img {
       width: 100%;
     }
