@@ -96,7 +96,9 @@
         "scoringFinalTile": {
           "gaia-planets": "Gaia or Transdim Planets.",
           "planet-types": "Planets of a type the Automa has not colonized yet.",
-          "space-sector-tiles": "Planets in a sector without Automa planets."
+          "space-sector-tiles": "Planets in a sector without Automa planets.",
+          "lost-fleet-asteroid": "i) Asteroid planets<br/>i)) Planets closest to an uncolonized asteroid.",
+          "lost-fleet-deep-space": "i) Planets in Deep Space sectors in which the Automa has no colonized planets yet.<br/>ii) Planets closest to an uncolonized planet in a Deep Space sector in which the Automa has no colonized planets yet."
         },
         "fewestTerraformingSteps": "Fewest terraforming steps.",
         "closestToYourPlanet": "Closest to your planets.",

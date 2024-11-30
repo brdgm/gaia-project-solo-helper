@@ -96,7 +96,9 @@
         "scoringFinalTile": {
           "gaia-planets": "Gaia- oder Transdim-Planeten.",
           "planet-types": "Planeten einer Art, die der Automa noch nicht besiedelt hat.",
-          "space-sector-tiles": "Planeten in Sektor ohne Automa-Planeten."
+          "space-sector-tiles": "Planeten in Sektor ohne Automa-Planeten.",
+          "lost-fleet-asteroid": "i) Planeten vom Typ Asteroiden.<br/>(ii) Planeten mit der geringsten Entfernung zu einem unbesiedelten Asteroiden.",
+          "lost-fleet-deep-space": "i) Planeten in Außensektoren, in denen Automa bisher keinen Planeten besiedelt hat.<br/>(ii) Planeten mit der geringsten Entfernung zu einem unbesiedelten Planeten in einem Außensektor, in dem der Automa bisher keinen Planeten besiedelt hat."
         },
         "fewestTerraformingSteps": "Wenigste Transformingschritte.",
         "closestToYourPlanet": "Am nächsten zu deinen Planeten.",
