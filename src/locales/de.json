@@ -116,9 +116,11 @@
         "title": "Wähle Gebäude nach Priorität:",
         "planetaryInstitute": "Regierungssitz (von Handelszentrum)",
         "tradingStation": "Handelszentrum (von Mine)",
+        "tradingStationScoringFinalLostFleetDistance": "<b>Schlusswertung</b>: Der Automa hat bereits den Regierungssitz, aber noch keine Akademie gebaut: Wähle die Mine, die die größte Entfernung zum Regierungssitz aufweist.",
         "academy": "Akademie (von Forschungslabor)",
         "researchLab": "Forschungslabor (von Handelszentrum)",
-        "downgradeResearchLab": "Handelszentrum (Downgrade von Forschungslabor)"
+        "downgradeResearchLab": "Handelszentrum (Downgrade von Forschungslabor)",
+        "researchLabScoringFinalLostFleetDistance": "<b>Schlusswertung</b>: Wähle das Handelszentrum, das die größte Entfernung zum Regierungssitz aufweist."
       },
       "tiebreaker": {
         "title": "Gleichstand:",

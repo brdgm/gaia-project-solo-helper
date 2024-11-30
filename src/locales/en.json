@@ -116,9 +116,11 @@
         "title": "Choose structure by priority:",
         "planetaryInstitute": "Planetary Institute (from trading station)",
         "tradingStation": "Trading Station (from mine)",
+        "tradingStationScoringFinalLostFleetDistance": "<b>Final Scoring</b>: If the Automa has already built its Planetary Institute but neither of its Academies yet, choose the mine furthest away from its Planetary Institute.",
         "academy": "Academy (from research lab)",
         "researchLab": "Research Lab (from trading station)",
-        "downgradeResearchLab": "Trading station (downgrade from research lab)"
+        "downgradeResearchLab": "Trading station (downgrade from research lab)",
+        "researchLabScoringFinalLostFleetDistance": "<b>Final Scoring</b>: Choose the Trading Station that is furthest away from its Planetary Institute."
       },
       "tiebreaker": {
         "title": "Tiebreaker:",
