@@ -7,8 +7,24 @@
   </div>
   <div class="actionCol text-muted small">
     <ol>
-      <li v-html="t('botAction.powerQic.placeToken')"></li>
-      <li v-html="t('botAction.powerQic.numberedSelection')"></li>
+      <template v-if="hasLostFleet">
+        <li v-html="t('botAction.powerQic.lostFleetPlaceToken.title')"></li>
+        <ul>
+          <li v-html="t('botAction.powerQic.lostFleetPlaceToken.power')"></li>
+          <li v-html="t('botAction.powerQic.lostFleetPlaceToken.spaceshipFaceDown')"></li>
+          <li v-html="t('botAction.powerQic.lostFleetPlaceToken.spaceshipFaceUp')"></li>
+        </ul>
+        <li v-html="t('botAction.powerQic.numberedSelection')"></li>
+        <li v-html="t('botAction.powerQic.lostFleetSpaceship.title')"></li>
+        <ul>
+          <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceDown')"></li>
+          <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceUp')"></li>
+        </ul>
+      </template>
+      <template v-else>
+        <li v-html="t('botAction.powerQic.placeToken')"></li>
+        <li v-html="t('botAction.powerQic.numberedSelection')"></li>
+      </template>
       <li v-if="isFactionXenosNormalAction">
         <span class="fst-italic" v-html="t(`botFaction.${botFaction}`)"></span>:
         <span class="fw-bold" v-html="t(`botAction.powerQic.executeTwice`)"></span>
@@ -26,6 +42,7 @@ import SupportInfo from '../supportInfo/SupportInfo.vue'
 import { useStateStore } from '@/store/state'
 import NavigationState from '@/util/NavigationState'
 import BotFaction from '@/services/enum/BotFaction'
+import Expansion from '@/services/enum/Expansion'
 
 export default defineComponent({
   name: 'ActionPowerQic',
@@ -53,6 +70,9 @@ export default defineComponent({
     }
   },
   computed: {
+    hasLostFleet() : boolean {
+      return this.state.setup.expansions.includes(Expansion.LOST_FLEET)
+    },
     botFaction() : BotFaction|undefined {
       return this.navigationState.botFaction
     },

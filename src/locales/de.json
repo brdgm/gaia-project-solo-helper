@@ -138,7 +138,18 @@
     "powerQic": {
       "placeToken": "Lege ein Aktionsmarker auf eine offenes Macht-/Q.I.C.-Aktionsfeld.",
       "numberedSelection": "Auswahl nach Zahlen.",
-      "executeTwice": "Führe diese Aktion zweimal aus."
+      "executeTwice": "Führe diese Aktion zweimal aus.",
+      "lostFleetPlaceToken": {
+        "title": "Lege ein Aktionsmarker auf eine offenes Aktionsfeld:",
+        "power": "Machtaktion auf dem Forschungstableau.",
+        "spaceshipFaceDown": "Automa-Schiffsmarker mit der Schiffseite nach oben.",
+        "spaceshipFaceUp": "Felder auf der Aktionsseite des Automa-Schiffsmarkers."
+      },
+      "lostFleetSpaceship": {
+        "title": "Wenn ein Automa-Schiffsmarker gewählt wurde:",
+        "faceDown": "Wenn die Aktion die Schiffseite eines Automa-Schiffsmarkers trifft, setze 1 Erkundungs-Shuttle in das Schiff und drehe den Automa-Schiffsmarker auf die Aktionsseite. Markiere ggf. bereits von dir genutzte Aktionen auf diesem Schiff mit einem Machtstein.",
+        "faceUp": "Wenn die Aktion ein Feld auf der Aktionsseite eines Automa-Schiffsmarkers ist, lege einen Machtstein auf dieses Feld. Wenn auf diesem Schiffsmarker die Aktion links davon noch frei ist, lege auch auf diese einen Machtstein. Decke die korrespondiere(n) Aktion(en) auf dem Schiff mit einem Aktionsmarker ab."
+      }
     },
     "researchArea": {
       "validResearchArea": "Auswahl: Forschungsbereich, in dem der Automa aufsteigen kann oder in dem noch eine Ausbautechnologie vorhanden ist.",

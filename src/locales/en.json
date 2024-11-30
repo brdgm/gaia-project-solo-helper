@@ -138,7 +138,18 @@
     "powerQic": {
       "placeToken": "Place action token on an uncovered Power/Q.I.C. action space.",
       "numberedSelection": "Numbered selection.",
-      "executeTwice": "Execute this action twice."
+      "executeTwice": "Execute this action twice.",
+      "lostFleetPlaceToken": {
+        "title": "Place action token on an uncovered action space:",
+        "power": "Power actions on the research board.",
+        "spaceshipFaceDown": "Automa Spaceship tile with the spaceship-side up.",
+        "spaceshipFaceUp": "Space on the action side of an Automa Spaceship tile."
+      },
+      "lostFleetSpaceship": {
+        "title": "If placed on a Automa Spaceship tile:",
+        "faceDown": "If the action is the spaceship side of an Automa Spaceship tile, place 1 Exploration Shuttle on that spaceship and flip the Automa Spaceship tile to its action side. Mark any spaces corresponding to an action space you already used this round with a power token.",
+        "faceUp": "If the action is a space on the action side of an Automa Spaceship tile, cover it with a power token. If there is a neigboring space to the left of it on the same Spaceship tile and it is still empty, place a power token on that space as well. Then place an action marker on the corresponding action(s) on the Spaceship."
+      }
     },
     "researchArea": {
       "validResearchArea": "Valid: Any research area where Automa can advance or an advanced tech tile is available.",
