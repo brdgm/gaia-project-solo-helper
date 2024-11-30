@@ -15,9 +15,9 @@ export default class CardDeck {
   private static readonly CARD_9 = '9'
   private static readonly CARD_15 = '15'
 
-  private readonly _deck : Card[]
+  private _deck : Card[]
   private readonly _reserve : Card[]
-  private readonly _discard : Card[]
+  private _discard : Card[]
 
   public constructor(deck : Card[], reserve : Card[], discard : Card[]) {
     this._deck = deck

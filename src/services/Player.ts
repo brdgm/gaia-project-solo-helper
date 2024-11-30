@@ -1,8 +1,8 @@
 import { RoundTurn } from '@/store/state'
 
 export default class Player {
-  private _player?: number
-  private _bot?: number
+  private readonly _player?: number
+  private readonly _bot?: number
 
   private constructor(player : number|undefined, bot : number|undefined) {
     this._player = player
