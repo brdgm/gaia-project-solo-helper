@@ -50,8 +50,13 @@ export default defineComponent({
         if (lastRound && lastRound.turns) {
           return `/round/${this.round-1}/turn/${lastRound.turns.length+1}`
         }
+        else {
+          return ''
+        }
       }
-      return ''
+      else {
+        return '/setupGameAutoma'
+      }
     },
     nextButtonRouteTo() : string {
       return `/round/${this.round}/turn/1`
