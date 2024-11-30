@@ -9,7 +9,7 @@
           :type="botAction.numberedSelection" :count="botAction.numberedSelectionCount"/>
     </div>
     <div v-if="terraformingReference && navigationState.botFaction" >
-      <AppIcon type="terraforming-reference" :name="navigationState.botFaction" extension="jpg" class="terraformingReference"/>
+      <AppIcon :type="`terraforming-reference${hasLostFleet ? '-lost-fleet' : ''}`" :name="navigationState.botFaction" extension="webp" class="terraformingReference"/>
     </div>
   </div>
 </template>
@@ -24,6 +24,8 @@ import ResearchArea from './ResearchArea.vue'
 import NumberedSelection from './NumberedSelection.vue'
 import NavigationState from '@/util/NavigationState'
 import AppIcon from '@/components/structure/AppIcon.vue'
+import { useStateStore } from '@/store/state'
+import Expansion from '@/services/enum/Expansion'
 
 export default defineComponent({
   name: 'SupportInfo',
@@ -34,6 +36,10 @@ export default defineComponent({
     ResearchArea,
     NumberedSelection,
     AppIcon
+  },
+  setup() {
+    const state = useStateStore()
+    return { state }
   },
   props: {
     botAction: {
@@ -68,6 +74,11 @@ export default defineComponent({
       type: Boolean,
       required: false
     }
+  },
+  computed: {
+    hasLostFleet() : boolean {
+      return this.state.setup.expansions.includes(Expansion.LOST_FLEET)
+    }
   }
 })
 </script>
@@ -80,6 +91,6 @@ export default defineComponent({
   }
 }
 .terraformingReference {
-  width: 4rem;
+  height: 160px;
 }
 </style>

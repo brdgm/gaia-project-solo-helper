@@ -98,7 +98,9 @@ export default defineComponent({
       }
       if (!(result == ScoringFinalTile.GAIA_PLANETS
           || result == ScoringFinalTile.PLANET_TYPES
-          || result == ScoringFinalTile.SPACE_SECTOR_TILES)) {
+          || result == ScoringFinalTile.SPACE_SECTOR_TILES
+          || result == ScoringFinalTile.LOST_FLEET_ASTEROID
+          || result == ScoringFinalTile.LOST_FLEET_DEEP_SPACE)) {
         result = undefined
       }
       return result

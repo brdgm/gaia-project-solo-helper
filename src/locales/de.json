@@ -4,6 +4,7 @@
     "title": "Gaia Project Solo Helper",
     "play1": "Spiele den Automa Solo-Modus von <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>.",
     "play2": "Diese Applikation ersetzt die Automa-Karten und führt dich durch die Solo-Regeln. Du kannst gegen bis zu 3 Automas spielen.",
+    "play3": "Die Erweiterung <i>Die verlorene Flotte</i> wird unterstützt. Die Application bietet Hilfen für den zufälligen Aufbau des Spielbretts und der Raumsektoren.",
     "feedback": "Discussion and Feedback:"
   },
   "setup": {
@@ -55,6 +56,7 @@
     "playerTokens": "Platziere die Markierungssteine auf der Siegpunktleiste und dem Forschungstableau.",
     "startVP": "Automa beginnt das Spiel mit <b>{count} SP</b>.",
     "satellites": "Platziere je einen Satellit auf den \"0\"-Positionen auf dem Wertungstableau.",
+    "explorationShuttle": "<i>Die Verlorene Flotte</i>: Setzte ein Erkundungs-Shuttle auf das erkundete Schiff (Schiffsmarker mit Aktionsseite nach oben).",
     "bonus": "Aufbau-Bonus:",
     "initialMinePlacement": "Platziere <b>{count}</b> Startminen auf Heimatplaneten des Automa (am nächsten zum Zentrum).",
     "roundBooster": "Nimm Rundenbooster <b>#{index}</b>",
@@ -95,7 +97,9 @@
         "scoringFinalTile": {
           "gaia-planets": "Gaia- oder Transdim-Planeten.",
           "planet-types": "Planeten einer Art, die der Automa noch nicht besiedelt hat.",
-          "space-sector-tiles": "Planeten in Sektor ohne Automa-Planeten."
+          "space-sector-tiles": "Planeten in Sektor ohne Automa-Planeten.",
+          "lost-fleet-asteroid": "i) Planeten vom Typ Asteroiden.<br/>(ii) Planeten mit der geringsten Entfernung zu einem unbesiedelten Asteroiden.",
+          "lost-fleet-deep-space": "i) Planeten in Außensektoren, in denen Automa bisher keinen Planeten besiedelt hat.<br/>(ii) Planeten mit der geringsten Entfernung zu einem unbesiedelten Planeten in einem Außensektor, in dem der Automa bisher keinen Planeten besiedelt hat."
         },
         "fewestTerraformingSteps": "Wenigste Transformingschritte.",
         "closestToYourPlanet": "Am nächsten zu deinen Planeten.",
@@ -113,9 +117,11 @@
         "title": "Wähle Gebäude nach Priorität:",
         "planetaryInstitute": "Regierungssitz (von Handelszentrum)",
         "tradingStation": "Handelszentrum (von Mine)",
+        "tradingStationScoringFinalLostFleetDistance": "<b>Schlusswertung</b>: Der Automa hat bereits den Regierungssitz, aber noch keine Akademie gebaut: Wähle die Mine, die die größte Entfernung zum Regierungssitz aufweist.",
         "academy": "Akademie (von Forschungslabor)",
         "researchLab": "Forschungslabor (von Handelszentrum)",
-        "downgradeResearchLab": "Handelszentrum (Downgrade von Forschungslabor)"
+        "downgradeResearchLab": "Handelszentrum (Downgrade von Forschungslabor)",
+        "researchLabScoringFinalLostFleetDistance": "<b>Schlusswertung</b>: Wähle das Handelszentrum, das die größte Entfernung zum Regierungssitz aufweist."
       },
       "tiebreaker": {
         "title": "Gleichstand:",
@@ -133,7 +139,18 @@
     "powerQic": {
       "placeToken": "Lege ein Aktionsmarker auf eine offenes Macht-/Q.I.C.-Aktionsfeld.",
       "numberedSelection": "Auswahl nach Zahlen.",
-      "executeTwice": "Führe diese Aktion zweimal aus."
+      "executeTwice": "Führe diese Aktion zweimal aus.",
+      "lostFleetPlaceToken": {
+        "title": "Lege ein Aktionsmarker auf eine offenes Aktionsfeld:",
+        "power": "Machtaktion auf dem Forschungstableau.",
+        "spaceshipFaceDown": "Automa-Schiffsmarker mit der Schiffseite nach oben.",
+        "spaceshipFaceUp": "Felder auf der Aktionsseite des Automa-Schiffsmarkers."
+      },
+      "lostFleetSpaceship": {
+        "title": "Wenn ein Automa-Schiffsmarker gewählt wurde",
+        "faceDown": "Wenn die Aktion die Schiffseite eines Automa-Schiffsmarkers trifft, setze 1 Erkundungs-Shuttle in das Schiff und drehe den Automa-Schiffsmarker auf die Aktionsseite. Markiere ggf. bereits von dir genutzte Aktionen auf diesem Schiff mit einem Machtstein.",
+        "faceUp": "Wenn die Aktion ein Feld auf der Aktionsseite eines Automa-Schiffsmarkers ist, lege einen Machtstein auf dieses Feld. Wenn auf diesem Schiffsmarker die Aktion links davon noch frei ist, lege auch auf diese einen Machtstein. Decke die korrespondiere(n) Aktion(en) auf dem Schiff mit einem Aktionsmarker ab."
+      }
     },
     "researchArea": {
       "validResearchArea": "Auswahl: Forschungsbereich, in dem der Automa aufsteigen kann oder in dem noch eine Ausbautechnologie vorhanden ist.",
@@ -177,7 +194,7 @@
     "5": "Alptrauma"
   },
   "expansion": {
-    "lost-fleet": "The Lost Fleet"
+    "lost-fleet": "Die verlorene Flotte"
   },
   "botFaction": {
     "terrans": "Terraner",
