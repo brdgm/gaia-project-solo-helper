@@ -4,6 +4,9 @@
     <li v-html="t('setupGameAutoma.playerTokens')"></li>
     <li v-html="t('setupGameAutoma.startVP', {count:botStartVP})"></li>
     <li v-html="t('setupGameAutoma.satellites')"></li>
+    <ul v-if="isScoringFinalTileFederationStructures">
+      <li v-html="t('endOfGame.scoringFinalTileFederationStructures')"></li>
+    </ul>
     <template v-if="hasLostFleet">
       <li v-html="t('setupGameAutoma.explorationShuttle')"></li>
     </template>
@@ -37,6 +40,7 @@ import { useStateStore } from '@/store/state'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import DirectionalSelection from '@/services/enum/DirectionalSelection'
 import Expansion from '@/services/enum/Expansion'
+import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
 
 export default defineComponent({
   name: 'AutomaSetup',
@@ -84,6 +88,9 @@ export default defineComponent({
     },
     isNeutralPlayer() : boolean {
       return this.totalPlayerCount < 3
+    },
+    isScoringFinalTileFederationStructures() : boolean {
+      return (this.state.setup.scoringFinalTiles ?? []).includes(ScoringFinalTile.FEDERATION_STRUCTURES)
     }
   },
   methods: {
