@@ -5,6 +5,7 @@ import { defineStore } from 'pinia'
 import { name } from '@/../package.json'
 import ScoringRoundTile from '@/services/enum/ScoringRoundTile'
 import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
+import Interspace from '@/services/map/Interspace'
 
 export const useStateStore = defineStore(`${name}.store`, {
   state: () => {
@@ -79,15 +80,27 @@ export interface Setup {
   setupLostFleetTwilightArtifactTiles?: number[]
   setupLostFleetShipAutomaTileActive?: number
   setupLostFleetEconomyOverlay?: number
-  setupMap?: MapSetup
+  setupMap?: MapPersistence
 }
 export interface PlayerSetup {
   playerCount: number
   botCount: number
   botFaction: BotFaction[]
 }
-export interface MapSetup {
-
+export interface MapPersistence {
+  spaceSectors: SpaceSectorPersistence[]
+  deepSpaceSectors: DeepSpaceSectorPersistence[]
+  interspaces: Interspace[]
+}
+export interface SpaceSectorPersistence {
+  id: string
+  outline: boolean
+  rotation: number  
+}
+export interface DeepSpaceSectorPersistence {
+  id: string
+  outline: boolean
+  rotation: number  
 }
 export interface Round {
   round: number

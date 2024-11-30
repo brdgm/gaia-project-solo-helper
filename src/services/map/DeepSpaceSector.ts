@@ -1,3 +1,4 @@
+import { DeepSpaceSectorPersistence } from '@/store/state'
 import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 
 /**
@@ -40,6 +41,22 @@ export default class DeepSpaceSector {
   reset() : void {
     this.outline = this.initialOutline
     this.rotation = this.initialRotation
+  }
+
+  public toPersistence() : DeepSpaceSectorPersistence {
+    return {
+      id: this.id,
+      outline: this.outline,
+      rotation: this.rotation
+    }
+  }
+
+  public static fromPersistence(persistence : DeepSpaceSectorPersistence) : DeepSpaceSector {
+    return new DeepSpaceSector(
+      persistence.id,
+      persistence.outline,
+      persistence.rotation
+    )
   }
 
 }

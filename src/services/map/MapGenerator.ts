@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import Expansion from '../enum/Expansion'
 import DeepSpaceSector from './DeepSpaceSector'
 import Interspace from './Interspace'
+import { MapPersistence } from '@/store/state'
 
 /**
  * Map Generator.
@@ -16,10 +17,18 @@ export default class MapGenerator {
   private readonly _deepSpaceSectors = ref([] as DeepSpaceSector[])
   private readonly _interspaces = ref([] as Interspace[])
 
-  constructor(playerCount: number, expansions: Expansion[]) {
+  constructor(playerCount: number, expansions: Expansion[],
+      spaceSectors?: SpaceSector[], deepSpaceSectors?: DeepSpaceSector[], interspaces?: Interspace[]) {
     this.playerCount = playerCount
     this.hasLostFleet = expansions.includes(Expansion.LOST_FLEET)
-    this.reset()
+    if (spaceSectors && deepSpaceSectors && interspaces) {
+      this._spaceSectors.value = spaceSectors
+      this._deepSpaceSectors.value = deepSpaceSectors
+      this._interspaces.value = interspaces
+    }
+    else {
+      this.reset()
+    }
   }
 
   get spaceSectors() : readonly SpaceSector[] {
@@ -111,6 +120,24 @@ export default class MapGenerator {
       }
     }
     return true
+  }
+
+  public toPersistence() : MapPersistence {
+    return {
+      spaceSectors: this._spaceSectors.value.map(sector => sector.toPersistence()),
+      deepSpaceSectors: this._deepSpaceSectors.value.map(sector => sector.toPersistence()),
+      interspaces: [...this._interspaces.value]
+    }
+  }
+
+  public static fromPersistence(playerCount: number, expansions: Expansion[],
+      persistence : MapPersistence) : MapGenerator {
+    return new MapGenerator(
+      playerCount, expansions,
+      persistence.spaceSectors.map(SpaceSector.fromPersistence),
+      persistence.deepSpaceSectors.map(DeepSpaceSector.fromPersistence),
+      [...persistence.interspaces]
+    )
   }
 
   /**
