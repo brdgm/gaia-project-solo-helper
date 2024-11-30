@@ -76,6 +76,16 @@
             <AppIcon v-if="index == 6" type="tech-advanced-tile" :name="`${id}${id==7 && hasLostFleet ?'-lost-fleet':''}`" extension="webp" class="techAdvanced"/>
           </template> 
         </div>
+        <div class="lostFleetAutomaTiles">
+          <AppIcon class="board" name="research-board-bottem-right-edge" extension="webp"/>
+          <template v-for="(ship,index) of lostFleetShips" :key="ship">
+            <AppIcon v-if="index < 3" class="tile" type="lost-fleet-ship-automa" :name="`${ship}${index+1==lostFleetShipAutomaTileActive ? '-active' : ''}`" extension="webp"/>
+          </template>
+        </div>
+        <div class="lostFleetEconomyOverlay">
+          <AppIcon class="board" name="research-board-economy-overlay-background" extension="webp"/>
+          <AppIcon class="tile" type="lost-fleet-economy-overlay" :name="`${lostFleetEconomyOverlay}`" extension="webp"/>
+        </div>
       </template>
 
     </div>
@@ -197,12 +207,14 @@ export default defineComponent({
     const techStandardLostFleetTiles = ref(rollDiceMultiDifferentValue(TECH_STANDARD_LOST_FLEET_TILE_TOTAL, TECH_STANDARD_LOST_FLEET_TILE_COUNT))
     const federationTokenLostFleetTiles = ref(rollDiceMultiDifferentValue(FEDERATION_TOKEN_LOST_FLEET_TOTAL, FEDERATION_TOKEN_LOST_FLEET_COUNT))
     const lostFleetTwilightArtifactTiles = ref(rollDiceMultiDifferentValue(LOST_FLEET_TWILIGHT_ARTIFACT_TOTAL, LOST_FLEET_TWILIGHT_ARTIFACT_COUNT))
+    const lostFleetShipAutomaTileActive = ref(rollDice(3))
+    const lostFleetEconomyOverlay = ref(rollDice(2))
 
     return { t, state, totalPlayerCount, roundBoosterCount, hasLostFleet,
         scoringRoundTilesAll, scoringFinalTilesAll, roundBoosterTotal, techAdvancedTileTotal, techAdvancedTileCount,
         scoringRoundTiles, scoringFinalTiles, scoringRoundTilesSelection, scoringFinalTilesSelection,
         researchFederationToken,  roundBoosterTiles, techStandardTiles, techAdvancedTiles, techStandardLostFleetTiles,
-        federationTokenLostFleetTiles, lostFleetTwilightArtifactTiles }
+        federationTokenLostFleetTiles, lostFleetTwilightArtifactTiles, lostFleetShipAutomaTileActive, lostFleetEconomyOverlay }
   },
   computed: {
     gameBoardPlayerCount(): string {
@@ -275,6 +287,8 @@ export default defineComponent({
       this.techStandardLostFleetTiles = rollDiceMultiDifferentValue(TECH_STANDARD_LOST_FLEET_TILE_TOTAL, TECH_STANDARD_LOST_FLEET_TILE_COUNT)
       this.federationTokenLostFleetTiles = rollDiceMultiDifferentValue(FEDERATION_TOKEN_LOST_FLEET_TOTAL, FEDERATION_TOKEN_LOST_FLEET_COUNT)
       this.lostFleetTwilightArtifactTiles = rollDiceMultiDifferentValue(LOST_FLEET_TWILIGHT_ARTIFACT_TOTAL, LOST_FLEET_TWILIGHT_ARTIFACT_COUNT)
+      this.lostFleetShipAutomaTileActive = rollDice(3)
+      this.lostFleetEconomyOverlay = rollDice(2)
     }
   },
   mounted() {
@@ -376,7 +390,7 @@ li {
 .lostFleetShipWrapper {
   width: 100%;
   overflow-x: auto;
-  margin-bottom: 0.5rem;
+  padding-bottom: 10px;
 }
 .lostFleetShip {
   position: relative;
@@ -440,6 +454,8 @@ li {
   }
 }
 .lostFleetScoringExtension {
+  display: inline-block;
+  margin-right: 10px;
   position: relative;
   width: 320px;
   .board {
@@ -451,6 +467,51 @@ li {
     width: 81px;
     left: 118px;
     top: 40px;
+    filter: drop-shadow(5px 5px 4px #555);
+  }
+}
+.lostFleetAutomaTiles {
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  width: 320px;
+  height: 216px;
+  padding-top: 50px;
+  padding-left: 52px;
+  .board {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 60%;
+    z-index: -10;
+    filter: drop-shadow(5px 5px 4px #555);
+  }
+  .tile {
+    width: 75px;
+    border-radius: 5px;;
+    filter: drop-shadow(5px 5px 4px #555);
+  }
+}
+.lostFleetEconomyOverlay {
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  width: 150px;
+  height: 173px;
+  padding-top: 28px;
+  padding-left: 60px;
+  .board {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 60%;
+    z-index: -10;
+  }
+  .tile {
+    width: 65px;
+    border-radius: 5px;;
     filter: drop-shadow(5px 5px 4px #555);
   }
 }

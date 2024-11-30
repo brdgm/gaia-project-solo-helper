@@ -3,8 +3,8 @@
  */
 enum LostFleetShip {
   REBELLION = 'rebellion',
-  TFMARS = 'tfmars',
   ECLIPSE = 'eclipse',
+  TFMARS = 'tfmars',
   TWILIGHT = 'twilight'
 }
 export default LostFleetShip
