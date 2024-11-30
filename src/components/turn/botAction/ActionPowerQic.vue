@@ -15,11 +15,6 @@
           <li v-html="t('botAction.powerQic.lostFleetPlaceToken.spaceshipFaceUp')"></li>
         </ul>
         <li v-html="t('botAction.powerQic.numberedSelection')"></li>
-        <li v-html="t('botAction.powerQic.lostFleetSpaceship.title')"></li>
-        <ul>
-          <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceDown')"></li>
-          <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceUp')"></li>
-        </ul>
       </template>
       <template v-else>
         <li v-html="t('botAction.powerQic.placeToken')"></li>
@@ -30,6 +25,11 @@
         <span class="fw-bold" v-html="t(`botAction.powerQic.executeTwice`)"></span>
       </li>
     </ol>
+    <a v-html="t('botAction.powerQic.lostFleetSpaceship.title')" data-bs-toggle="collapse" data-bs-target="#lostFleetSpaceshipDetails" href="#"></a>
+    <ul class="collapse" id="lostFleetSpaceshipDetails">
+      <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceDown')"></li>
+      <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceUp')"></li>
+    </ul>
   </div>
 </template>
 
@@ -86,5 +86,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .actionIcon {
   width: 6rem;
+}
+a[data-bs-toggle=collapse]:link {
+  color: unset;
+  text-decoration: underline dotted;
 }
 </style>

@@ -4,6 +4,7 @@
     "title": "Gaia Project Solo Helper",
     "play1": "Play the Automa Solo Mode of <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>.",
     "play2": "This helper application replaces the Automa cards and guides you through the solo rules. You can play against up to 3 Automas.",
+    "play3": "The expansion <i>The Lost Fleet</i> is supported. The application provides a randomizer for the setup of the game board and the space sectors.",
     "feedback": "Discussion and Feedback:"
   },
   "setup": {
@@ -146,7 +147,7 @@
         "spaceshipFaceUp": "Space on the action side of an Automa Spaceship tile."
       },
       "lostFleetSpaceship": {
-        "title": "If placed on a Automa Spaceship tile:",
+        "title": "If placed on a Automa Spaceship tile",
         "faceDown": "If the action is the spaceship side of an Automa Spaceship tile, place 1 Exploration Shuttle on that spaceship and flip the Automa Spaceship tile to its action side. Mark any spaces corresponding to an action space you already used this round with a power token.",
         "faceUp": "If the action is a space on the action side of an Automa Spaceship tile, cover it with a power token. If there is a neigboring space to the left of it on the same Spaceship tile and it is still empty, place a power token on that space as well. Then place an action marker on the corresponding action(s) on the Spaceship."
       }
