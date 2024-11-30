@@ -4,6 +4,7 @@
     "title": "Gaia Project Solo Helper",
     "play1": "Play the Automa Solo Mode of <a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>Gaia Project</b></a>.",
     "play2": "This helper application replaces the Automa cards and guides you through the solo rules. You can play against up to 3 Automas.",
+    "play3": "The expansion <i>The Lost Fleet</i> is supported. The application provides a randomizer for the setup of the game board and the space sectors.",
     "feedback": "Discussion and Feedback:"
   },
   "setup": {
@@ -55,6 +56,7 @@
     "playerTokens": "Place player tokens on the VP track and on the research areas.",
     "startVP": "Automa starts the game with <b>{count} VP</b>.",
     "satellites": "Place one satellite on each \"0\" space on the scoring board.",
+    "explorationShuttle": "<i>The Lost Fleet</i>: Place one exploration shuttle on the explored spaceship (spaceship tile showing action side up).",
     "bonus": "Setup Bonus:",
     "initialMinePlacement": "Place <b>{count}</b> mines on planets of the Automa's home type (closest to the center space).",
     "roundBooster": "Take Round Booster <b>#{index}</b>",
@@ -95,7 +97,9 @@
         "scoringFinalTile": {
           "gaia-planets": "Gaia or Transdim Planets.",
           "planet-types": "Planets of a type the Automa has not colonized yet.",
-          "space-sector-tiles": "Planets in a sector without Automa planets."
+          "space-sector-tiles": "Planets in a sector without Automa planets.",
+          "lost-fleet-asteroid": "i) Asteroid planets<br/>i)) Planets closest to an uncolonized asteroid.",
+          "lost-fleet-deep-space": "i) Planets in Deep Space sectors in which the Automa has no colonized planets yet.<br/>ii) Planets closest to an uncolonized planet in a Deep Space sector in which the Automa has no colonized planets yet."
         },
         "fewestTerraformingSteps": "Fewest terraforming steps.",
         "closestToYourPlanet": "Closest to your planets.",
@@ -113,9 +117,11 @@
         "title": "Choose structure by priority:",
         "planetaryInstitute": "Planetary Institute (from trading station)",
         "tradingStation": "Trading Station (from mine)",
+        "tradingStationScoringFinalLostFleetDistance": "<b>Final Scoring</b>: If the Automa has already built its Planetary Institute but neither of its Academies yet, choose the mine furthest away from its Planetary Institute.",
         "academy": "Academy (from research lab)",
         "researchLab": "Research Lab (from trading station)",
-        "downgradeResearchLab": "Trading station (downgrade from research lab)"
+        "downgradeResearchLab": "Trading station (downgrade from research lab)",
+        "researchLabScoringFinalLostFleetDistance": "<b>Final Scoring</b>: Choose the Trading Station that is furthest away from its Planetary Institute."
       },
       "tiebreaker": {
         "title": "Tiebreaker:",
@@ -133,7 +139,18 @@
     "powerQic": {
       "placeToken": "Place action token on an uncovered Power/Q.I.C. action space.",
       "numberedSelection": "Numbered selection.",
-      "executeTwice": "Execute this action twice."
+      "executeTwice": "Execute this action twice.",
+      "lostFleetPlaceToken": {
+        "title": "Place action token on an uncovered action space:",
+        "power": "Power actions on the research board.",
+        "spaceshipFaceDown": "Automa Spaceship tile with the spaceship-side up.",
+        "spaceshipFaceUp": "Space on the action side of an Automa Spaceship tile."
+      },
+      "lostFleetSpaceship": {
+        "title": "If placed on a Automa Spaceship tile",
+        "faceDown": "If the action is the spaceship side of an Automa Spaceship tile, place 1 Exploration Shuttle on that spaceship and flip the Automa Spaceship tile to its action side. Mark any spaces corresponding to an action space you already used this round with a power token.",
+        "faceUp": "If the action is a space on the action side of an Automa Spaceship tile, cover it with a power token. If there is a neigboring space to the left of it on the same Spaceship tile and it is still empty, place a power token on that space as well. Then place an action marker on the corresponding action(s) on the Spaceship."
+      }
     },
     "researchArea": {
       "validResearchArea": "Valid: Any research area where Automa can advance or an advanced tech tile is available.",

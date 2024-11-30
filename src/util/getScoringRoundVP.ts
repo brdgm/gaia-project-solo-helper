@@ -17,12 +17,16 @@ export default function getScoringRoundVP(scoringRoundTile: ScoringRoundTile, ro
       return 2
     case ScoringRoundTile.MINE:
     case ScoringRoundTile.TERRAFORMING:
+    case ScoringRoundTile.LOST_FLEET_PLANET_TYPE:
       return round > 3 ? 6 : 4
     case ScoringRoundTile.RESEARCH_AREA:
       return round > 3 ? 4 : 2
     case ScoringRoundTile.TRADING_STATION_1:
     case ScoringRoundTile.TRADING_STATION_2:
+    case ScoringRoundTile.LOST_FLEET_SECTOR_DEEP:
       return round > 3 ? 6 : 3
+    case ScoringRoundTile.LOST_FLEET_RESEARCH_LAB:
+      return round > 3 ? 8 : 4
     default:
       throw new Error(`Invalid scoring round tile: ${scoringRoundTile}`)
   }

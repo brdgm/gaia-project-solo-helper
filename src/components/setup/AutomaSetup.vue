@@ -4,6 +4,12 @@
     <li v-html="t('setupGameAutoma.playerTokens')"></li>
     <li v-html="t('setupGameAutoma.startVP', {count:botStartVP})"></li>
     <li v-html="t('setupGameAutoma.satellites')"></li>
+    <ul v-if="isScoringFinalTileFederationStructures">
+      <li v-html="t('endOfGame.scoringFinalTileFederationStructures')"></li>
+    </ul>
+    <template v-if="hasLostFleet">
+      <li v-html="t('setupGameAutoma.explorationShuttle')"></li>
+    </template>
     <li v-for="(faction,index) of botFactions" :key="faction">
       <AppIcon type="faction" :name="faction" class="factionIcon"/>
       <span class="fw-bold" v-html="t(`botFaction.${faction}`)"></span>
@@ -33,6 +39,8 @@ import BotFaction from '@/services/enum/BotFaction'
 import { useStateStore } from '@/store/state'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import DirectionalSelection from '@/services/enum/DirectionalSelection'
+import Expansion from '@/services/enum/Expansion'
+import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
 
 export default defineComponent({
   name: 'AutomaSetup',
@@ -46,6 +54,9 @@ export default defineComponent({
     return { t, state }
   },
   computed: {
+    hasLostFleet() : boolean {
+      return this.state.setup.expansions.includes(Expansion.LOST_FLEET)
+    },
     totalPlayerCount() : number {
       return this.state.setup.playerSetup.botCount + this.state.setup.playerSetup.playerCount
     },
@@ -56,6 +67,17 @@ export default defineComponent({
       return this.state.setup.playerSetup.botFaction.toReversed()
     },
     botStartVP() : number {
+      if (this.hasLostFleet) {
+        if (this.state.setup.difficultyLevel == DifficultyLevel.AUTOMA) {
+          return 15
+        }
+        else if (this.state.setup.difficultyLevel == DifficultyLevel.AUTOMAECHTIG) {
+          return 20
+        }
+        else if (this.state.setup.difficultyLevel == DifficultyLevel.ULTOMA) {
+          return 25
+        }
+      }
       if (this.state.setup.difficultyLevel == DifficultyLevel.AUTOMALEIN) {
         return 0
       }
@@ -66,6 +88,9 @@ export default defineComponent({
     },
     isNeutralPlayer() : boolean {
       return this.totalPlayerCount < 3
+    },
+    isScoringFinalTileFederationStructures() : boolean {
+      return (this.state.setup.scoringFinalTiles ?? []).includes(ScoringFinalTile.FEDERATION_STRUCTURES)
     }
   },
   methods: {

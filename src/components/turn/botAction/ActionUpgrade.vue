@@ -15,8 +15,14 @@
           <span class="fw-bold" v-html="t('botAction.upgrade.choose.downgradeResearchLab')"></span>
         </li>
         <li v-html="t('botAction.upgrade.choose.tradingStation')"></li>
+        <ul v-if="isFinalScoringTileDistance">
+          <li v-html="t('botAction.upgrade.choose.tradingStationScoringFinalLostFleetDistance')"></li>
+        </ul>
         <li v-html="t('botAction.upgrade.choose.academy')"></li>
         <li v-html="t('botAction.upgrade.choose.researchLab')"></li>
+        <ul v-if="isFinalScoringTileDistance">
+          <li v-html="t('botAction.upgrade.choose.researchLabScoringFinalLostFleetDistance')"></li>
+        </ul>
       </ol>
       <li v-html="t('botAction.upgrade.tiebreaker.title')"></li>
       <ol type="a">
@@ -50,6 +56,7 @@ import { useStateStore } from '@/store/state'
 import BotFaction from '@/services/enum/BotFaction'
 import NavigationState from '@/util/NavigationState'
 import Action from '@/services/enum/Action'
+import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
 
 export default defineComponent({
   name: 'ActionUpgrade',
@@ -90,6 +97,12 @@ export default defineComponent({
     },
     isFactionHadschHallas() : boolean {
       return this.botFaction === BotFaction.HADSCH_HALLAS
+    },
+    scoringFinalTiles() : ScoringFinalTile[] {
+      return this.state.setup.scoringFinalTiles ?? []
+    },
+    isFinalScoringTileDistance() : boolean {
+      return this.scoringFinalTiles.includes(ScoringFinalTile.LOST_FLEET_DISTANCE)
     }
   },
   methods: {

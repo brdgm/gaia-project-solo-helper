@@ -3,10 +3,11 @@
 
   <PlayersSetup/>
   <DifficultyLevel/>
+  <ExpansionsSetup/>
 
-  <router-link to="/setupGameTiles" class="btn btn-primary btn-lg mt-4">
+  <button class="btn btn-primary btn-lg mt-4" @click="next()">
     {{t('action.next')}}
-  </router-link>
+  </button>
 
   <FooterButtons endGameButtonType="abortGame"/>
 </template>
@@ -17,17 +18,27 @@ import { useI18n } from 'vue-i18n'
 import PlayersSetup from '@/components/setup/PlayersSetup.vue'
 import DifficultyLevel from '@/components/setup/DifficultyLevel.vue'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
+import ExpansionsSetup from '@/components/setup/ExpansionsSetup.vue'
+import { useStateStore } from '@/store/state'
 
 export default defineComponent({
   name: 'SetupGame',
   components: {
     PlayersSetup,
     DifficultyLevel,
+    ExpansionsSetup,
     FooterButtons
   },
   setup() {
     const { t } = useI18n()
-    return { t }
+    const state = useStateStore()
+    return { t, state }
+  },
+  methods: {
+    next() : void {
+      this.state.resetGame()
+      this.$router.push('/setupGameTiles')
+    }
   }
 })
 </script>

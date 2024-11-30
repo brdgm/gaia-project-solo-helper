@@ -1,4 +1,6 @@
+import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 import BotFaction from '../enum/BotFaction'
+import { SpaceSectorPersistence } from '@/store/state'
 
 /**
  * Space sector tile
@@ -7,13 +9,15 @@ export default class SpaceSector {
 
   readonly id: string
   readonly outline: boolean
+  readonly initialRotation: number
   rotation: number
   readonly factionPlanets: (BotFaction|undefined)[]
   
-  constructor(id: string, outline?: boolean) {
+  constructor(id: string, outline: boolean = false, initialRotation: number = 0) {
     this.id = id
-    this.outline = outline ?? false
-    this.rotation = 0
+    this.outline = outline
+    this.initialRotation = initialRotation
+    this.rotation = this.initialRotation
     this.factionPlanets = getFactionPlanets(id, outline)
   }
 
@@ -24,6 +28,14 @@ export default class SpaceSector {
     else {
       this.rotation += 1
     }
+  }
+
+  randomizeRotation() {
+    this.rotation = rollDice(6) - 1
+  }
+
+  reset() : void {
+    this.rotation = this.initialRotation
   }
 
   /**
@@ -44,6 +56,22 @@ export default class SpaceSector {
       result.push(this.factionPlanets[(i - this.rotation*2 + 12) % 12])
     }
     return result
+  }
+
+  public toPersistence() : SpaceSectorPersistence {
+    return {
+      id: this.id,
+      outline: this.outline,
+      rotation: this.rotation
+    }
+  }
+
+  public static fromPersistence(persistence : SpaceSectorPersistence) : SpaceSector {
+    return new SpaceSector(
+      persistence.id,
+      persistence.outline,
+      persistence.rotation
+    )
   }
 
 }
