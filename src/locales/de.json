@@ -55,6 +55,7 @@
     "playerTokens": "Platziere die Markierungssteine auf der Siegpunktleiste und dem Forschungstableau.",
     "startVP": "Automa beginnt das Spiel mit <b>{count} SP</b>.",
     "satellites": "Platziere je einen Satellit auf den \"0\"-Positionen auf dem Wertungstableau.",
+    "explorationShuttle": "<i>Die Verlorene Flotte</i>: Setzte ein Erkundungs-Shuttle auf das erkundete Schiff (Schiffsmarker mit Aktionsseite nach oben).",
     "bonus": "Aufbau-Bonus:",
     "initialMinePlacement": "Platziere <b>{count}</b> Startminen auf Heimatplaneten des Automa (am nächsten zum Zentrum).",
     "roundBooster": "Nimm Rundenbooster <b>#{index}</b>",

@@ -489,7 +489,7 @@ li {
   }
   .tile {
     width: 75px;
-    border-radius: 5px;;
+    border-radius: 5px;
     filter: drop-shadow(5px 5px 4px #555);
   }
 }
@@ -511,7 +511,7 @@ li {
   }
   .tile {
     width: 65px;
-    border-radius: 5px;;
+    border-radius: 5px;
     filter: drop-shadow(5px 5px 4px #555);
   }
 }

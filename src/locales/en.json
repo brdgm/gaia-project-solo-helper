@@ -55,6 +55,7 @@
     "playerTokens": "Place player tokens on the VP track and on the research areas.",
     "startVP": "Automa starts the game with <b>{count} VP</b>.",
     "satellites": "Place one satellite on each \"0\" space on the scoring board.",
+    "explorationShuttle": "<i>The Lost Fleet</i>: Place one exploration shuttle on the explored spaceship (spaceship tile showing action side up).",
     "bonus": "Setup Bonus:",
     "initialMinePlacement": "Place <b>{count}</b> mines on planets of the Automa's home type (closest to the center space).",
     "roundBooster": "Take Round Booster <b>#{index}</b>",
