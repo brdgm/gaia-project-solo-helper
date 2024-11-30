@@ -6,13 +6,13 @@
     <li v-html="t('setupTiles.federationTokens')"></li>
     <li>
       <span v-html="t('setupTiles.scoringRoundTiles')"></span>:<br/>
-      <AppIcon v-for="tile of scoringRoundTiles" :key="tile" type="scoring-round" extension="webp" :name="tile" class="scoringRoundTileIcon"/><br/>
+      <AppIcon v-for="tile of setup.scoringRoundTiles" :key="tile" type="scoring-round" extension="webp" :name="tile" class="scoringRoundTileIcon"/><br/>
       <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringRoundTilesModal">{{t('setupTiles.select')}}</button>
       <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringRoundTiles">{{t('action.randomize')}}</button>
     </li>
     <li>
       <span v-html="t('setupTiles.scoringFinalTiles')"></span>:<br/>
-      <AppIcon v-for="tile of scoringFinalTiles" :key="tile" type="scoring-final" extension="webp" :name="tile" class="scoringFinalTileIcon"/><br/>
+      <AppIcon v-for="tile of setup.scoringFinalTiles" :key="tile" type="scoring-final" extension="webp" :name="tile" class="scoringFinalTileIcon"/><br/>
       <button class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#scoringFinalTilesModal">{{t('setupTiles.select')}}</button>
       <button class="btn btn-sm btn-secondary me-2" @click="randomizeScoringFinalTiles">{{t('action.randomize')}}</button>
     </li>
@@ -37,20 +37,20 @@
       </div>
 
       <h5 v-html="t('setupTiles.tileRandomizer.roundBoosters')"></h5>
-      <AppIcon v-for="id of roundBoosterTiles" :key="id" type="round-booster" :name="`${id}`" extension="webp" class="roundBoosterTile"/>
+      <AppIcon v-for="id of setup.setupRoundBoosterTiles" :key="id" type="round-booster" :name="`${id}`" extension="webp" class="roundBoosterTile"/>
 
       <h5 v-html="t('setupTiles.tileRandomizer.researchBoard')"></h5>
       <div class="researchBoardWrapper">
         <div class="researchBoard">
           <img src="@/assets/research-board.jpg" alt="" class="background"/>
-          <AppIcon type="federation-token" :name="`${researchFederationToken}`" class="federationToken"/>
+          <AppIcon type="federation-token" :name="`${setup.setupResearchFederationToken}`" class="federationToken"/>
           <div class="techAdvanced">
-            <template v-for="(id,index) of techAdvancedTiles" :key="id">
+            <template v-for="(id,index) of setup.setupTechAdvancedTiles" :key="id">
               <AppIcon v-if="index < 6" type="tech-advanced-tile" :name="`${id}${id==7 && hasLostFleet ?'-lost-fleet':''}`" extension="webp" class="tile"/>
             </template> 
           </div>
           <div class="techStandard">
-            <template v-for="(id,index) of techStandardTiles" :key="id">
+            <template v-for="(id,index) of setup.setupTechStandardTiles" :key="id">
               <AppIcon v-if="id==2 && hasLostFleet" type="tech-standard-tile" :name="`${id}-lost-fleet`" extension="webp" class="tile" :class="{'column': index < 6, 'common': index >= 6}"/>
               <AppIcon v-else type="tech-standard-tile" :name="`${id}`" class="tile" :class="{'column': index < 6, 'common': index >= 6}"/>
             </template>
@@ -58,33 +58,33 @@
         </div>
       </div>
 
-      <template v-if="hasLostFleet">
+      <template v-if="hasLostFleet && setup.setupFederationTokenLostFleetTiles && setup.setupTechStandardLostFleetTiles">
         <h5 v-html="t('expansion.lost-fleet')" class="mt-3"></h5>
         <div v-for="(ship,index) of lostFleetShips" :key="ship" class="lostFleetShipWrapper">
           <div class="lostFleetShip" :class="{[ship]:true}">
             <AppIcon class="board" type="lost-fleet-ship-board" :name="ship" extension="webp"/>
-            <AppIcon class="federationToken" type="federation-token-lost-fleet" :name="`${federationTokenLostFleetTiles[index]}`" extension="webp"/>
-            <AppIcon class="techStandard" v-if="index<3" type="tech-standard-tile-lost-fleet" :name="`${techStandardLostFleetTiles[index]}`" extension="webp"/>
+            <AppIcon class="federationToken" type="federation-token-lost-fleet" :name="`${setup.setupFederationTokenLostFleetTiles[index]}`" extension="webp"/>
+            <AppIcon class="techStandard" v-if="index<3" type="tech-standard-tile-lost-fleet" :name="`${setup.setupTechStandardLostFleetTiles[index]}`" extension="webp"/>
             <div v-if="index==3">
-              <AppIcon v-for="artifact of lostFleetTwilightArtifactTiles" :key="artifact" class="artifact" type="lost-fleet-twilight-artifact" :name="`${artifact}`" extension="webp"/>
+              <AppIcon v-for="artifact of setup.setupLostFleetTwilightArtifactTiles" :key="artifact" class="artifact" type="lost-fleet-twilight-artifact" :name="`${artifact}`" extension="webp"/>
             </div>
           </div>
         </div>
         <div class="lostFleetScoringExtension">
           <AppIcon class="board" type="lost-fleet-scoring-extension" :name="totalPlayerCount > 2 ? 'player-34' : 'player-12'" extension="webp"/>
-          <template v-for="(id,index) of techAdvancedTiles" :key="id">
+          <template v-for="(id,index) of setup.setupTechAdvancedTiles" :key="id">
             <AppIcon v-if="index == 6" type="tech-advanced-tile" :name="`${id}${id==7 && hasLostFleet ?'-lost-fleet':''}`" extension="webp" class="techAdvanced"/>
           </template> 
         </div>
         <div class="lostFleetAutomaTiles">
           <AppIcon class="board" name="research-board-bottem-right-edge" extension="webp"/>
           <template v-for="(ship,index) of lostFleetShips" :key="ship">
-            <AppIcon v-if="index < 3" class="tile" type="lost-fleet-ship-automa" :name="`${ship}${index+1==lostFleetShipAutomaTileActive ? '-active' : ''}`" extension="webp"/>
+            <AppIcon v-if="index < 3" class="tile" type="lost-fleet-ship-automa" :name="`${ship}${index+1==setup.setupLostFleetShipAutomaTileActive ? '-active' : ''}`" extension="webp"/>
           </template>
         </div>
         <div class="lostFleetEconomyOverlay">
           <AppIcon class="board" name="research-board-economy-overlay-background" extension="webp"/>
-          <AppIcon class="tile" type="lost-fleet-economy-overlay" :name="`${lostFleetEconomyOverlay}`" extension="webp"/>
+          <AppIcon class="tile" type="lost-fleet-economy-overlay" :name="`${setup.setupLostFleetEconomyOverlay}`" extension="webp"/>
         </div>
       </template>
 
@@ -183,6 +183,7 @@ export default defineComponent({
   setup() {
     const { t } = useI18n()
     const state = useStateStore()
+    const { setup } = state
 
     const hasLostFleet = state.setup.expansions.includes(Expansion.LOST_FLEET)
 
@@ -195,26 +196,24 @@ export default defineComponent({
     const techAdvancedTileTotal = hasLostFleet ? TECH_ADVANCED_TILE_TOTAL_LOST_FLEET : TECH_ADVANCED_TILE_TOTAL
     const techAdvancedTileCount = hasLostFleet ? TECH_ADVANCED_TILE_COUNT_LOST_FLEET : TECH_ADVANCED_TILE_COUNT
 
-    const scoringRoundTiles = ref(randomListMultiDifferentValue(scoringRoundTilesAll, SCORING_ROUND_TILES_COUNT))
-    const scoringFinalTiles = ref(randomListMultiDifferentValue(scoringFinalTilesAll, SCORING_FINAL_TILES_COUNT))
+    setup.scoringRoundTiles = setup.scoringRoundTiles ?? randomListMultiDifferentValue(scoringRoundTilesAll, SCORING_ROUND_TILES_COUNT)
+    setup.scoringFinalTiles = setup.scoringFinalTiles ??  randomListMultiDifferentValue(scoringFinalTilesAll, SCORING_FINAL_TILES_COUNT)
     const scoringRoundTilesSelection = ref([] as ScoringRoundTile[])
     const scoringFinalTilesSelection = ref([] as ScoringFinalTile[])
 
-    const researchFederationToken = ref(rollDice(FEDERATION_TOKEN_TOTAL))
-    const roundBoosterTiles = ref(rollDiceMultiDifferentValue(roundBoosterTotal, roundBoosterCount))
-    const techStandardTiles = ref(rollDiceMultiDifferentValue(TECH_STANDARD_TILE_TOTAL, TECH_STANDARD_TILE_COUNT))
-    const techAdvancedTiles = ref(rollDiceMultiDifferentValue(techAdvancedTileTotal, techAdvancedTileCount))
-    const techStandardLostFleetTiles = ref(rollDiceMultiDifferentValue(TECH_STANDARD_LOST_FLEET_TILE_TOTAL, TECH_STANDARD_LOST_FLEET_TILE_COUNT))
-    const federationTokenLostFleetTiles = ref(rollDiceMultiDifferentValue(FEDERATION_TOKEN_LOST_FLEET_TOTAL, FEDERATION_TOKEN_LOST_FLEET_COUNT))
-    const lostFleetTwilightArtifactTiles = ref(rollDiceMultiDifferentValue(LOST_FLEET_TWILIGHT_ARTIFACT_TOTAL, LOST_FLEET_TWILIGHT_ARTIFACT_COUNT))
-    const lostFleetShipAutomaTileActive = ref(rollDice(3))
-    const lostFleetEconomyOverlay = ref(rollDice(2))
+    setup.setupResearchFederationToken = setup.setupResearchFederationToken ?? rollDice(FEDERATION_TOKEN_TOTAL)
+    setup.setupRoundBoosterTiles = setup.setupRoundBoosterTiles ?? rollDiceMultiDifferentValue(roundBoosterTotal, roundBoosterCount)
+    setup.setupTechStandardTiles = setup.setupTechStandardTiles ?? rollDiceMultiDifferentValue(TECH_STANDARD_TILE_TOTAL, TECH_STANDARD_TILE_COUNT)
+    setup.setupTechAdvancedTiles = setup.setupTechAdvancedTiles ?? rollDiceMultiDifferentValue(techAdvancedTileTotal, techAdvancedTileCount)
+    setup.setupTechStandardLostFleetTiles = setup.setupTechStandardLostFleetTiles ?? rollDiceMultiDifferentValue(TECH_STANDARD_LOST_FLEET_TILE_TOTAL, TECH_STANDARD_LOST_FLEET_TILE_COUNT)
+    setup.setupFederationTokenLostFleetTiles = setup.setupFederationTokenLostFleetTiles ?? rollDiceMultiDifferentValue(FEDERATION_TOKEN_LOST_FLEET_TOTAL, FEDERATION_TOKEN_LOST_FLEET_COUNT)
+    setup.setupLostFleetTwilightArtifactTiles = setup.setupLostFleetTwilightArtifactTiles ?? rollDiceMultiDifferentValue(LOST_FLEET_TWILIGHT_ARTIFACT_TOTAL, LOST_FLEET_TWILIGHT_ARTIFACT_COUNT)
+    setup.setupLostFleetShipAutomaTileActive = setup.setupLostFleetShipAutomaTileActive ?? rollDice(3)
+    setup.setupLostFleetEconomyOverlay = setup.setupLostFleetEconomyOverlay ?? rollDice(2)
 
-    return { t, state, totalPlayerCount, roundBoosterCount, hasLostFleet,
+    return { t, state, setup, totalPlayerCount, roundBoosterCount, hasLostFleet,
         scoringRoundTilesAll, scoringFinalTilesAll, roundBoosterTotal, techAdvancedTileTotal, techAdvancedTileCount,
-        scoringRoundTiles, scoringFinalTiles, scoringRoundTilesSelection, scoringFinalTilesSelection,
-        researchFederationToken,  roundBoosterTiles, techStandardTiles, techAdvancedTiles, techStandardLostFleetTiles,
-        federationTokenLostFleetTiles, lostFleetTwilightArtifactTiles, lostFleetShipAutomaTileActive, lostFleetEconomyOverlay }
+        scoringRoundTilesSelection, scoringFinalTilesSelection }
   },
   computed: {
     gameBoardPlayerCount(): string {
@@ -242,13 +241,9 @@ export default defineComponent({
     }
   },
   methods: {
-    emitScoringTiles() {
-      this.$emit('scoringTiles', this.scoringRoundTiles, this.scoringFinalTiles)
-    },
     randomizeScoringRoundTiles() : void {
-      this.scoringRoundTiles = randomListMultiDifferentValue(this.scoringRoundTilesAll, SCORING_ROUND_TILES_COUNT)
+      this.setup.scoringRoundTiles = randomListMultiDifferentValue(this.scoringRoundTilesAll, SCORING_ROUND_TILES_COUNT)
       this.scoringRoundTilesSelection = []
-      this.emitScoringTiles()
     },
     selectScoringRoundTile(tile: ScoringRoundTile) : void {
       if (this.scoringRoundTilesSelection.length < SCORING_ROUND_TILES_COUNT) {
@@ -259,13 +254,11 @@ export default defineComponent({
       this.scoringRoundTilesSelection = this.scoringRoundTilesSelection.filter(t => t != tile)
     },
     setScoringRoundTileSelection() : void {
-      this.scoringRoundTiles = this.scoringRoundTilesSelection
-      this.emitScoringTiles()
+      this.setup.scoringRoundTiles = this.scoringRoundTilesSelection
     },
     randomizeScoringFinalTiles() : void {
-      this.scoringFinalTiles = randomListMultiDifferentValue(this.scoringFinalTilesAll, SCORING_FINAL_TILES_COUNT)
+      this.setup.scoringFinalTiles = randomListMultiDifferentValue(this.scoringFinalTilesAll, SCORING_FINAL_TILES_COUNT)
       this.scoringFinalTilesSelection = []
-      this.emitScoringTiles()
     },
     selectScoringFinalTile(tile: ScoringFinalTile) : void {
       if (this.scoringFinalTilesSelection.length < SCORING_FINAL_TILES_COUNT) {
@@ -276,23 +269,19 @@ export default defineComponent({
       this.scoringFinalTilesSelection = this.scoringFinalTilesSelection.filter(t => t != tile)
     },
     setScoringFinalTileSelection() : void {
-      this.scoringFinalTiles = this.scoringFinalTilesSelection
-      this.emitScoringTiles()
+      this.setup.scoringFinalTiles = this.scoringFinalTilesSelection
     },
     randomizeRoundBoostersResearchBoard() : void {
-      this.researchFederationToken = rollDice(FEDERATION_TOKEN_TOTAL)
-      this.roundBoosterTiles = rollDiceMultiDifferentValue(this.roundBoosterTotal, this.roundBoosterCount)
-      this.techStandardTiles = rollDiceMultiDifferentValue(TECH_STANDARD_TILE_TOTAL, TECH_STANDARD_TILE_COUNT)
-      this.techAdvancedTiles = rollDiceMultiDifferentValue(this.techAdvancedTileTotal, this.techAdvancedTileCount)
-      this.techStandardLostFleetTiles = rollDiceMultiDifferentValue(TECH_STANDARD_LOST_FLEET_TILE_TOTAL, TECH_STANDARD_LOST_FLEET_TILE_COUNT)
-      this.federationTokenLostFleetTiles = rollDiceMultiDifferentValue(FEDERATION_TOKEN_LOST_FLEET_TOTAL, FEDERATION_TOKEN_LOST_FLEET_COUNT)
-      this.lostFleetTwilightArtifactTiles = rollDiceMultiDifferentValue(LOST_FLEET_TWILIGHT_ARTIFACT_TOTAL, LOST_FLEET_TWILIGHT_ARTIFACT_COUNT)
-      this.lostFleetShipAutomaTileActive = rollDice(3)
-      this.lostFleetEconomyOverlay = rollDice(2)
+      this.setup.setupResearchFederationToken = rollDice(FEDERATION_TOKEN_TOTAL)
+      this.setup.setupRoundBoosterTiles = rollDiceMultiDifferentValue(this.roundBoosterTotal, this.roundBoosterCount)
+      this.setup.setupTechStandardTiles = rollDiceMultiDifferentValue(TECH_STANDARD_TILE_TOTAL, TECH_STANDARD_TILE_COUNT)
+      this.setup.setupTechAdvancedTiles = rollDiceMultiDifferentValue(this.techAdvancedTileTotal, this.techAdvancedTileCount)
+      this.setup.setupTechStandardLostFleetTiles = rollDiceMultiDifferentValue(TECH_STANDARD_LOST_FLEET_TILE_TOTAL, TECH_STANDARD_LOST_FLEET_TILE_COUNT)
+      this.setup.setupFederationTokenLostFleetTiles = rollDiceMultiDifferentValue(FEDERATION_TOKEN_LOST_FLEET_TOTAL, FEDERATION_TOKEN_LOST_FLEET_COUNT)
+      this.setup.setupLostFleetTwilightArtifactTiles = rollDiceMultiDifferentValue(LOST_FLEET_TWILIGHT_ARTIFACT_TOTAL, LOST_FLEET_TWILIGHT_ARTIFACT_COUNT)
+      this.setup.setupLostFleetShipAutomaTileActive = rollDice(3)
+      this.setup.setupLostFleetEconomyOverlay = rollDice(2)
     }
-  },
-  mounted() {
-    this.emitScoringTiles()
   }
 })
 

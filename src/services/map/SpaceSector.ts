@@ -1,5 +1,6 @@
 import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 import BotFaction from '../enum/BotFaction'
+import { SpaceSectorPersistence } from '@/store/state'
 
 /**
  * Space sector tile
@@ -55,6 +56,22 @@ export default class SpaceSector {
       result.push(this.factionPlanets[(i - this.rotation*2 + 12) % 12])
     }
     return result
+  }
+
+  public toPersistence() : SpaceSectorPersistence {
+    return {
+      id: this.id,
+      outline: this.outline,
+      rotation: this.rotation
+    }
+  }
+
+  public static fromPersistence(persistence : SpaceSectorPersistence) : SpaceSector {
+    return new SpaceSector(
+      persistence.id,
+      persistence.outline,
+      persistence.rotation
+    )
   }
 
 }

@@ -1,6 +1,6 @@
 <template>
-  <button class="btn btn-sm btn-secondary me-2" @click="mapGenerator.randomize()">{{t('action.randomize')}}</button>
-  <button class="btn btn-sm btn-secondary me-2" @click="mapGenerator.reset()" v-if="!hatLostFleet">{{t('action.reset')}}</button>
+  <button class="btn btn-sm btn-secondary me-2" @click="mapGenerator.randomize();saveMap();">{{t('action.randomize')}}</button>
+  <button class="btn btn-sm btn-secondary me-2" @click="mapGenerator.reset();saveMap();" v-if="!hatLostFleet">{{t('action.reset')}}</button>
   <div class="row mt-3">
     <div class="col">
       <div class="mapWrapper" :class="{'alert':!isValid, 'alert-danger':!isValid}">
@@ -12,7 +12,8 @@
             threePlayer:totalPlayerCount == 3 && hatLostFleet,
             fourPlayer:totalPlayerCount == 4 || (totalPlayerCount == 3 && !hatLostFleet)
           }">
-          <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector" @click="spaceSector.rotate()"
+          <div v-for="spaceSector of spaceSectors" :key="spaceSector.id" class="spaceSector"
+              @click="spaceSector.rotate();saveMap();"
               :style="`transform: rotate(${spaceSector.rotation*60}deg);`">
             <AppIcon type="map-space-sector" :name="`${spaceSector.id + (spaceSector.outline ? '-outline' : '')}`" extension="webp"/>
             <svg class="overlay">
@@ -25,7 +26,8 @@
             </svg>
           </div>
           <div>
-            <div v-for="(deepSpaceSector,index) of deepSpaceSectors" :key="deepSpaceSector.id" class="deepSpaceSector" @click="deepSpaceSector.randomizeRotationFlip()"
+            <div v-for="(deepSpaceSector,index) of deepSpaceSectors" :key="deepSpaceSector.id" class="deepSpaceSector"
+                @click="deepSpaceSector.randomizeRotationFlip();saveMap();"
                 :style="deepSpaceSectorTransform(deepSpaceSector, index)">
               <AppIcon type="map-deep-space-sector" :name="`${deepSpaceSector.id + (deepSpaceSector.outline ? '-outline' : '')}`" extension="webp"/>
             </div>
@@ -68,7 +70,15 @@ export default defineComponent({
     
     const { playerCount, botCount } = state.setup.playerSetup
     const totalPlayerCount = playerCount + botCount
-    const mapGenerator = new MapGenerator(totalPlayerCount, state.setup.expansions)
+
+    let mapGenerator
+    if (state.setup.setupMap) {
+      mapGenerator = MapGenerator.fromPersistence(totalPlayerCount, state.setup.expansions, state.setup.setupMap)
+    }
+    else {
+      mapGenerator = new MapGenerator(totalPlayerCount, state.setup.expansions)
+      state.setup.setupMap = mapGenerator.toPersistence()
+    }
 
     return { t, state, totalPlayerCount, mapGenerator }
   },
@@ -98,6 +108,9 @@ export default defineComponent({
       const originX = 43.5
       const originY = 38
       return `transform-origin:${originX}px ${originY}px;transform:rotate(${rotation}deg);`
+    },
+    saveMap() : void {
+      this.state.setup.setupMap = this.mapGenerator.toPersistence()
     }
   }
 })
