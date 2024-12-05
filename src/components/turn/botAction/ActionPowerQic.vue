@@ -25,11 +25,13 @@
         <span class="fw-bold" v-html="t(`botAction.powerQic.executeTwice`)"></span>
       </li>
     </ol>
-    <a v-html="t('botAction.powerQic.lostFleetSpaceship.title')" data-bs-toggle="collapse" data-bs-target="#lostFleetSpaceshipDetails" href="#"></a>
-    <ul class="collapse" id="lostFleetSpaceshipDetails">
-      <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceDown')"></li>
-      <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceUp')"></li>
-    </ul>
+    <template v-if="hasLostFleet">
+      <a v-html="t('botAction.powerQic.lostFleetSpaceship.title')" data-bs-toggle="collapse" data-bs-target="#lostFleetSpaceshipDetails" href="#"></a>
+      <ul class="collapse" id="lostFleetSpaceshipDetails">
+        <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceDown')"></li>
+        <li v-html="t('botAction.powerQic.lostFleetSpaceship.faceUp')"></li>
+      </ul>
+    </template>
   </div>
 </template>
 
