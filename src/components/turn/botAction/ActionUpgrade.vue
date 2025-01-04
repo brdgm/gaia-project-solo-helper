@@ -6,6 +6,7 @@
     <SupportInfo :botAction="botAction" :navigationState="navigationState" :directionalSelection="true"/>
   </div>
   <div class="actionCol text-muted small">
+    <button v-if="isFactionActionHadschHallas" type="button" class="btn btn-outline-secondary btn-sm mb-2" @click="showBuildMine()">{{t('botAction.upgrade.notPossible')}}</button>
     <ol>
       <li v-html="t('botAction.upgrade.choose.title')"></li>
       <ol>
@@ -98,6 +99,9 @@ export default defineComponent({
     isFactionHadschHallas() : boolean {
       return this.botFaction === BotFaction.HADSCH_HALLAS
     },
+    isFactionActionHadschHallas() : boolean {
+      return this.botAction.botFaction === BotFaction.HADSCH_HALLAS
+    },
     scoringFinalTiles() : ScoringFinalTile[] {
       return this.state.setup.scoringFinalTiles ?? []
     },
@@ -113,7 +117,13 @@ export default defineComponent({
         numberedSelectionCount: this.botAction.numberedSelectionCount
       }, false)
       this.advanceResearchAreaRandom = true
-    }  
+    },
+    showBuildMine() {  
+      this.$emit('showBotAction', {
+        action: Action.BUILD_MINE,
+        range: 3
+      }, true)
+    }
   }
 })
 </script>
