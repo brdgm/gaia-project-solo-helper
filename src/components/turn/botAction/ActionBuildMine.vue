@@ -7,8 +7,8 @@
         :scoringFinalTiebreaker="scoringFinalTileTiebreaker != undefined" :range="true" :directionalSelection="true" :terraformingReference="true"/>
   </div>
   <div class="actionCol text-muted small">
-    <button type="button" class="btn btn-outline-secondary btn-sm" @click="showUgrade()">{{t('botAction.buildMine.noMine')}}</button>
-    <ol class="mt-2">
+    <button type="button" class="btn btn-outline-secondary btn-sm mb-2" @click="showUgrade()">{{t('botAction.buildMine.noMine')}}</button>
+    <ol>
       <li v-html="t('botAction.buildMine.validPlanets')"></li>
       <li v-html="t('botAction.buildMine.tiebreaker.title')"></li>
       <ol type="a">

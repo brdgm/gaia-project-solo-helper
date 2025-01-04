@@ -134,7 +134,8 @@
         "researchLabAdvanceResearchAreaRandom": "If upgraded to a research lab:",
         "advanceResearchAreaRandom": "Advance Research Area (random)",
         "tradingStationVP": "After upgrading to a trading station, the Automa gains +3 VP."
-      }
+      },
+      "notPossible": "Upgrade not possible"
     },
     "powerQic": {
       "placeToken": "Place action token on an uncovered Power/Q.I.C. action space.",

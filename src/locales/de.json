@@ -134,7 +134,8 @@
         "researchLabAdvanceResearchAreaRandom": "Wenn in ein Forschungslabor aufgewertet wurde:",
         "advanceResearchAreaRandom": "Aufstieg Forschungsbereich (zufällig)",
         "tradingStationVP": "Nach dem Aufwerten in ein Handelszentrum erhält der Automa +3 SP."
-      }
+      },
+      "notPossible": "Aufwerten nicht möglich"
     },
     "powerQic": {
       "placeToken": "Lege ein Aktionsmarker auf eine offenes Macht-/Q.I.C.-Aktionsfeld.",
