@@ -255,8 +255,8 @@ export default class MapGenerator {
   }
 
   private getRandomInterspaces() : Interspace[] {
-    let interspaces;
-    let adjacents;
+    let interspaces
+    let adjacents
     if (this.playerCount == 2) {
       interspaces = shuffle(LOST_FLEET_INTERSPACE_PLAYER_2)
       adjacents = LOST_FLEET_ADJACENT_INTERSPACES_PLAYER_2
