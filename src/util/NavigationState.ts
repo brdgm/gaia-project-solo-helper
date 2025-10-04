@@ -28,8 +28,8 @@ export default class NavigationState {
     this.playerCount = setup.playerSetup.playerCount
     this.botCount = setup.playerSetup.botCount
 
-    this.round = parseInt(route.params['round'] as string)
-    this.turn = parseInt(route.params['turn'] as string)
+    this.round = Number.parseInt(route.params['round'] as string)
+    this.turn = Number.parseInt(route.params['turn'] as string)
 
     const roundData = this.getRound(this.round)
     this.playerOrder = new PlayerOrder(roundData.turns.slice(0, this.turn), setup.playerSetup.playerCount, setup.playerSetup.botCount)

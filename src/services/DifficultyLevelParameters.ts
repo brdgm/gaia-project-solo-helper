@@ -62,7 +62,9 @@ const items = [
 ]
 
 const itemsMap = new Map<DifficultyLevel,DifficultyLevelParameter>()
-items.forEach(item => itemsMap.set(item.difficultyLevel, item))
+for (const item of items) {
+  itemsMap.set(item.difficultyLevel, item)
+}
 
 export default {
 
