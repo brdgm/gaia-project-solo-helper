@@ -41,7 +41,7 @@ export default class BotActions {
     }
 
     // apply defaults
-    for (const botAction of result.filter(botAction => botAction.action != Action.GAIN_VICTORY_POINTS)) {
+    for (const botAction of result.filter(item => item.action != Action.GAIN_VICTORY_POINTS)) {
       botAction.scoringFinalTiebreaker = botAction.scoringFinalTiebreaker ?? supportCard.scoringFinalTiebreaker
       botAction.range = botAction.range ?? supportCard.range
       botAction.directionalSelection = botAction.directionalSelection ?? supportCard.directionalSelection
