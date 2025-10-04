@@ -41,14 +41,13 @@ export default class BotActions {
     }
 
     // apply defaults
-    result.filter(botAction => botAction.action != Action.GAIN_VICTORY_POINTS)
-      .forEach(botAction => {
-        botAction.scoringFinalTiebreaker = botAction.scoringFinalTiebreaker ?? supportCard.scoringFinalTiebreaker
-        botAction.range = botAction.range ?? supportCard.range
-        botAction.directionalSelection = botAction.directionalSelection ?? supportCard.directionalSelection
-        botAction.numberedSelection = botAction.numberedSelection ?? supportCard.numberedSelection
-        botAction.numberedSelectionCount = botAction.numberedSelectionCount ?? supportCard.numberedSelectionCount
-      })
+    for (const botAction of result.filter(botAction => botAction.action != Action.GAIN_VICTORY_POINTS)) {
+      botAction.scoringFinalTiebreaker = botAction.scoringFinalTiebreaker ?? supportCard.scoringFinalTiebreaker
+      botAction.range = botAction.range ?? supportCard.range
+      botAction.directionalSelection = botAction.directionalSelection ?? supportCard.directionalSelection
+      botAction.numberedSelection = botAction.numberedSelection ?? supportCard.numberedSelection
+      botAction.numberedSelectionCount = botAction.numberedSelectionCount ?? supportCard.numberedSelectionCount
+    }
 
     return result
   }
