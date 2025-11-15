@@ -7,13 +7,18 @@ import Player from './Player'
 export default class PlayerOrder {
 
   private readonly turns : RoundTurn[]
+  private readonly previousRoundTurns : RoundTurn[]
   private readonly allPlayers : Player[]
+  readonly startPlayerOrder : Player[]
 
   private static readonly MAX_RECURSION_DEPTH = 5
 
-  constructor(turns : RoundTurn[], playerCount : number, botCount : number) {
+  constructor(turns : RoundTurn[], previousRoundTurns : RoundTurn[],
+      playerCount : number, botCount : number, variableTurnOrder : boolean) {
     this.turns = turns
-    this.allPlayers = PlayerOrder.getAllPlayers(playerCount, botCount)
+    this.previousRoundTurns = previousRoundTurns
+    this.allPlayers = getAllPlayers(playerCount, botCount)
+    this.startPlayerOrder = getStartPlayerOrder(previousRoundTurns, this.allPlayers, variableTurnOrder)
   }
 
   /**
@@ -27,7 +32,7 @@ export default class PlayerOrder {
     if (this.turns.length > 0) {
       return Player.fromTurn(this.turns[0])
     }
-    return this.allPlayers[0]
+    return this.startPlayerOrder[0]
   }
 
   /**
@@ -45,10 +50,23 @@ export default class PlayerOrder {
   }
 
   /**
-   * Get last turn in this round of given player.
+   * Get last turn in this round of given player (bot).
    */
   public getLastTurn(player : Player) : RoundTurn|undefined {
     const playerTurns = this.turns.filter(item => player.is(item) && item.cardDeck)
+    if (playerTurns.length > 0) {
+      return playerTurns[playerTurns.length - 1]
+    }
+    else {
+      return undefined
+    }
+  }
+
+  /**
+   * Get last turn in previous round of given player (bot).
+   */
+  public getLastTurnPreviousRound(player : Player) : RoundTurn|undefined {
+    const playerTurns = this.previousRoundTurns.filter(item => player.is(item) && item.cardDeck)
     if (playerTurns.length > 0) {
       return playerTurns[playerTurns.length - 1]
     }
@@ -75,13 +93,13 @@ export default class PlayerOrder {
     // get next player or start with first one
     let nextPlayer
     if (lastPlayer) {
-      const lastIndex = this.allPlayers.findIndex(item => item.is(lastPlayer))
-      if (lastIndex < this.allPlayers.length - 1) {
-        nextPlayer = this.allPlayers[lastIndex + 1]
+      const lastIndex = this.startPlayerOrder.findIndex(item => item.is(lastPlayer))
+      if (lastIndex < this.startPlayerOrder.length - 1) {
+        nextPlayer = this.startPlayerOrder[lastIndex + 1]
       }
     }
     if (!nextPlayer) {
-      nextPlayer = this.allPlayers[0]
+      nextPlayer = this.startPlayerOrder[0]
     }
 
     // use next player if current next has already passed
@@ -96,15 +114,39 @@ export default class PlayerOrder {
     return this.turns.find(item => player.is(item) && item.pass) != undefined
   }
 
-  private static getAllPlayers(playerCount : number, botCount : number) : Player[] {
-    const result : Player[] = []
-    for (let player=1; player<=playerCount; player++) {
-      result.push(Player.player(player))
-    }
-    for (let bot=1; bot<=botCount; bot++) {
-      result.push(Player.bot(bot))
-    }
-    return result
-  }
+}
 
+function getAllPlayers(playerCount : number, botCount : number) : Player[] {
+  const result : Player[] = []
+  for (let player=1; player<=playerCount; player++) {
+    result.push(Player.player(player))
+  }
+  for (let bot=1; bot<=botCount; bot++) {
+    result.push(Player.bot(bot))
+  }
+  return result
+}
+
+function getStartPlayerOrder(previousRoundTurns : RoundTurn[], allPlayers : Player[], variableTurnOrder : boolean) : Player[] {
+  const playerOrder : Player[] = []
+  const passingOrder = previousRoundTurns.filter(item => item.pass).map(item => Player.fromTurn(item))
+  if (variableTurnOrder) {
+    // variable turn order = use passing order from previous round. fallback to initial player order.
+    playerOrder.push(...passingOrder)
+    for (const player of allPlayers) {
+      if (!playerOrder.find(item => item.is(player))) {
+        playerOrder.push(player)
+      }
+    }
+  }
+  else {
+    // first passing player from previous round is start player, then clockwise player order
+    const firstPlayer = passingOrder[0] ?? allPlayers[0]
+    const firstPlayerIndex = allPlayers.findIndex(item => item.is(firstPlayer))
+    for (let i=0; i<allPlayers.length; i++) {
+      const index = (firstPlayerIndex + i) % allPlayers.length
+      playerOrder.push(allPlayers[index])
+    }
+  }
+  return playerOrder
 }
