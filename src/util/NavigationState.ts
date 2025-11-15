@@ -7,6 +7,7 @@ import { RouteLocation } from 'vue-router'
 import CardDeck from '@/services/CardDeck'
 import Player from '@/services/Player'
 import getDifficultyLevel from './getDifficultyLevel'
+import Expansion from '@/services/enum/Expansion'
 
 export default class NavigationState {
 
@@ -32,7 +33,10 @@ export default class NavigationState {
     this.turn = Number.parseInt(route.params['turn'] as string)
 
     const roundData = this.getRound(this.round)
-    this.playerOrder = new PlayerOrder(roundData.turns.slice(0, this.turn), setup.playerSetup.playerCount, setup.playerSetup.botCount)
+    const previousRoundData = this.getRound(this.round-1)
+    const variableTurnOrder = setup.expansions.includes(Expansion.VARIABLE_TURN_ORDER)
+    this.playerOrder = new PlayerOrder(roundData.turns.slice(0, this.turn), previousRoundData.turns,
+        setup.playerSetup.playerCount, setup.playerSetup.botCount, variableTurnOrder)
     this.anyonePassed = this.playerOrder.hasAnyonePassed()
 
     this.roundTurn = cloneDeep(this.getRoundTurn(roundData, this.turn))
@@ -65,28 +69,10 @@ export default class NavigationState {
   }
 
   private createNextRoundTurn(round : number, turn : number) : RoundTurn|undefined {
-    let nextPlayer
     let startPlayer = false
-    // if this is 1st turn detect start player for new game, or from previous round
-    if (turn == 1) {
-      if (round == 1) {
-        nextPlayer = this.playerOrder.getStartPlayer()
-      }
-      else {
-        const previousRound = this.state.rounds[round-2]
-        if (previousRound) {
-          const playerOrderPreviousRound = new PlayerOrder(previousRound.turns, this.playerCount, this.botCount)
-          nextPlayer = playerOrderPreviousRound.getStartPlayer()
-        }
-      }
-      startPlayer = true
-    }
-    if (!nextPlayer) {
-      // otherwise get next player in player order that did not pass
-      nextPlayer = this.playerOrder.getNextPlayer()
-    }
+    const nextPlayer = this.playerOrder.getNextPlayer()
     if (nextPlayer) {
-      startPlayer = startPlayer || this.playerOrder.getStartPlayer().is(nextPlayer)
+      startPlayer = this.playerOrder.getStartPlayer().is(nextPlayer)
       const turnData : RoundTurn = { round : round, turn : turn, player : nextPlayer.player, bot : nextPlayer.bot }
       if (startPlayer) {
         turnData.startPlayer = startPlayer
@@ -122,8 +108,7 @@ export default class NavigationState {
     if (round > 1) {
       const previousRound = this.state.rounds[round-2]
       if (previousRound) {
-        const playerOrderPreviousRound = new PlayerOrder(previousRound.turns, this.playerCount, this.botCount)
-        turnData = playerOrderPreviousRound.getLastTurn(player)
+        turnData = this.playerOrder.getLastTurnPreviousRound(player)
         if (turnData?.cardDeck) {
           cardDeck = CardDeck.fromPersistence(turnData.cardDeck)
           cardDeck.prepareForNextRound()
