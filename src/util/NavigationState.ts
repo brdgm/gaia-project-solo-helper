@@ -6,6 +6,7 @@ import { Round, RoundTurn, useStateStore } from '@/store/state'
 import { RouteLocation } from 'vue-router'
 import CardDeck from '@/services/CardDeck'
 import Player from '@/services/Player'
+import getDifficultyLevel from './getDifficultyLevel'
 
 export default class NavigationState {
 
@@ -24,7 +25,6 @@ export default class NavigationState {
   constructor(route : RouteLocation) {    
     this.state = useStateStore()
     const setup = this.state.setup
-    this.difficultyLevel = setup.difficultyLevel
     this.playerCount = setup.playerSetup.playerCount
     this.botCount = setup.playerSetup.botCount
 
@@ -42,6 +42,7 @@ export default class NavigationState {
     if (this.roundTurn?.cardDeck) {
       this.cardDeck = CardDeck.fromPersistence(this.roundTurn?.cardDeck)
     }
+    this.difficultyLevel = getDifficultyLevel(setup, this.roundTurn?.bot ?? 1)
   }
 
   private getRound(round : number) : Round {
@@ -133,7 +134,7 @@ export default class NavigationState {
     }
 
     // prepare new card deck
-    cardDeck = CardDeck.new(this.state.setup.difficultyLevel)
+    cardDeck = CardDeck.new(getDifficultyLevel(this.state.setup, player.bot ?? 1))
     cardDeck.draw()
     return cardDeck
   }
