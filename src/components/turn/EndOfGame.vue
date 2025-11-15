@@ -7,11 +7,14 @@
     <li v-html="t('endOfGame.researchScoring')"></li>
     <li v-html="t('endOfGame.resourceScoring')"></li>
   </ol>
-  <p>
-    <i>{{t('setup.difficultyLevel.title')}}:</i>&nbsp;
-    <img src="@/assets/icons/difficulty-level.png" class="difficultyLevelIcon" v-for="level in difficultyLevel" :key="level" alt=""/>
-    &nbsp;<i>{{t(`difficultyLevel.${difficultyLevel}`)}}</i>
-  </p>
+  <p class="fst-italic">{{t('setup.difficultyLevel.title')}}:</p>
+  <ul>
+    <li v-for="bot in botCount" :key="bot" class="fst-italic">
+      {{t('botFaction.' + getBotFaction(bot))}}:
+      <img src="@/assets/icons/difficulty-level.png" class="difficultyLevelIcon" v-for="level in getDifficultyLevel(state.setup, bot)" :key="level" alt=""/>
+      &nbsp;{{t(`difficultyLevel.${getDifficultyLevel(state.setup, bot)}`)}}
+    </li>
+  </ul>
 </template>
 
 <script lang="ts">
@@ -19,7 +22,8 @@ import { useStateStore } from '@/store/state'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
-import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import getDifficultyLevel from '@/util/getDifficultyLevel'
+import BotFaction from '@/services/enum/BotFaction'
 
 export default defineComponent({
   name: 'EndOfGame',
@@ -38,8 +42,14 @@ export default defineComponent({
     isScoringFinalTileFederationStructures() : boolean {
       return (this.state.setup.scoringFinalTiles ?? []).includes(ScoringFinalTile.FEDERATION_STRUCTURES)
     },
-    difficultyLevel() : DifficultyLevel {
-      return this.state.setup.difficultyLevel
+    botCount() : number {
+      return this.state.setup.playerSetup.botCount
+    }
+  },
+  methods: {
+    getDifficultyLevel,
+    getBotFaction(bot: number) : BotFaction {
+      return this.state.setup.playerSetup.botFaction[bot - 1] ?? BotFaction.TAKLONS
     }
   }
 })

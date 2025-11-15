@@ -64,7 +64,8 @@ export interface State {
   rounds: Round[]
 }
 export interface Setup {
-  difficultyLevel: DifficultyLevel
+  difficultyLevel?: DifficultyLevel  // for backward-compatibility
+  difficultyLevels?: DifficultyLevel[]  // difficulty level per bot
   expansions: Expansion[]
   playerSetup: PlayerSetup
   scoringRoundTiles?: ScoringRoundTile[]
