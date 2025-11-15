@@ -55,7 +55,7 @@ export default class PlayerOrder {
   public getLastTurn(player : Player) : RoundTurn|undefined {
     const playerTurns = this.turns.filter(item => player.is(item) && item.cardDeck)
     if (playerTurns.length > 0) {
-      return playerTurns[playerTurns.length - 1]
+      return playerTurns.at(-1)
     }
     else {
       return undefined
@@ -68,7 +68,7 @@ export default class PlayerOrder {
   public getLastTurnPreviousRound(player : Player) : RoundTurn|undefined {
     const playerTurns = this.previousRoundTurns.filter(item => player.is(item) && item.cardDeck)
     if (playerTurns.length > 0) {
-      return playerTurns[playerTurns.length - 1]
+      return playerTurns.at(-1)
     }
     else {
       return undefined
@@ -134,7 +134,7 @@ function getStartPlayerOrder(previousRoundTurns : RoundTurn[], allPlayers : Play
     // variable turn order = use passing order from previous round. fallback to initial player order.
     playerOrder.push(...passingOrder)
     for (const player of allPlayers) {
-      if (!playerOrder.find(item => item.is(player))) {
+      if (!playerOrder.some(item => item.is(player))) {
         playerOrder.push(player)
       }
     }
