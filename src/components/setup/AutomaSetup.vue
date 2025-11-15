@@ -2,7 +2,6 @@
   <ul>
     <li v-html="t('setupGameAutoma.structures')"></li>
     <li v-html="t('setupGameAutoma.playerTokens')"></li>
-    <li v-html="t('setupGameAutoma.startVP', {count:botStartVP})"></li>
     <li v-html="t('setupGameAutoma.satellites')"></li>
     <ul v-if="isScoringFinalTileFederationStructures">
       <li v-html="t('endOfGame.scoringFinalTileFederationStructures')"></li>
@@ -14,6 +13,7 @@
       <AppIcon type="faction" :name="faction" class="factionIcon"/>
       <span class="fw-bold" v-html="t(`botFaction.${faction}`)"></span>
       <ul>
+        <li v-html="t('setupGameAutoma.startVP', {count:getBotStartVP(index + 1)})"></li>
         <li v-if="hasResearchAreaBonus(faction)">
           <span v-html="t('setupGameAutoma.bonus')"></span>
           <AppIcon type="faction-setup-bonus" :name="faction" class="bonusIcon"/>
@@ -41,6 +41,7 @@ import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import DirectionalSelection from '@/services/enum/DirectionalSelection'
 import Expansion from '@/services/enum/Expansion'
 import ScoringFinalTile from '@/services/enum/ScoringFinalTile'
+import getDifficultyLevel from '@/util/getDifficultyLevel'
 
 export default defineComponent({
   name: 'AutomaSetup',
@@ -65,23 +66,6 @@ export default defineComponent({
     },
     botFactions() : BotFaction[] {
       return this.state.setup.playerSetup.botFaction.toReversed()
-    },
-    botStartVP() : number {
-      if (this.hasLostFleet) {
-        if (this.state.setup.difficultyLevel == DifficultyLevel.AUTOMA) {
-          return 15
-        }
-        else if (this.state.setup.difficultyLevel == DifficultyLevel.AUTOMAECHTIG) {
-          return 20
-        }
-        else if (this.state.setup.difficultyLevel == DifficultyLevel.ULTOMA) {
-          return 25
-        }
-      }
-      if (this.state.setup.difficultyLevel == DifficultyLevel.AUTOMALEIN) {
-        return 0
-      }
-      return 10
     },
     botFactionRoundBoosterIndex() : number[] {
       return rollDiceMultiDifferentValue(this.roundBoosterCount, this.botFactions.length)
@@ -108,6 +92,24 @@ export default defineComponent({
     },
     randomDirectionalSelection() : DirectionalSelection {
       return randomEnum(DirectionalSelection)
+    },
+    getBotStartVP(bot : number) : number {
+      const difficultyLevel = getDifficultyLevel(this.state.setup, bot)
+      if (this.hasLostFleet) {
+        if (difficultyLevel == DifficultyLevel.AUTOMA) {
+          return 15
+        }
+        else if (difficultyLevel == DifficultyLevel.AUTOMAECHTIG) {
+          return 20
+        }
+        else if (difficultyLevel == DifficultyLevel.ULTOMA) {
+          return 25
+        }
+      }
+      if (difficultyLevel == DifficultyLevel.AUTOMALEIN) {
+        return 0
+      }
+      return 10
     }
   }
 })
