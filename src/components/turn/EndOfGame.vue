@@ -15,8 +15,6 @@
       &nbsp;{{t(`difficultyLevel.${getDifficultyLevel(state.setup, bot)}`)}}
     </li>
   </ul>
-  <p>
-  </p>
 </template>
 
 <script lang="ts">
