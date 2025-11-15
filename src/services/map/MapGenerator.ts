@@ -63,7 +63,9 @@ export default class MapGenerator {
       else {
         this._spaceSectors.value = INITIAL_SETUP_PLAYER_2
       }
-      this._spaceSectors.value.forEach(sector => sector.reset())
+      for (const sector of this._spaceSectors.value) {
+        sector.reset()
+      }
       this._deepSpaceSectors.value = []
       this._interspaces.value = []
     }
@@ -71,7 +73,9 @@ export default class MapGenerator {
 
   randomize() : void {
     this._spaceSectors.value = shuffle(this._spaceSectors.value)
-    this._spaceSectors.value.forEach(sector => sector.randomizeRotation())
+    for (const sector of this._spaceSectors.value) {
+      sector.randomizeRotation()
+    }
     if (this.hasLostFleet) {
       this._deepSpaceSectors.value = this.getRandomDeepSpaceSectors()
       this._interspaces.value = this.getRandomInterspaces()
@@ -250,13 +254,15 @@ export default class MapGenerator {
 
   private getRandomDeepSpaceSectors() : DeepSpaceSector[] {
     const sectors = shuffle(this.playerCount == 2 ? LOST_FLEET_DEEP_SPACE_SECTORS_PLAYER_2 : LOST_FLEET_DEEP_SPACE_SECTORS_PLAYER_34)
-    sectors.forEach(sector => sector.randomizeRotationFlip())
+    for (const sector of sectors) {
+      sector.randomizeRotationFlip()
+    }
     return sectors
   }
 
   private getRandomInterspaces() : Interspace[] {
-    let interspaces;
-    let adjacents;
+    let interspaces
+    let adjacents
     if (this.playerCount == 2) {
       interspaces = shuffle(LOST_FLEET_INTERSPACE_PLAYER_2)
       adjacents = LOST_FLEET_ADJACENT_INTERSPACES_PLAYER_2

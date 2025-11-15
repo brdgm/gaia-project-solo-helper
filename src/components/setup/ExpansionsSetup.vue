@@ -3,10 +3,10 @@
 
   <div class="row">
     <div class="col">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="expansionFireAndIce" :checked="hasLostFleet" @input="toggleLostFleet">
-        <label class="form-check-label" for="expansionFireAndIce">
-          {{t('expansion.lost-fleet')}}
+      <div class="form-check form-switch" v-for="expansion of expansions" :key="expansion">
+        <input class="form-check-input" type="checkbox" :id="`expansion-${expansion}`" :checked="hasExpansion(expansion)" @input="toggleExpansion(expansion)">
+        <label class="form-check-label" :for="`expansion-${expansion}`">
+          {{t(`expansion.${expansion}`)}}
         </label>
       </div>
     </div>
@@ -19,6 +19,7 @@ import { useI18n } from 'vue-i18n'
 import { useStateStore } from '@/store/state'
 import Expansion from '@/services/enum/Expansion'
 import toggleArrayItem from '@brdgm/brdgm-commons/src/util/array/toggleArrayItem'
+import getAllEnumValues from '@brdgm/brdgm-commons/src/util/enum/getAllEnumValues'
 
 export default defineComponent({
   name: 'ExpansionsSetup',
@@ -28,13 +29,16 @@ export default defineComponent({
     return { t, state }
   },
   computed: {
-    hasLostFleet() : boolean {
-      return this.state.setup.expansions.includes(Expansion.LOST_FLEET)
+    expansions() : Expansion[] {
+      return getAllEnumValues(Expansion)
     }
   },
   methods: {
-    toggleLostFleet() {
-      toggleArrayItem(this.state.setup.expansions, Expansion.LOST_FLEET)
+    hasExpansion(expansion: Expansion) : boolean {
+      return this.state.setup.expansions.includes(expansion)
+    },
+    toggleExpansion(expansion: Expansion) {
+      toggleArrayItem(this.state.setup.expansions, expansion)
     }
   }
 })
