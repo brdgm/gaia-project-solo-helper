@@ -195,7 +195,8 @@
     "5": "Alptrauma"
   },
   "expansion": {
-    "lost-fleet": "Die verlorene Flotte"
+    "lost-fleet": "Die verlorene Flotte",
+    "variable-turn-order": "Zugreihenfolge durch Passen"
   },
   "botFaction": {
     "terrans": "Terraner",
