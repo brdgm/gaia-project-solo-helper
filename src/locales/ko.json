@@ -1,0 +1,240 @@
+{
+  "gameTitle": "가이아 프로젝트",
+  "home": {
+    "title": "가이아 프로젝트 솔로 도우미",
+    "play1": "<a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>가이아 프로젝트</b></a>의 오토마 솔로 모드를 플레이하세요.",
+    "play2": "이 도우미 앱은 오토마 카드를 대체하고 솔로 규칙을 안내합니다. 최대 3개의 오토마와 플레이할 수 있습니다.",
+    "play3": "확장판 <i>잃어버린 함대</i>를 지원합니다. 게임 보드 설정과 우주 구역 배치를 위한 랜덤 생성기를 제공합니다.",
+    "feedback": "토론 및 피드백:"
+  },
+  "setup": {
+    "title": "게임 설정",
+    "players": {
+      "title": "플레이어",
+      "playerCount": "인간 플레이어",
+      "playerCountItem": "플레이어 {count}명 | 플레이어 {count}명",
+      "botCount": "오토마",
+      "botCountItem": "오토마 {count}개 | 오토마 {count}개 (실험적)",
+      "botFaction": "오토마 종족 | 오토마 {bot} 종족"
+    },
+    "difficultyLevel": {
+      "title": "난이도",
+      "easy": "쉬움",
+      "hard": "어려움"
+    },
+    "expansions": {
+      "title": "확장판"
+    }
+  }, 
+  "setupTiles": {
+    "title": "게임 보드 설정",
+    "intro": "다음 변경사항과 함께 평소대로 게임을 설정하세요:",
+    "gameBoard": "{playerCount}명 플레이어용 게임 보드를 설정합니다. 보드의 공간이 가로 행을 형성하도록 전체 보드를 회전시키세요.",
+    "federationTokens": "연합 토큰: 각 유형별로 2개의 연합 토큰을 공급품으로 준비합니다. 연구 보드에 무작위로 하나를 배치하세요.",
+    "scoringRoundTiles": "라운드 점수 타일",
+    "scoringFinalTiles": "최종 점수 타일",
+    "roundBooster": "라운드 부스터 {count}개를 무작위로 선택하세요.",
+    "select": "선택",
+    "available": "사용 가능:",
+    "selected": "선택됨:",
+    "none": "(없음)",
+    "map": "맵 랜덤 생성기",
+    "tileRandomizer": {
+      "title": "라운드 부스터와 연구 보드",
+      "notice": "라운드 부스터와 연구 보드 타일의 실제 선택은 앱과 관련이 없습니다.",
+      "roundBoosters": "라운드 부스터",
+      "researchBoard": "연구 보드"
+    }
+  },
+  "mapRandomizer": {
+    "invalidMap": "이 맵은 유효하지 않습니다.",
+    "externalMapGenerator": "또는 더 많은 옵션이 있는 <a href='https://boardgamehelpers.com/GaiaProject/' target='_blank' rel='noopener'>외부 맵 생성기</a>를 사용할 수 있습니다."
+  },
+  "setupGameAutoma": {
+    "title": "오토마 설정",
+    "structures": "오토마의 모든 구조물과 함께 오토마 공급품을 준비하세요.",
+    "playerTokens": "승점 트랙과 연구 영역에 플레이어 토큰을 배치하세요.",
+    "startVP": "오토마는 <b>승점 {count}점</b>으로 게임을 시작합니다.",
+    "satellites": "점수 보드의 각 \"0\" 공간에 위성을 하나씩 배치하세요.",
+    "explorationShuttle": "<i>잃어버린 함대</i>: 탐사된 우주선(행동면이 위를 향하는 우주선 타일)에 탐사 셔틀을 하나 배치하세요.",
+    "bonus": "설정 보너스:",
+    "initialMinePlacement": "오토마의 고향 타입 행성에 광산 <b>{count}개</b>를 배치하세요 (중앙 공간에 가장 가까운 곳).",
+    "roundBooster": "라운드 부스터 <b>#{index}</b>을 가져가세요",
+    "neutralPlayer": "<b>중립 플레이어</b>: 사용하지 않은 색깔의 위성 2개를 가져와서 최종 점수 타일 옆의 각 순위 트랙에 하나씩 배치하세요. 각 최종 점수 타일의 숫자가 해당 순위 트랙에서 위성의 위치를 결정합니다."
+  },
+  "income": {
+    "title": "수입",
+    "turnInfo": "라운드 {round}",
+    "collect": "수입: 광석, 지식, 크레딧, 파워를 획득하세요.",
+    "gaia": "가이아: 가이아 영역에서 파워 토큰을 가져오고, 가이아포머로 트랜스딤 행성을 변환하세요."
+  },
+  "roundTurn": {
+    "turnInfo": "라운드 {round}, 턴 {turn}",
+    "titlePlayer": "플레이어 | 플레이어 {player}",
+    "titleBot": "오토마: {faction} | 오토마 {bot}: {faction}",
+    "alptraumaNotice": "<b>알프트라우마</b>: 오토마는 승점을 얻을 때마다 추가로 1 승점을 얻습니다."
+  },
+  "playerTurn": {
+    "text": "턴을 진행하거나 패스하세요.",
+    "passConfirm": "패스하시겠습니까?",
+    "passInfo": "라운드 부스터 승점을 획득하고 (있는 경우) 새로운 라운드 부스터를 가져가세요.",
+    "passInfoRound6": "라운드 보너스 승점을 획득하고 (있는 경우), 새로운 라운드 부스터는 가져가지 <b>마세요</b>."
+  },
+  "botAction": {
+    "gainVictoryPoints": {
+      "text": "오토마가 승점 {count}점을 획득합니다. | 오토마가 승점 {count}점을 획득합니다."
+    },
+    "buildMine": {
+      "noMine": "광산이 남아있지 않음",
+      "validPlanets": "유효한 행성: 빈 행성, 범위 내 (트랜스딤 행성 포함).",
+      "tiebreaker": {
+        "title": "동점 처리:",
+        "faction": {
+          "terrans": "트랜스딤 행성.",
+          "taklons": "당신의 행성 중 하나와의 최단 거리."
+        },
+        "finalScoring": "최종 점수",
+        "scoringFinalTile": {
+          "gaia-planets": "가이아 또는 트랜스딤 행성.",
+          "planet-types": "오토마가 아직 식민지를 건설하지 않은 타입의 행성.",
+          "space-sector-tiles": "오토마 행성이 없는 구역의 행성.",
+          "lost-fleet-asteroid": "i) 소행성 행성<br/>ii) 식민지가 없는 소행성에 가장 가까운 행성.",
+          "lost-fleet-deep-space": "i) 오토마가 아직 식민지 행성을 가지지 않은 딥 스페이스 구역의 행성.<br/>ii) 오토마가 아직 식민지 행성을 가지지 않은 딥 스페이스 구역에서 식민지가 없는 행성에 가장 가까운 행성."
+        },
+        "fewestTerraformingSteps": "가장 적은 지형 변환 단계.",
+        "closestToYourPlanet": "당신의 행성에 가장 가까운 곳.",
+        "directionalSelection": "방향별 선택."
+      },
+      "execute": {
+        "title": "실행:",
+        "placeMine": "광산 배치",
+        "placeSatellite": "새로운 광산이 다른 오토마 구조물에 인접하지 않은 경우, 새로운 광산에 인접하게 <b>위성</b>을 배치하세요.",
+        "planetTypeVP": "이 광산이 해당 행성 타입에서 오토마의 첫 번째 광산인 경우, +2 승점을 획득합니다."
+      }
+    },
+    "upgrade": {
+      "choose": {
+        "title": "우선순위에 따라 구조물을 선택하세요:",
+        "planetaryInstitute": "행성 연구소 (교역소에서)",
+        "tradingStation": "교역소 (광산에서)",
+        "tradingStationScoringFinalLostFleetDistance": "<b>최종 점수</b>: 오토마가 이미 행성 연구소를 건설했지만 아직 아카데미를 하나도 건설하지 않은 경우, 행성 연구소에서 가장 먼 광산을 선택하세요.",
+        "academy": "아카데미 (연구소에서)",
+        "researchLab": "연구소 (교역소에서)",
+        "downgradeResearchLab": "교역소 (연구소에서 다운그레이드)",
+        "researchLabScoringFinalLostFleetDistance": "<b>최종 점수</b>: 행성 연구소에서 가장 먼 교역소를 선택하세요."
+      },
+      "tiebreaker": {
+        "title": "동점 처리:",
+        "closest": "당신의 행성에 가장 가까운 것.",
+        "directionalSelection": "방향별 선택."
+      },
+      "execute": {
+        "title": "실행:",
+        "upgrade": "구조물 업그레이드.",
+        "researchLabAdvanceResearchAreaRandom": "연구소로 업그레이드한 경우:",
+        "advanceResearchAreaRandom": "연구 영역 진행 (무작위)",
+        "tradingStationVP": "교역소로 업그레이드한 후, 오토마는 +3 승점을 획득합니다."
+      },
+      "notPossible": "업그레이드 불가능"
+    },
+    "powerQic": {
+      "placeToken": "덮여있지 않은 파워/Q.I.C. 행동 공간에 행동 토큰을 배치하세요.",
+      "numberedSelection": "번호별 선택.",
+      "executeTwice": "이 행동을 두 번 실행하세요.",
+      "lostFleetPlaceToken": {
+        "title": "덮여있지 않은 행동 공간에 행동 토큰을 배치하세요:",
+        "power": "연구 보드의 파워 행동.",
+        "spaceshipFaceDown": "우주선면이 위를 향하는 오토마 우주선 타일.",
+        "spaceshipFaceUp": "오토마 우주선 타일의 행동면에 있는 공간."
+      },
+      "lostFleetSpaceship": {
+        "title": "오토마 우주선 타일에 배치한 경우",
+        "faceDown": "행동이 오토마 우주선 타일의 우주선면인 경우, 해당 우주선에 탐사 셔틀 1개를 배치하고 오토마 우주선 타일을 행동면으로 뒤집으세요. 이 라운드에 이미 사용한 행동 공간에 해당하는 모든 공간을 파워 토큰으로 표시하세요.",
+        "faceUp": "행동이 오토마 우주선 타일의 행동면에 있는 공간인 경우, 파워 토큰으로 덮으세요. 같은 우주선 타일에서 그 왼쪽에 인접한 공간이 있고 아직 비어있다면, 그 공간에도 파워 토큰을 배치하세요. 그런 다음 우주선의 해당 행동에 행동 마커를 배치하세요."
+      }
+    },
+    "researchArea": {
+      "validResearchArea": "유효: 오토마가 진행할 수 있거나 고급 기술 타일이 사용 가능한 모든 연구 영역.",
+      "tiebreaker": {
+        "title": "동점 처리:",
+        "highest": "<b>가장 높은</b> 연구 레벨.",
+        "specific": "<b>{researchArea}</b> 연구 영역 우선.",
+        "numberedSelection": "번호별 선택."
+      },
+      "execute": {
+        "title": "실행:",
+        "techTile": "레벨 4이고 고급 기술 타일이 있는 경우, 타일을 제거하세요.",
+        "advance": "그렇지 않으면: 1레벨 진행."
+      }
+    }
+  },
+  "botPass": {
+    "title": "오토마가 <i>패스</i>합니다.",
+    "scoringTile": "오토마가 승점을 얻습니다:",
+    "roundBoosterTake": "오토마가 라운드 부스터를 가져갑니다:",
+    "roundBoosterReturn": "기존 라운드 부스터를 다른 부스터들의 오른쪽에 배치하세요."
+  },
+  "endOfRound": {
+    "title": "라운드 종료",
+    "turnInfo": "라운드 {round}",
+    "returnActionTokens": "행동 토큰을 돌려놓으세요.",
+    "removeScoringTile": "이번 라운드의 라운드 점수 타일을 제거하세요."
+  },
+  "endOfGame": {
+    "title": "게임 종료",
+    "scoringFinalTileScoring": "오토마가 <b>최종 점수 타일</b>에서 승점을 획득합니다.",
+    "scoringFinalTileFederationStructures": "\"연합에 속한 구조물 수가 가장 많은\" 최종 점수 타일의 경우, 오토마의 총 구조물 수를 세고 1을 빼서 연합에 속한 구조물 수를 결정하세요.",
+    "researchScoring": "오토마가 <b>연구 점수</b>에서 승점을 획득합니다.",
+    "resourceScoring": "오토마는 자원 점수에서 점수를 얻지 않습니다."
+  },
+  "difficultyLevel": {
+    "1": "오토마라인",
+    "2": "오토마",
+    "3": "오토매히티히",
+    "4": "울토마",
+    "5": "알프트라우마"
+  },
+  "expansion": {
+    "lost-fleet": "잃어버린 함대",
+    "variable-turn-order": "가변 턴 순서"
+  },
+  "botFaction": {
+    "terrans": "테란",
+    "xenos": "제노스",
+    "taklons": "탁론",
+    "hadsch-hallas": "하드쉬 할라스",
+    "geodens": "지오덴",
+    "firaks": "피락",
+    "itars": "이타르"
+  },
+  "researchArea": {
+    "gaia-project": "가이아 프로젝트"
+  },
+  "notfound": {
+    "title": "찾을 수 없음"
+  },
+  "action": {
+    "playGame": "게임 플레이",
+    "startGame": "게임 시작",
+    "next": "다음",
+    "nextRound": "다음 라운드",
+    "abortGame": "게임 중단",
+    "abortGameConfirm": "실행 중인 게임을 중단합니다 - 확실합니까?",
+    "endGame": "게임 종료",
+    "endGameConfirm": "이 게임을 종료하고 홈 화면으로 돌아갑니다 - 확실합니까?",
+    "cancel": "취소",
+    "backToHome": "홈으로 돌아가기",
+    "back": "뒤로",
+    "close": "닫기",
+    "reset": "재설정",
+    "pass": "패스",
+    "randomize": "랜덤화"
+  },
+  "footer": {
+    "credits": "크레딧"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "앱 새로고침",
+    "notice": "앱이 업데이트되었습니다 - 최신 버전을 사용하기 위해 새로고침하시겠습니까?"
+  }
+}
