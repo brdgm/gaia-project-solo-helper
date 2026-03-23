@@ -201,11 +201,11 @@
   "botFaction": {
     "terrans": "테란",
     "xenos": "제노스",
-    "taklons": "탁론",
-    "hadsch-hallas": "하드쉬 할라스",
-    "geodens": "지오덴",
-    "firaks": "피락",
-    "itars": "이타르"
+    "taklons": "타클론",
+    "hadsch-hallas": "하드쉬 할라",
+    "geodens": "기오덴",
+    "firaks": "파이락",
+    "itars": "아이타"
   },
   "researchArea": {
     "gaia-project": "가이아 프로젝트"
