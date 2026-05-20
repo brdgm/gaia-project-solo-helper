@@ -1,0 +1,240 @@
+{
+  "gameTitle": "盖亚计划",
+  "home": {
+    "title": "盖亚计划 Solo 助手",
+    "play1": "游玩<a href='https://boardgamegeek.com/boardgame/220308/gaia-project' target='_blank' rel='noopener'><b>盖亚计划</b></a>的 Automa 单人模式。",
+    "play2": "此助手应用程序替代了 Automa 卡牌，并引导您完成单人规则。您最多可以与 3 名 Automa 对战。",
+    "play3": "支持扩展《失落的舰队》（The Lost Fleet）。本应用程序提供游戏版图和太空星域的随机设置功能。",
+    "feedback": "讨论与反馈："
+  },
+  "setup": {
+    "title": "游戏设置",
+    "players": {
+      "title": "玩家",
+      "playerCount": "人类玩家",
+      "playerCountItem": "{count} 名玩家 | {count} 名玩家",
+      "botCount": "Automa",
+      "botCountItem": "{count} 名 Automa | {count} 名 Automa (实验性)",
+      "botFaction": "Automa 种族 | Automa {bot} 种族"
+    },
+    "difficultyLevel": {
+      "title": "难度等级",
+      "easy": "简单",
+      "hard": "困难"
+    },
+    "expansions": {
+      "title": "扩展"
+    }
+  }, 
+  "setupTiles": {
+    "title": "设置游戏版图",
+    "intro": "按常规设置游戏，但进行以下修改：",
+    "gameBoard": "按照 {playerCount} 名玩家的规则设置游戏版图。旋转整个版图，使版图的格子形成水平行。",
+    "federationTokens": "联邦标记：每种联邦标记提供2个作为供应堆。在开发面板上随机放置1个。",
+    "scoringRoundTiles": "回合计分板",
+    "scoringFinalTiles": "终局计分板",
+    "roundBooster": "随机选择 {count} 个回合助推板。",
+    "select": "选择",
+    "available": "可选：",
+    "selected": "已选：",
+    "none": "(无)",
+    "map": "地图随机生成器",
+    "tileRandomizer": {
+      "title": "回合助推板与开发面板",
+      "notice": "实际上选择哪些回合助推板和开发面板上的板块与本程序无关。",
+      "roundBoosters": "回合助推板",
+      "researchBoard": "开发面板"
+    }
+  },
+  "mapRandomizer": {
+    "invalidMap": "此地图无效。",
+    "externalMapGenerator": "或者，您可以使用带有更多选项的<a href='https://boardgamehelpers.com/GaiaProject/' target='_blank' rel='noopener'>外部地图生成器</a>。"
+  },
+  "setupGameAutoma": {
+    "title": "Automa 设置",
+    "structures": "准备包含其所有建筑的 Automa 供应堆。",
+    "playerTokens": "在分数（VP）轨道和研究领域上放置玩家标记。",
+    "startVP": "Automa 游戏开始时拥有 <b>{count} 分（VP）</b>。",
+    "satellites": "在计分板的每个“0”位置上放置一个卫星。",
+    "explorationShuttle": "<i>《失落的舰队》</i>：将一艘探索太空梭放置在已探索的飞船上（飞船板块行动面朝上）。",
+    "bonus": "设置奖励：",
+    "initialMinePlacement": "在 Automa 的母星类型（最靠近中心格）上放置 <b>{count}</b> 个矿场。",
+    "roundBooster": "拿取 <b>#{index}</b> 号回合助推板",
+    "neutralPlayer": "<b>中立玩家</b>：拿取两个未使用颜色的卫星，并将它们分别放置在终局计分板旁边的排名轨道上；终局计分板上的数字决定了该卫星在轨道上的位置。"
+  },
+  "income": {
+    "title": "收入",
+    "turnInfo": "第 {round} 回合",
+    "collect": "收入阶段：获得矿石、知识、星币和能量。",
+    "gaia": "盖亚阶段：从盖亚区移出能量标记，使用盖亚计划机转化超维度星球（紫星）。"
+  },
+  "roundTurn": {
+    "turnInfo": "第 {round} 回合，第 {turn} 轮",
+    "titlePlayer": "玩家 | 玩家 {player}",
+    "titleBot": "Automa：{faction} | Automa {bot}：{faction}",
+    "alptraumaNotice": "<b>Alptrauma（梦魇难度）</b>：Automa 每次获得任何分数（VP）时，额外获得 1 分。"
+  },
+  "playerTurn": {
+    "text": "请执行你的回合行动 - 或者跳过（Pass）。",
+    "passConfirm": "你确定要跳过（Pass）吗？",
+    "passInfo": "获得你的回合助推板分数（如果有），并拿取一块新的回合助推板。",
+    "passInfoRound6": "获得你的回合奖励分数（如果有），<b>不要</b>拿取新的回合助推板。"
+  },
+  "botAction": {
+    "gainVictoryPoints": {
+      "text": "Automa 获得 {count} 分（VP）。 | Automa 获得 {count} 分（VP）。"
+    },
+    "buildMine": {
+      "noMine": "没有剩余的矿产基地",
+      "validPlanets": "合法星球：空的，在航程范围内（包括超维星球）。",
+      "tiebreaker": {
+        "title": "平局判定：",
+        "faction": {
+          "terrans": "超维星球。",
+          "taklons": "距离你的其中一个星球距离最短。"
+        },
+        "finalScoring": "终局计分",
+        "scoringFinalTile": {
+          "gaia-planets": "盖亚星球或超维星球。",
+          "planet-types": "Automa 尚未殖民的星球类型。",
+          "space-sector-tiles": "没有任何 Automa 星球的星域内的星球。",
+          "lost-fleet-asteroid": "i) 小行星<br/>ii) 最靠近未殖民小行星的星球。",
+          "lost-fleet-deep-space": "i) Automa 尚未殖民的深空星域中的星球。<br/>ii) 最靠近 Automa 尚未殖民的深空星域中某个未殖民星球的星球。"
+        },
+        "fewestTerraformingSteps": "改造步骤最少。",
+        "closestToYourPlanet": "距离你的星球最近。",
+        "directionalSelection": "方向选择。"
+      },
+      "execute": {
+        "title": "执行：",
+        "placeMine": "放置矿产基地",
+        "placeSatellite": "如果新矿产基地不与任何其他 Automa 建筑相邻，则在其旁边放置<b>卫星</b>。",
+        "planetTypeVP": "如果该矿产基地是 Automa 在该星球类型上的第一个建筑，它获得 +2 分（VP）。"
+      }
+    },
+    "upgrade": {
+      "choose": {
+        "title": "按优先级选择建筑：",
+        "planetaryInstitute": "星际要塞（从贸易中心升级）",
+        "tradingStation": "贸易中心（从矿产基地升级）",
+        "tradingStationScoringFinalLostFleetDistance": "<b>终局计分</b>：如果 Automa 已经建造了星际要塞，但还没有建造任何大学院，则选择距离其星际要塞最远的矿产基地。",
+        "academy": "大学院（从科技实验室升级）",
+        "researchLab": "科技实验室（从贸易中心升级）",
+        "downgradeResearchLab": "贸易中心（从科技实验室降级）",
+        "researchLabScoringFinalLostFleetDistance": "<b>终局计分</b>：选择距离其星际要塞最远的贸易中心。"
+      },
+      "tiebreaker": {
+        "title": "平局判定：",
+        "closest": "距离你的星球最近。",
+        "directionalSelection": "方向选择。"
+      },
+      "execute": {
+        "title": "执行：",
+        "upgrade": "升级建筑。",
+        "researchLabAdvanceResearchAreaRandom": "如果升级为科技实验室：",
+        "advanceResearchAreaRandom": "提升研究等级（随机）",
+        "tradingStationVP": "升级为贸易中心后，Automa 获得 +3 分（VP）。"
+      },
+      "notPossible": "无法升级"
+    },
+    "powerQic": {
+      "placeToken": "在未被覆盖的能量/Q.I.C.行动格上放置行动标记。",
+      "numberedSelection": "编号选择。",
+      "executeTwice": "执行此行动两次。",
+      "lostFleetPlaceToken": {
+        "title": "在未被覆盖的行动格上放置行动标记：",
+        "power": "研究版图上的能量行动。",
+        "spaceshipFaceDown": "飞船面朝上的 Automa 飞船板块。",
+        "spaceshipFaceUp": "Automa 飞船板块行动面上的一格。"
+      },
+      "lostFleetSpaceship": {
+        "title": "如果放置在 Automa 飞船板块上",
+        "faceDown": "如果行动位于 Automa 飞船板块的飞船面，则在该飞船上放置 1 艘探索太空梭，并将该 Automa 飞船板块翻面至其行动面。用能量标记将该板块上对应本回合玩家已使用行动的任何格子覆盖。",
+        "faceUp": "如果行动位于 Automa 飞船板块行动面上的一格，则用能量标记将其覆盖。如果在同一飞船板块上其左侧有相邻的格子且仍然为空，则在该格子上也放置一个能量标记。然后，在飞船对应的行动上放置行动标记。"
+      }
+    },
+    "researchArea": {
+      "validResearchArea": "合法：Automa 可以提升等级或可以获取高级科技板块的任何研究领域。",
+      "tiebreaker": {
+        "title": "平局判定：",
+        "highest": "<b>最高</b>的研究等级。",
+        "specific": "偏好 <b>{researchArea}</b> 研究领域。",
+        "numberedSelection": "编号选择。"
+      },
+      "execute": {
+        "title": "执行：",
+        "techTile": "如果达到 4 级且有高级科技板块，移除该板块。",
+        "advance": "否则：提升 1 级。"
+      }
+    }
+  },
+  "botPass": {
+    "title": "Automa <i>跳过（Pass）</i>。",
+    "scoringTile": "Automa 获得分数（VP）：",
+    "roundBoosterTake": "Automa 拿取回合助推板：",
+    "roundBoosterReturn": "将旧的回合助推板放置在其他板的右侧。"
+  },
+  "endOfRound": {
+    "title": "回合结束",
+    "turnInfo": "第 {round} 回合",
+    "returnActionTokens": "收回行动标记。",
+    "removeScoringTile": "移除本回合的回合计分板。"
+  },
+  "endOfGame": {
+    "title": "游戏结束",
+    "scoringFinalTileScoring": "Automa 从<b>终局计分板</b>获得分数。",
+    "scoringFinalTileFederationStructures": "对于终局计分板“联邦中的建筑数量最多”，计算 Automa 的总建筑数量并减去一，以此确定其联邦中的建筑数量。",
+    "researchScoring": "Automa 从<b>研究计分</b>获得分数。",
+    "resourceScoring": "Automa 不会从资源计分中获得任何分数。"
+  },
+  "difficultyLevel": {
+    "1": "Automalein",
+    "2": "Automa",
+    "3": "Automächtig",
+    "4": "Ultoma",
+    "5": "Alptrauma"
+  },
+  "expansion": {
+    "lost-fleet": "失落的舰队",
+    "variable-turn-order": "可变顺位"
+  },
+  "botFaction": {
+    "terrans": "人类",
+    "xenos": "异空族",
+    "taklons": "利爪族",
+    "hadsch-hallas": "圣禽族",
+    "geodens": "晶矿星人",
+    "firaks": "章鱼人",
+    "itars": "伊塔星人"
+  },
+  "researchArea": {
+    "gaia-project": "盖亚计划"
+  },
+  "notfound": {
+    "title": "未找到"
+  },
+  "action": {
+    "playGame": "开始游玩",
+    "startGame": "开始游戏",
+    "next": "下一步",
+    "nextRound": "下一回合",
+    "abortGame": "中止游戏",
+    "abortGameConfirm": "正在中止进行中的游戏 - 确定吗？",
+    "endGame": "结束游戏",
+    "endGameConfirm": "结束本场游戏并返回主界面 - 确定吗？",
+    "cancel": "取消",
+    "backToHome": "返回主界面",
+    "back": "返回",
+    "close": "关闭",
+    "reset": "重置",
+    "pass": "跳过 (Pass)",
+    "randomize": "随机化"
+  },
+  "footer": {
+    "credits": "制作人员"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "刷新应用程序",
+    "notice": "应用程序已更新 - 是否要刷新以使用最新版本？"
+  }
+}
