@@ -74,6 +74,10 @@
     "titleBot": "Automa: {faction} | Automa {bot}: {faction}",
     "alptraumaNotice": "<b>Alptrauma</b>: Automa scores 1 extra VP every time it gains any VP."
   },
+  "cardInfo": {
+    "actionCard": "Action Card",
+    "supportCard": "Support Card"
+  },
   "playerTurn": {
     "text": "Please make your turn - or pass.",
     "passConfirm": "Do you want to pass?",

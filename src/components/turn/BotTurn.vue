@@ -1,4 +1,13 @@
 <template>
+  <template v-if="cardDeck.actionCard && cardDeck.supportCard">
+    <div class="fixed-bottom text-muted cardDebugInfo">
+      <span class="cardDebugInfoClickable" data-bs-toggle="modal" data-bs-target="#cardInfoModal">
+        {{cardDeck.actionCard.id}} / {{cardDeck.supportCard.id}}
+      </span>
+    </div>
+    <CardInfoModal :action-card="cardDeck.actionCard" :support-card="cardDeck.supportCard"/>
+  </template>
+
   <div v-if="isAlptrauma" class="alert alert-warning" v-html="t('roundTurn.alptraumaNotice')"></div>
   <template v-if="isPass">
     <BotPass :navigationState="navigationState"/>
@@ -33,6 +42,7 @@ import ActionResearchAreaRandom from './botAction/ActionResearchAreaRandom.vue'
 import ActionResearchAreaSpecific from './botAction/ActionResearchAreaSpecific.vue'
 import ActionUpgrade from './botAction/ActionUpgrade.vue'
 import BotPass from './BotPass.vue'
+import CardInfoModal from './CardInfoModal.vue'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 
 export default defineComponent({
@@ -45,7 +55,8 @@ export default defineComponent({
     ActionResearchAreaRandom,
     ActionResearchAreaSpecific,
     ActionUpgrade,
-    BotPass
+    BotPass,
+    CardInfoModal
   },
   setup(props) {
     const { t } = useI18n()
@@ -121,6 +132,17 @@ export default defineComponent({
     margin-left: auto;
     margin-right: auto;
     color: gray;
+  }
+}
+.cardDebugInfo {
+  margin-bottom: 1.5rem;
+  font-size: 0.6rem;
+  background-color: transparent;
+  text-align: right;
+  .cardDebugInfoClickable {
+    display: inline-block;
+    padding: 0.75rem;
+    cursor: pointer;
   }
 }
 </style>
