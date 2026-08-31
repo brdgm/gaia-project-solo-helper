@@ -74,6 +74,10 @@
     "titleBot": "Automa: {faction} | Automa {bot}: {faction}",
     "alptraumaNotice": "<b>Alptrauma</b>: Automa erhält jedes Mal, wenn er SP erhält, 1 zusätzlichen SP."
   },
+  "cardInfo": {
+    "actionCard": "Aktionskarte",
+    "supportCard": "Unterstützungskarte"
+  },
   "playerTurn": {
     "text": "Führe deinen Zug durch - oder passe.",
     "passConfirm": "Möchtest du passen?",
